@@ -7,7 +7,9 @@ name = "smart-waste-multimodal-ai"
 version = "0.1.0"
 description = "Modular multimodal waste detection and recycling knowledge system"
 requires-python = ">=3.11"
-dependencies = []
+dependencies = [
+    "pydantic>=2.7,<3",
+]
 
 [project.optional-dependencies]
 dev = [

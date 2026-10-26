@@ -1,1 +1,3 @@
-# Runtime dependencies will be added in later milestones.
+# Dependency declarations are maintained in pyproject.toml.
+# Install runtime dependencies with: python -m pip install -e .
+# Install development dependencies with: python -m pip install -e ".[dev]"
