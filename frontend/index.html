@@ -1,0 +1,151 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f3f5f7">
+    <title>Smart Waste Multimodal AI</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <main class="container">
+
+        <header class="page-header">
+            <h1 data-i18n="appTitle">Smart Waste AI</h1>
+            <p data-i18n="appSubtitle">
+                Multimodal waste detection and recycling knowledge assistant
+            </p>
+            <span id="health" class="status" data-i18n="checkingApi">
+                Checking API...
+            </span>
+        </header>
+
+        <section class="panel">
+            <h2 data-i18n="conversation">Conversation</h2>
+
+            <div class="actions">
+                <button id="createBtn" data-i18n="newConversation">
+                    New conversation
+                </button>
+
+                <button id="closeBtn" class="secondary"
+                        disabled data-i18n="closeConversation">
+                    Close
+                </button>
+
+                <button id="deleteBtn" class="danger"
+                        disabled data-i18n="deleteConversation">
+                    Delete
+                </button>
+            </div>
+
+            <p id="conversationInfo" class="muted"
+               data-i18n="noConversation">
+                No active conversation
+            </p>
+        </section>
+
+        <section class="panel">
+            <h2 data-i18n="analysis">Analysis</h2>
+
+            <label for="workflow" data-i18n="workflow">
+                Workflow
+            </label>
+
+            <select id="workflow">
+                <option value="detection" data-i18n="workflowDetection">
+                    Standalone Detection
+                </option>
+
+                <option value="retrieval" data-i18n="workflowRetrieval">
+                    Standalone Knowledge Retrieval
+                </option>
+
+                <option value="combined" data-i18n="workflowCombined">
+                    Detection-Based Retrieval
+                </option>
+
+                <option value="image_question" data-i18n="workflowImageQuestion">
+                    Image + Question
+                </option>
+            </select>
+
+            <p id="workflowDescription" class="hint"></p>
+
+            <div id="imageGroup">
+                <label for="image" data-i18n="uploadImage">
+                    Upload image (JPEG / PNG, max 15 MiB)
+                </label>
+
+                <input
+                    id="image"
+                    type="file"
+                    accept="image/jpeg,image/png"
+                >
+
+                <div id="imagePreviewContainer" hidden>
+                    <img id="imagePreview" alt="Selected image preview">
+                    <button id="removeImageBtn" type="button"
+                            class="secondary" data-i18n="removeImage">
+                        Remove image
+                    </button>
+                </div>
+            </div>
+
+            <div id="questionGroup" hidden>
+                <label for="question" data-i18n="yourQuestion">
+                    Your question
+                </label>
+
+                <textarea
+                    id="question"
+                    rows="4"
+                    maxlength="4000"
+                    placeholder="Ask a question..."
+                    data-i18n-placeholder="questionPlaceholder"
+                ></textarea>
+            </div>
+
+            <label for="locale" data-i18n="responseLanguage">
+                Response language
+            </label>
+
+            <select id="locale">
+                <option value="en">English</option>
+                <option value="fa">فارسی</option>
+            </select>
+
+            <label class="checkbox">
+                <input id="generate" type="checkbox">
+                <span data-i18n="generateAnswer">
+                    Generate an answer using Gemini
+                </span>
+            </label>
+
+            <p class="hint" data-i18n="generationHint">
+                Answer generation requires a configured Gemini API key.
+                It is disabled by default.
+            </p>
+
+            <button id="analyzeBtn" class="primary"
+                    data-i18n="runAnalysis">
+                Run analysis
+            </button>
+
+            <p id="message" role="status" aria-live="polite"></p>
+        </section>
+
+        <section id="results" class="panel" hidden>
+            <h2 data-i18n="results">Results</h2>
+            <div id="resultContent"></div>
+        </section>
+
+        <footer>
+            <span>Smart Waste Multimodal AI</span>
+        </footer>
+
+    </main>
+
+    <script src="/app.js"></script>
+</body>
+</html>

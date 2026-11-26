@@ -1,0 +1,396 @@
+[
+  {
+    "query_id": "v2_cardboard_01",
+    "original_query": "Can greasy pizza boxes be recycled?",
+    "evidence": [
+      {
+        "chunk_id": "epa_common_recyclables.txt::chunk_1",
+        "source": "epa_common_recyclables.txt",
+        "text": "Below are answers to frequently asked questions on paper and cardboard products. While general answers are provided, your local program may have different rules. Check with your local recycling program to learn if they accept these items. Can I recycle newspapers? Yes, newspapers can be recycled. Can I recycle magazines? Yes, magazines can be recycled. Can I recycle pizza boxes? Yes! Pizza boxes can be recycled, even if they have grease in them. Make sure to remove any food scraps from the box and flatten it before placing it in the bin. Can I recycle mail? Yes! Even envelopes with plastic windows can be recycled. Are paper and cardboard takeout containers recyclable?",
+        "judgment": "supports_answer"
+      }
+    ],
+    "review_status": "reviewed"
+  },
+  {
+    "query_id": "v2_cardboard_02",
+    "original_query": "What should I do to a cardboard box before recycling it?",
+    "evidence": [
+      {
+        "chunk_id": "epa_common_recyclables.txt::chunk_2",
+        "source": "epa_common_recyclables.txt",
+        "text": "Even envelopes with plastic windows can be recycled. Are paper and cardboard takeout containers recyclable? It depends on how much food is left on them. Try rinsing or scraping the residue off to clean it. “ Spatula-clean” is clean enough to recycle! Otherwise, containers contaminated with food cannot be recycled. Can cardboard containers and boxes be recycled? Yes, make sure to flatten any boxes before placing them in the bin. Examples of recyclable cardboard containers are some egg cartons, cereal boxes, and shoe boxes. Can shredded paper be recycled? It depends on your local recycling program. Can books be recycled? If the book is still in good condition, try donating it!",
+        "judgment": "supports_answer"
+      }
+    ],
+    "review_status": "reviewed"
+  },
+  {
+    "query_id": "v2_glass_01",
+    "original_query": "Can different colors of glass be recycled together?",
+    "evidence": [
+      {
+        "chunk_id": "epa_common_recyclables.txt::chunk_10",
+        "source": "epa_common_recyclables.txt",
+        "text": "Glass Glass, especially glass food and beverage containers, can be recycled over and over again. In the United States in 2018, 12.3 million tons of glass were generated, 31.3 percent of which was recycled. Making new glass from recycled glass is typically cheaper than using raw materials. Below are frequent questions on glass products. While general answers are provided, your local program may have different rules. Check with your local recycling program to find out if they accept these items. Can I recycle different glass colors/types together? Most curbside recycling programs accept different glass colors and types mixed together and then sort the glass at the recovery facility. Can I recycle broken glass?",
+        "judgment": "supports_answer"
+      }
+    ],
+    "review_status": "reviewed"
+  },
+  {
+    "query_id": "v2_glass_02",
+    "original_query": "Should broken glass go into the recycling bin?",
+    "evidence": [
+      {
+        "chunk_id": "epa_common_recyclables.txt::chunk_11",
+        "source": "epa_common_recyclables.txt",
+        "text": "Can I recycle broken glass? No, broken glass should not go into the recycling bin. Glass shards can harm workers and damage equipment. Can I leave my metal bottle cap on my glass bottle when I recycle? No, metal bottle caps should be recycled separately from the glass bottles. Aluminum In 2018, 3.9 million tons of aluminum municipal solid waste was generated. The total recycling rate for aluminum items was 34.9 percent. Both aluminum cans and foil can be recycled. Below are frequent questions on aluminum products. While general answers are provided, your local program may have different rules. Check with your local recycling program to find out if they accept these items.",
+        "judgment": "supports_answer"
+      }
+    ],
+    "review_status": "reviewed"
+  },
+  {
+    "query_id": "v2_plastic_01",
+    "original_query": "How clean should a plastic food container be before recycling?",
+    "evidence": [
+      {
+        "chunk_id": "epa_common_recyclables.txt::chunk_9",
+        "source": "epa_common_recyclables.txt",
+        "text": "Photo courtesy of ASTM International. Can I recycle plastic containers that had food in them? It depends on how much food in on the containers and what type of plastic containers your local recycling program accepts. First, check with your local recycling program for what plastics they accept (refer to the question above about resin codes to help you with this!). Then, if accepted by your local recycling program, rinse or scrape any food residue off to clean the containers. “ Spatula-clean” is clean enough to recycle! Glass Glass, especially glass food and beverage containers, can be recycled over and over again.",
+        "judgment": "supports_answer"
+      }
+    ],
+    "review_status": "reviewed"
+  },
+  {
+    "query_id": "v2_plastic_02",
+    "original_query": "Should I check whether my local program accepts a plastic container?",
+    "evidence": [
+      {
+        "chunk_id": "epa_common_recyclables.txt::chunk_9",
+        "source": "epa_common_recyclables.txt",
+        "text": "Photo courtesy of ASTM International. Can I recycle plastic containers that had food in them? It depends on how much food in on the containers and what type of plastic containers your local recycling program accepts. First, check with your local recycling program for what plastics they accept (refer to the question above about resin codes to help you with this!). Then, if accepted by your local recycling program, rinse or scrape any food residue off to clean the containers. “ Spatula-clean” is clean enough to recycle! Glass Glass, especially glass food and beverage containers, can be recycled over and over again.",
+        "judgment": "supports_answer"
+      }
+    ],
+    "review_status": "reviewed"
+  },
+  {
+    "query_id": "v2_metal_01",
+    "original_query": "Should aluminum cans usually be crushed before recycling?",
+    "evidence": [
+      {
+        "chunk_id": "epa_common_recyclables.txt::chunk_12",
+        "source": "epa_common_recyclables.txt",
+        "text": "Check with your local recycling program to find out if they accept these items. Should aluminum cans be crushed before recycling them? No, generally, aluminum cans should not be crushed before they are recycled. For areas with single-stream recycling, crushed cans are harder to detect when being sorted at recycling facilities. If you live in an area with multi-stream recycling, crushing cans is not an issue. Can I recycle aluminum foil? Yes, aluminum foil can be recycled. Make sure to remove any food residue before recycling. Batteries Lead-acid batteries are one of the most recycled products. In 2018, 2.9 million were recycled, representing 99 percent of generation. Recycling rates of other battery types are not as well tracked.",
+        "judgment": "supports_answer"
+      }
+    ],
+    "review_status": "reviewed"
+  },
+  {
+    "query_id": "v2_metal_02",
+    "original_query": "Can aluminum foil be recycled if it has food residue?",
+    "evidence": [
+      {
+        "chunk_id": "epa_common_recyclables.txt::chunk_12",
+        "source": "epa_common_recyclables.txt",
+        "text": "Check with your local recycling program to find out if they accept these items. Should aluminum cans be crushed before recycling them? No, generally, aluminum cans should not be crushed before they are recycled. For areas with single-stream recycling, crushed cans are harder to detect when being sorted at recycling facilities. If you live in an area with multi-stream recycling, crushing cans is not an issue. Can I recycle aluminum foil? Yes, aluminum foil can be recycled. Make sure to remove any food residue before recycling. Batteries Lead-acid batteries are one of the most recycled products. In 2018, 2.9 million were recycled, representing 99 percent of generation. Recycling rates of other battery types are not as well tracked.",
+        "judgment": "supports_answer"
+      }
+    ],
+    "review_status": "reviewed"
+  },
+  {
+    "query_id": "v2_battery_01",
+    "original_query": "Can used lithium-ion batteries go into household recycling bins?",
+    "evidence": [
+      {
+        "chunk_id": "epa_common_recyclables.txt::chunk_14",
+        "source": "epa_common_recyclables.txt",
+        "text": "Look for in-store recycling bins or community collection events to dispose of these batteries. Lithium-ion Batteries are used in many rechargeable products such as electronics, toys, wireless headphones, handheld power tools, small and large appliances, electric vehicles, and electrical energy storage systems. Do NOT put them in the trash or municipal recycling bins. Household lithium-ion batteries can be brought to dedicated in-store recycling bins or household hazardous waste collection events for disposal. Medium- and large-scale electric vehicle or energy storage batteries should be returned to the manufacturer, automobile dealer, or installation company for management at end of life. Lithium Metal Batteries are similar to lithium-ion batteries but are not rechargeable.",
+        "judgment": "supports_answer"
+      }
+    ],
+    "review_status": "reviewed"
+  },
+  {
+    "query_id": "v2_battery_02",
+    "original_query": "Where can I take household batteries for special collection?",
+    "evidence": [
+      {
+        "chunk_id": "epa_common_recyclables.txt::chunk_13",
+        "source": "epa_common_recyclables.txt",
+        "text": "Recycling rates of other battery types are not as well tracked. Although batteries are recyclable, most batteries, including lithium-ion, lithium metal, lead-acid, nickel cadmium, and other rechargeable batteries, should NOT go in household garbage or recycling bins. These batteries require special handling and should be taken to specialty drop-off locations or household hazardous waste collection points. Check out our resources on how to manage and recycle your used household batteries and your used lithium-ion batteries. Dry-Cell Batteries are used in a variety of electronics and include alkaline and carbon zinc (9-volt, D, C, AA, AAA), mercuric-oxide (button, some cylindrical and rectangular), and silver-oxide and zinc-air (button). Look for in-store recycling bins or community collection events to dispose of these batteries.",
+        "judgment": "supports_answer"
+      }
+    ],
+    "review_status": "reviewed"
+  },
+  {
+    "query_id": "v2_electronics_01",
+    "original_query": "Can old computers be recycled through curbside collection?",
+    "evidence": [
+      {
+        "chunk_id": "epa_common_recyclables.txt::chunk_16",
+        "source": "epa_common_recyclables.txt",
+        "text": "Other Rechargeable Batteries include nickel cadmium, nickel metal hydride, and nickel-zinc batteries. These batteries can be found in cordless power tools, cordless phones, cell phones, digital cameras, and small electronics. Do not put these rechargeable batteries in the trash or municipal recycling bins: look for dedicated in-store recycling bins or household hazardous waste collection events for disposal. Electronics EPA estimates that 2.7 million tons of consumer electronics were generated in 2018. About 38.5 percent of these electronics were recycled. Electronics cannot be recycled curbside, but they can be dropped off at specific collection sites. Manufacturers and retailers offer several options to donate or recycle electronics, including cell phones, computers, and televisions.",
+        "judgment": "supports_answer"
+      }
+    ],
+    "review_status": "reviewed"
+  },
+  {
+    "query_id": "v2_clothing_01",
+    "original_query": "How does recycling PET into textile fibres compare with using it in new packaging?",
+    "evidence": [
+      {
+        "chunk_id": "eea_recycling_quality.txt::chunk_18",
+        "source": "eea_recycling_quality.txt",
+        "text": "This share was stable between 2018 and 2020. It is assumed that using recycled PET in new packaging has a higher loop potential (scored at 0.8) than if it is used to produce textile fibres (scored at 0.4). This is because packaging currently has established recycling systems and relatively high recycling rates while textile recycling systems are only beginning to be developed in the EU. However, as the share for product applications of the recycled PET is assumed to be the same, the material’s loop potential has not led to any change in recycling quality between 2018 and 2020.",
+        "judgment": "supports_answer"
+      }
+    ],
+    "review_status": "reviewed"
+  },
+  {
+    "query_id": "v2_cardboard_03",
+    "original_query": "My pizza box is greasy and has a few food scraps left inside. What should I do before recycling it?",
+    "evidence": [
+      {
+        "chunk_id": "epa_common_recyclables.txt::chunk_1",
+        "source": "epa_common_recyclables.txt",
+        "text": "Below are answers to frequently asked questions on paper and cardboard products. While general answers are provided, your local program may have different rules. Check with your local recycling program to learn if they accept these items. Can I recycle newspapers? Yes, newspapers can be recycled. Can I recycle magazines? Yes, magazines can be recycled. Can I recycle pizza boxes? Yes! Pizza boxes can be recycled, even if they have grease in them. Make sure to remove any food scraps from the box and flatten it before placing it in the bin. Can I recycle mail? Yes! Even envelopes with plastic windows can be recycled. Are paper and cardboard takeout containers recyclable?",
+        "judgment": "supports_answer"
+      }
+    ],
+    "review_status": "reviewed"
+  },
+  {
+    "query_id": "v2_cardboard_04",
+    "original_query": "A cardboard takeout container has a little food residue. How clean does it need to be, and what if food still remains?",
+    "evidence": [
+      {
+        "chunk_id": "epa_common_recyclables.txt::chunk_2",
+        "source": "epa_common_recyclables.txt",
+        "text": "Even envelopes with plastic windows can be recycled. Are paper and cardboard takeout containers recyclable? It depends on how much food is left on them. Try rinsing or scraping the residue off to clean it. “ Spatula-clean” is clean enough to recycle! Otherwise, containers contaminated with food cannot be recycled. Can cardboard containers and boxes be recycled? Yes, make sure to flatten any boxes before placing them in the bin. Examples of recyclable cardboard containers are some egg cartons, cereal boxes, and shoe boxes. Can shredded paper be recycled? It depends on your local recycling program. Can books be recycled? If the book is still in good condition, try donating it!",
+        "judgment": "supports_answer"
+      }
+    ],
+    "review_status": "reviewed"
+  },
+  {
+    "query_id": "v2_glass_03",
+    "original_query": "If my local program accepts glass, can I mix different glass colors, and what should I do with a metal bottle cap?",
+    "evidence": [
+      {
+        "chunk_id": "epa_common_recyclables.txt::chunk_10",
+        "source": "epa_common_recyclables.txt",
+        "text": "Glass Glass, especially glass food and beverage containers, can be recycled over and over again. In the United States in 2018, 12.3 million tons of glass were generated, 31.3 percent of which was recycled. Making new glass from recycled glass is typically cheaper than using raw materials. Below are frequent questions on glass products. While general answers are provided, your local program may have different rules. Check with your local recycling program to find out if they accept these items. Can I recycle different glass colors/types together? Most curbside recycling programs accept different glass colors and types mixed together and then sort the glass at the recovery facility. Can I recycle broken glass?",
+        "judgment": "supports_answer"
+      },
+      {
+        "chunk_id": "epa_common_recyclables.txt::chunk_11",
+        "source": "epa_common_recyclables.txt",
+        "text": "Can I recycle broken glass? No, broken glass should not go into the recycling bin. Glass shards can harm workers and damage equipment. Can I leave my metal bottle cap on my glass bottle when I recycle? No, metal bottle caps should be recycled separately from the glass bottles. Aluminum In 2018, 3.9 million tons of aluminum municipal solid waste was generated. The total recycling rate for aluminum items was 34.9 percent. Both aluminum cans and foil can be recycled. Below are frequent questions on aluminum products. While general answers are provided, your local program may have different rules. Check with your local recycling program to find out if they accept these items.",
+        "judgment": "supports_answer"
+      }
+    ],
+    "review_status": "reviewed"
+  },
+  {
+    "query_id": "v2_glass_04",
+    "original_query": "Why should broken glass be kept out of the recycling bin?",
+    "evidence": [
+      {
+        "chunk_id": "epa_common_recyclables.txt::chunk_11",
+        "source": "epa_common_recyclables.txt",
+        "text": "Can I recycle broken glass? No, broken glass should not go into the recycling bin. Glass shards can harm workers and damage equipment. Can I leave my metal bottle cap on my glass bottle when I recycle? No, metal bottle caps should be recycled separately from the glass bottles. Aluminum In 2018, 3.9 million tons of aluminum municipal solid waste was generated. The total recycling rate for aluminum items was 34.9 percent. Both aluminum cans and foil can be recycled. Below are frequent questions on aluminum products. While general answers are provided, your local program may have different rules. Check with your local recycling program to find out if they accept these items.",
+        "judgment": "supports_answer"
+      }
+    ],
+    "review_status": "reviewed"
+  },
+  {
+    "query_id": "v2_plastic_03",
+    "original_query": "My plastic food container still has sauce on it. If the local program accepts this plastic, is rinsing or scraping enough?",
+    "evidence": [
+      {
+        "chunk_id": "epa_common_recyclables.txt::chunk_9",
+        "source": "epa_common_recyclables.txt",
+        "text": "Photo courtesy of ASTM International. Can I recycle plastic containers that had food in them? It depends on how much food in on the containers and what type of plastic containers your local recycling program accepts. First, check with your local recycling program for what plastics they accept (refer to the question above about resin codes to help you with this!). Then, if accepted by your local recycling program, rinse or scrape any food residue off to clean the containers. “ Spatula-clean” is clean enough to recycle! Glass Glass, especially glass food and beverage containers, can be recycled over and over again.",
+        "judgment": "supports_answer"
+      }
+    ],
+    "review_status": "reviewed"
+  },
+  {
+    "query_id": "v2_metal_03",
+    "original_query": "Why can crushing aluminum cans cause problems in some recycling systems but not others?",
+    "evidence": [
+      {
+        "chunk_id": "epa_common_recyclables.txt::chunk_12",
+        "source": "epa_common_recyclables.txt",
+        "text": "Check with your local recycling program to find out if they accept these items. Should aluminum cans be crushed before recycling them? No, generally, aluminum cans should not be crushed before they are recycled. For areas with single-stream recycling, crushed cans are harder to detect when being sorted at recycling facilities. If you live in an area with multi-stream recycling, crushing cans is not an issue. Can I recycle aluminum foil? Yes, aluminum foil can be recycled. Make sure to remove any food residue before recycling. Batteries Lead-acid batteries are one of the most recycled products. In 2018, 2.9 million were recycled, representing 99 percent of generation. Recycling rates of other battery types are not as well tracked.",
+        "judgment": "supports_answer"
+      }
+    ],
+    "review_status": "reviewed"
+  },
+  {
+    "query_id": "v2_battery_03",
+    "original_query": "I have a used rechargeable battery. Why should it stay out of ordinary household recycling bins, and what special collection options does the guidance describe?",
+    "evidence": [
+      {
+        "chunk_id": "epa_common_recyclables.txt::chunk_13",
+        "source": "epa_common_recyclables.txt",
+        "text": "Recycling rates of other battery types are not as well tracked. Although batteries are recyclable, most batteries, including lithium-ion, lithium metal, lead-acid, nickel cadmium, and other rechargeable batteries, should NOT go in household garbage or recycling bins. These batteries require special handling and should be taken to specialty drop-off locations or household hazardous waste collection points. Check out our resources on how to manage and recycle your used household batteries and your used lithium-ion batteries. Dry-Cell Batteries are used in a variety of electronics and include alkaline and carbon zinc (9-volt, D, C, AA, AAA), mercuric-oxide (button, some cylindrical and rectangular), and silver-oxide and zinc-air (button). Look for in-store recycling bins or community collection events to dispose of these batteries.",
+        "judgment": "supports_answer"
+      }
+    ],
+    "review_status": "reviewed"
+  },
+  {
+    "query_id": "v2_battery_04",
+    "original_query": "How does the recommended end-of-life route for a large electric-vehicle battery differ from household lithium-ion battery collection?",
+    "evidence": [
+      {
+        "chunk_id": "epa_common_recyclables.txt::chunk_14",
+        "source": "epa_common_recyclables.txt",
+        "text": "Look for in-store recycling bins or community collection events to dispose of these batteries. Lithium-ion Batteries are used in many rechargeable products such as electronics, toys, wireless headphones, handheld power tools, small and large appliances, electric vehicles, and electrical energy storage systems. Do NOT put them in the trash or municipal recycling bins. Household lithium-ion batteries can be brought to dedicated in-store recycling bins or household hazardous waste collection events for disposal. Medium- and large-scale electric vehicle or energy storage batteries should be returned to the manufacturer, automobile dealer, or installation company for management at end of life. Lithium Metal Batteries are similar to lithium-ion batteries but are not rechargeable.",
+        "judgment": "supports_answer"
+      }
+    ],
+    "review_status": "reviewed"
+  },
+  {
+    "query_id": "v2_electronics_02",
+    "original_query": "My old phone and laptop are no longer needed. What collection options does the guidance describe, and can they go in curbside recycling?",
+    "evidence": [
+      {
+        "chunk_id": "epa_common_recyclables.txt::chunk_16",
+        "source": "epa_common_recyclables.txt",
+        "text": "Other Rechargeable Batteries include nickel cadmium, nickel metal hydride, and nickel-zinc batteries. These batteries can be found in cordless power tools, cordless phones, cell phones, digital cameras, and small electronics. Do not put these rechargeable batteries in the trash or municipal recycling bins: look for dedicated in-store recycling bins or household hazardous waste collection events for disposal. Electronics EPA estimates that 2.7 million tons of consumer electronics were generated in 2018. About 38.5 percent of these electronics were recycled. Electronics cannot be recycled curbside, but they can be dropped off at specific collection sites. Manufacturers and retailers offer several options to donate or recycle electronics, including cell phones, computers, and televisions.",
+        "judgment": "supports_answer"
+      }
+    ],
+    "review_status": "reviewed"
+  },
+  {
+    "query_id": "v2_clothing_02",
+    "original_query": "Why does the source assign recycled PET a higher loop-potential score for new packaging than for textile fibres?",
+    "evidence": [
+      {
+        "chunk_id": "eea_recycling_quality.txt::chunk_18",
+        "source": "eea_recycling_quality.txt",
+        "text": "This share was stable between 2018 and 2020. It is assumed that using recycled PET in new packaging has a higher loop potential (scored at 0.8) than if it is used to produce textile fibres (scored at 0.4). This is because packaging currently has established recycling systems and relatively high recycling rates while textile recycling systems are only beginning to be developed in the EU. However, as the share for product applications of the recycled PET is assumed to be the same, the material’s loop potential has not led to any change in recycling quality between 2018 and 2020.",
+        "judgment": "supports_answer"
+      }
+    ],
+    "review_status": "reviewed"
+  },
+  {
+    "query_id": "v2_cardboard_05",
+    "original_query": "My pizza box is greasy and has some food scraps left inside. Can it still be recycled, and what should I do before putting it in the recycling bin?",
+    "evidence": [
+      {
+        "chunk_id": "epa_common_recyclables.txt::chunk_1",
+        "source": "epa_common_recyclables.txt",
+        "text": "Below are answers to frequently asked questions on paper and cardboard products. While general answers are provided, your local program may have different rules. Check with your local recycling program to learn if they accept these items. Can I recycle newspapers? Yes, newspapers can be recycled. Can I recycle magazines? Yes, magazines can be recycled. Can I recycle pizza boxes? Yes! Pizza boxes can be recycled, even if they have grease in them. Make sure to remove any food scraps from the box and flatten it before placing it in the bin. Can I recycle mail? Yes! Even envelopes with plastic windows can be recycled. Are paper and cardboard takeout containers recyclable?",
+        "judgment": "supports_answer"
+      }
+    ],
+    "review_status": "reviewed"
+  },
+  {
+    "query_id": "v2_glass_05",
+    "original_query": "My area accepts glass containers, but I have a broken jar and an intact bottle with a metal cap. How does the guidance treat these two cases?",
+    "evidence": [
+      {
+        "chunk_id": "epa_common_recyclables.txt::chunk_10",
+        "source": "epa_common_recyclables.txt",
+        "text": "Glass Glass, especially glass food and beverage containers, can be recycled over and over again. In the United States in 2018, 12.3 million tons of glass were generated, 31.3 percent of which was recycled. Making new glass from recycled glass is typically cheaper than using raw materials. Below are frequent questions on glass products. While general answers are provided, your local program may have different rules. Check with your local recycling program to find out if they accept these items. Can I recycle different glass colors/types together? Most curbside recycling programs accept different glass colors and types mixed together and then sort the glass at the recovery facility. Can I recycle broken glass?",
+        "judgment": "related_insufficient"
+      },
+      {
+        "chunk_id": "epa_common_recyclables.txt::chunk_11",
+        "source": "epa_common_recyclables.txt",
+        "text": "Can I recycle broken glass? No, broken glass should not go into the recycling bin. Glass shards can harm workers and damage equipment. Can I leave my metal bottle cap on my glass bottle when I recycle? No, metal bottle caps should be recycled separately from the glass bottles. Aluminum In 2018, 3.9 million tons of aluminum municipal solid waste was generated. The total recycling rate for aluminum items was 34.9 percent. Both aluminum cans and foil can be recycled. Below are frequent questions on aluminum products. While general answers are provided, your local program may have different rules. Check with your local recycling program to find out if they accept these items.",
+        "judgment": "supports_answer"
+      }
+    ],
+    "review_status": "reviewed"
+  },
+  {
+    "query_id": "v2_plastic_04",
+    "original_query": "A plastic food container has some residue, but I have not checked whether my local program accepts that plastic. What should I establish before deciding whether to recycle it?",
+    "evidence": [
+      {
+        "chunk_id": "epa_common_recyclables.txt::chunk_9",
+        "source": "epa_common_recyclables.txt",
+        "text": "Photo courtesy of ASTM International. Can I recycle plastic containers that had food in them? It depends on how much food in on the containers and what type of plastic containers your local recycling program accepts. First, check with your local recycling program for what plastics they accept (refer to the question above about resin codes to help you with this!). Then, if accepted by your local recycling program, rinse or scrape any food residue off to clean the containers. “ Spatula-clean” is clean enough to recycle! Glass Glass, especially glass food and beverage containers, can be recycled over and over again.",
+        "judgment": "supports_answer"
+      }
+    ],
+    "review_status": "reviewed"
+  },
+  {
+    "query_id": "v2_metal_04",
+    "original_query": "I want to recycle aluminum foil with food residue and aluminum cans in a single-stream collection area. What does the guidance say about cleaning the foil and crushing the cans?",
+    "evidence": [
+      {
+        "chunk_id": "epa_common_recyclables.txt::chunk_12",
+        "source": "epa_common_recyclables.txt",
+        "text": "Check with your local recycling program to find out if they accept these items. Should aluminum cans be crushed before recycling them? No, generally, aluminum cans should not be crushed before they are recycled. For areas with single-stream recycling, crushed cans are harder to detect when being sorted at recycling facilities. If you live in an area with multi-stream recycling, crushing cans is not an issue. Can I recycle aluminum foil? Yes, aluminum foil can be recycled. Make sure to remove any food residue before recycling. Batteries Lead-acid batteries are one of the most recycled products. In 2018, 2.9 million were recycled, representing 99 percent of generation. Recycling rates of other battery types are not as well tracked.",
+        "judgment": "supports_answer"
+      }
+    ],
+    "review_status": "reviewed"
+  },
+  {
+    "query_id": "v2_battery_05",
+    "original_query": "I have household lithium-ion batteries and a battery from a large electric vehicle. Why should I avoid ordinary household bins, and does the guidance recommend the same return route for both?",
+    "evidence": [
+      {
+        "chunk_id": "epa_common_recyclables.txt::chunk_13",
+        "source": "epa_common_recyclables.txt",
+        "text": "Recycling rates of other battery types are not as well tracked. Although batteries are recyclable, most batteries, including lithium-ion, lithium metal, lead-acid, nickel cadmium, and other rechargeable batteries, should NOT go in household garbage or recycling bins. These batteries require special handling and should be taken to specialty drop-off locations or household hazardous waste collection points. Check out our resources on how to manage and recycle your used household batteries and your used lithium-ion batteries. Dry-Cell Batteries are used in a variety of electronics and include alkaline and carbon zinc (9-volt, D, C, AA, AAA), mercuric-oxide (button, some cylindrical and rectangular), and silver-oxide and zinc-air (button). Look for in-store recycling bins or community collection events to dispose of these batteries.",
+        "judgment": "related_insufficient"
+      },
+      {
+        "chunk_id": "epa_common_recyclables.txt::chunk_14",
+        "source": "epa_common_recyclables.txt",
+        "text": "Look for in-store recycling bins or community collection events to dispose of these batteries. Lithium-ion Batteries are used in many rechargeable products such as electronics, toys, wireless headphones, handheld power tools, small and large appliances, electric vehicles, and electrical energy storage systems. Do NOT put them in the trash or municipal recycling bins. Household lithium-ion batteries can be brought to dedicated in-store recycling bins or household hazardous waste collection events for disposal. Medium- and large-scale electric vehicle or energy storage batteries should be returned to the manufacturer, automobile dealer, or installation company for management at end of life. Lithium Metal Batteries are similar to lithium-ion batteries but are not rechargeable.",
+        "judgment": "supports_answer"
+      }
+    ],
+    "review_status": "reviewed"
+  },
+  {
+    "query_id": "v2_electronics_03",
+    "original_query": "I want to get rid of an old phone and its rechargeable battery. Which guidance applies to the electronic device, which applies to the battery, and why shouldn't I treat them as the same recycling item?",
+    "evidence": [
+      {
+        "chunk_id": "epa_common_recyclables.txt::chunk_16",
+        "source": "epa_common_recyclables.txt",
+        "text": "Other Rechargeable Batteries include nickel cadmium, nickel metal hydride, and nickel-zinc batteries. These batteries can be found in cordless power tools, cordless phones, cell phones, digital cameras, and small electronics. Do not put these rechargeable batteries in the trash or municipal recycling bins: look for dedicated in-store recycling bins or household hazardous waste collection events for disposal. Electronics EPA estimates that 2.7 million tons of consumer electronics were generated in 2018. About 38.5 percent of these electronics were recycled. Electronics cannot be recycled curbside, but they can be dropped off at specific collection sites. Manufacturers and retailers offer several options to donate or recycle electronics, including cell phones, computers, and televisions.",
+        "judgment": "related_insufficient"
+      },
+      {
+        "chunk_id": "epa_common_recyclables.txt::chunk_13",
+        "source": "epa_common_recyclables.txt",
+        "text": "Recycling rates of other battery types are not as well tracked. Although batteries are recyclable, most batteries, including lithium-ion, lithium metal, lead-acid, nickel cadmium, and other rechargeable batteries, should NOT go in household garbage or recycling bins. These batteries require special handling and should be taken to specialty drop-off locations or household hazardous waste collection points. Check out our resources on how to manage and recycle your used household batteries and your used lithium-ion batteries. Dry-Cell Batteries are used in a variety of electronics and include alkaline and carbon zinc (9-volt, D, C, AA, AAA), mercuric-oxide (button, some cylindrical and rectangular), and silver-oxide and zinc-air (button). Look for in-store recycling bins or community collection events to dispose of these batteries.",
+        "judgment": "supports_answer"
+      },
+      {
+        "chunk_id": "epa_common_recyclables.txt::chunk_14",
+        "source": "epa_common_recyclables.txt",
+        "text": "Look for in-store recycling bins or community collection events to dispose of these batteries. Lithium-ion Batteries are used in many rechargeable products such as electronics, toys, wireless headphones, handheld power tools, small and large appliances, electric vehicles, and electrical energy storage systems. Do NOT put them in the trash or municipal recycling bins. Household lithium-ion batteries can be brought to dedicated in-store recycling bins or household hazardous waste collection events for disposal. Medium- and large-scale electric vehicle or energy storage batteries should be returned to the manufacturer, automobile dealer, or installation company for management at end of life. Lithium Metal Batteries are similar to lithium-ion batteries but are not rechargeable.",
+        "judgment": "supports_answer"
+      }
+    ],
+    "review_status": "reviewed"
+  }
+]

@@ -2,7 +2,7 @@
 
 An evidence-based multimodal system for waste detection and recycling knowledge retrieval. It combines YOLO-based image detection, hybrid information retrieval, evidence validation, and optional LLM-based answer generation in a modular pipeline exposed through a FastAPI service.
 
-The system supports three primary workflows: **Standalone Detection**, **Standalone Knowledge Retrieval**, and **Detection-Based Retrieval**. Answer generation is an optional stage that can use validated evidence when the request and final decision permit it.
+The system supports four primary workflows: **Standalone Detection**, **Standalone Knowledge Retrieval**, **Detection-Based Retrieval**, and **Image + Question**. A bilingual web frontend (English and Persian) provides access to these workflows. Answer generation is an optional stage that can use validated evidence when the request and final decision permit it.
 
 ## Core Workflows
 
@@ -47,6 +47,22 @@ This workflow connects visual recognition to knowledge retrieval without requiri
 
 Detection-derived queries bypass question-based query rewriting. Retrieval is not executed in this workflow if Vision produces no detections.
 
+### 4. Image + Question
+
+Combines image understanding with question-based recycling knowledge retrieval.
+
+- Accepts an image and a natural-language question from the user.
+- Runs the Vision pipeline on the uploaded image.
+- Uses the user's question as the retrieval query.
+- Does not replace the user's question with detected material classes.
+- Runs question context analysis and optional query rewriting.
+- Registers Vision and Retrieval evidence for the shared evidence-validation and final-decision process.
+- Can optionally generate an answer when the final decision and evidence context permit it.
+
+This workflow is useful when the user wants to ask a specific question about an uploaded image. For example, the user can upload an image containing several waste materials and ask how to separate or recycle a particular item.
+
+The image provides additional visual evidence, while the user's question remains the source of the retrieval query.
+
 ## Query Rewriting
 
 The question-based retrieval pipeline supports optional API-assisted query rewriting.
@@ -66,7 +82,7 @@ Query rewriting applies to question-based retrieval. Detection-derived queries b
 
 The system can optionally generate a natural-language answer using the validated evidence produced by the pipeline.
 
-Generation is not required for the three core workflows. It is executed only when:
+Generation is not required for any of the four workflows. It is executed only when:
 
 - Answer generation is enabled in the request.
 - Context and evidence validation do not block execution.
@@ -90,12 +106,19 @@ flowchart TD
 
     B -->|Standalone Knowledge Retrieval| F[User Question]
     F --> G[Question Context Analysis]
-    G --> H[Optional API-Assisted Query Rewriting]
+    G --> H[Optional Query Rewriting]
 
     B -->|Detection-Based Retrieval| I[Image Preprocessing]
     I --> J[ONNX Vision Inference]
     J --> K[Detected Material Classes]
     K --> L[Detection-Derived Query]
+
+    B -->|Image + Question| I2[Image Preprocessing]
+    I2 --> J2[ONNX Vision Inference]
+    J2 --> E2[Vision Evidence]
+    B -->|Image + Question| F2[User Question]
+    F2 --> G2[Question Context Analysis]
+    G2 --> H
 
     H --> M[Hybrid Retrieval]
     L --> M
@@ -107,6 +130,7 @@ flowchart TD
 
     P --> Q[Retrieved Evidence]
     Q --> R[Evidence Validation]
+    E2 --> R
     R --> S[Final Decision]
 
     E --> T[Pipeline Response]
@@ -227,6 +251,69 @@ For example, the deployment configuration documents these two independent modes:
 
 Detection-Based Retrieval uses both Vision and Retrieval, with the retrieval query derived from the vision results.
 
+**Image + Question**
+
+```json
+{
+  "run_vision": true,
+  "run_retrieval": true,
+  "generate_answer": false,
+  "retrieval_query_source": "question"
+}
+```
+
+In this mode, include both the `image` and `question` multipart fields. The user's question is used for retrieval, while Vision results provide additional evidence for validation and the final-decision process.
+
+## Frontend
+
+The repository includes a lightweight web frontend implemented with HTML, CSS, and JavaScript.
+
+The frontend provides:
+
+- English and Persian interface options.
+- Access to all four workflows.
+- Image upload and preview.
+- A question field for question-based retrieval, including Image + Question.
+- Controls for optional answer generation.
+- Conversation creation, closing, and deletion.
+- API connection status and analysis feedback.
+
+### Frontend Components
+
+| File | Responsibility |
+|---|---|
+| `frontend/index.html` | User interface structure |
+| `frontend/style.css` | Frontend styling |
+| `frontend/app.js` | UI logic, localization, and API communication |
+| `frontend/dev_server.py` | Local frontend server and API proxy |
+
+### Run Locally
+
+Start the backend in the first terminal:
+
+```powershell
+Set-Location "C:\Users\ASUS\Desktop\smart-waste-multimodal-ai"
+
+& ".\.venv\Scripts\python.exe" -m uvicorn smart_waste_multimodal.api.main:app --host 127.0.0.1 --port 8000
+```
+
+Start the frontend development server in a second terminal:
+
+```powershell
+Set-Location "C:\Users\ASUS\Desktop\smart-waste-multimodal-ai"
+
+& ".\.venv\Scripts\python.exe" ".\frontend\dev_server.py"
+```
+
+Open the frontend:
+
+```text
+http://127.0.0.1:8080
+```
+
+The frontend development server uses Python's standard library. The FastAPI backend must be running separately on port 8000.
+
+Answer generation is optional and requires `GEMINI_API_KEY` or `GOOGLE_API_KEY` in the backend environment. Generation remains subject to evidence validation and the final-decision rules.
 ## Getting Started
 
 ### Requirements
@@ -326,32 +413,37 @@ Test results depend on the current code and environment; consult the latest test
 
 ```text
 .
-├── data/
-│   └── retrieval_index/
-├── docs/
-├── experiments/
-│   └── evaluation/
-├── exports/
-├── src/
-│   └── smart_waste_multimodal/
-│       ├── adapters/
-│       ├── api/
-│       ├── contracts/
-│       ├── embeddings/
-│       ├── evidence/
-│       ├── generation/
-│       ├── indexing/
-│       ├── orchestration/
-│       ├── retrieval/
-│       └── vision/
-├── tests/
-│   ├── integration/
-│   └── unit/
-├── .env.example
-├── docker-compose.yml
-├── Dockerfile
-├── DEPLOYMENT.md
-└── pyproject.toml
+|-- data/
+|   `-- retrieval_index/
+|-- docs/
+|-- experiments/
+|   `-- evaluation/
+|-- exports/
+|-- frontend/
+|   |-- app.js
+|   |-- dev_server.py
+|   |-- index.html
+|   `-- style.css
+|-- src/
+|   `-- smart_waste_multimodal/
+|       |-- adapters/
+|       |-- api/
+|       |-- contracts/
+|       |-- embeddings/
+|       |-- evidence/
+|       |-- generation/
+|       |-- indexing/
+|       |-- orchestration/
+|       |-- retrieval/
+|       `-- vision/
+|-- tests/
+|   |-- integration/
+|   `-- unit/
+|-- .env.example
+|-- docker-compose.yml
+|-- Dockerfile
+|-- DEPLOYMENT.md
+`-- pyproject.toml
 ```
 
 ## Runtime and Security Notes
@@ -365,8 +457,8 @@ Test results depend on the current code and environment; consult the latest test
 
 ## Project Scope
 
-The project brings together three independently selectable capabilities—visual detection, knowledge retrieval, and detection-based retrieval—under a shared orchestration and evidence-validation architecture.
+The project brings together four independently selectable workflows: standalone visual detection, standalone knowledge retrieval, detection-based retrieval, and image-plus-question analysis. They share a common orchestration and evidence-validation architecture.
 
 API-assisted query rewriting can improve question-based retrieval, while answer generation remains an optional downstream capability rather than a prerequisite for detection or retrieval.
 
-The repository also contains evaluation experiments and supporting documentation for the system's development.
+The repository also includes a bilingual local web frontend, evaluation experiments, and supporting documentation for the system's development.
