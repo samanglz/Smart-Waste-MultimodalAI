@@ -4,10 +4,12 @@ from typing import Protocol
 
 from smart_waste_multimodal.contracts import (
     AnalyzeRequest,
+    FinalEvidenceContext,
     GenerationResult,
     RetrievalResult,
     VisionResult,
 )
+from smart_waste_multimodal.contracts.context import ContextAssessment
 
 
 class VisionStage(Protocol):
@@ -23,15 +25,16 @@ class RetrievalStage(Protocol):
         self,
         request: AnalyzeRequest,
         vision: VisionResult | None,
-    ) -> RetrievalResult: ...
+        context_assessment: ContextAssessment | None = None,
+    ) -> RetrievalResult:
+        ...
 
 
 class GenerationStage(Protocol):
-    """Callable interface for the generation adapter."""
+    """Callable interface for generation using authorized evidence only."""
 
     def __call__(
         self,
         request: AnalyzeRequest,
-        vision: VisionResult | None,
-        retrieval: RetrievalResult | None,
+        final_evidence_context: FinalEvidenceContext,
     ) -> GenerationResult: ...

@@ -1,0 +1,40 @@
+{
+  "dataset_id": "natural_queries_eval_v2_reviewed_01",
+  "version": 2,
+  "status": "reviewed_draft_not_yet_frozen",
+  "source_file": "natural_queries_eval_v2.json",
+  "source_sha256": "38efba372f37a8c0ab1ec18abc484588383d4df27f164cd8f8b73264e4c84f33",
+  "output_file": "natural_queries_eval_v2_reviewed_01.json",
+  "output_sha256": "00ae0aa8d6b5de88d434d0efabe2daa2d64aca860c7401c837eeaf4c32e159ad",
+  "query_count": 28,
+  "difficulty_counts": {
+    "easy": 12,
+    "medium": 10,
+    "challenging": 6
+  },
+  "changes": [
+    {
+      "query_ids": [
+        "v2_clothing_01",
+        "v2_clothing_02"
+      ],
+      "change": "Renamed topic from clothing to textiles."
+    },
+    {
+      "query_ids": [
+        "v2_cardboard_05"
+      ],
+      "change": "Reworded query to avoid unsupported source comparison."
+    },
+    {
+      "query_ids": [
+        "v2_battery_03"
+      ],
+      "change": "Clarified general rechargeable-battery collection guidance."
+    }
+  ],
+  "ground_truth_assigned": false,
+  "llm_connected": false,
+  "frozen": false,
+  "git_commit_or_push": false
+}

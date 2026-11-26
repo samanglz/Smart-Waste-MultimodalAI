@@ -1,0 +1,25 @@
+{
+  "dataset_id": "natural_queries_eval_v2",
+  "version": 2,
+  "status": "draft_grounded_queries_not_yet_frozen",
+  "created_utc": "2026-10-28T17:05:29.890178+00:00",
+  "query_count": 28,
+  "difficulty_counts": {
+    "easy": 12,
+    "medium": 10,
+    "challenging": 6
+  },
+  "query_file": "natural_queries_eval_v2.json",
+  "query_file_sha256": "38efba372f37a8c0ab1ec18abc484588383d4df27f164cd8f8b73264e4c84f33",
+  "source_project": "waste-detection-rag",
+  "source_index_version": "v4_expanded",
+  "source_chunk_ids_are_runtime_inputs": false,
+  "ground_truth_labels_assigned": false,
+  "notes": [
+    "Queries are grounded in inspected source chunks.",
+    "Evidence chunk IDs are for dataset audit and offline evaluation only.",
+    "Do not pass evidence chunk IDs or labels to the runtime rewriter.",
+    "The dataset remains a draft until query wording and evidence mapping are reviewed.",
+    "The legacy RAG project was read-only and was not modified."
+  ]
+}

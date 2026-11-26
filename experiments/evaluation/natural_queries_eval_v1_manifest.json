@@ -1,0 +1,37 @@
+{
+  "dataset_id": "natural_queries_eval_v1",
+  "version": 1,
+  "purpose": "Evaluate natural-query retrieval before comparing query rewriting strategies.",
+  "query_file": "experiments/evaluation/natural_queries_eval_v1.json",
+  "query_count": 28,
+  "topics": [
+    "cardboard",
+    "glass",
+    "plastic",
+    "metal",
+    "batteries",
+    "electronics",
+    "clothing"
+  ],
+  "query_types": [
+    "direct",
+    "indirect",
+    "real_world_scenario",
+    "multi_part"
+  ],
+  "creation_method": "Assistant-authored queries designed with awareness of the recycling domain. They were not generated from target chunk IDs or retrieval rankings, but this is not a blind or independent benchmark.",
+  "limitations": [
+    "The query author has domain and source awareness.",
+    "The set is small and does not establish general performance.",
+    "Target relevance labels must be audited against source text.",
+    "Results must not be used to claim that LLM rewriting is better without a separately controlled comparison."
+  ],
+  "evaluation_rules": {
+    "do_not_modify_frozen_queries": true,
+    "store_rewrites_separately": true,
+    "store_target_labels_separately": true,
+    "never_pass_target_labels_to_runtime_rewriter": true,
+    "report_natural_and_rewritten_results_separately": true
+  },
+  "status": "frozen_before_rewrite_generation_and_retrieval_baseline"
+}

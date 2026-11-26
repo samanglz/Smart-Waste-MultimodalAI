@@ -1,0 +1,28 @@
+{
+  "dataset_id": "natural_queries_eval_v2_frozen",
+  "version": 2,
+  "status": "frozen",
+  "dataset_file": "natural_queries_eval_v2_frozen.json",
+  "query_count": 28,
+  "difficulty_counts": {
+    "easy": 12,
+    "medium": 10,
+    "challenging": 6
+  },
+  "source_dataset_file": "natural_queries_eval_v2_reviewed_02.json",
+  "source_sha256": "e8d776fdb2dcbb35499827f327382a435d0a561cd434fdd8097bd78c738fb2aa",
+  "output_sha256": "c209357424f9a3c854f8dee6e4194e4afd85dde6175978eb459fc0e82b293eb1",
+  "frozen_at_utc": "2026-10-28T17:14:29.467382+00:00",
+  "freeze_checks": {
+    "query_texts_unchanged": true,
+    "query_ids_unchanged": true,
+    "evidence_chunk_ids_unchanged": true,
+    "must_preserve_unchanged": true,
+    "unsupported_details_unchanged": true
+  },
+  "ground_truth_assigned": false,
+  "llm_connected": false,
+  "legacy_rag_modified": false,
+  "git_commit_or_push": false,
+  "policy": "Do not edit this frozen dataset in place. If a correction is needed, create a new version and preserve this one."
+}

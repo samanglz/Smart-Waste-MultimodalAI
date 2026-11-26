@@ -4,10 +4,13 @@ from smart_waste_multimodal.contracts import (
     AnalyzeRequest,
     Detection,
     EvidenceItem,
+    FinalEvidenceContext,
     GenerationResult,
     RetrievalResult,
     VisionResult,
 )
+from smart_waste_multimodal.contracts.context import ContextAssessment
+from smart_waste_multimodal.contracts.evidence import EvidenceSourceType
 
 
 class MockVisionAdapter:
@@ -46,6 +49,7 @@ class MockRetrievalAdapter:
         self,
         request: AnalyzeRequest,
         vision: VisionResult | None,
+        context_assessment: ContextAssessment | None = None,
     ) -> RetrievalResult:
         if request.options.retrieval_query_source == "vision_detections":
             if vision is None or not vision.detections:
@@ -82,36 +86,56 @@ class MockRetrievalAdapter:
 
 
 class MockGenerationAdapter:
-    """Generate an answer grounded in retrieved evidence."""
+    """Generate an answer from authorized Final Evidence Context records."""
 
     def __call__(
         self,
         request: AnalyzeRequest,
-        vision: VisionResult | None,
-        retrieval: RetrievalResult | None,
+        final_evidence_context: FinalEvidenceContext,
     ) -> GenerationResult:
-        if retrieval is None or not retrieval.results:
+        if final_evidence_context.request_id != request.request_id:
+            raise ValueError(
+                "Final Evidence Context request_id does not match the request."
+            )
+
+        retrieval_evidence = [
+            item
+            for item in final_evidence_context.evidence
+            if item.source_type == EvidenceSourceType.RETRIEVAL_CHUNK
+            and isinstance(item.content, dict)
+            and item.content.get("chunk_id") == item.provenance.source_id
+        ]
+
+        if not retrieval_evidence:
             return GenerationResult(
                 status="insufficient_evidence",
                 answer=(
                     "I cannot provide a grounded recycling recommendation "
-                    "because no supporting evidence was retrieved."
+                    "because no supporting retrieval evidence is available."
                 ),
-                reason="No retrieval evidence was available.",
+                reason="No authorized retrieval evidence was available.",
                 model_version="mock-generator-v1",
             )
 
         material = "the item"
-        if vision is not None and vision.detections:
-            material = vision.detections[0].class_name
+        for item in final_evidence_context.evidence:
+            if item.source_type != EvidenceSourceType.VISION_DETECTION:
+                continue
+            if isinstance(item.content, dict):
+                class_name = item.content.get("class_name")
+                if isinstance(class_name, str) and class_name.strip():
+                    material = class_name.strip()
+                    break
 
-        evidence = retrieval.results[0]
+        evidence = retrieval_evidence[0]
+        text = evidence.content.get("text", "")
+        chunk_id = evidence.provenance.source_id
+
         return GenerationResult(
             status="success",
             answer=(
-                f"For {material}, follow the retrieved guidance: "
-                f"{evidence.text}"
+                f"For {material}, follow the retrieved guidance: {text}"
             ),
-            citation_chunk_ids=[evidence.chunk_id],
+            citation_chunk_ids=[chunk_id],
             model_version="mock-generator-v1",
         )

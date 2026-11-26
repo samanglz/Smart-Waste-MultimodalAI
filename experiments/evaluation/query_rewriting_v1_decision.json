@@ -1,0 +1,49 @@
+{
+  "decision_id": "query_rewriting_v1_decision",
+  "created_at_utc": "2026-10-28T11:31:00.511820+00:00",
+  "based_on": "/content/drive/MyDrive/smart-waste-multimodal-ai/experiments/evaluation/query_rewriting_v1_results.json",
+  "scope": {
+    "topics": 7,
+    "queries": 21,
+    "top_k": 20,
+    "index_version": "v4_expanded",
+    "retriever": "HybridRetriever"
+  },
+  "observed_macro_metrics": {
+    "natural": {
+      "target_mrr": 0.8071428571428572,
+      "coverage_at_20": 1.0,
+      "mean_retrieval_latency_seconds": 0.12445155685678141
+    },
+    "manual": {
+      "target_mrr": 0.7658730158730158,
+      "coverage_at_20": 1.0,
+      "mean_retrieval_latency_seconds": 0.13790384400012304
+    },
+    "automatic": {
+      "target_mrr": 0.7182539682539683,
+      "coverage_at_20": 1.0,
+      "mean_retrieval_latency_seconds": 0.1516476519999352
+    }
+  },
+  "findings": [
+    "All three methods retrieved all 12 predefined target chunks within top 20.",
+    "Natural queries achieved the highest macro target MRR in this seven-topic evaluation.",
+    "Manual rewriting improved target ranking for glass, metal, and batteries, but reduced it for electronics.",
+    "Automatic rewriting did not improve aggregate ranking over natural queries in this evaluation.",
+    "Retrieval latency excludes the time and cost of generating automatic rewrites."
+  ],
+  "decision": {
+    "automatic_query_rewriting_in_main_path": false,
+    "natural_query_as_default": true,
+    "manual_rewriting_as_optional_fallback": true,
+    "cross_encoder_in_main_path": false
+  },
+  "limitations": [
+    "Evaluation covers only seven topics and the current v4_expanded index.",
+    "Target-chunk MRR depends on the predefined target set.",
+    "Results do not establish that the same ranking will hold for all user queries."
+  ],
+  "next_step": "Keep natural queries as the default. In a later experiment, test a selective fallback for queries whose initial retrieval has weak evidence.",
+  "legacy_rag_project_modified": false
+}

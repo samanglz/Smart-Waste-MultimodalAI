@@ -1,0 +1,55 @@
+{
+  "experiment_id": "selective_fallback_v1_preflight",
+  "purpose": "Inspect existing retrieval results and implementation before defining weak-retrieval criteria.",
+  "project_root": "/content/drive/MyDrive/smart-waste-multimodal-ai",
+  "legacy_rag_root": "/content/drive/MyDrive/waste-detection-rag",
+  "previous_results_file": "/content/drive/MyDrive/smart-waste-multimodal-ai/experiments/evaluation/query_rewriting_v1_results.json",
+  "previous_results_keys": [
+    "evaluation_id",
+    "created_at_utc",
+    "evaluation_definition_file",
+    "evaluation_definition_sha256",
+    "retrieval",
+    "methodology",
+    "summary",
+    "evaluation_wall_time_seconds",
+    "results"
+  ],
+  "retrieval_source_hits": [
+    {
+      "path": "/content/drive/MyDrive/waste-detection-rag/src/retrieval/hybrid_retriever.py",
+      "line": 10,
+      "excerpt": "5: from src.retrieval.reciprocal_rank_fusion import (\n6:     reciprocal_rank_fusion,\n7: )\n8: \n9: \n10: class HybridRetriever:\n11:     \"\"\"Combine dense and lexical retrieval using RRF.\"\"\"\n12: \n13:     def __init__(\n14:         self,\n15:         chunks: list[dict[str, str]],\n16:         encoder: TextEncoder,\n17:         vector_index: FaissIndex,\n18:         bm25_retriever: BM25Retriever,\n19:     ):\n20:         if not chunks:\n21:             raise ValueError(\"chunks must not be empty\")\n22: \n23:         self.chunks = chunks\n24:         self.encoder = encoder\n25:         self.vector_index = vector_index\n26:         self.bm25_retriever = bm25_retriever\n27: "
+    },
+    {
+      "path": "/content/drive/MyDrive/waste-detection-rag/src/retrieval/hybrid_retriever.py",
+      "line": 28,
+      "excerpt": "23:         self.chunks = chunks\n24:         self.encoder = encoder\n25:         self.vector_index = vector_index\n26:         self.bm25_retriever = bm25_retriever\n27: \n28:     def search(\n29:         self,\n30:         query: str,\n31:         top_k: int = 5,\n32:         rrf_k: int = 60,\n33:     ) -> list[dict[str, str | int | float]]:\n34:         \"\"\"Retrieve and fuse results from FAISS and BM25.\"\"\"\n35: \n36:         if not query.strip():\n37:             raise ValueError(\"query must not be empty\")\n38: \n39:         if top_k <= 0:\n40:             raise ValueError(\"top_k must be positive\")\n41: \n42:         query_embedding = self.encoder.encode_queries([query])\n43: \n44:         _, vector_indices = self.vector_index.search(\n45:             query_embedding,"
+    },
+    {
+      "path": "/content/drive/MyDrive/waste-detection-rag/tests/test_hybrid_retriever.py",
+      "line": 13,
+      "excerpt": "8:     def encode_queries(self, queries):\n9:         return np.array([[1.0, 0.0]], dtype=np.float32)\n10: \n11: \n12: class FakeBM25Retriever:\n13:     def search(self, query, top_k=5):\n14:         # Return (chunk_index, lexical_score) pairs.\n15:         return [(0, 1.0), (1, 0.5)][:top_k]\n16: \n17: \n18: def make_retriever():\n19:     chunks = [\n20:         {\n21:             \"chunk_id\": \"plastic.txt::chunk_0\",\n22:             \"source\": \"plastic.txt\",\n23:             \"text\": \"Plastic recycling.\",\n24:             \"metadata\": {\n25:                 \"title\": \"Plastic recycling\",\n26:                 \"topic\": \"plastic\",\n27:             },\n28:         },\n29:         {\n30:             \"chunk_id\": \"paper.txt::chunk_0\","
+    }
+  ],
+  "current_session_objects": {
+    "BASE_RETRIEVER": {
+      "available": true,
+      "type": "HybridRetriever"
+    },
+    "evaluate_query": {
+      "available": true,
+      "type": "function"
+    },
+    "evaluate_query_rewrite": {
+      "available": true,
+      "type": "function"
+    },
+    "rewrites": {
+      "available": true,
+      "type": "list"
+    }
+  },
+  "legacy_rag_project_modified": false,
+  "architecture_decision_made": false
+}

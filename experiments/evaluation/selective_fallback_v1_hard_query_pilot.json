@@ -1,0 +1,140 @@
+{
+  "experiment_id": "selective_fallback_v1_hard_query_pilot",
+  "created_at_utc": "2026-10-28T13:06:39.888011+00:00",
+  "retriever_class": "HybridRetriever",
+  "top_k": 20,
+  "predefined_target_ids": [
+    "epa_common_recyclables.txt::chunk_1",
+    "epa_common_recyclables.txt::chunk_10",
+    "epa_common_recyclables.txt::chunk_11",
+    "epa_common_recyclables.txt::chunk_2"
+  ],
+  "comparisons": [
+    {
+      "variant": "natural_long",
+      "query": "What practical recycling guidance applies to the materials detected in this image, and how should I prepare them before recycling?",
+      "target_ranks": {
+        "epa_common_recyclables.txt::chunk_1": null,
+        "epa_common_recyclables.txt::chunk_10": null,
+        "epa_common_recyclables.txt::chunk_11": null,
+        "epa_common_recyclables.txt::chunk_2": null
+      },
+      "target_hits_at_5": 0,
+      "target_hits_at_20": 0,
+      "target_coverage_at_20": 0.0,
+      "first_target_rank": null,
+      "score_features": {
+        "top_score": 0.03128054740957967,
+        "second_score": 0.01639344262295082,
+        "top1_top2_gap": 0.014887104786628847,
+        "score_mean": 0.016000859820746074,
+        "score_min": 0.014084507042253521,
+        "score_max": 0.03128054740957967
+      },
+      "top_5_results": [
+        {
+          "rank": 1,
+          "chunk_id": "epa_common_recyclables.txt::chunk_21",
+          "score": 0.03128054740957967,
+          "is_predefined_target": false,
+          "text_preview": "Sometimes businesses that sell these products will also accept them for recycling. If you have to dispose of HHW, first check with your local waste management agency to learn what rules apply in your community. Please visit our Household Hazardous Waste web page for more information on household haz"
+        },
+        {
+          "rank": 2,
+          "chunk_id": "eea_recycling_quality.txt::chunk_10",
+          "score": 0.01639344262295082,
+          "is_predefined_target": false,
+          "text_preview": "An operational modelling framework for recycling quality To operationalise the framework presented above, information needs to be collected on the specific recycling pathways employed so that targeted materials are converted into secondary raw materials. This information relates to: collection syste"
+        },
+        {
+          "rank": 3,
+          "chunk_id": "epa_common_recyclables.txt::chunk_24",
+          "score": 0.01639344262295082,
+          "is_predefined_target": false,
+          "text_preview": "The recycling rate for nonferrous metals was approximately 68 percent. How do I recycle metal? There are different programs and options for metal recycling depending on your locality. Check to find out what is available in your area. Miscellaneous What should I do with dirty diapers? While we provid"
+        },
+        {
+          "rank": 4,
+          "chunk_id": "oecd_global_plastics_outlook.txt::chunk_650",
+          "score": 0.016129032258064516,
+          "is_predefined_target": false,
+          "text_preview": "Conversely, in low - and middle-income countries, plastic waste collection for recycling is carried out by informal workers (IRS) who selectively collect (cherry pick) items and objects that are most valuable, focusing on quality and concentration rather than high yield. Even with diligent, selectiv"
+        },
+        {
+          "rank": 5,
+          "chunk_id": "epa_plastic_best_practices.txt::chunk_0",
+          "score": 0.015873015873015872,
+          "is_predefined_target": false,
+          "text_preview": "Best Practices This is a picture of five bins clearly labeled to indicate what should go in each one - food waste, general trash, glass, plastic, and aluminum. Best practices for addressing plastic pollution include regulatory and policy interventions, behavioral and educational campaigns, partnersh"
+        }
+      ]
+    },
+    {
+      "variant": "rewritten",
+      "query": "cardboard glass preparation recycling instructions",
+      "target_ranks": {
+        "epa_common_recyclables.txt::chunk_1": 1,
+        "epa_common_recyclables.txt::chunk_10": 3,
+        "epa_common_recyclables.txt::chunk_11": 4,
+        "epa_common_recyclables.txt::chunk_2": 2
+      },
+      "target_hits_at_5": 4,
+      "target_hits_at_20": 4,
+      "target_coverage_at_20": 1.0,
+      "first_target_rank": 1,
+      "score_features": {
+        "top_score": 0.032266458495966696,
+        "second_score": 0.03177805800756621,
+        "top1_top2_gap": 0.0004884004884004867,
+        "score_mean": 0.01941853546525641,
+        "score_min": 0.013888888888888888,
+        "score_max": 0.032266458495966696
+      },
+      "top_5_results": [
+        {
+          "rank": 1,
+          "chunk_id": "epa_common_recyclables.txt::chunk_1",
+          "score": 0.032266458495966696,
+          "is_predefined_target": true,
+          "text_preview": "Below are answers to frequently asked questions on paper and cardboard products. While general answers are provided, your local program may have different rules. Check with your local recycling program to learn if they accept these items. Can I recycle newspapers? Yes, newspapers can be recycled. Ca"
+        },
+        {
+          "rank": 2,
+          "chunk_id": "epa_common_recyclables.txt::chunk_2",
+          "score": 0.03177805800756621,
+          "is_predefined_target": true,
+          "text_preview": "Even envelopes with plastic windows can be recycled. Are paper and cardboard takeout containers recyclable? It depends on how much food is left on them. Try rinsing or scraping the residue off to clean it. “ Spatula-clean” is clean enough to recycle! Otherwise, containers contaminated with food cann"
+        },
+        {
+          "rank": 3,
+          "chunk_id": "epa_common_recyclables.txt::chunk_10",
+          "score": 0.031054405392392875,
+          "is_predefined_target": true,
+          "text_preview": "Glass Glass, especially glass food and beverage containers, can be recycled over and over again. In the United States in 2018, 12.3 million tons of glass were generated, 31.3 percent of which was recycled. Making new glass from recycled glass is typically cheaper than using raw materials. Below are "
+        },
+        {
+          "rank": 4,
+          "chunk_id": "epa_common_recyclables.txt::chunk_11",
+          "score": 0.028958333333333336,
+          "is_predefined_target": true,
+          "text_preview": "Can I recycle broken glass? No, broken glass should not go into the recycling bin. Glass shards can harm workers and damage equipment. Can I leave my metal bottle cap on my glass bottle when I recycle? No, metal bottle caps should be recycled separately from the glass bottles. Aluminum In 2018, 3.9 "
+        },
+        {
+          "rank": 5,
+          "chunk_id": "epa_common_recyclables.txt::chunk_0",
+          "score": 0.02817460317460317,
+          "is_predefined_target": false,
+          "text_preview": "Paper/Cardboard Paper makes up 23 percent of municipal solid waste (trash) generated each year, more than any other material. Americans recycled about 68 percent of the paper they used in 2018. This recovered paper is used to make new paper products, which saves trees and other natural resources. Mo"
+        }
+      ]
+    }
+  ],
+  "purpose": "Compare RRF score features between one previously observed natural-query retrieval failure and its successful rewritten query.",
+  "limitations": [
+    "This is one query pair, not enough to select a fallback threshold.",
+    "Predefined targets are offline evaluation labels, not runtime signals.",
+    "A chunk outside the target set may still be relevant."
+  ],
+  "fallback_threshold_selected": false,
+  "legacy_rag_project_modified": false
+}

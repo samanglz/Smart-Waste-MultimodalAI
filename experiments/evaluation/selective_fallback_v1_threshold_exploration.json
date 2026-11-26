@@ -1,0 +1,531 @@
+{
+  "schema_version": "1.0",
+  "evaluation_id": "selective_fallback_v1_threshold_exploration",
+  "created_at_utc": "2026-10-28T13:17:10.854272+00:00",
+  "input_files": {
+    "natural_baseline": "/content/drive/MyDrive/smart-waste-multimodal-ai/experiments/evaluation/selective_fallback_v1_natural_baseline.json",
+    "rewrite_comparison": "/content/drive/MyDrive/smart-waste-multimodal-ai/experiments/evaluation/selective_fallback_v1_rewrite_comparison.json"
+  },
+  "methodology": {
+    "case_count": 14,
+    "positive_outcome": "Manual rewrite produced a positive offline target-MRR delta.",
+    "runtime_features_only": true,
+    "target_labels_used_only_for_offline_outcome": true,
+    "candidate_thresholds": "Midpoints between observed feature values; exploratory.",
+    "warning": "Small exploratory dataset. Searching many thresholds on the same 14 cases overfits. Do not deploy any candidate without a larger independent validation set. A positive MRR delta is not proof that an answer is factually better."
+  },
+  "outcome_counts": {
+    "rewrite_improved_mrr": 9,
+    "no_mrr_improvement": 5
+  },
+  "feature_summaries_by_outcome": {
+    "top_score": {
+      "rewrite_improved_mrr": {
+        "n": 9,
+        "mean": 0.03181319614930424,
+        "median": 0.03200204813108039,
+        "min": 0.02946912242686891,
+        "max": 0.03278688524590164
+      },
+      "no_mrr_improvement": {
+        "n": 5,
+        "mean": 0.032174961731082835,
+        "median": 0.032266458495966696,
+        "min": 0.03128054740957967,
+        "max": 0.03278688524590164
+      }
+    },
+    "top1_top2_gap": {
+      "rewrite_improved_mrr": {
+        "n": 9,
+        "mean": 0.0012115833414635575,
+        "median": 0.0006862276900268041,
+        "min": 0.00022399012351417835,
+        "max": 0.0036374262379021798
+      },
+      "no_mrr_improvement": {
+        "n": 5,
+        "mean": 0.0033826306486274766,
+        "median": 0.0005047949802709228,
+        "min": 0.0004884004884004867,
+        "max": 0.014887104786628847
+      }
+    },
+    "top5_score_mean": {
+      "rewrite_improved_mrr": {
+        "n": 9,
+        "mean": 0.028329708007016296,
+        "median": 0.030267142971744987,
+        "min": 0.02383548610962816,
+        "max": 0.031477816938024164
+      },
+      "no_mrr_improvement": {
+        "n": 5,
+        "mean": 0.028080485392952194,
+        "median": 0.030840316899475927,
+        "min": 0.019213896157312338,
+        "max": 0.03133039043979122
+      }
+    },
+    "top5_score_stdev": {
+      "rewrite_improved_mrr": {
+        "n": 9,
+        "mean": 0.003371629517905079,
+        "median": 0.0017583331173608887,
+        "min": 0.0003919083992769942,
+        "max": 0.006772686472501209
+      },
+      "no_mrr_improvement": {
+        "n": 5,
+        "mean": 0.0031873946068175854,
+        "median": 0.001983292449564363,
+        "min": 0.0008168266668877481,
+        "max": 0.006244138770648073
+      }
+    }
+  },
+  "candidate_rule_count": 94,
+  "top_10_exploratory_candidates": [
+    {
+      "feature": "top1_top2_gap",
+      "direction": "<=",
+      "threshold": 0.009262265512265513,
+      "triggered_cases": 13,
+      "tp_rewrite_helped": 9,
+      "fp_no_mrr_gain": 4,
+      "fn_missed_mrr_gain": 0,
+      "tn_no_trigger_and_no_gain": 1,
+      "precision": 0.6923076923076923,
+      "recall": 1.0,
+      "f1": 0.8181818181818181,
+      "cases_triggered": [
+        "cardboard_hard_01",
+        "cardboard_hard_02",
+        "glass_hard_01",
+        "glass_hard_02",
+        "plastic_hard_01",
+        "plastic_hard_02",
+        "metal_hard_01",
+        "metal_hard_02",
+        "batteries_hard_01",
+        "batteries_hard_02",
+        "electronics_hard_02",
+        "clothing_hard_01",
+        "clothing_hard_02"
+      ]
+    },
+    {
+      "feature": "top5_score_mean",
+      "direction": ">=",
+      "threshold": 0.021524691133470247,
+      "triggered_cases": 13,
+      "tp_rewrite_helped": 9,
+      "fp_no_mrr_gain": 4,
+      "fn_missed_mrr_gain": 0,
+      "tn_no_trigger_and_no_gain": 1,
+      "precision": 0.6923076923076923,
+      "recall": 1.0,
+      "f1": 0.8181818181818181,
+      "cases_triggered": [
+        "cardboard_hard_01",
+        "cardboard_hard_02",
+        "glass_hard_01",
+        "glass_hard_02",
+        "plastic_hard_01",
+        "plastic_hard_02",
+        "metal_hard_01",
+        "metal_hard_02",
+        "batteries_hard_01",
+        "batteries_hard_02",
+        "electronics_hard_02",
+        "clothing_hard_01",
+        "clothing_hard_02"
+      ]
+    },
+    {
+      "feature": "top_score",
+      "direction": "<=",
+      "threshold": 0.03239446668849102,
+      "triggered_cases": 11,
+      "tp_rewrite_helped": 8,
+      "fp_no_mrr_gain": 3,
+      "fn_missed_mrr_gain": 1,
+      "tn_no_trigger_and_no_gain": 2,
+      "precision": 0.7272727272727273,
+      "recall": 0.8888888888888888,
+      "f1": 0.7999999999999999,
+      "cases_triggered": [
+        "cardboard_hard_01",
+        "cardboard_hard_02",
+        "glass_hard_02",
+        "plastic_hard_02",
+        "metal_hard_02",
+        "batteries_hard_01",
+        "batteries_hard_02",
+        "electronics_hard_01",
+        "electronics_hard_02",
+        "clothing_hard_01",
+        "clothing_hard_02"
+      ]
+    },
+    {
+      "feature": "top_score",
+      "direction": "<=",
+      "threshold": 0.032262261506047864,
+      "triggered_cases": 9,
+      "tp_rewrite_helped": 7,
+      "fp_no_mrr_gain": 2,
+      "fn_missed_mrr_gain": 2,
+      "tn_no_trigger_and_no_gain": 3,
+      "precision": 0.7777777777777778,
+      "recall": 0.7777777777777778,
+      "f1": 0.7777777777777778,
+      "cases_triggered": [
+        "cardboard_hard_01",
+        "cardboard_hard_02",
+        "plastic_hard_02",
+        "metal_hard_02",
+        "batteries_hard_01",
+        "batteries_hard_02",
+        "electronics_hard_01",
+        "electronics_hard_02",
+        "clothing_hard_02"
+      ]
+    },
+    {
+      "feature": "top5_score_mean",
+      "direction": "<=",
+      "threshold": 0.03083521983885358,
+      "triggered_cases": 9,
+      "tp_rewrite_helped": 7,
+      "fp_no_mrr_gain": 2,
+      "fn_missed_mrr_gain": 2,
+      "tn_no_trigger_and_no_gain": 3,
+      "precision": 0.7777777777777778,
+      "recall": 0.7777777777777778,
+      "f1": 0.7777777777777778,
+      "cases_triggered": [
+        "cardboard_hard_01",
+        "glass_hard_01",
+        "glass_hard_02",
+        "plastic_hard_01",
+        "plastic_hard_02",
+        "metal_hard_02",
+        "electronics_hard_01",
+        "electronics_hard_02",
+        "clothing_hard_02"
+      ]
+    },
+    {
+      "feature": "top_score",
+      "direction": "<=",
+      "threshold": 0.032654680063458494,
+      "triggered_cases": 12,
+      "tp_rewrite_helped": 8,
+      "fp_no_mrr_gain": 4,
+      "fn_missed_mrr_gain": 1,
+      "tn_no_trigger_and_no_gain": 1,
+      "precision": 0.6666666666666666,
+      "recall": 0.8888888888888888,
+      "f1": 0.761904761904762,
+      "cases_triggered": [
+        "cardboard_hard_01",
+        "cardboard_hard_02",
+        "glass_hard_02",
+        "plastic_hard_02",
+        "metal_hard_01",
+        "metal_hard_02",
+        "batteries_hard_01",
+        "batteries_hard_02",
+        "electronics_hard_01",
+        "electronics_hard_02",
+        "clothing_hard_01",
+        "clothing_hard_02"
+      ]
+    },
+    {
+      "feature": "top_score",
+      "direction": ">=",
+      "threshold": 0.03151728983382209,
+      "triggered_cases": 12,
+      "tp_rewrite_helped": 8,
+      "fp_no_mrr_gain": 4,
+      "fn_missed_mrr_gain": 1,
+      "tn_no_trigger_and_no_gain": 1,
+      "precision": 0.6666666666666666,
+      "recall": 0.8888888888888888,
+      "f1": 0.761904761904762,
+      "cases_triggered": [
+        "cardboard_hard_01",
+        "cardboard_hard_02",
+        "glass_hard_01",
+        "glass_hard_02",
+        "plastic_hard_01",
+        "plastic_hard_02",
+        "metal_hard_01",
+        "batteries_hard_01",
+        "batteries_hard_02",
+        "electronics_hard_02",
+        "clothing_hard_01",
+        "clothing_hard_02"
+      ]
+    },
+    {
+      "feature": "top1_top2_gap",
+      "direction": "<=",
+      "threshold": 0.0034364870620054496,
+      "triggered_cases": 12,
+      "tp_rewrite_helped": 8,
+      "fp_no_mrr_gain": 4,
+      "fn_missed_mrr_gain": 1,
+      "tn_no_trigger_and_no_gain": 1,
+      "precision": 0.6666666666666666,
+      "recall": 0.8888888888888888,
+      "f1": 0.761904761904762,
+      "cases_triggered": [
+        "cardboard_hard_01",
+        "cardboard_hard_02",
+        "glass_hard_01",
+        "plastic_hard_01",
+        "plastic_hard_02",
+        "metal_hard_01",
+        "metal_hard_02",
+        "batteries_hard_01",
+        "batteries_hard_02",
+        "electronics_hard_02",
+        "clothing_hard_01",
+        "clothing_hard_02"
+      ]
+    },
+    {
+      "feature": "top5_score_mean",
+      "direction": "<=",
+      "threshold": 0.03124849121616664,
+      "triggered_cases": 12,
+      "tp_rewrite_helped": 8,
+      "fp_no_mrr_gain": 4,
+      "fn_missed_mrr_gain": 1,
+      "tn_no_trigger_and_no_gain": 1,
+      "precision": 0.6666666666666666,
+      "recall": 0.8888888888888888,
+      "f1": 0.761904761904762,
+      "cases_triggered": [
+        "cardboard_hard_01",
+        "cardboard_hard_02",
+        "glass_hard_01",
+        "glass_hard_02",
+        "plastic_hard_01",
+        "plastic_hard_02",
+        "metal_hard_02",
+        "batteries_hard_02",
+        "electronics_hard_01",
+        "electronics_hard_02",
+        "clothing_hard_01",
+        "clothing_hard_02"
+      ]
+    },
+    {
+      "feature": "top5_score_mean",
+      "direction": ">=",
+      "threshold": 0.02402791800258415,
+      "triggered_cases": 12,
+      "tp_rewrite_helped": 8,
+      "fp_no_mrr_gain": 4,
+      "fn_missed_mrr_gain": 1,
+      "tn_no_trigger_and_no_gain": 1,
+      "precision": 0.6666666666666666,
+      "recall": 0.8888888888888888,
+      "f1": 0.761904761904762,
+      "cases_triggered": [
+        "cardboard_hard_01",
+        "cardboard_hard_02",
+        "glass_hard_01",
+        "glass_hard_02",
+        "plastic_hard_01",
+        "plastic_hard_02",
+        "metal_hard_01",
+        "batteries_hard_01",
+        "batteries_hard_02",
+        "electronics_hard_02",
+        "clothing_hard_01",
+        "clothing_hard_02"
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "case_id": "cardboard_hard_01",
+      "topic": "cardboard",
+      "features": {
+        "top_score": 0.031754032258064516,
+        "top1_top2_gap": 0.0004964010004332581,
+        "top5_score_mean": 0.030652456204724978,
+        "top5_score_stdev": 0.0009192890613266543
+      },
+      "rewrite_improved_mrr_offline": true,
+      "rewrite_delta_mrr_offline": 0.08333333333333337
+    },
+    {
+      "case_id": "cardboard_hard_02",
+      "topic": "cardboard",
+      "features": {
+        "top_score": 0.032018442622950824,
+        "top1_top2_gap": 0.0005047949802709228,
+        "top5_score_mean": 0.031008703581218124,
+        "top5_score_stdev": 0.0008562947661045037
+      },
+      "rewrite_improved_mrr_offline": false,
+      "rewrite_delta_mrr_offline": 0.0
+    },
+    {
+      "case_id": "glass_hard_01",
+      "topic": "glass",
+      "features": {
+        "top_score": 0.03278688524590164,
+        "top1_top2_gap": 0.0007848371148212532,
+        "top5_score_mean": 0.03083012277823123,
+        "top5_score_stdev": 0.0013372943571275436
+      },
+      "rewrite_improved_mrr_offline": true,
+      "rewrite_delta_mrr_offline": 0.21153846153846156
+    },
+    {
+      "case_id": "glass_hard_02",
+      "topic": "glass",
+      "features": {
+        "top_score": 0.032266458495966696,
+        "top1_top2_gap": 0.0036374262379021798,
+        "top5_score_mean": 0.024389841871232738,
+        "top5_score_stdev": 0.006772686472501209
+      },
+      "rewrite_improved_mrr_offline": true,
+      "rewrite_delta_mrr_offline": 0.04166666666666663
+    },
+    {
+      "case_id": "plastic_hard_01",
+      "topic": "plastic",
+      "features": {
+        "top_score": 0.03278688524590164,
+        "top1_top2_gap": 0.0005288207297726097,
+        "top5_score_mean": 0.028009119886963366,
+        "top5_score_stdev": 0.006244138770648073
+      },
+      "rewrite_improved_mrr_offline": false,
+      "rewrite_delta_mrr_offline": 0.0
+    },
+    {
+      "case_id": "plastic_hard_02",
+      "topic": "plastic",
+      "features": {
+        "top_score": 0.03225806451612903,
+        "top1_top2_gap": 0.0011587395402370346,
+        "top5_score_mean": 0.028127563301478205,
+        "top5_score_stdev": 0.005915235245563705
+      },
+      "rewrite_improved_mrr_offline": true,
+      "rewrite_delta_mrr_offline": 0.5
+    },
+    {
+      "case_id": "metal_hard_01",
+      "topic": "metal",
+      "features": {
+        "top_score": 0.03252247488101534,
+        "top1_top2_gap": 0.0005040322580645157,
+        "top5_score_mean": 0.03133039043979122,
+        "top5_score_stdev": 0.0008168266668877481
+      },
+      "rewrite_improved_mrr_offline": false,
+      "rewrite_delta_mrr_offline": 0.0
+    },
+    {
+      "case_id": "metal_hard_02",
+      "topic": "metal",
+      "features": {
+        "top_score": 0.02946912242686891,
+        "top1_top2_gap": 0.0006862276900268041,
+        "top5_score_mean": 0.02383548610962816,
+        "top5_score_stdev": 0.006090958931026177
+      },
+      "rewrite_improved_mrr_offline": true,
+      "rewrite_delta_mrr_offline": 0.65
+    },
+    {
+      "case_id": "batteries_hard_01",
+      "topic": "batteries",
+      "features": {
+        "top_score": 0.03200204813108039,
+        "top1_top2_gap": 0.00022399012351417835,
+        "top5_score_mean": 0.031477816938024164,
+        "top5_score_stdev": 0.0003919083992769942
+      },
+      "rewrite_improved_mrr_offline": true,
+      "rewrite_delta_mrr_offline": 0.3499999999999999
+    },
+    {
+      "case_id": "batteries_hard_02",
+      "topic": "batteries",
+      "features": {
+        "top_score": 0.03200204813108039,
+        "top1_top2_gap": 0.0004570903566144119,
+        "top5_score_mean": 0.031166591992542063,
+        "top5_score_stdev": 0.0005432478206303525
+      },
+      "rewrite_improved_mrr_offline": true,
+      "rewrite_delta_mrr_offline": 0.1277777777777777
+    },
+    {
+      "case_id": "electronics_hard_01",
+      "topic": "electronics",
+      "features": {
+        "top_score": 0.03128054740957967,
+        "top1_top2_gap": 0.014887104786628847,
+        "top5_score_mean": 0.019213896157312338,
+        "top5_score_stdev": 0.00603642038088324
+      },
+      "rewrite_improved_mrr_offline": false,
+      "rewrite_delta_mrr_offline": 0.0
+    },
+    {
+      "case_id": "electronics_hard_02",
+      "topic": "electronics",
+      "features": {
+        "top_score": 0.03177805800756621,
+        "top1_top2_gap": 0.0032355478861087195,
+        "top5_score_mean": 0.024220349895540144,
+        "top5_score_stdev": 0.006615712256332187
+      },
+      "rewrite_improved_mrr_offline": true,
+      "rewrite_delta_mrr_offline": 0.75
+    },
+    {
+      "case_id": "clothing_hard_01",
+      "topic": "clothing",
+      "features": {
+        "top_score": 0.032266458495966696,
+        "top1_top2_gap": 0.0004884004884004867,
+        "top5_score_mean": 0.030840316899475927,
+        "top5_score_stdev": 0.001983292449564363
+      },
+      "rewrite_improved_mrr_offline": false,
+      "rewrite_delta_mrr_offline": 0.0
+    },
+    {
+      "case_id": "clothing_hard_02",
+      "topic": "clothing",
+      "features": {
+        "top_score": 0.03200204813108039,
+        "top1_top2_gap": 0.00022399012351417835,
+        "top5_score_mean": 0.030267142971744987,
+        "top5_score_stdev": 0.0017583331173608887
+      },
+      "rewrite_improved_mrr_offline": true,
+      "rewrite_delta_mrr_offline": 0.5
+    }
+  ],
+  "decision": {
+    "threshold_selected": false,
+    "runtime_fallback_changed": false,
+    "legacy_rag_project_modified": false,
+    "next_step": "Review feature separation, then collect additional independent difficult queries before validating a trigger."
+  }
+}

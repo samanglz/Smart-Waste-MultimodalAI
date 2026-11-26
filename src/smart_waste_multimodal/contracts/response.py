@@ -5,12 +5,22 @@ from typing import Literal
 from pydantic import Field, model_validator
 
 from .common import ContractModel, ContractVersion, ErrorInfo
+from .context import ContextAssessment, ContextStatus
+from .evidence import EvidenceSourceType
+from .final_decision import FinalDecisionResult
+from .final_evidence_context import FinalEvidenceContext
 from .generation import GenerationResult
+from .query_rewrite import QueryRewriteTrace
 from .request import RequestOptions
 from .retrieval import RetrievalResult
 from .vision import VisionResult
 
-ResponseStatus = Literal["success", "partial_success", "failed"]
+ResponseStatus = Literal[
+    "success",
+    "partial_success",
+    "failed",
+    "needs_clarification",
+]
 
 
 class AnalyzeResponse(ContractModel):
@@ -18,15 +28,26 @@ class AnalyzeResponse(ContractModel):
     request_id: str = Field(min_length=1, max_length=200)
     status: ResponseStatus
 
-    # Keep the requested stages with the response so its status can be
-    # validated without guessing which stages were intentionally disabled.
     requested_options: RequestOptions = Field(
         default_factory=RequestOptions
     )
+    image_provided: bool = True
 
     vision: VisionResult | None = None
     retrieval: RetrievalResult | None = None
     generation: GenerationResult | None = None
+    context_assessment: ContextAssessment | None = None
+    final_decision: FinalDecisionResult | None = None
+    final_evidence_context: FinalEvidenceContext | None = None
+    query_rewrite_trace: QueryRewriteTrace | None = None
+
+    # Explicit user-facing clarification text, localized by the orchestrator.
+    clarification_message: str | None = Field(
+        default=None,
+        min_length=1,
+        max_length=2000,
+    )
+
     errors: list[ErrorInfo] = Field(default_factory=list)
     warnings: list[str] = Field(default_factory=list)
 
@@ -34,11 +55,39 @@ class AnalyzeResponse(ContractModel):
     def validate_response(self):
         options = self.requested_options
 
-        # A disabled stage must not report a normal result. Generation is
-        # allowed to explicitly report that it was skipped.
+        review_required = (
+            self.final_decision is not None
+            and self.final_decision.execution_status == "DECIDED"
+            and self.final_decision.action == "HUMAN_REVIEW"
+        )
+
+        if self.final_evidence_context is not None:
+            if (
+                self.final_decision is None
+                or self.final_decision.execution_status != "DECIDED"
+                or self.final_decision.action != "DIRECT"
+            ):
+                raise ValueError(
+                    "Final Evidence Context requires a DECIDED/DIRECT decision."
+                )
+            if self.final_evidence_context.request_id != self.request_id:
+                raise ValueError(
+                    "Final Evidence Context request_id must match the response."
+                )
+            if self.final_evidence_context.evidence_ids != tuple(
+                self.final_decision.evidence_ids
+            ):
+                raise ValueError(
+                    "Final Evidence Context IDs must match Final Decision evidence IDs."
+                )
+
         if not options.run_vision and self.vision is not None:
             raise ValueError(
                 "vision must be omitted when run_vision is false."
+            )
+        if not self.image_provided and self.vision is not None:
+            raise ValueError(
+                "vision must be omitted when no image was provided."
             )
 
         if not options.run_retrieval and self.retrieval is not None:
@@ -64,24 +113,31 @@ class AnalyzeResponse(ContractModel):
                 "Requested answer generation cannot be marked skipped."
             )
 
-        # Validate that all citations refer to evidence in this response.
         if self.generation and self.generation.citation_chunk_ids:
-            if self.retrieval is None:
-                raise ValueError("Citations require retrieval results.")
+            if self.final_evidence_context is None:
+                raise ValueError(
+                    "Citations require a validated Final Evidence Context."
+                )
 
             available = {
-                item.chunk_id for item in self.retrieval.results
+                item.provenance.source_id
+                for item in self.final_evidence_context.evidence
+                if (
+                    item.source_type == EvidenceSourceType.RETRIEVAL_CHUNK
+                    and isinstance(item.content, dict)
+                    and item.content.get("chunk_id")
+                    == item.provenance.source_id
+                )
             }
             unknown = (
                 set(self.generation.citation_chunk_ids) - available
             )
             if unknown:
                 raise ValueError(
-                    "Citations must reference chunk IDs in retrieval results."
+                    "Citations must reference authorized retrieval evidence "
+                    "in Final Evidence Context."
                 )
 
-        # Duplicate citations add no information and can cause repeated
-        # references in downstream renderers.
         if self.generation:
             citation_ids = self.generation.citation_chunk_ids
             if len(citation_ids) != len(set(citation_ids)):
@@ -89,12 +145,45 @@ class AnalyzeResponse(ContractModel):
                     "Citation chunk IDs must not contain duplicates."
                 )
 
-        # These outcomes are useful stage results, not technical failures:
-        # no_detections and no_evidence are normal outcomes. A skipped
-        # generation stage, by itself, is not a useful completed result.
+        if self.status == "needs_clarification":
+            if not review_required:
+                raise ValueError(
+                    "needs_clarification requires a FinalDecisionResult "
+                    "with action HUMAN_REVIEW."
+                )
+            if not self.clarification_message:
+                raise ValueError(
+                    "needs_clarification requires a user-facing message."
+                )
+            if self.clarification_message not in self.warnings:
+                raise ValueError(
+                    "The clarification message must also appear in warnings."
+                )
+            if self.generation is not None:
+                raise ValueError(
+                    "Generation must not run when clarification is required."
+                )
+
+        else:
+            if review_required:
+                raise ValueError(
+                    "A HUMAN_REVIEW final decision requires "
+                    "needs_clarification response status."
+                )
+            if self.clarification_message is not None:
+                raise ValueError(
+                    "clarification_message is only valid for "
+                    "needs_clarification responses."
+                )
+
         has_useful_output = (
-            self.vision is not None
+            (
+                self.context_assessment is not None
+                and self.context_assessment.status != ContextStatus.INDEPENDENT
+            )
+            or self.vision is not None
             or self.retrieval is not None
+            or self.final_evidence_context is not None
             or (
                 self.generation is not None
                 and self.generation.status != "skipped"
@@ -102,10 +191,21 @@ class AnalyzeResponse(ContractModel):
         )
 
         required_outputs_complete = (
-            (not options.run_vision or self.vision is not None)
+            (
+                not options.run_vision
+                or not self.image_provided
+                or self.vision is not None
+            )
             and (not options.run_retrieval or self.retrieval is not None)
             and (
                 not options.generate_answer
+                or (
+                    self.final_decision is not None
+                    and (
+                        self.final_decision.execution_status != "DECIDED"
+                        or self.final_decision.action != "DIRECT"
+                    )
+                )
                 or (
                     self.generation is not None
                     and self.generation.status != "skipped"

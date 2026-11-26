@@ -1,0 +1,88 @@
+CONTEXT-DEPENDENT QUERY REWRITING DATASET AUDIT
+=================================================================
+Dataset ID: multimodal_context_dependent_rewriting_v1
+Version: 1.0.0
+Status: draft_pending_human_review
+
+SUMMARY
+-----------------------------------------------------------------
+total_samples: 48
+action_counts: {'REWRITE': 19, 'HUMAN_REVIEW': 13, 'DIRECT': 16}
+split_counts: {'positive': 32, 'negative': 16}
+context_counts: {'conversational': 12, 'vision_derived': 12, 'multimodal': 12, 'hybrid': 12}
+difficulty_counts: {'easy': 7, 'medium': 20, 'challenging': 21}
+realism_counts: {'realistic': 31, 'synthetic_stress_test': 17}
+
+METADATA CHECKS
+-----------------------------------------------------------------
+total_samples_48: PASS
+four_context_types_12_each: PASS
+positive_32_negative_16: PASS
+draft_status_preserved: PASS
+ground_truth_not_approved: PASS
+runtime_use_prohibited: PASS
+
+STRUCTURAL ERRORS
+-----------------------------------------------------------------
+No structural errors detected.
+
+HUMAN REVIEW QUEUE
+-----------------------------------------------------------------
+conv_007 | conversational | missing_procedural_antecedent
+vision_003 | vision_derived | ambiguous_same_class_reference
+vision_004 | vision_derived | uncertain_detection_reference
+vision_005 | vision_derived | missing_procedural_antecedent
+vision_006 | vision_derived | new_image_requires_fresh_vision_inference
+multi_003 | multimodal | ambiguous_spatial_reference
+multi_005 | multimodal | semantic_ambiguity
+multi_007 | multimodal | uncertain_material_identity
+multi_008 | multimodal | missing_prior_image_and_advice
+hybrid_002 | hybrid | unresolved_conversation_detection_alignment
+hybrid_003 | hybrid | missing_procedural_antecedent
+hybrid_004 | hybrid | text_vision_conflict
+hybrid_007 | hybrid | missing_procedural_antecedent
+
+REWRITE QUEUE
+-----------------------------------------------------------------
+conv_001 | conversational | possessive_entity_reference
+conv_002 | conversational | condition_continuation
+conv_003 | conversational | component_reference
+conv_004 | conversational | cross_entity_comparison
+conv_005 | conversational | ordinal_reference
+conv_006 | conversational | scope_extension
+conv_008 | conversational | user_correction_and_reference
+vision_001 | vision_derived | single_detection_reference
+vision_002 | vision_derived | spatial_object_reference
+vision_007 | vision_derived | explicit_object_correction
+vision_008 | vision_derived | cross_detection_comparison
+multi_001 | multimodal | image_component_reference
+multi_002 | multimodal | visual_size_reference
+multi_004 | multimodal | image_context_with_omitted_entity
+multi_006 | multimodal | ordinal_and_visual_reference
+hybrid_001 | hybrid | vision_entity_plus_conversational_pronoun
+hybrid_005 | hybrid | explicit_cross_modal_correction
+hybrid_006 | hybrid | historical_image_reference
+hybrid_008 | hybrid | multi_turn_component_correction
+
+DIRECT QUEUE
+-----------------------------------------------------------------
+conv_009 | conversational
+conv_010 | conversational
+conv_011 | conversational
+conv_012 | conversational
+vision_009 | vision_derived
+vision_010 | vision_derived
+vision_011 | vision_derived
+vision_012 | vision_derived
+multi_009 | multimodal
+multi_010 | multimodal
+multi_011 | multimodal
+multi_012 | multimodal
+hybrid_009 | hybrid
+hybrid_010 | hybrid
+hybrid_011 | hybrid
+hybrid_012 | hybrid
+
+IMPORTANT
+-----------------------------------------------------------------
+This report is a preliminary audit, not human approval of the ground truth.

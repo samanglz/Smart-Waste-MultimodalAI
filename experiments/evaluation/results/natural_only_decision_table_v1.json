@@ -1,0 +1,901 @@
+{
+  "report_id": "natural_only_decision_table_v1",
+  "status": "preliminary",
+  "dataset_id": "natural_queries_eval_v2_frozen",
+  "dataset_version": 2,
+  "dataset_sha256": "c209357424f9a3c854f8dee6e4194e4afd85dde6175978eb459fc0e82b293eb1",
+  "ground_truth_status": "provisional_unapproved",
+  "decision_rules": {
+    "natural_sufficient": "All provisional evidence chunks are in Top-3 and first relevant rank is 1 or 2.",
+    "rewrite_candidate": "At least one provisional evidence chunk is in Top-10, but Top-3 evidence is incomplete or first relevant rank is 3 or lower.",
+    "human_review": "No provisional evidence in Top-10, missing data, or inconsistency in reported Recall@3."
+  },
+  "decision_counts": {
+    "natural_sufficient": 26,
+    "rewrite_candidate": 2
+  },
+  "per_query_decisions": [
+    {
+      "query_id": "v2_cardboard_01",
+      "topic": "cardboard",
+      "difficulty": "easy",
+      "original_query": "Can greasy pizza boxes be recycled?",
+      "provisional_evidence_count": 1,
+      "evidence_found_top3_count": 1,
+      "evidence_found_top10_count": 1,
+      "first_relevant_rank": 1,
+      "recall_at_3": 1.0,
+      "mrr_at_3": 1.0,
+      "ndcg_at_3": 1.0,
+      "latency_ms": 67.80611600015618,
+      "decision": "natural_sufficient",
+      "decision_reason": "all_evidence_in_top3_first_rank_1_or_2",
+      "found_evidence_top3": [
+        "epa_common_recyclables.txt::chunk_1"
+      ],
+      "missing_evidence_top3": [],
+      "missing_evidence_top10": [],
+      "retrieved_top3": [
+        "epa_common_recyclables.txt::chunk_1",
+        "epa_common_recyclables.txt::chunk_2",
+        "epa_common_recyclables.txt::chunk_5"
+      ],
+      "retrieved_top10": [
+        "epa_common_recyclables.txt::chunk_1",
+        "epa_common_recyclables.txt::chunk_2",
+        "epa_common_recyclables.txt::chunk_5"
+      ]
+    },
+    {
+      "query_id": "v2_cardboard_02",
+      "topic": "cardboard",
+      "difficulty": "easy",
+      "original_query": "What should I do to a cardboard box before recycling it?",
+      "provisional_evidence_count": 1,
+      "evidence_found_top3_count": 1,
+      "evidence_found_top10_count": 1,
+      "first_relevant_rank": 2,
+      "recall_at_3": 1.0,
+      "mrr_at_3": 0.5,
+      "ndcg_at_3": 0.6309297535714575,
+      "latency_ms": 71.47752399987439,
+      "decision": "natural_sufficient",
+      "decision_reason": "all_evidence_in_top3_first_rank_1_or_2",
+      "found_evidence_top3": [
+        "epa_common_recyclables.txt::chunk_2"
+      ],
+      "missing_evidence_top3": [],
+      "missing_evidence_top10": [],
+      "retrieved_top3": [
+        "epa_common_recyclables.txt::chunk_1",
+        "epa_common_recyclables.txt::chunk_2",
+        "epa_common_recyclables.txt::chunk_24"
+      ],
+      "retrieved_top10": [
+        "epa_common_recyclables.txt::chunk_1",
+        "epa_common_recyclables.txt::chunk_2",
+        "epa_common_recyclables.txt::chunk_24"
+      ]
+    },
+    {
+      "query_id": "v2_glass_01",
+      "topic": "glass",
+      "difficulty": "easy",
+      "original_query": "Can different colors of glass be recycled together?",
+      "provisional_evidence_count": 1,
+      "evidence_found_top3_count": 1,
+      "evidence_found_top10_count": 1,
+      "first_relevant_rank": 1,
+      "recall_at_3": 1.0,
+      "mrr_at_3": 1.0,
+      "ndcg_at_3": 1.0,
+      "latency_ms": 64.65195800001311,
+      "decision": "natural_sufficient",
+      "decision_reason": "all_evidence_in_top3_first_rank_1_or_2",
+      "found_evidence_top3": [
+        "epa_common_recyclables.txt::chunk_10"
+      ],
+      "missing_evidence_top3": [],
+      "missing_evidence_top10": [],
+      "retrieved_top3": [
+        "epa_common_recyclables.txt::chunk_10",
+        "epa_common_recyclables.txt::chunk_11",
+        "oecd_global_plastics_outlook.txt::chunk_326"
+      ],
+      "retrieved_top10": [
+        "epa_common_recyclables.txt::chunk_10",
+        "epa_common_recyclables.txt::chunk_11",
+        "oecd_global_plastics_outlook.txt::chunk_326"
+      ]
+    },
+    {
+      "query_id": "v2_glass_02",
+      "topic": "glass",
+      "difficulty": "easy",
+      "original_query": "Should broken glass go into the recycling bin?",
+      "provisional_evidence_count": 1,
+      "evidence_found_top3_count": 1,
+      "evidence_found_top10_count": 1,
+      "first_relevant_rank": 1,
+      "recall_at_3": 1.0,
+      "mrr_at_3": 1.0,
+      "ndcg_at_3": 1.0,
+      "latency_ms": 81.8229799999699,
+      "decision": "natural_sufficient",
+      "decision_reason": "all_evidence_in_top3_first_rank_1_or_2",
+      "found_evidence_top3": [
+        "epa_common_recyclables.txt::chunk_11"
+      ],
+      "missing_evidence_top3": [],
+      "missing_evidence_top10": [],
+      "retrieved_top3": [
+        "epa_common_recyclables.txt::chunk_11",
+        "epa_common_recyclables.txt::chunk_10",
+        "epa_common_recyclables.txt::chunk_9"
+      ],
+      "retrieved_top10": [
+        "epa_common_recyclables.txt::chunk_11",
+        "epa_common_recyclables.txt::chunk_10",
+        "epa_common_recyclables.txt::chunk_9"
+      ]
+    },
+    {
+      "query_id": "v2_plastic_01",
+      "topic": "plastic",
+      "difficulty": "easy",
+      "original_query": "How clean should a plastic food container be before recycling?",
+      "provisional_evidence_count": 1,
+      "evidence_found_top3_count": 1,
+      "evidence_found_top10_count": 1,
+      "first_relevant_rank": 1,
+      "recall_at_3": 1.0,
+      "mrr_at_3": 1.0,
+      "ndcg_at_3": 1.0,
+      "latency_ms": 82.12829600006444,
+      "decision": "natural_sufficient",
+      "decision_reason": "all_evidence_in_top3_first_rank_1_or_2",
+      "found_evidence_top3": [
+        "epa_common_recyclables.txt::chunk_9"
+      ],
+      "missing_evidence_top3": [],
+      "missing_evidence_top10": [],
+      "retrieved_top3": [
+        "epa_common_recyclables.txt::chunk_9",
+        "epa_common_recyclables.txt::chunk_2",
+        "oecd_global_plastics_outlook.txt::chunk_326"
+      ],
+      "retrieved_top10": [
+        "epa_common_recyclables.txt::chunk_9",
+        "epa_common_recyclables.txt::chunk_2",
+        "oecd_global_plastics_outlook.txt::chunk_326"
+      ]
+    },
+    {
+      "query_id": "v2_plastic_02",
+      "topic": "plastic",
+      "difficulty": "easy",
+      "original_query": "Should I check whether my local program accepts a plastic container?",
+      "provisional_evidence_count": 1,
+      "evidence_found_top3_count": 1,
+      "evidence_found_top10_count": 1,
+      "first_relevant_rank": 1,
+      "recall_at_3": 1.0,
+      "mrr_at_3": 1.0,
+      "ndcg_at_3": 1.0,
+      "latency_ms": 69.48811500001284,
+      "decision": "natural_sufficient",
+      "decision_reason": "all_evidence_in_top3_first_rank_1_or_2",
+      "found_evidence_top3": [
+        "epa_common_recyclables.txt::chunk_9"
+      ],
+      "missing_evidence_top3": [],
+      "missing_evidence_top10": [],
+      "retrieved_top3": [
+        "epa_common_recyclables.txt::chunk_9",
+        "epa_common_recyclables.txt::chunk_11",
+        "epa_common_recyclables.txt::chunk_1"
+      ],
+      "retrieved_top10": [
+        "epa_common_recyclables.txt::chunk_9",
+        "epa_common_recyclables.txt::chunk_11",
+        "epa_common_recyclables.txt::chunk_1"
+      ]
+    },
+    {
+      "query_id": "v2_metal_01",
+      "topic": "metal",
+      "difficulty": "easy",
+      "original_query": "Should aluminum cans usually be crushed before recycling?",
+      "provisional_evidence_count": 1,
+      "evidence_found_top3_count": 1,
+      "evidence_found_top10_count": 1,
+      "first_relevant_rank": 1,
+      "recall_at_3": 1.0,
+      "mrr_at_3": 1.0,
+      "ndcg_at_3": 1.0,
+      "latency_ms": 71.22351900011381,
+      "decision": "natural_sufficient",
+      "decision_reason": "all_evidence_in_top3_first_rank_1_or_2",
+      "found_evidence_top3": [
+        "epa_common_recyclables.txt::chunk_12"
+      ],
+      "missing_evidence_top3": [],
+      "missing_evidence_top10": [],
+      "retrieved_top3": [
+        "epa_common_recyclables.txt::chunk_12",
+        "epa_common_recyclables.txt::chunk_11",
+        "epa_recycling_basics.txt::chunk_7"
+      ],
+      "retrieved_top10": [
+        "epa_common_recyclables.txt::chunk_12",
+        "epa_common_recyclables.txt::chunk_11",
+        "epa_recycling_basics.txt::chunk_7"
+      ]
+    },
+    {
+      "query_id": "v2_metal_02",
+      "topic": "metal",
+      "difficulty": "easy",
+      "original_query": "Can aluminum foil be recycled if it has food residue?",
+      "provisional_evidence_count": 1,
+      "evidence_found_top3_count": 1,
+      "evidence_found_top10_count": 1,
+      "first_relevant_rank": 1,
+      "recall_at_3": 1.0,
+      "mrr_at_3": 1.0,
+      "ndcg_at_3": 1.0,
+      "latency_ms": 73.52193299993814,
+      "decision": "natural_sufficient",
+      "decision_reason": "all_evidence_in_top3_first_rank_1_or_2",
+      "found_evidence_top3": [
+        "epa_common_recyclables.txt::chunk_12"
+      ],
+      "missing_evidence_top3": [],
+      "missing_evidence_top10": [],
+      "retrieved_top3": [
+        "epa_common_recyclables.txt::chunk_12",
+        "epa_common_recyclables.txt::chunk_11",
+        "epa_common_recyclables.txt::chunk_6"
+      ],
+      "retrieved_top10": [
+        "epa_common_recyclables.txt::chunk_12",
+        "epa_common_recyclables.txt::chunk_11",
+        "epa_common_recyclables.txt::chunk_6"
+      ]
+    },
+    {
+      "query_id": "v2_battery_01",
+      "topic": "batteries",
+      "difficulty": "easy",
+      "original_query": "Can used lithium-ion batteries go into household recycling bins?",
+      "provisional_evidence_count": 1,
+      "evidence_found_top3_count": 1,
+      "evidence_found_top10_count": 1,
+      "first_relevant_rank": 1,
+      "recall_at_3": 1.0,
+      "mrr_at_3": 1.0,
+      "ndcg_at_3": 1.0,
+      "latency_ms": 74.56427500005702,
+      "decision": "natural_sufficient",
+      "decision_reason": "all_evidence_in_top3_first_rank_1_or_2",
+      "found_evidence_top3": [
+        "epa_common_recyclables.txt::chunk_14"
+      ],
+      "missing_evidence_top3": [],
+      "missing_evidence_top10": [],
+      "retrieved_top3": [
+        "epa_common_recyclables.txt::chunk_14",
+        "epa_common_recyclables.txt::chunk_13",
+        "epa_common_recyclables.txt::chunk_15"
+      ],
+      "retrieved_top10": [
+        "epa_common_recyclables.txt::chunk_14",
+        "epa_common_recyclables.txt::chunk_13",
+        "epa_common_recyclables.txt::chunk_15"
+      ]
+    },
+    {
+      "query_id": "v2_battery_02",
+      "topic": "batteries",
+      "difficulty": "easy",
+      "original_query": "Where can I take household batteries for special collection?",
+      "provisional_evidence_count": 1,
+      "evidence_found_top3_count": 1,
+      "evidence_found_top10_count": 1,
+      "first_relevant_rank": 1,
+      "recall_at_3": 1.0,
+      "mrr_at_3": 1.0,
+      "ndcg_at_3": 1.0,
+      "latency_ms": 68.46804399992834,
+      "decision": "natural_sufficient",
+      "decision_reason": "all_evidence_in_top3_first_rank_1_or_2",
+      "found_evidence_top3": [
+        "epa_common_recyclables.txt::chunk_13"
+      ],
+      "missing_evidence_top3": [],
+      "missing_evidence_top10": [],
+      "retrieved_top3": [
+        "epa_common_recyclables.txt::chunk_13",
+        "epa_common_recyclables.txt::chunk_14",
+        "epa_common_recyclables.txt::chunk_15"
+      ],
+      "retrieved_top10": [
+        "epa_common_recyclables.txt::chunk_13",
+        "epa_common_recyclables.txt::chunk_14",
+        "epa_common_recyclables.txt::chunk_15"
+      ]
+    },
+    {
+      "query_id": "v2_electronics_01",
+      "topic": "electronics",
+      "difficulty": "easy",
+      "original_query": "Can old computers be recycled through curbside collection?",
+      "provisional_evidence_count": 1,
+      "evidence_found_top3_count": 1,
+      "evidence_found_top10_count": 1,
+      "first_relevant_rank": 3,
+      "recall_at_3": 1.0,
+      "mrr_at_3": 0.3333333333333333,
+      "ndcg_at_3": 0.5,
+      "latency_ms": 73.71590499997183,
+      "decision": "rewrite_candidate",
+      "decision_reason": "incomplete_top3_or_first_evidence_at_rank_3_or_lower",
+      "found_evidence_top3": [
+        "epa_common_recyclables.txt::chunk_16"
+      ],
+      "missing_evidence_top3": [],
+      "missing_evidence_top10": [],
+      "retrieved_top3": [
+        "oecd_recycled_plastics_markets.txt::chunk_249",
+        "epa_common_recyclables.txt::chunk_10",
+        "epa_common_recyclables.txt::chunk_16"
+      ],
+      "retrieved_top10": [
+        "oecd_recycled_plastics_markets.txt::chunk_249",
+        "epa_common_recyclables.txt::chunk_10",
+        "epa_common_recyclables.txt::chunk_16"
+      ]
+    },
+    {
+      "query_id": "v2_clothing_01",
+      "topic": "textiles",
+      "difficulty": "easy",
+      "original_query": "How does recycling PET into textile fibres compare with using it in new packaging?",
+      "provisional_evidence_count": 1,
+      "evidence_found_top3_count": 1,
+      "evidence_found_top10_count": 1,
+      "first_relevant_rank": 1,
+      "recall_at_3": 1.0,
+      "mrr_at_3": 1.0,
+      "ndcg_at_3": 1.0,
+      "latency_ms": 83.17168099983974,
+      "decision": "natural_sufficient",
+      "decision_reason": "all_evidence_in_top3_first_rank_1_or_2",
+      "found_evidence_top3": [
+        "eea_recycling_quality.txt::chunk_18"
+      ],
+      "missing_evidence_top3": [],
+      "missing_evidence_top10": [],
+      "retrieved_top3": [
+        "eea_recycling_quality.txt::chunk_18",
+        "eea_recycling_quality.txt::chunk_21",
+        "eea_recycling_quality.txt::chunk_15"
+      ],
+      "retrieved_top10": [
+        "eea_recycling_quality.txt::chunk_18",
+        "eea_recycling_quality.txt::chunk_21",
+        "eea_recycling_quality.txt::chunk_15"
+      ]
+    },
+    {
+      "query_id": "v2_cardboard_03",
+      "topic": "cardboard",
+      "difficulty": "medium",
+      "original_query": "My pizza box is greasy and has a few food scraps left inside. What should I do before recycling it?",
+      "provisional_evidence_count": 1,
+      "evidence_found_top3_count": 1,
+      "evidence_found_top10_count": 1,
+      "first_relevant_rank": 1,
+      "recall_at_3": 1.0,
+      "mrr_at_3": 1.0,
+      "ndcg_at_3": 1.0,
+      "latency_ms": 97.72449499996583,
+      "decision": "natural_sufficient",
+      "decision_reason": "all_evidence_in_top3_first_rank_1_or_2",
+      "found_evidence_top3": [
+        "epa_common_recyclables.txt::chunk_1"
+      ],
+      "missing_evidence_top3": [],
+      "missing_evidence_top10": [],
+      "retrieved_top3": [
+        "epa_common_recyclables.txt::chunk_1",
+        "epa_common_recyclables.txt::chunk_9",
+        "epa_common_recyclables.txt::chunk_24"
+      ],
+      "retrieved_top10": [
+        "epa_common_recyclables.txt::chunk_1",
+        "epa_common_recyclables.txt::chunk_9",
+        "epa_common_recyclables.txt::chunk_24"
+      ]
+    },
+    {
+      "query_id": "v2_cardboard_04",
+      "topic": "cardboard",
+      "difficulty": "medium",
+      "original_query": "A cardboard takeout container has a little food residue. How clean does it need to be, and what if food still remains?",
+      "provisional_evidence_count": 1,
+      "evidence_found_top3_count": 1,
+      "evidence_found_top10_count": 1,
+      "first_relevant_rank": 1,
+      "recall_at_3": 1.0,
+      "mrr_at_3": 1.0,
+      "ndcg_at_3": 1.0,
+      "latency_ms": 103.05775899996661,
+      "decision": "natural_sufficient",
+      "decision_reason": "all_evidence_in_top3_first_rank_1_or_2",
+      "found_evidence_top3": [
+        "epa_common_recyclables.txt::chunk_2"
+      ],
+      "missing_evidence_top3": [],
+      "missing_evidence_top10": [],
+      "retrieved_top3": [
+        "epa_common_recyclables.txt::chunk_2",
+        "epa_common_recyclables.txt::chunk_9",
+        "epa_common_recyclables.txt::chunk_1"
+      ],
+      "retrieved_top10": [
+        "epa_common_recyclables.txt::chunk_2",
+        "epa_common_recyclables.txt::chunk_9",
+        "epa_common_recyclables.txt::chunk_1"
+      ]
+    },
+    {
+      "query_id": "v2_glass_03",
+      "topic": "glass",
+      "difficulty": "medium",
+      "original_query": "If my local program accepts glass, can I mix different glass colors, and what should I do with a metal bottle cap?",
+      "provisional_evidence_count": 2,
+      "evidence_found_top3_count": 2,
+      "evidence_found_top10_count": 2,
+      "first_relevant_rank": 1,
+      "recall_at_3": 1.0,
+      "mrr_at_3": 1.0,
+      "ndcg_at_3": 1.0,
+      "latency_ms": 95.83845299994209,
+      "decision": "natural_sufficient",
+      "decision_reason": "all_evidence_in_top3_first_rank_1_or_2",
+      "found_evidence_top3": [
+        "epa_common_recyclables.txt::chunk_10",
+        "epa_common_recyclables.txt::chunk_11"
+      ],
+      "missing_evidence_top3": [],
+      "missing_evidence_top10": [],
+      "retrieved_top3": [
+        "epa_common_recyclables.txt::chunk_11",
+        "epa_common_recyclables.txt::chunk_10",
+        "epa_common_recyclables.txt::chunk_24"
+      ],
+      "retrieved_top10": [
+        "epa_common_recyclables.txt::chunk_11",
+        "epa_common_recyclables.txt::chunk_10",
+        "epa_common_recyclables.txt::chunk_24"
+      ]
+    },
+    {
+      "query_id": "v2_glass_04",
+      "topic": "glass",
+      "difficulty": "medium",
+      "original_query": "Why should broken glass be kept out of the recycling bin?",
+      "provisional_evidence_count": 1,
+      "evidence_found_top3_count": 1,
+      "evidence_found_top10_count": 1,
+      "first_relevant_rank": 1,
+      "recall_at_3": 1.0,
+      "mrr_at_3": 1.0,
+      "ndcg_at_3": 1.0,
+      "latency_ms": 72.62218500000017,
+      "decision": "natural_sufficient",
+      "decision_reason": "all_evidence_in_top3_first_rank_1_or_2",
+      "found_evidence_top3": [
+        "epa_common_recyclables.txt::chunk_11"
+      ],
+      "missing_evidence_top3": [],
+      "missing_evidence_top10": [],
+      "retrieved_top3": [
+        "epa_common_recyclables.txt::chunk_11",
+        "epa_common_recyclables.txt::chunk_10",
+        "oecd_recycled_plastics_markets.txt::chunk_295"
+      ],
+      "retrieved_top10": [
+        "epa_common_recyclables.txt::chunk_11",
+        "epa_common_recyclables.txt::chunk_10",
+        "oecd_recycled_plastics_markets.txt::chunk_295"
+      ]
+    },
+    {
+      "query_id": "v2_plastic_03",
+      "topic": "plastic",
+      "difficulty": "medium",
+      "original_query": "My plastic food container still has sauce on it. If the local program accepts this plastic, is rinsing or scraping enough?",
+      "provisional_evidence_count": 1,
+      "evidence_found_top3_count": 1,
+      "evidence_found_top10_count": 1,
+      "first_relevant_rank": 1,
+      "recall_at_3": 1.0,
+      "mrr_at_3": 1.0,
+      "ndcg_at_3": 1.0,
+      "latency_ms": 114.11266899995098,
+      "decision": "natural_sufficient",
+      "decision_reason": "all_evidence_in_top3_first_rank_1_or_2",
+      "found_evidence_top3": [
+        "epa_common_recyclables.txt::chunk_9"
+      ],
+      "missing_evidence_top3": [],
+      "missing_evidence_top10": [],
+      "retrieved_top3": [
+        "epa_common_recyclables.txt::chunk_9",
+        "epa_common_recyclables.txt::chunk_2",
+        "oecd_recycled_plastics_markets.txt::chunk_407"
+      ],
+      "retrieved_top10": [
+        "epa_common_recyclables.txt::chunk_9",
+        "epa_common_recyclables.txt::chunk_2",
+        "oecd_recycled_plastics_markets.txt::chunk_407"
+      ]
+    },
+    {
+      "query_id": "v2_metal_03",
+      "topic": "metal",
+      "difficulty": "medium",
+      "original_query": "Why can crushing aluminum cans cause problems in some recycling systems but not others?",
+      "provisional_evidence_count": 1,
+      "evidence_found_top3_count": 1,
+      "evidence_found_top10_count": 1,
+      "first_relevant_rank": 1,
+      "recall_at_3": 1.0,
+      "mrr_at_3": 1.0,
+      "ndcg_at_3": 1.0,
+      "latency_ms": 81.47264500007623,
+      "decision": "natural_sufficient",
+      "decision_reason": "all_evidence_in_top3_first_rank_1_or_2",
+      "found_evidence_top3": [
+        "epa_common_recyclables.txt::chunk_12"
+      ],
+      "missing_evidence_top3": [],
+      "missing_evidence_top10": [],
+      "retrieved_top3": [
+        "epa_common_recyclables.txt::chunk_12",
+        "epa_recycling_basics.txt::chunk_7",
+        "oecd_recycled_plastics_markets.txt::chunk_160"
+      ],
+      "retrieved_top10": [
+        "epa_common_recyclables.txt::chunk_12",
+        "epa_recycling_basics.txt::chunk_7",
+        "oecd_recycled_plastics_markets.txt::chunk_160"
+      ]
+    },
+    {
+      "query_id": "v2_battery_03",
+      "topic": "batteries",
+      "difficulty": "medium",
+      "original_query": "I have a used rechargeable battery. Why should it stay out of ordinary household recycling bins, and what special collection options does the guidance describe?",
+      "provisional_evidence_count": 1,
+      "evidence_found_top3_count": 1,
+      "evidence_found_top10_count": 1,
+      "first_relevant_rank": 1,
+      "recall_at_3": 1.0,
+      "mrr_at_3": 1.0,
+      "ndcg_at_3": 1.0,
+      "latency_ms": 110.96863600005236,
+      "decision": "natural_sufficient",
+      "decision_reason": "all_evidence_in_top3_first_rank_1_or_2",
+      "found_evidence_top3": [
+        "epa_common_recyclables.txt::chunk_13"
+      ],
+      "missing_evidence_top3": [],
+      "missing_evidence_top10": [],
+      "retrieved_top3": [
+        "epa_common_recyclables.txt::chunk_13",
+        "epa_common_recyclables.txt::chunk_24",
+        "epa_common_recyclables.txt::chunk_14"
+      ],
+      "retrieved_top10": [
+        "epa_common_recyclables.txt::chunk_13",
+        "epa_common_recyclables.txt::chunk_24",
+        "epa_common_recyclables.txt::chunk_14"
+      ]
+    },
+    {
+      "query_id": "v2_battery_04",
+      "topic": "batteries",
+      "difficulty": "medium",
+      "original_query": "How does the recommended end-of-life route for a large electric-vehicle battery differ from household lithium-ion battery collection?",
+      "provisional_evidence_count": 1,
+      "evidence_found_top3_count": 1,
+      "evidence_found_top10_count": 1,
+      "first_relevant_rank": 1,
+      "recall_at_3": 1.0,
+      "mrr_at_3": 1.0,
+      "ndcg_at_3": 1.0,
+      "latency_ms": 98.89054199993552,
+      "decision": "natural_sufficient",
+      "decision_reason": "all_evidence_in_top3_first_rank_1_or_2",
+      "found_evidence_top3": [
+        "epa_common_recyclables.txt::chunk_14"
+      ],
+      "missing_evidence_top3": [],
+      "missing_evidence_top10": [],
+      "retrieved_top3": [
+        "epa_common_recyclables.txt::chunk_14",
+        "epa_common_recyclables.txt::chunk_13",
+        "epa_common_recyclables.txt::chunk_15"
+      ],
+      "retrieved_top10": [
+        "epa_common_recyclables.txt::chunk_14",
+        "epa_common_recyclables.txt::chunk_13",
+        "epa_common_recyclables.txt::chunk_15"
+      ]
+    },
+    {
+      "query_id": "v2_electronics_02",
+      "topic": "electronics",
+      "difficulty": "medium",
+      "original_query": "My old phone and laptop are no longer needed. What collection options does the guidance describe, and can they go in curbside recycling?",
+      "provisional_evidence_count": 1,
+      "evidence_found_top3_count": 1,
+      "evidence_found_top10_count": 1,
+      "first_relevant_rank": 1,
+      "recall_at_3": 1.0,
+      "mrr_at_3": 1.0,
+      "ndcg_at_3": 1.0,
+      "latency_ms": 100.62872299999981,
+      "decision": "natural_sufficient",
+      "decision_reason": "all_evidence_in_top3_first_rank_1_or_2",
+      "found_evidence_top3": [
+        "epa_common_recyclables.txt::chunk_16"
+      ],
+      "missing_evidence_top3": [],
+      "missing_evidence_top10": [],
+      "retrieved_top3": [
+        "epa_common_recyclables.txt::chunk_16",
+        "epa_common_recyclables.txt::chunk_24",
+        "oecd_global_plastics_outlook.txt::chunk_334"
+      ],
+      "retrieved_top10": [
+        "epa_common_recyclables.txt::chunk_16",
+        "epa_common_recyclables.txt::chunk_24",
+        "oecd_global_plastics_outlook.txt::chunk_334"
+      ]
+    },
+    {
+      "query_id": "v2_clothing_02",
+      "topic": "textiles",
+      "difficulty": "medium",
+      "original_query": "Why does the source assign recycled PET a higher loop-potential score for new packaging than for textile fibres?",
+      "provisional_evidence_count": 1,
+      "evidence_found_top3_count": 1,
+      "evidence_found_top10_count": 1,
+      "first_relevant_rank": 1,
+      "recall_at_3": 1.0,
+      "mrr_at_3": 1.0,
+      "ndcg_at_3": 1.0,
+      "latency_ms": 101.64904300017952,
+      "decision": "natural_sufficient",
+      "decision_reason": "all_evidence_in_top3_first_rank_1_or_2",
+      "found_evidence_top3": [
+        "eea_recycling_quality.txt::chunk_18"
+      ],
+      "missing_evidence_top3": [],
+      "missing_evidence_top10": [],
+      "retrieved_top3": [
+        "eea_recycling_quality.txt::chunk_18",
+        "eea_recycling_quality.txt::chunk_21",
+        "eea_recycling_quality.txt::chunk_19"
+      ],
+      "retrieved_top10": [
+        "eea_recycling_quality.txt::chunk_18",
+        "eea_recycling_quality.txt::chunk_21",
+        "eea_recycling_quality.txt::chunk_19"
+      ]
+    },
+    {
+      "query_id": "v2_cardboard_05",
+      "topic": "cardboard",
+      "difficulty": "challenging",
+      "original_query": "My pizza box is greasy and has some food scraps left inside. Can it still be recycled, and what should I do before putting it in the recycling bin?",
+      "provisional_evidence_count": 1,
+      "evidence_found_top3_count": 1,
+      "evidence_found_top10_count": 1,
+      "first_relevant_rank": 1,
+      "recall_at_3": 1.0,
+      "mrr_at_3": 1.0,
+      "ndcg_at_3": 1.0,
+      "latency_ms": 120.62442399997053,
+      "decision": "natural_sufficient",
+      "decision_reason": "all_evidence_in_top3_first_rank_1_or_2",
+      "found_evidence_top3": [
+        "epa_common_recyclables.txt::chunk_1"
+      ],
+      "missing_evidence_top3": [],
+      "missing_evidence_top10": [],
+      "retrieved_top3": [
+        "epa_common_recyclables.txt::chunk_1",
+        "epa_common_recyclables.txt::chunk_2",
+        "epa_common_recyclables.txt::chunk_5"
+      ],
+      "retrieved_top10": [
+        "epa_common_recyclables.txt::chunk_1",
+        "epa_common_recyclables.txt::chunk_2",
+        "epa_common_recyclables.txt::chunk_5"
+      ]
+    },
+    {
+      "query_id": "v2_glass_05",
+      "topic": "glass",
+      "difficulty": "challenging",
+      "original_query": "My area accepts glass containers, but I have a broken jar and an intact bottle with a metal cap. How does the guidance treat these two cases?",
+      "provisional_evidence_count": 2,
+      "evidence_found_top3_count": 2,
+      "evidence_found_top10_count": 2,
+      "first_relevant_rank": 1,
+      "recall_at_3": 1.0,
+      "mrr_at_3": 1.0,
+      "ndcg_at_3": 0.9197207891481876,
+      "latency_ms": 112.81145800012382,
+      "decision": "natural_sufficient",
+      "decision_reason": "all_evidence_in_top3_first_rank_1_or_2",
+      "found_evidence_top3": [
+        "epa_common_recyclables.txt::chunk_10",
+        "epa_common_recyclables.txt::chunk_11"
+      ],
+      "missing_evidence_top3": [],
+      "missing_evidence_top10": [],
+      "retrieved_top3": [
+        "epa_common_recyclables.txt::chunk_11",
+        "epa_common_recyclables.txt::chunk_9",
+        "epa_common_recyclables.txt::chunk_10"
+      ],
+      "retrieved_top10": [
+        "epa_common_recyclables.txt::chunk_11",
+        "epa_common_recyclables.txt::chunk_9",
+        "epa_common_recyclables.txt::chunk_10"
+      ]
+    },
+    {
+      "query_id": "v2_plastic_04",
+      "topic": "plastic",
+      "difficulty": "challenging",
+      "original_query": "A plastic food container has some residue, but I have not checked whether my local program accepts that plastic. What should I establish before deciding whether to recycle it?",
+      "provisional_evidence_count": 1,
+      "evidence_found_top3_count": 1,
+      "evidence_found_top10_count": 1,
+      "first_relevant_rank": 1,
+      "recall_at_3": 1.0,
+      "mrr_at_3": 1.0,
+      "ndcg_at_3": 1.0,
+      "latency_ms": 112.81678899990766,
+      "decision": "natural_sufficient",
+      "decision_reason": "all_evidence_in_top3_first_rank_1_or_2",
+      "found_evidence_top3": [
+        "epa_common_recyclables.txt::chunk_9"
+      ],
+      "missing_evidence_top3": [],
+      "missing_evidence_top10": [],
+      "retrieved_top3": [
+        "epa_common_recyclables.txt::chunk_9",
+        "epa_common_recyclables.txt::chunk_11",
+        "epa_common_recyclables.txt::chunk_21"
+      ],
+      "retrieved_top10": [
+        "epa_common_recyclables.txt::chunk_9",
+        "epa_common_recyclables.txt::chunk_11",
+        "epa_common_recyclables.txt::chunk_21"
+      ]
+    },
+    {
+      "query_id": "v2_metal_04",
+      "topic": "metal",
+      "difficulty": "challenging",
+      "original_query": "I want to recycle aluminum foil with food residue and aluminum cans in a single-stream collection area. What does the guidance say about cleaning the foil and crushing the cans?",
+      "provisional_evidence_count": 1,
+      "evidence_found_top3_count": 1,
+      "evidence_found_top10_count": 1,
+      "first_relevant_rank": 1,
+      "recall_at_3": 1.0,
+      "mrr_at_3": 1.0,
+      "ndcg_at_3": 1.0,
+      "latency_ms": 125.5993799998123,
+      "decision": "natural_sufficient",
+      "decision_reason": "all_evidence_in_top3_first_rank_1_or_2",
+      "found_evidence_top3": [
+        "epa_common_recyclables.txt::chunk_12"
+      ],
+      "missing_evidence_top3": [],
+      "missing_evidence_top10": [],
+      "retrieved_top3": [
+        "epa_common_recyclables.txt::chunk_12",
+        "oecd_recycled_plastics_markets.txt::chunk_294",
+        "epa_common_recyclables.txt::chunk_11"
+      ],
+      "retrieved_top10": [
+        "epa_common_recyclables.txt::chunk_12",
+        "oecd_recycled_plastics_markets.txt::chunk_294",
+        "epa_common_recyclables.txt::chunk_11"
+      ]
+    },
+    {
+      "query_id": "v2_battery_05",
+      "topic": "batteries",
+      "difficulty": "challenging",
+      "original_query": "I have household lithium-ion batteries and a battery from a large electric vehicle. Why should I avoid ordinary household bins, and does the guidance recommend the same return route for both?",
+      "provisional_evidence_count": 2,
+      "evidence_found_top3_count": 2,
+      "evidence_found_top10_count": 2,
+      "first_relevant_rank": 1,
+      "recall_at_3": 1.0,
+      "mrr_at_3": 1.0,
+      "ndcg_at_3": 1.0,
+      "latency_ms": 160.20907699999043,
+      "decision": "natural_sufficient",
+      "decision_reason": "all_evidence_in_top3_first_rank_1_or_2",
+      "found_evidence_top3": [
+        "epa_common_recyclables.txt::chunk_13",
+        "epa_common_recyclables.txt::chunk_14"
+      ],
+      "missing_evidence_top3": [],
+      "missing_evidence_top10": [],
+      "retrieved_top3": [
+        "epa_common_recyclables.txt::chunk_14",
+        "epa_common_recyclables.txt::chunk_13",
+        "epa_common_recyclables.txt::chunk_15"
+      ],
+      "retrieved_top10": [
+        "epa_common_recyclables.txt::chunk_14",
+        "epa_common_recyclables.txt::chunk_13",
+        "epa_common_recyclables.txt::chunk_15"
+      ]
+    },
+    {
+      "query_id": "v2_electronics_03",
+      "topic": "electronics",
+      "difficulty": "challenging",
+      "original_query": "I want to get rid of an old phone and its rechargeable battery. Which guidance applies to the electronic device, which applies to the battery, and why shouldn't I treat them as the same recycling item?",
+      "provisional_evidence_count": 3,
+      "evidence_found_top3_count": 2,
+      "evidence_found_top10_count": 2,
+      "first_relevant_rank": 1,
+      "recall_at_3": 0.6666666666666666,
+      "mrr_at_3": 1.0,
+      "ndcg_at_3": 0.7039180890341347,
+      "latency_ms": 141.67567100002998,
+      "decision": "rewrite_candidate",
+      "decision_reason": "incomplete_top3_or_first_evidence_at_rank_3_or_lower",
+      "found_evidence_top3": [
+        "epa_common_recyclables.txt::chunk_13",
+        "epa_common_recyclables.txt::chunk_14"
+      ],
+      "missing_evidence_top3": [
+        "epa_common_recyclables.txt::chunk_16"
+      ],
+      "missing_evidence_top10": [
+        "epa_common_recyclables.txt::chunk_16"
+      ],
+      "retrieved_top3": [
+        "epa_common_recyclables.txt::chunk_13",
+        "epa_common_recyclables.txt::chunk_24",
+        "epa_common_recyclables.txt::chunk_14"
+      ],
+      "retrieved_top10": [
+        "epa_common_recyclables.txt::chunk_13",
+        "epa_common_recyclables.txt::chunk_24",
+        "epa_common_recyclables.txt::chunk_14"
+      ]
+    }
+  ],
+  "limitations": [
+    "Decisions are based on provisional evidence_chunk_ids.",
+    "Ground Truth has not been approved by human review.",
+    "These labels are diagnostic and are not final runtime decisions.",
+    "Query IDs are used for reporting only, not as runtime policy rules."
+  ]
+}

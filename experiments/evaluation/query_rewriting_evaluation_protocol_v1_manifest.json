@@ -1,0 +1,16 @@
+{
+  "protocol_id": "query_rewriting_evaluation_protocol_v1",
+  "status": "protocol_draft",
+  "protocol_file": "docs/query_rewriting_evaluation_protocol_v1.md",
+  "protocol_sha256": "399b124128eb4e61520203f664f6dde1b2e4a50d9ccf3b0dc4f42c305be6cce3",
+  "frozen_dataset_file": "experiments/evaluation/natural_queries_eval_v2_frozen.json",
+  "frozen_dataset_sha256": "c209357424f9a3c854f8dee6e4194e4afd85dde6175978eb459fc0e82b293eb1",
+  "dataset_query_count": 28,
+  "created_at_utc": "2026-10-28T17:18:00.207925+00:00",
+  "llm_connected": false,
+  "ground_truth_assigned": false,
+  "retrieval_evaluation_run": false,
+  "frozen_dataset_modified": false,
+  "legacy_rag_modified": false,
+  "git_commit_or_push": false
+}

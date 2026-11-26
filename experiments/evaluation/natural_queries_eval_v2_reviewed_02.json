@@ -1,0 +1,493 @@
+{
+  "dataset_id": "natural_queries_eval_v2_reviewed_02",
+  "version": 2,
+  "status": "reviewed_draft_not_yet_frozen",
+  "query_count": 28,
+  "difficulty_counts": {
+    "easy": 12,
+    "medium": 10,
+    "challenging": 6
+  },
+  "queries": [
+    {
+      "query_id": "v2_cardboard_01",
+      "topic": "cardboard",
+      "difficulty": "easy",
+      "original_query": "Can greasy pizza boxes be recycled?",
+      "evidence_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_1"
+      ],
+      "must_preserve": [
+        "greasy pizza boxes",
+        "recyclability"
+      ],
+      "unsupported_details_to_avoid": [
+        "all local programs accept them"
+      ]
+    },
+    {
+      "query_id": "v2_cardboard_02",
+      "topic": "cardboard",
+      "difficulty": "easy",
+      "original_query": "What should I do to a cardboard box before recycling it?",
+      "evidence_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_2"
+      ],
+      "must_preserve": [
+        "cardboard box",
+        "preparation before recycling"
+      ],
+      "unsupported_details_to_avoid": [
+        "removing packing tape"
+      ]
+    },
+    {
+      "query_id": "v2_glass_01",
+      "topic": "glass",
+      "difficulty": "easy",
+      "original_query": "Can different colors of glass be recycled together?",
+      "evidence_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_10"
+      ],
+      "must_preserve": [
+        "different glass colors",
+        "mixed recycling"
+      ],
+      "unsupported_details_to_avoid": [
+        "every local program accepts mixed glass"
+      ]
+    },
+    {
+      "query_id": "v2_glass_02",
+      "topic": "glass",
+      "difficulty": "easy",
+      "original_query": "Should broken glass go into the recycling bin?",
+      "evidence_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_11"
+      ],
+      "must_preserve": [
+        "broken glass",
+        "ordinary recycling bin"
+      ],
+      "unsupported_details_to_avoid": [
+        "specific packaging instructions not in the source"
+      ]
+    },
+    {
+      "query_id": "v2_plastic_01",
+      "topic": "plastic",
+      "difficulty": "easy",
+      "original_query": "How clean should a plastic food container be before recycling?",
+      "evidence_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_9"
+      ],
+      "must_preserve": [
+        "plastic food container",
+        "cleanliness before recycling"
+      ],
+      "unsupported_details_to_avoid": [
+        "a requirement to remove every stain"
+      ]
+    },
+    {
+      "query_id": "v2_plastic_02",
+      "topic": "plastic",
+      "difficulty": "easy",
+      "original_query": "Should I check whether my local program accepts a plastic container?",
+      "evidence_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_9"
+      ],
+      "must_preserve": [
+        "local program",
+        "plastic acceptance"
+      ],
+      "unsupported_details_to_avoid": [
+        "assuming a specific plastic type is accepted"
+      ]
+    },
+    {
+      "query_id": "v2_metal_01",
+      "topic": "metal",
+      "difficulty": "easy",
+      "original_query": "Should aluminum cans usually be crushed before recycling?",
+      "evidence_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_12"
+      ],
+      "must_preserve": [
+        "aluminum cans",
+        "crushing before recycling"
+      ],
+      "unsupported_details_to_avoid": [
+        "claiming crushing is never acceptable"
+      ]
+    },
+    {
+      "query_id": "v2_metal_02",
+      "topic": "metal",
+      "difficulty": "easy",
+      "original_query": "Can aluminum foil be recycled if it has food residue?",
+      "evidence_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_12"
+      ],
+      "must_preserve": [
+        "aluminum foil",
+        "food residue",
+        "recycling"
+      ],
+      "unsupported_details_to_avoid": [
+        "assuming every program accepts foil"
+      ]
+    },
+    {
+      "query_id": "v2_battery_01",
+      "topic": "batteries",
+      "difficulty": "easy",
+      "original_query": "Can used lithium-ion batteries go into household recycling bins?",
+      "evidence_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_14"
+      ],
+      "must_preserve": [
+        "used lithium-ion batteries",
+        "household recycling bins"
+      ],
+      "unsupported_details_to_avoid": [
+        "treating them like ordinary recyclables"
+      ]
+    },
+    {
+      "query_id": "v2_battery_02",
+      "topic": "batteries",
+      "difficulty": "easy",
+      "original_query": "Where can I take household batteries for special collection?",
+      "evidence_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_13"
+      ],
+      "must_preserve": [
+        "household batteries",
+        "special collection"
+      ],
+      "unsupported_details_to_avoid": [
+        "inventing a nearby collection point"
+      ]
+    },
+    {
+      "query_id": "v2_electronics_01",
+      "topic": "electronics",
+      "difficulty": "easy",
+      "original_query": "Can old computers be recycled through curbside collection?",
+      "evidence_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_16"
+      ],
+      "must_preserve": [
+        "old computers",
+        "curbside collection"
+      ],
+      "unsupported_details_to_avoid": [
+        "assuming all retailers accept them"
+      ]
+    },
+    {
+      "query_id": "v2_clothing_01",
+      "topic": "textiles",
+      "difficulty": "easy",
+      "original_query": "How does recycling PET into textile fibres compare with using it in new packaging?",
+      "evidence_chunk_ids": [
+        "eea_recycling_quality.txt::chunk_18"
+      ],
+      "must_preserve": [
+        "recycled PET",
+        "textile fibres",
+        "new packaging"
+      ],
+      "unsupported_details_to_avoid": [
+        "claims about how to donate or dispose of clothing"
+      ]
+    },
+    {
+      "query_id": "v2_cardboard_03",
+      "topic": "cardboard",
+      "difficulty": "medium",
+      "original_query": "My pizza box is greasy and has a few food scraps left inside. What should I do before recycling it?",
+      "evidence_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_1"
+      ],
+      "must_preserve": [
+        "grease",
+        "food scraps",
+        "preparation",
+        "flattening the box after removing food scraps"
+      ],
+      "unsupported_details_to_avoid": [
+        "claiming the entire box must be discarded because it is greasy"
+      ]
+    },
+    {
+      "query_id": "v2_cardboard_04",
+      "topic": "cardboard",
+      "difficulty": "medium",
+      "original_query": "A cardboard takeout container has a little food residue. How clean does it need to be, and what if food still remains?",
+      "evidence_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_2"
+      ],
+      "must_preserve": [
+        "takeout container",
+        "residue removal",
+        "remaining contamination"
+      ],
+      "unsupported_details_to_avoid": [
+        "assuming every contaminated container is recyclable"
+      ]
+    },
+    {
+      "query_id": "v2_glass_03",
+      "topic": "glass",
+      "difficulty": "medium",
+      "original_query": "If my local program accepts glass, can I mix different glass colors, and what should I do with a metal bottle cap?",
+      "evidence_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_10",
+        "epa_common_recyclables.txt::chunk_11"
+      ],
+      "must_preserve": [
+        "local acceptance",
+        "glass colors",
+        "metal cap",
+        "recycling the metal cap separately from the glass bottle"
+      ],
+      "unsupported_details_to_avoid": [
+        "claiming every program follows the same rules"
+      ]
+    },
+    {
+      "query_id": "v2_glass_04",
+      "topic": "glass",
+      "difficulty": "medium",
+      "original_query": "Why should broken glass be kept out of the recycling bin?",
+      "evidence_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_11"
+      ],
+      "must_preserve": [
+        "broken glass",
+        "reason for exclusion"
+      ],
+      "unsupported_details_to_avoid": [
+        "inventing handling instructions absent from the source"
+      ]
+    },
+    {
+      "query_id": "v2_plastic_03",
+      "topic": "plastic",
+      "difficulty": "medium",
+      "original_query": "My plastic food container still has sauce on it. If the local program accepts this plastic, is rinsing or scraping enough?",
+      "evidence_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_9"
+      ],
+      "must_preserve": [
+        "sauce residue",
+        "local acceptance",
+        "rinsing or scraping"
+      ],
+      "unsupported_details_to_avoid": [
+        "assuming the plastic is accepted without checking"
+      ]
+    },
+    {
+      "query_id": "v2_metal_03",
+      "topic": "metal",
+      "difficulty": "medium",
+      "original_query": "Why can crushing aluminum cans cause problems in some recycling systems but not others?",
+      "evidence_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_12"
+      ],
+      "must_preserve": [
+        "crushed cans",
+        "single-stream versus multi-stream systems"
+      ],
+      "unsupported_details_to_avoid": [
+        "claiming the two systems sort cans identically"
+      ]
+    },
+    {
+      "query_id": "v2_battery_03",
+      "topic": "batteries",
+      "difficulty": "medium",
+      "original_query": "I have a used rechargeable battery. Why should it stay out of ordinary household recycling bins, and what special collection options does the guidance describe?",
+      "evidence_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_13"
+      ],
+      "must_preserve": [
+        "used rechargeable battery",
+        "ordinary household recycling bins",
+        "special collection options",
+        "battery-specific handling"
+      ],
+      "unsupported_details_to_avoid": [
+        "assuming all battery chemistries use the same collection route"
+      ]
+    },
+    {
+      "query_id": "v2_battery_04",
+      "topic": "batteries",
+      "difficulty": "medium",
+      "original_query": "How does the recommended end-of-life route for a large electric-vehicle battery differ from household lithium-ion battery collection?",
+      "evidence_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_14"
+      ],
+      "must_preserve": [
+        "large EV battery",
+        "household lithium-ion battery",
+        "different return routes"
+      ],
+      "unsupported_details_to_avoid": [
+        "inventing a specific local facility"
+      ]
+    },
+    {
+      "query_id": "v2_electronics_02",
+      "topic": "electronics",
+      "difficulty": "medium",
+      "original_query": "My old phone and laptop are no longer needed. What collection options does the guidance describe, and can they go in curbside recycling?",
+      "evidence_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_16"
+      ],
+      "must_preserve": [
+        "phone",
+        "laptop",
+        "collection options",
+        "curbside limitation"
+      ],
+      "unsupported_details_to_avoid": [
+        "assuming a particular retailer offers a program"
+      ]
+    },
+    {
+      "query_id": "v2_clothing_02",
+      "topic": "textiles",
+      "difficulty": "medium",
+      "original_query": "Why does the source assign recycled PET a higher loop-potential score for new packaging than for textile fibres?",
+      "evidence_chunk_ids": [
+        "eea_recycling_quality.txt::chunk_18"
+      ],
+      "must_preserve": [
+        "recycled PET",
+        "loop-potential comparison",
+        "reason for difference"
+      ],
+      "unsupported_details_to_avoid": [
+        "claiming the scores measure every aspect of environmental impact"
+      ]
+    },
+    {
+      "query_id": "v2_cardboard_05",
+      "topic": "cardboard",
+      "difficulty": "challenging",
+      "original_query": "My pizza box is greasy and has some food scraps left inside. Can it still be recycled, and what should I do before putting it in the recycling bin?",
+      "evidence_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_1"
+      ],
+      "must_preserve": [
+        "greasy pizza box",
+        "food scraps",
+        "recyclability",
+        "preparation steps",
+        "flattening the box after removing food scraps"
+      ],
+      "unsupported_details_to_avoid": [
+        "treating grease and leftover food as the same condition"
+      ]
+    },
+    {
+      "query_id": "v2_glass_05",
+      "topic": "glass",
+      "difficulty": "challenging",
+      "original_query": "My area accepts glass containers, but I have a broken jar and an intact bottle with a metal cap. How does the guidance treat these two cases?",
+      "evidence_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_10",
+        "epa_common_recyclables.txt::chunk_11"
+      ],
+      "must_preserve": [
+        "broken jar",
+        "intact bottle",
+        "metal cap",
+        "different handling",
+        "separating the metal cap from the glass bottle"
+      ],
+      "unsupported_details_to_avoid": [
+        "inventing safe packaging steps for shards"
+      ]
+    },
+    {
+      "query_id": "v2_plastic_04",
+      "topic": "plastic",
+      "difficulty": "challenging",
+      "original_query": "A plastic food container has some residue, but I have not checked whether my local program accepts that plastic. What should I establish before deciding whether to recycle it?",
+      "evidence_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_9"
+      ],
+      "must_preserve": [
+        "local acceptance",
+        "plastic type",
+        "food residue",
+        "decision order"
+      ],
+      "unsupported_details_to_avoid": [
+        "assuming cleaning alone makes every plastic recyclable"
+      ]
+    },
+    {
+      "query_id": "v2_metal_04",
+      "topic": "metal",
+      "difficulty": "challenging",
+      "original_query": "I want to recycle aluminum foil with food residue and aluminum cans in a single-stream collection area. What does the guidance say about cleaning the foil and crushing the cans?",
+      "evidence_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_12"
+      ],
+      "must_preserve": [
+        "foil residue",
+        "cleaning foil",
+        "can crushing",
+        "single-stream context"
+      ],
+      "unsupported_details_to_avoid": [
+        "claiming the source requires crushing cans"
+      ]
+    },
+    {
+      "query_id": "v2_battery_05",
+      "topic": "batteries",
+      "difficulty": "challenging",
+      "original_query": "I have household lithium-ion batteries and a battery from a large electric vehicle. Why should I avoid ordinary household bins, and does the guidance recommend the same return route for both?",
+      "evidence_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_13",
+        "epa_common_recyclables.txt::chunk_14"
+      ],
+      "must_preserve": [
+        "household lithium-ion",
+        "large EV battery",
+        "ordinary bins",
+        "different routes"
+      ],
+      "unsupported_details_to_avoid": [
+        "treating household and large-scale batteries as identical"
+      ]
+    },
+    {
+      "query_id": "v2_electronics_03",
+      "topic": "electronics",
+      "difficulty": "challenging",
+      "original_query": "I want to get rid of an old phone and its rechargeable battery. Which guidance applies to the electronic device, which applies to the battery, and why shouldn't I treat them as the same recycling item?",
+      "evidence_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_16",
+        "epa_common_recyclables.txt::chunk_13",
+        "epa_common_recyclables.txt::chunk_14"
+      ],
+      "must_preserve": [
+        "electronic device",
+        "rechargeable battery",
+        "distinct collection guidance"
+      ],
+      "unsupported_details_to_avoid": [
+        "assuming the phone and battery share one collection route"
+      ]
+    }
+  ]
+}

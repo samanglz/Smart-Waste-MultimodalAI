@@ -6,7 +6,15 @@ from pydantic import BaseModel, ConfigDict, Field
 
 ContractVersion = Literal["1.0"]
 ErrorStage = Literal[
-    "input", "vision", "retrieval", "generation", "orchestration"
+    "input",
+    "vision",
+    "retrieval",
+    "generation",
+    "context_analysis",
+    "context_validation",
+    "evidence_registry",
+    "final_evidence_context",
+    "orchestration",
 ]
 
 

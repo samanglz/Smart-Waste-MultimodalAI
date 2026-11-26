@@ -1,0 +1,15 @@
+# Optional dependencies for the legacy RAG integration.
+# Install these only when enabling the RAG retrieval adapter.
+
+# Numerical computing
+numpy>=1.26,<3.0
+
+# Embeddings
+torch>=2.2,<3.0
+sentence-transformers>=3.0,<6.0
+
+# Vector search
+faiss-cpu>=1.8,<2.0
+
+# Sparse retrieval
+rank-bm25>=0.2.2,<1.0

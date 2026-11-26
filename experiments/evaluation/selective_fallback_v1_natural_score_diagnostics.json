@@ -1,0 +1,359 @@
+{
+  "experiment_id": "selective_fallback_v1_natural_score_diagnostics",
+  "created_at_utc": "2026-10-28T13:04:19.403844+00:00",
+  "source_evaluation_file": "/content/drive/MyDrive/smart-waste-multimodal-ai/experiments/evaluation/query_rewriting_v1_results.json",
+  "retriever_class": "HybridRetriever",
+  "index_version": "v4_expanded",
+  "top_k": 20,
+  "query_count": 7,
+  "purpose": "Explore whether retrieval-score features correlate with target ranking on the seven natural queries.",
+  "diagnostics": [
+    {
+      "case_id": "cardboard",
+      "topic": "Cardboard",
+      "query": "How should I prepare cardboard boxes before recycling them?",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_1",
+        "epa_common_recyclables.txt::chunk_2"
+      ],
+      "target_ranks_in_this_run": {
+        "epa_common_recyclables.txt::chunk_1": 2,
+        "epa_common_recyclables.txt::chunk_2": 1
+      },
+      "target_hits_at_5": 2,
+      "target_hits_at_10": 2,
+      "target_hits_at_20": 2,
+      "first_target_rank": 1,
+      "retrieval_score_features": {
+        "result_count": 20,
+        "top_score": 0.03252247488101534,
+        "second_score": 0.03252247488101534,
+        "top1_top2_gap": 0.0,
+        "score_mean": 0.0213703873735198,
+        "score_stdev": 0.0074984378029256645,
+        "score_min": 0.0136986301369863,
+        "score_max": 0.03252247488101534,
+        "scores_in_rank_order": [
+          0.03252247488101534,
+          0.03252247488101534,
+          0.03057889822595705,
+          0.02946912242686891,
+          0.029236022193768675,
+          0.028814262023217248,
+          0.028665028665028666,
+          0.02804284323271665,
+          0.025657894736842105,
+          0.015873015873015872,
+          0.015625,
+          0.015625,
+          0.014925373134328358,
+          0.014705882352941176,
+          0.014492753623188406,
+          0.014492753623188406,
+          0.014285714285714285,
+          0.014285714285714285,
+          0.013888888888888888,
+          0.0136986301369863
+        ]
+      }
+    },
+    {
+      "case_id": "glass",
+      "topic": "Glass",
+      "query": "How should I prepare glass bottles for recycling?",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_10",
+        "epa_common_recyclables.txt::chunk_11"
+      ],
+      "target_ranks_in_this_run": {
+        "epa_common_recyclables.txt::chunk_11": 1,
+        "epa_common_recyclables.txt::chunk_10": 3
+      },
+      "target_hits_at_5": 2,
+      "target_hits_at_10": 2,
+      "target_hits_at_20": 2,
+      "first_target_rank": 1,
+      "retrieval_score_features": {
+        "result_count": 20,
+        "top_score": 0.03278688524590164,
+        "second_score": 0.031754032258064516,
+        "top1_top2_gap": 0.0010328529878371254,
+        "score_mean": 0.018690335746550362,
+        "score_stdev": 0.006798775064971284,
+        "score_min": 0.014084507042253521,
+        "score_max": 0.03278688524590164,
+        "scores_in_rank_order": [
+          0.03278688524590164,
+          0.031754032258064516,
+          0.03125763125763126,
+          0.029030910609857977,
+          0.026547116736990152,
+          0.016129032258064516,
+          0.015625,
+          0.015384615384615385,
+          0.015151515151515152,
+          0.015151515151515152,
+          0.014925373134328358,
+          0.014925373134328358,
+          0.014705882352941176,
+          0.014705882352941176,
+          0.014492753623188406,
+          0.014492753623188406,
+          0.014285714285714285,
+          0.014285714285714285,
+          0.014084507042253521,
+          0.014084507042253521
+        ]
+      }
+    },
+    {
+      "case_id": "plastic",
+      "topic": "Plastic",
+      "query": "How should I clean plastic containers before recycling them?",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_9"
+      ],
+      "target_ranks_in_this_run": {
+        "epa_common_recyclables.txt::chunk_9": 1
+      },
+      "target_hits_at_5": 1,
+      "target_hits_at_10": 1,
+      "target_hits_at_20": 1,
+      "first_target_rank": 1,
+      "retrieval_score_features": {
+        "result_count": 20,
+        "top_score": 0.03278688524590164,
+        "second_score": 0.03225806451612903,
+        "top1_top2_gap": 0.0005288207297726097,
+        "score_mean": 0.017995891302105917,
+        "score_stdev": 0.0062133734881722365,
+        "score_min": 0.014084507042253521,
+        "score_max": 0.03278688524590164,
+        "scores_in_rank_order": [
+          0.03278688524590164,
+          0.03225806451612903,
+          0.028531243721117136,
+          0.027242401779095628,
+          0.015873015873015872,
+          0.015625,
+          0.015625,
+          0.015384615384615385,
+          0.015384615384615385,
+          0.015151515151515152,
+          0.015151515151515152,
+          0.014925373134328358,
+          0.014925373134328358,
+          0.014705882352941176,
+          0.014705882352941176,
+          0.014492753623188406,
+          0.014492753623188406,
+          0.014285714285714285,
+          0.014285714285714285,
+          0.014084507042253521
+        ]
+      }
+    },
+    {
+      "case_id": "metal",
+      "topic": "Metal",
+      "query": "How should I prepare metal cans and bottle caps for recycling?",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_11",
+        "epa_common_recyclables.txt::chunk_12"
+      ],
+      "target_ranks_in_this_run": {
+        "epa_common_recyclables.txt::chunk_11": 1,
+        "epa_common_recyclables.txt::chunk_12": 3
+      },
+      "target_hits_at_5": 2,
+      "target_hits_at_10": 2,
+      "target_hits_at_20": 2,
+      "first_target_rank": 1,
+      "retrieval_score_features": {
+        "result_count": 20,
+        "top_score": 0.03278688524590164,
+        "second_score": 0.031754032258064516,
+        "top1_top2_gap": 0.0010328529878371254,
+        "score_mean": 0.020121731812288372,
+        "score_stdev": 0.007817667124651893,
+        "score_min": 0.0136986301369863,
+        "score_max": 0.03278688524590164,
+        "scores_in_rank_order": [
+          0.03278688524590164,
+          0.031754032258064516,
+          0.031746031746031744,
+          0.03128054740957967,
+          0.02946912242686891,
+          0.029083245521601686,
+          0.028782894736842105,
+          0.015151515151515152,
+          0.014925373134328358,
+          0.014925373134328358,
+          0.014705882352941176,
+          0.014705882352941176,
+          0.014492753623188406,
+          0.014492753623188406,
+          0.014285714285714285,
+          0.014285714285714285,
+          0.014084507042253521,
+          0.013888888888888888,
+          0.013888888888888888,
+          0.0136986301369863
+        ]
+      }
+    },
+    {
+      "case_id": "batteries",
+      "topic": "Batteries",
+      "query": "How should I dispose of used household batteries safely?",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_13",
+        "epa_common_recyclables.txt::chunk_14",
+        "epa_common_recyclables.txt::chunk_15"
+      ],
+      "target_ranks_in_this_run": {
+        "epa_common_recyclables.txt::chunk_13": 1,
+        "epa_common_recyclables.txt::chunk_15": 5,
+        "epa_common_recyclables.txt::chunk_14": 2
+      },
+      "target_hits_at_5": 3,
+      "target_hits_at_10": 3,
+      "target_hits_at_20": 3,
+      "first_target_rank": 1,
+      "retrieval_score_features": {
+        "result_count": 20,
+        "top_score": 0.03278688524590164,
+        "second_score": 0.03225806451612903,
+        "top1_top2_gap": 0.0005288207297726097,
+        "score_mean": 0.02144018842679762,
+        "score_stdev": 0.008294779385472306,
+        "score_min": 0.013513513513513514,
+        "score_max": 0.03278688524590164,
+        "scores_in_rank_order": [
+          0.03278688524590164,
+          0.03225806451612903,
+          0.03125763125763126,
+          0.03125,
+          0.030303030303030304,
+          0.02967032967032967,
+          0.029631255487269532,
+          0.029418126757516764,
+          0.028373015873015873,
+          0.014705882352941176,
+          0.014492753623188406,
+          0.014285714285714285,
+          0.014084507042253521,
+          0.014084507042253521,
+          0.013888888888888888,
+          0.013888888888888888,
+          0.0136986301369863,
+          0.0136986301369863,
+          0.013513513513513514,
+          0.013513513513513514
+        ]
+      }
+    },
+    {
+      "case_id": "electronics",
+      "topic": "Electronics",
+      "query": "Where should I take old electronics for recycling?",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_16"
+      ],
+      "target_ranks_in_this_run": {
+        "epa_common_recyclables.txt::chunk_16": 1
+      },
+      "target_hits_at_5": 1,
+      "target_hits_at_10": 1,
+      "target_hits_at_20": 1,
+      "first_target_rank": 1,
+      "retrieval_score_features": {
+        "result_count": 20,
+        "top_score": 0.03177805800756621,
+        "second_score": 0.031544957774465976,
+        "top1_top2_gap": 0.00023310023310023353,
+        "score_mean": 0.020121731812288372,
+        "score_stdev": 0.007569869168008524,
+        "score_min": 0.0136986301369863,
+        "score_max": 0.03177805800756621,
+        "scores_in_rank_order": [
+          0.03177805800756621,
+          0.031544957774465976,
+          0.031024531024531024,
+          0.030834914611005692,
+          0.029850746268656716,
+          0.029571646010002173,
+          0.02786377708978328,
+          0.016129032258064516,
+          0.015625,
+          0.015625,
+          0.015384615384615385,
+          0.014492753623188406,
+          0.014492753623188406,
+          0.014285714285714285,
+          0.014285714285714285,
+          0.014084507042253521,
+          0.014084507042253521,
+          0.013888888888888888,
+          0.013888888888888888,
+          0.0136986301369863
+        ]
+      }
+    },
+    {
+      "case_id": "clothing",
+      "topic": "Clothing",
+      "query": "What can I do with old clothes and damaged shoes?",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_25"
+      ],
+      "target_ranks_in_this_run": {
+        "epa_common_recyclables.txt::chunk_25": 1
+      },
+      "target_hits_at_5": 1,
+      "target_hits_at_10": 1,
+      "target_hits_at_20": 1,
+      "first_target_rank": 1,
+      "retrieval_score_features": {
+        "result_count": 20,
+        "top_score": 0.03252247488101534,
+        "second_score": 0.03252247488101534,
+        "top1_top2_gap": 0.0,
+        "score_mean": 0.020673046048714363,
+        "score_stdev": 0.007458261779548495,
+        "score_min": 0.014084507042253521,
+        "score_max": 0.03252247488101534,
+        "scores_in_rank_order": [
+          0.03252247488101534,
+          0.03252247488101534,
+          0.03125763125763126,
+          0.03125,
+          0.028083267871170464,
+          0.028083267871170464,
+          0.027402402402402402,
+          0.02564102564102564,
+          0.015873015873015872,
+          0.015384615384615385,
+          0.015151515151515152,
+          0.015151515151515152,
+          0.014705882352941176,
+          0.014705882352941176,
+          0.014492753623188406,
+          0.014492753623188406,
+          0.014285714285714285,
+          0.014285714285714285,
+          0.014084507042253521,
+          0.014084507042253521
+        ]
+      }
+    }
+  ],
+  "interpretation_limits": [
+    "Only seven natural queries are included.",
+    "RRF scores are fusion scores, not probabilities of relevance.",
+    "Score features are exploratory and do not establish a threshold.",
+    "Target chunks are evaluation labels and must not be used by the runtime fallback decision."
+  ],
+  "fallback_threshold_selected": false,
+  "legacy_rag_project_modified": false
+}

@@ -1,0 +1,303 @@
+{
+  "report_id": "selective_policy_audit_v2",
+  "status": "offline_policy_audit",
+  "dataset_id": "natural_queries_eval_v2_frozen",
+  "dataset_version": 2,
+  "query_count": 28,
+  "policy_summary": {
+    "direct_count": 28,
+    "rewrite_count": 0
+  },
+  "comparison_with_natural_only": {
+    "natural_sufficient__direct": 26,
+    "rewrite_candidate__direct": 2
+  },
+  "per_query_decisions": [
+    {
+      "query_id": "v2_cardboard_01",
+      "topic": "cardboard",
+      "difficulty": "easy",
+      "original_query": "Can greasy pizza boxes be recycled?",
+      "natural_only_decision": "natural_sufficient",
+      "policy_should_rewrite": false,
+      "policy_reason": "direct_query_sufficient",
+      "policy_signals": []
+    },
+    {
+      "query_id": "v2_cardboard_02",
+      "topic": "cardboard",
+      "difficulty": "easy",
+      "original_query": "What should I do to a cardboard box before recycling it?",
+      "natural_only_decision": "natural_sufficient",
+      "policy_should_rewrite": false,
+      "policy_reason": "direct_query_sufficient",
+      "policy_signals": []
+    },
+    {
+      "query_id": "v2_glass_01",
+      "topic": "glass",
+      "difficulty": "easy",
+      "original_query": "Can different colors of glass be recycled together?",
+      "natural_only_decision": "natural_sufficient",
+      "policy_should_rewrite": false,
+      "policy_reason": "direct_query_sufficient",
+      "policy_signals": []
+    },
+    {
+      "query_id": "v2_glass_02",
+      "topic": "glass",
+      "difficulty": "easy",
+      "original_query": "Should broken glass go into the recycling bin?",
+      "natural_only_decision": "natural_sufficient",
+      "policy_should_rewrite": false,
+      "policy_reason": "direct_query_sufficient",
+      "policy_signals": []
+    },
+    {
+      "query_id": "v2_plastic_01",
+      "topic": "plastic",
+      "difficulty": "easy",
+      "original_query": "How clean should a plastic food container be before recycling?",
+      "natural_only_decision": "natural_sufficient",
+      "policy_should_rewrite": false,
+      "policy_reason": "direct_query_sufficient",
+      "policy_signals": []
+    },
+    {
+      "query_id": "v2_plastic_02",
+      "topic": "plastic",
+      "difficulty": "easy",
+      "original_query": "Should I check whether my local program accepts a plastic container?",
+      "natural_only_decision": "natural_sufficient",
+      "policy_should_rewrite": false,
+      "policy_reason": "direct_query_sufficient",
+      "policy_signals": []
+    },
+    {
+      "query_id": "v2_metal_01",
+      "topic": "metal",
+      "difficulty": "easy",
+      "original_query": "Should aluminum cans usually be crushed before recycling?",
+      "natural_only_decision": "natural_sufficient",
+      "policy_should_rewrite": false,
+      "policy_reason": "direct_query_sufficient",
+      "policy_signals": []
+    },
+    {
+      "query_id": "v2_metal_02",
+      "topic": "metal",
+      "difficulty": "easy",
+      "original_query": "Can aluminum foil be recycled if it has food residue?",
+      "natural_only_decision": "natural_sufficient",
+      "policy_should_rewrite": false,
+      "policy_reason": "direct_query_sufficient",
+      "policy_signals": []
+    },
+    {
+      "query_id": "v2_battery_01",
+      "topic": "batteries",
+      "difficulty": "easy",
+      "original_query": "Can used lithium-ion batteries go into household recycling bins?",
+      "natural_only_decision": "natural_sufficient",
+      "policy_should_rewrite": false,
+      "policy_reason": "direct_query_sufficient",
+      "policy_signals": []
+    },
+    {
+      "query_id": "v2_battery_02",
+      "topic": "batteries",
+      "difficulty": "easy",
+      "original_query": "Where can I take household batteries for special collection?",
+      "natural_only_decision": "natural_sufficient",
+      "policy_should_rewrite": false,
+      "policy_reason": "direct_query_sufficient",
+      "policy_signals": []
+    },
+    {
+      "query_id": "v2_electronics_01",
+      "topic": "electronics",
+      "difficulty": "easy",
+      "original_query": "Can old computers be recycled through curbside collection?",
+      "natural_only_decision": "rewrite_candidate",
+      "policy_should_rewrite": false,
+      "policy_reason": "direct_query_sufficient",
+      "policy_signals": []
+    },
+    {
+      "query_id": "v2_clothing_01",
+      "topic": "textiles",
+      "difficulty": "easy",
+      "original_query": "How does recycling PET into textile fibres compare with using it in new packaging?",
+      "natural_only_decision": "natural_sufficient",
+      "policy_should_rewrite": false,
+      "policy_reason": "direct_query_sufficient",
+      "policy_signals": []
+    },
+    {
+      "query_id": "v2_cardboard_03",
+      "topic": "cardboard",
+      "difficulty": "medium",
+      "original_query": "My pizza box is greasy and has a few food scraps left inside. What should I do before recycling it?",
+      "natural_only_decision": "natural_sufficient",
+      "policy_should_rewrite": false,
+      "policy_reason": "direct_query_sufficient",
+      "policy_signals": []
+    },
+    {
+      "query_id": "v2_cardboard_04",
+      "topic": "cardboard",
+      "difficulty": "medium",
+      "original_query": "A cardboard takeout container has a little food residue. How clean does it need to be, and what if food still remains?",
+      "natural_only_decision": "natural_sufficient",
+      "policy_should_rewrite": false,
+      "policy_reason": "direct_query_sufficient",
+      "policy_signals": []
+    },
+    {
+      "query_id": "v2_glass_03",
+      "topic": "glass",
+      "difficulty": "medium",
+      "original_query": "If my local program accepts glass, can I mix different glass colors, and what should I do with a metal bottle cap?",
+      "natural_only_decision": "natural_sufficient",
+      "policy_should_rewrite": false,
+      "policy_reason": "direct_query_sufficient",
+      "policy_signals": []
+    },
+    {
+      "query_id": "v2_glass_04",
+      "topic": "glass",
+      "difficulty": "medium",
+      "original_query": "Why should broken glass be kept out of the recycling bin?",
+      "natural_only_decision": "natural_sufficient",
+      "policy_should_rewrite": false,
+      "policy_reason": "direct_query_sufficient",
+      "policy_signals": []
+    },
+    {
+      "query_id": "v2_plastic_03",
+      "topic": "plastic",
+      "difficulty": "medium",
+      "original_query": "My plastic food container still has sauce on it. If the local program accepts this plastic, is rinsing or scraping enough?",
+      "natural_only_decision": "natural_sufficient",
+      "policy_should_rewrite": false,
+      "policy_reason": "direct_query_sufficient",
+      "policy_signals": []
+    },
+    {
+      "query_id": "v2_metal_03",
+      "topic": "metal",
+      "difficulty": "medium",
+      "original_query": "Why can crushing aluminum cans cause problems in some recycling systems but not others?",
+      "natural_only_decision": "natural_sufficient",
+      "policy_should_rewrite": false,
+      "policy_reason": "direct_query_sufficient",
+      "policy_signals": []
+    },
+    {
+      "query_id": "v2_battery_03",
+      "topic": "batteries",
+      "difficulty": "medium",
+      "original_query": "I have a used rechargeable battery. Why should it stay out of ordinary household recycling bins, and what special collection options does the guidance describe?",
+      "natural_only_decision": "natural_sufficient",
+      "policy_should_rewrite": false,
+      "policy_reason": "direct_query_sufficient",
+      "policy_signals": []
+    },
+    {
+      "query_id": "v2_battery_04",
+      "topic": "batteries",
+      "difficulty": "medium",
+      "original_query": "How does the recommended end-of-life route for a large electric-vehicle battery differ from household lithium-ion battery collection?",
+      "natural_only_decision": "natural_sufficient",
+      "policy_should_rewrite": false,
+      "policy_reason": "direct_query_sufficient",
+      "policy_signals": []
+    },
+    {
+      "query_id": "v2_electronics_02",
+      "topic": "electronics",
+      "difficulty": "medium",
+      "original_query": "My old phone and laptop are no longer needed. What collection options does the guidance describe, and can they go in curbside recycling?",
+      "natural_only_decision": "natural_sufficient",
+      "policy_should_rewrite": false,
+      "policy_reason": "direct_query_sufficient",
+      "policy_signals": []
+    },
+    {
+      "query_id": "v2_clothing_02",
+      "topic": "textiles",
+      "difficulty": "medium",
+      "original_query": "Why does the source assign recycled PET a higher loop-potential score for new packaging than for textile fibres?",
+      "natural_only_decision": "natural_sufficient",
+      "policy_should_rewrite": false,
+      "policy_reason": "direct_query_sufficient",
+      "policy_signals": []
+    },
+    {
+      "query_id": "v2_cardboard_05",
+      "topic": "cardboard",
+      "difficulty": "challenging",
+      "original_query": "My pizza box is greasy and has some food scraps left inside. Can it still be recycled, and what should I do before putting it in the recycling bin?",
+      "natural_only_decision": "natural_sufficient",
+      "policy_should_rewrite": false,
+      "policy_reason": "direct_query_sufficient",
+      "policy_signals": []
+    },
+    {
+      "query_id": "v2_glass_05",
+      "topic": "glass",
+      "difficulty": "challenging",
+      "original_query": "My area accepts glass containers, but I have a broken jar and an intact bottle with a metal cap. How does the guidance treat these two cases?",
+      "natural_only_decision": "natural_sufficient",
+      "policy_should_rewrite": false,
+      "policy_reason": "direct_query_sufficient",
+      "policy_signals": []
+    },
+    {
+      "query_id": "v2_plastic_04",
+      "topic": "plastic",
+      "difficulty": "challenging",
+      "original_query": "A plastic food container has some residue, but I have not checked whether my local program accepts that plastic. What should I establish before deciding whether to recycle it?",
+      "natural_only_decision": "natural_sufficient",
+      "policy_should_rewrite": false,
+      "policy_reason": "direct_query_sufficient",
+      "policy_signals": []
+    },
+    {
+      "query_id": "v2_metal_04",
+      "topic": "metal",
+      "difficulty": "challenging",
+      "original_query": "I want to recycle aluminum foil with food residue and aluminum cans in a single-stream collection area. What does the guidance say about cleaning the foil and crushing the cans?",
+      "natural_only_decision": "natural_sufficient",
+      "policy_should_rewrite": false,
+      "policy_reason": "direct_query_sufficient",
+      "policy_signals": []
+    },
+    {
+      "query_id": "v2_battery_05",
+      "topic": "batteries",
+      "difficulty": "challenging",
+      "original_query": "I have household lithium-ion batteries and a battery from a large electric vehicle. Why should I avoid ordinary household bins, and does the guidance recommend the same return route for both?",
+      "natural_only_decision": "natural_sufficient",
+      "policy_should_rewrite": false,
+      "policy_reason": "direct_query_sufficient",
+      "policy_signals": []
+    },
+    {
+      "query_id": "v2_electronics_03",
+      "topic": "electronics",
+      "difficulty": "challenging",
+      "original_query": "I want to get rid of an old phone and its rechargeable battery. Which guidance applies to the electronic device, which applies to the battery, and why shouldn't I treat them as the same recycling item?",
+      "natural_only_decision": "rewrite_candidate",
+      "policy_should_rewrite": false,
+      "policy_reason": "direct_query_sufficient",
+      "policy_signals": []
+    }
+  ],
+  "limitations": [
+    "Offline policy audit only; no Gemini calls were made.",
+    "Natural Only decisions are provisional and based on unapproved ground truth.",
+    "This audit does not establish that rewriting improves retrieval quality.",
+    "The policy uses query text only and does not inspect retrieval results."
+  ]
+}

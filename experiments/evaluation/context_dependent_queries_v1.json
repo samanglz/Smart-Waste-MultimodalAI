@@ -1,0 +1,2159 @@
+{
+  "dataset_id": "multimodal_context_dependent_rewriting_v1",
+  "version": "1.0.0",
+  "status": "draft_pending_human_review",
+  "final_ground_truth_approved": false,
+  "runtime_use_prohibited": true,
+  "description": "Independent evaluation dataset for context-dependent query rewriting across conversational, vision-derived, multimodal, and hybrid contexts.",
+  "design": {
+    "total_samples": 48,
+    "context_types": {
+      "conversational": 12,
+      "vision_derived": 12,
+      "multimodal": 12,
+      "hybrid": 12
+    },
+    "positive_count": 32,
+    "negative_control_count": 16,
+    "positive_definition": "The follow-up query depends on preceding context. The correct action may be REWRITE or HUMAN_REVIEW.",
+    "negative_definition": "The follow-up query is independently interpretable and should be sent directly to retrieval."
+  },
+  "policy_action_definitions": {
+    "DIRECT": "Send the original query to retrieval unchanged.",
+    "REWRITE": "Resolve the reference using supported context and create a standalone query.",
+    "HUMAN_REVIEW": "Do not guess; context is ambiguous, conflicting, stale, or insufficient."
+  },
+  "realism_labels": {
+    "realistic": "Structurally plausible scenario based on the project's supported material classes and context sources.",
+    "synthetic_stress_test": "Intentionally constructed edge case for testing ambiguity, conflicts, uncertainty, and policy failure modes."
+  },
+  "important_limitations": [
+    "Vision records are synthetic test annotations, not actual YOLO inference outputs.",
+    "Image observations are textual annotations; no actual image files are attached.",
+    "YOLO material classes do not establish exact product identity.",
+    "Confidence scores do not by themselves establish semantic certainty.",
+    "Expected actions and rewrites are draft labels pending human review.",
+    "This dataset must not be used as runtime ground truth.",
+    "This dataset is independent of the frozen 28-query evaluation dataset."
+  ],
+  "samples": [
+    {
+      "sample_id": "conv_001",
+      "context_type": "conversational",
+      "split": "positive",
+      "difficulty": "easy",
+      "source_realism": "realistic",
+      "context": {
+        "conversation": [
+          {
+            "role": "user",
+            "content": "I have an old mobile phone. Can it be recycled through curbside collection?"
+          }
+        ],
+        "vision": {
+          "objects": []
+        },
+        "image_observation": null
+      },
+      "follow_up_query": "What about its battery?",
+      "expected_action": "REWRITE",
+      "expected_rewrite": "Can the battery from the previously mentioned old mobile phone be recycled through curbside collection?",
+      "must_preserve": [
+        "The battery belongs to the previously mentioned mobile phone.",
+        "The question concerns curbside collection.",
+        "Do not assume the battery chemistry or whether it is removable."
+      ],
+      "unsupported_details_to_avoid": [
+        "Do not assume the battery chemistry.",
+        "Do not assume the battery is removable."
+      ],
+      "dependency_type": "possessive_entity_reference",
+      "challenge_tags": [
+        "pronoun_reference",
+        "entity_reference"
+      ]
+    },
+    {
+      "sample_id": "conv_002",
+      "context_type": "conversational",
+      "split": "positive",
+      "difficulty": "medium",
+      "source_realism": "realistic",
+      "context": {
+        "conversation": [
+          {
+            "role": "user",
+            "content": "How should I prepare a cardboard pizza box before recycling it?"
+          }
+        ],
+        "vision": {
+          "objects": []
+        },
+        "image_observation": null
+      },
+      "follow_up_query": "And what if it's greasy?",
+      "expected_action": "REWRITE",
+      "expected_rewrite": "How should a greasy cardboard pizza box be prepared before recycling?",
+      "must_preserve": [
+        "The object is a cardboard pizza box.",
+        "The relevant condition is grease."
+      ],
+      "unsupported_details_to_avoid": [
+        "Do not assume the entire box is recyclable.",
+        "Do not invent local recycling rules."
+      ],
+      "dependency_type": "condition_continuation",
+      "challenge_tags": [
+        "ellipsis",
+        "condition_continuation"
+      ]
+    },
+    {
+      "sample_id": "conv_003",
+      "context_type": "conversational",
+      "split": "positive",
+      "difficulty": "medium",
+      "source_realism": "realistic",
+      "context": {
+        "conversation": [
+          {
+            "role": "user",
+            "content": "I have a glass bottle with a metal cap. How should I prepare it for recycling?"
+          }
+        ],
+        "vision": {
+          "objects": []
+        },
+        "image_observation": null
+      },
+      "follow_up_query": "What about the cap?",
+      "expected_action": "REWRITE",
+      "expected_rewrite": "How should the metal cap from a glass bottle be handled when preparing the bottle for recycling?",
+      "must_preserve": [
+        "The referenced component is the metal cap.",
+        "The cap belongs to the previously mentioned glass bottle."
+      ],
+      "unsupported_details_to_avoid": [
+        "Do not assume the cap is steel or aluminum.",
+        "Do not assume local facilities accept the cap."
+      ],
+      "dependency_type": "component_reference",
+      "challenge_tags": [
+        "entity_reference",
+        "component_reference"
+      ]
+    },
+    {
+      "sample_id": "conv_004",
+      "context_type": "conversational",
+      "split": "positive",
+      "difficulty": "challenging",
+      "source_realism": "realistic",
+      "context": {
+        "conversation": [
+          {
+            "role": "user",
+            "content": "Can household lithium-ion batteries go into ordinary household recycling bins?"
+          }
+        ],
+        "vision": {
+          "objects": []
+        },
+        "image_observation": null
+      },
+      "follow_up_query": "Does the same rule apply to EV batteries?",
+      "expected_action": "REWRITE",
+      "expected_rewrite": "Does the rule about whether household lithium-ion batteries can go into ordinary household recycling bins also apply to electric-vehicle batteries?",
+      "must_preserve": [
+        "The comparison is between household lithium-ion batteries and EV batteries.",
+        "The original question concerns ordinary household recycling bins.",
+        "Do not assume both battery types have identical collection routes."
+      ],
+      "unsupported_details_to_avoid": [
+        "Do not assume both battery types have identical collection routes.",
+        "Do not invent a specific EV battery collection provider."
+      ],
+      "dependency_type": "cross_entity_comparison",
+      "challenge_tags": [
+        "comparison_continuation",
+        "entity_switch"
+      ]
+    },
+    {
+      "sample_id": "conv_005",
+      "context_type": "conversational",
+      "split": "positive",
+      "difficulty": "medium",
+      "source_realism": "realistic",
+      "context": {
+        "conversation": [
+          {
+            "role": "user",
+            "content": "I can either donate my old phone or take it to a collection site. What are these options?"
+          }
+        ],
+        "vision": {
+          "objects": []
+        },
+        "image_observation": null
+      },
+      "follow_up_query": "What about the second one?",
+      "expected_action": "REWRITE",
+      "expected_rewrite": "What guidance applies to taking an old phone to a collection site for recycling?",
+      "must_preserve": [
+        "The second option is taking the old phone to a collection site."
+      ],
+      "unsupported_details_to_avoid": [
+        "Do not reinterpret the second option as donation.",
+        "Do not assume a particular collection site."
+      ],
+      "dependency_type": "ordinal_reference",
+      "challenge_tags": [
+        "ordinal_reference",
+        "reference_resolution"
+      ]
+    },
+    {
+      "sample_id": "conv_006",
+      "context_type": "conversational",
+      "split": "positive",
+      "difficulty": "challenging",
+      "source_realism": "realistic",
+      "context": {
+        "conversation": [
+          {
+            "role": "user",
+            "content": "My local program accepts glass bottles but I am unsure about jars."
+          }
+        ],
+        "vision": {
+          "objects": []
+        },
+        "image_observation": null
+      },
+      "follow_up_query": "Does that apply to the jars too?",
+      "expected_action": "REWRITE",
+      "expected_rewrite": "Does the local recycling program's acceptance of glass bottles also apply to glass jars?",
+      "must_preserve": [
+        "The local program accepts glass bottles.",
+        "Acceptance of glass jars is uncertain."
+      ],
+      "unsupported_details_to_avoid": [
+        "Do not assume bottles and jars are treated identically.",
+        "Do not claim the local program accepts jars."
+      ],
+      "dependency_type": "scope_extension",
+      "challenge_tags": [
+        "implicit_scope",
+        "local_rule_uncertainty"
+      ]
+    },
+    {
+      "sample_id": "conv_007",
+      "context_type": "conversational",
+      "split": "positive",
+      "difficulty": "challenging",
+      "source_realism": "synthetic_stress_test",
+      "context": {
+        "conversation": [
+          {
+            "role": "user",
+            "content": "I have two items: a plastic container and a glass jar. The plastic container has food residue."
+          },
+          {
+            "role": "assistant",
+            "content": "You mentioned a plastic container with food residue and a separate glass jar."
+          }
+        ],
+        "vision": {
+          "objects": []
+        },
+        "image_observation": null
+      },
+      "follow_up_query": "Can I clean the other one the same way?",
+      "expected_action": "HUMAN_REVIEW",
+      "expected_rewrite": null,
+      "must_preserve": [
+        "There are two distinct items: a plastic container and a glass jar.",
+        "The phrase 'the other one' refers to the glass jar in this context.",
+        "No cleaning or preparation procedure has previously been established.",
+        "The intended procedure behind 'the same way' cannot be recovered from the available conversation."
+      ],
+      "unsupported_details_to_avoid": [
+        "Do not invent a previously discussed cleaning procedure.",
+        "Do not assume the two materials require identical preparation."
+      ],
+      "dependency_type": "missing_procedural_antecedent",
+      "challenge_tags": [
+        "multiple_entities",
+        "ambiguous_reference",
+        "human_review"
+      ]
+    },
+    {
+      "sample_id": "conv_008",
+      "context_type": "conversational",
+      "split": "positive",
+      "difficulty": "challenging",
+      "source_realism": "synthetic_stress_test",
+      "context": {
+        "conversation": [
+          {
+            "role": "user",
+            "content": "I have a plastic bottle. I first thought its cap was plastic, but I checked and it is metal."
+          }
+        ],
+        "vision": {
+          "objects": []
+        },
+        "image_observation": null
+      },
+      "follow_up_query": "Does that change the advice?",
+      "expected_action": "REWRITE",
+      "expected_rewrite": "Does the fact that the cap of the plastic bottle is metal change the recycling preparation guidance?",
+      "must_preserve": [
+        "The bottle is plastic.",
+        "The cap is metal.",
+        "The user's correction that the cap is metal overrides the earlier assumption."
+      ],
+      "unsupported_details_to_avoid": [
+        "Do not treat the cap as plastic.",
+        "Do not assume a specific metal type."
+      ],
+      "dependency_type": "user_correction_and_reference",
+      "challenge_tags": [
+        "user_correction",
+        "context_update",
+        "entity_attribute"
+      ]
+    },
+    {
+      "sample_id": "conv_009",
+      "context_type": "conversational",
+      "split": "negative",
+      "difficulty": "easy",
+      "source_realism": "realistic",
+      "context": {
+        "conversation": [
+          {
+            "role": "user",
+            "content": "I have a plastic container. How should I prepare it for recycling?"
+          }
+        ],
+        "vision": {
+          "objects": []
+        },
+        "image_observation": null
+      },
+      "follow_up_query": "Can aluminum cans be recycled through curbside collection?",
+      "expected_action": "DIRECT",
+      "expected_rewrite": null,
+      "must_preserve": [
+        "The current question concerns aluminum cans."
+      ],
+      "unsupported_details_to_avoid": [
+        "Do not import the previous plastic-container context."
+      ],
+      "dependency_type": "independent_query",
+      "challenge_tags": [
+        "context_distraction",
+        "topic_switch"
+      ]
+    },
+    {
+      "sample_id": "conv_010",
+      "context_type": "conversational",
+      "split": "negative",
+      "difficulty": "medium",
+      "source_realism": "realistic",
+      "context": {
+        "conversation": [
+          {
+            "role": "user",
+            "content": "My glass bottle has a metal cap."
+          }
+        ],
+        "vision": {
+          "objects": []
+        },
+        "image_observation": null
+      },
+      "follow_up_query": "How are paper and cardboard different in recycling?",
+      "expected_action": "DIRECT",
+      "expected_rewrite": null,
+      "must_preserve": [
+        "The query asks for a general comparison between paper and cardboard."
+      ],
+      "unsupported_details_to_avoid": [
+        "Do not introduce the previous glass bottle."
+      ],
+      "dependency_type": "independent_query",
+      "challenge_tags": [
+        "irrelevant_context",
+        "complete_question"
+      ]
+    },
+    {
+      "sample_id": "conv_011",
+      "context_type": "conversational",
+      "split": "negative",
+      "difficulty": "challenging",
+      "source_realism": "synthetic_stress_test",
+      "context": {
+        "conversation": [
+          {
+            "role": "user",
+            "content": "I have an old phone and its rechargeable battery."
+          }
+        ],
+        "vision": {
+          "objects": []
+        },
+        "image_observation": null
+      },
+      "follow_up_query": "What collection options are available for household lithium-ion batteries in general?",
+      "expected_action": "DIRECT",
+      "expected_rewrite": null,
+      "must_preserve": [
+        "The query concerns household lithium-ion batteries generally."
+      ],
+      "unsupported_details_to_avoid": [
+        "Do not assume the question refers only to the previously mentioned phone battery."
+      ],
+      "dependency_type": "independent_general_query",
+      "challenge_tags": [
+        "false_pronoun_dependency",
+        "generalization"
+      ]
+    },
+    {
+      "sample_id": "conv_012",
+      "context_type": "conversational",
+      "split": "negative",
+      "difficulty": "medium",
+      "source_realism": "realistic",
+      "context": {
+        "conversation": [
+          {
+            "role": "user",
+            "content": "I am comparing glass and plastic packaging."
+          }
+        ],
+        "vision": {
+          "objects": []
+        },
+        "image_observation": null
+      },
+      "follow_up_query": "Should broken glass go into a recycling bin?",
+      "expected_action": "DIRECT",
+      "expected_rewrite": null,
+      "must_preserve": [
+        "The query concerns broken glass disposal."
+      ],
+      "unsupported_details_to_avoid": [
+        "Do not assume a specific bottle or packaging item from the previous turn."
+      ],
+      "dependency_type": "independent_query",
+      "challenge_tags": [
+        "safety_vocabulary",
+        "complete_question"
+      ]
+    },
+    {
+      "sample_id": "vision_001",
+      "context_type": "vision_derived",
+      "split": "positive",
+      "difficulty": "easy",
+      "source_realism": "realistic",
+      "context": {
+        "conversation": [],
+        "vision": {
+          "objects": [
+            {
+              "object_id": "object_1",
+              "class_name": "plastic",
+              "confidence": 0.94,
+              "bbox": [
+                120,
+                80,
+                340,
+                420
+              ]
+            }
+          ]
+        },
+        "image_observation": null
+      },
+      "follow_up_query": "How should I recycle this?",
+      "expected_action": "REWRITE",
+      "expected_rewrite": "How should the detected plastic item be prepared for recycling?",
+      "must_preserve": [
+        "The detected material class is plastic.",
+        "The object is the single detected item."
+      ],
+      "unsupported_details_to_avoid": [
+        "Do not assume it is a bottle or container.",
+        "Do not assume local acceptance."
+      ],
+      "dependency_type": "single_detection_reference",
+      "challenge_tags": [
+        "visual_object_reference",
+        "class_granularity"
+      ]
+    },
+    {
+      "sample_id": "vision_002",
+      "context_type": "vision_derived",
+      "split": "positive",
+      "difficulty": "medium",
+      "source_realism": "realistic",
+      "context": {
+        "conversation": [],
+        "vision": {
+          "objects": [
+            {
+              "object_id": "object_1",
+              "class_name": "glass",
+              "confidence": 0.96,
+              "bbox": [
+                40,
+                70,
+                180,
+                310
+              ]
+            },
+            {
+              "object_id": "object_2",
+              "class_name": "metal",
+              "confidence": 0.93,
+              "bbox": [
+                230,
+                90,
+                390,
+                330
+              ]
+            }
+          ]
+        },
+        "image_observation": null
+      },
+      "follow_up_query": "What about the one on the right?",
+      "expected_action": "REWRITE",
+      "expected_rewrite": "How should the detected metal item on the right be handled for recycling?",
+      "must_preserve": [
+        "The referenced object is object_2.",
+        "Its detected class is metal.",
+        "Its relative position is on the right."
+      ],
+      "unsupported_details_to_avoid": [
+        "Do not infer the exact metal type.",
+        "Do not assume the object is a can."
+      ],
+      "dependency_type": "spatial_object_reference",
+      "challenge_tags": [
+        "multiple_objects",
+        "spatial_reference"
+      ]
+    },
+    {
+      "sample_id": "vision_003",
+      "context_type": "vision_derived",
+      "split": "positive",
+      "difficulty": "challenging",
+      "source_realism": "synthetic_stress_test",
+      "context": {
+        "conversation": [],
+        "vision": {
+          "objects": [
+            {
+              "object_id": "object_1",
+              "class_name": "plastic",
+              "confidence": 0.91,
+              "bbox": [
+                30,
+                60,
+                190,
+                300
+              ]
+            },
+            {
+              "object_id": "object_2",
+              "class_name": "plastic",
+              "confidence": 0.89,
+              "bbox": [
+                220,
+                65,
+                390,
+                310
+              ]
+            }
+          ]
+        },
+        "image_observation": null
+      },
+      "follow_up_query": "What should I do with the other one?",
+      "expected_action": "HUMAN_REVIEW",
+      "expected_rewrite": null,
+      "must_preserve": [
+        "Two plastic detections exist.",
+        "The phrase 'other one' requires a reference or ordering convention."
+      ],
+      "unsupported_details_to_avoid": [
+        "Do not arbitrarily choose object_1 or object_2.",
+        "Do not infer object identity from confidence alone."
+      ],
+      "dependency_type": "ambiguous_same_class_reference",
+      "challenge_tags": [
+        "multiple_similar_objects",
+        "ambiguous_reference",
+        "human_review"
+      ]
+    },
+    {
+      "sample_id": "vision_004",
+      "context_type": "vision_derived",
+      "split": "positive",
+      "difficulty": "challenging",
+      "source_realism": "synthetic_stress_test",
+      "context": {
+        "conversation": [],
+        "vision": {
+          "objects": [
+            {
+              "object_id": "object_1",
+              "class_name": "glass",
+              "confidence": 0.42,
+              "bbox": [
+                100,
+                90,
+                280,
+                350
+              ]
+            }
+          ]
+        },
+        "image_observation": null
+      },
+      "follow_up_query": "Is this definitely glass, and how should I recycle it?",
+      "expected_action": "HUMAN_REVIEW",
+      "expected_rewrite": null,
+      "must_preserve": [
+        "The model predicts glass with confidence 0.42.",
+        "The class prediction is uncertain."
+      ],
+      "unsupported_details_to_avoid": [
+        "Do not state that the object is definitely glass.",
+        "Do not convert low confidence into certainty."
+      ],
+      "dependency_type": "uncertain_detection_reference",
+      "challenge_tags": [
+        "low_confidence",
+        "uncertainty",
+        "human_review"
+      ]
+    },
+    {
+      "sample_id": "vision_005",
+      "context_type": "vision_derived",
+      "split": "positive",
+      "difficulty": "medium",
+      "source_realism": "realistic",
+      "context": {
+        "conversation": [],
+        "vision": {
+          "objects": [
+            {
+              "object_id": "object_1",
+              "class_name": "cardboard",
+              "confidence": 0.95,
+              "bbox": [
+                20,
+                50,
+                180,
+                260
+              ]
+            },
+            {
+              "object_id": "object_2",
+              "class_name": "paper",
+              "confidence": 0.92,
+              "bbox": [
+                210,
+                60,
+                370,
+                250
+              ]
+            }
+          ]
+        },
+        "image_observation": null
+      },
+      "follow_up_query": "Does the same preparation advice apply to the item on the right?",
+      "expected_action": "HUMAN_REVIEW",
+      "expected_rewrite": null,
+      "must_preserve": [
+        "The user refers to the item positioned on the right.",
+        "The right-hand detected object is object_2.",
+        "The detected class of object_2 is paper.",
+        "The left-hand detected object is cardboard.",
+        "No previous preparation advice is available in the supplied context.",
+        "The target object can be identified, but the advice to transfer cannot be recovered."
+      ],
+      "unsupported_details_to_avoid": [
+        "Do not invent previously discussed preparation advice.",
+        "Do not assume paper and cardboard have identical local rules.",
+        "Do not infer a preparation procedure that is absent from the context."
+      ],
+      "dependency_type": "missing_procedural_antecedent",
+      "challenge_tags": [
+        "ordinal_reference",
+        "cross_class_comparison"
+      ]
+    },
+    {
+      "sample_id": "vision_006",
+      "context_type": "vision_derived",
+      "split": "positive",
+      "difficulty": "challenging",
+      "source_realism": "synthetic_stress_test",
+      "context": {
+        "conversation": [],
+        "vision": {
+          "objects": [
+            {
+              "object_id": "object_1",
+              "class_name": "metal",
+              "confidence": 0.88,
+              "bbox": [
+                80,
+                70,
+                260,
+                320
+              ]
+            }
+          ]
+        },
+        "image_observation": null
+      },
+      "follow_up_query": "I uploaded a new image. What about this one?",
+      "expected_action": "HUMAN_REVIEW",
+      "expected_rewrite": null,
+      "must_preserve": [
+        "The query refers to a newly uploaded image.",
+        "The available detection belongs only to the earlier image.",
+        "A fresh vision inference is required before identifying objects in the new image.",
+        "Do not reuse the old object's class or invent a new detection."
+      ],
+      "unsupported_details_to_avoid": [
+        "Do not reuse the old object's class for the new image.",
+        "Do not invent a new detection."
+      ],
+      "dependency_type": "new_image_requires_fresh_vision_inference",
+      "challenge_tags": [
+        "stale_context",
+        "new_image",
+        "missing_evidence",
+        "human_review",
+        "vision_refresh_required"
+      ]
+    },
+    {
+      "sample_id": "vision_007",
+      "context_type": "vision_derived",
+      "split": "positive",
+      "difficulty": "medium",
+      "source_realism": "synthetic_stress_test",
+      "context": {
+        "conversation": [],
+        "vision": {
+          "objects": [
+            {
+              "object_id": "object_1",
+              "class_name": "plastic",
+              "confidence": 0.93,
+              "bbox": [
+                40,
+                60,
+                200,
+                300
+              ]
+            },
+            {
+              "object_id": "object_2",
+              "class_name": "glass",
+              "confidence": 0.9,
+              "bbox": [
+                220,
+                70,
+                390,
+                320
+              ]
+            }
+          ]
+        },
+        "image_observation": null
+      },
+      "follow_up_query": "I meant the first object, not the second. How should I prepare it?",
+      "expected_action": "REWRITE",
+      "expected_rewrite": "How should the detected plastic item (the first object) be prepared for recycling?",
+      "must_preserve": [
+        "The user explicitly selects object_1.",
+        "The selected class is plastic.",
+        "The correction overrides any previous selection of object_2."
+      ],
+      "unsupported_details_to_avoid": [
+        "Do not use the glass detection.",
+        "Do not infer a specific plastic product."
+      ],
+      "dependency_type": "explicit_object_correction",
+      "challenge_tags": [
+        "user_correction",
+        "entity_switch",
+        "multiple_objects"
+      ]
+    },
+    {
+      "sample_id": "vision_008",
+      "context_type": "vision_derived",
+      "split": "positive",
+      "difficulty": "medium",
+      "source_realism": "realistic",
+      "context": {
+        "conversation": [],
+        "vision": {
+          "objects": [
+            {
+              "object_id": "object_1",
+              "class_name": "cardboard",
+              "confidence": 0.95,
+              "bbox": [
+                50,
+                50,
+                300,
+                280
+              ]
+            },
+            {
+              "object_id": "object_2",
+              "class_name": "metal",
+              "confidence": 0.91,
+              "bbox": [
+                320,
+                70,
+                470,
+                260
+              ]
+            }
+          ]
+        },
+        "image_observation": null
+      },
+      "follow_up_query": "Can I recycle the second material the same way?",
+      "expected_action": "REWRITE",
+      "expected_rewrite": "Can the detected metal item be recycled using the same method as the detected cardboard item?",
+      "must_preserve": [
+        "The second detected material is metal.",
+        "The first detected material is cardboard."
+      ],
+      "unsupported_details_to_avoid": [
+        "Do not assume the same method is suitable for both materials."
+      ],
+      "dependency_type": "cross_detection_comparison",
+      "challenge_tags": [
+        "comparison",
+        "ordinal_reference",
+        "multiple_objects"
+      ]
+    },
+    {
+      "sample_id": "vision_009",
+      "context_type": "vision_derived",
+      "split": "negative",
+      "difficulty": "easy",
+      "source_realism": "realistic",
+      "context": {
+        "conversation": [],
+        "vision": {
+          "objects": [
+            {
+              "object_id": "object_1",
+              "class_name": "glass",
+              "confidence": 0.97,
+              "bbox": [
+                100,
+                80,
+                280,
+                360
+              ]
+            }
+          ]
+        },
+        "image_observation": null
+      },
+      "follow_up_query": "Can aluminum cans be recycled?",
+      "expected_action": "DIRECT",
+      "expected_rewrite": null,
+      "must_preserve": [
+        "The query concerns aluminum cans."
+      ],
+      "unsupported_details_to_avoid": [
+        "Do not rewrite it as a question about the detected glass item."
+      ],
+      "dependency_type": "independent_query",
+      "challenge_tags": [
+        "context_distraction",
+        "topic_switch"
+      ]
+    },
+    {
+      "sample_id": "vision_010",
+      "context_type": "vision_derived",
+      "split": "negative",
+      "difficulty": "medium",
+      "source_realism": "realistic",
+      "context": {
+        "conversation": [],
+        "vision": {
+          "objects": [
+            {
+              "object_id": "object_1",
+              "class_name": "plastic",
+              "confidence": 0.92,
+              "bbox": [
+                30,
+                50,
+                190,
+                290
+              ]
+            },
+            {
+              "object_id": "object_2",
+              "class_name": "metal",
+              "confidence": 0.9,
+              "bbox": [
+                220,
+                60,
+                390,
+                300
+              ]
+            }
+          ]
+        },
+        "image_observation": null
+      },
+      "follow_up_query": "What are the general principles of recycling paper?",
+      "expected_action": "DIRECT",
+      "expected_rewrite": null,
+      "must_preserve": [
+        "The query concerns paper recycling generally."
+      ],
+      "unsupported_details_to_avoid": [
+        "Do not inject either detected object into the query."
+      ],
+      "dependency_type": "independent_general_query",
+      "challenge_tags": [
+        "multiple_objects",
+        "irrelevant_vision_context"
+      ]
+    },
+    {
+      "sample_id": "vision_011",
+      "context_type": "vision_derived",
+      "split": "negative",
+      "difficulty": "challenging",
+      "source_realism": "synthetic_stress_test",
+      "context": {
+        "conversation": [],
+        "vision": {
+          "objects": [
+            {
+              "object_id": "object_1",
+              "class_name": "plastic",
+              "confidence": 0.38,
+              "bbox": [
+                90,
+                70,
+                260,
+                330
+              ]
+            }
+          ]
+        },
+        "image_observation": null
+      },
+      "follow_up_query": "What does curbside recycling mean?",
+      "expected_action": "DIRECT",
+      "expected_rewrite": null,
+      "must_preserve": [
+        "The query asks for a general definition of curbside recycling."
+      ],
+      "unsupported_details_to_avoid": [
+        "Do not use the low-confidence detection as query context."
+      ],
+      "dependency_type": "independent_definition",
+      "challenge_tags": [
+        "low_confidence_distraction",
+        "complete_question"
+      ]
+    },
+    {
+      "sample_id": "vision_012",
+      "context_type": "vision_derived",
+      "split": "negative",
+      "difficulty": "medium",
+      "source_realism": "realistic",
+      "context": {
+        "conversation": [],
+        "vision": {
+          "objects": [
+            {
+              "object_id": "object_1",
+              "class_name": "paper",
+              "confidence": 0.96,
+              "bbox": [
+                60,
+                50,
+                260,
+                330
+              ]
+            }
+          ]
+        },
+        "image_observation": null
+      },
+      "follow_up_query": "Should broken glass be kept out of ordinary recycling bins?",
+      "expected_action": "DIRECT",
+      "expected_rewrite": null,
+      "must_preserve": [
+        "The query concerns broken glass."
+      ],
+      "unsupported_details_to_avoid": [
+        "Do not substitute the detected paper item."
+      ],
+      "dependency_type": "independent_query",
+      "challenge_tags": [
+        "safety_topic",
+        "vision_distraction"
+      ]
+    },
+    {
+      "sample_id": "multi_001",
+      "context_type": "multimodal",
+      "split": "positive",
+      "difficulty": "easy",
+      "source_realism": "realistic",
+      "context": {
+        "conversation": [
+          {
+            "role": "user",
+            "content": "How should I recycle this?"
+          }
+        ],
+        "vision": {
+          "objects": []
+        },
+        "image_observation": {
+          "image_id": "image_1",
+          "description": "A single container with a visible cap; material of the cap is not confirmed.",
+          "is_actual_image_attached": false,
+          "annotation_status": "synthetic_textual_image_annotation"
+        }
+      },
+      "follow_up_query": "What about its cap?",
+      "expected_action": "REWRITE",
+      "expected_rewrite": "How should the cap of the item shown in the image be handled when preparing the item for recycling?",
+      "must_preserve": [
+        "The query refers to a cap visible in the image.",
+        "The cap belongs to the main item."
+      ],
+      "unsupported_details_to_avoid": [
+        "Do not assume the cap's material unless visible and reliably annotated.",
+        "Do not assume local acceptance."
+      ],
+      "dependency_type": "image_component_reference",
+      "challenge_tags": [
+        "image_reference",
+        "component_reference"
+      ]
+    },
+    {
+      "sample_id": "multi_002",
+      "context_type": "multimodal",
+      "split": "positive",
+      "difficulty": "medium",
+      "source_realism": "realistic",
+      "context": {
+        "conversation": [
+          {
+            "role": "user",
+            "content": "I want to recycle the smaller item in this picture."
+          }
+        ],
+        "vision": {
+          "objects": []
+        },
+        "image_observation": {
+          "image_id": "image_1",
+          "description": "Two objects of visibly different sizes; the smaller object's material is not specified.",
+          "is_actual_image_attached": false,
+          "annotation_status": "synthetic_textual_image_annotation"
+        }
+      },
+      "follow_up_query": "Does it need to be separated first?",
+      "expected_action": "REWRITE",
+      "expected_rewrite": "Does the smaller item shown in the image need to be separated from other materials before recycling?",
+      "must_preserve": [
+        "The target is the smaller item in the image.",
+        "The query asks about separation before recycling."
+      ],
+      "unsupported_details_to_avoid": [
+        "Do not assign a material unless the image annotation supports it."
+      ],
+      "dependency_type": "visual_size_reference",
+      "challenge_tags": [
+        "visual_attribute_reference",
+        "ellipsis"
+      ]
+    },
+    {
+      "sample_id": "multi_003",
+      "context_type": "multimodal",
+      "split": "positive",
+      "difficulty": "challenging",
+      "source_realism": "synthetic_stress_test",
+      "context": {
+        "conversation": [
+          {
+            "role": "user",
+            "content": "I am asking about the object next to the glass jar."
+          }
+        ],
+        "vision": {
+          "objects": []
+        },
+        "image_observation": {
+          "image_id": "image_1",
+          "description": "A glass jar with multiple nearby objects; adjacency alone does not uniquely identify the target.",
+          "is_actual_image_attached": false,
+          "annotation_status": "synthetic_textual_image_annotation"
+        }
+      },
+      "follow_up_query": "Is that part recyclable too?",
+      "expected_action": "HUMAN_REVIEW",
+      "expected_rewrite": null,
+      "must_preserve": [
+        "The target is described only as the object next to the glass jar.",
+        "The object's material and identity are not established."
+      ],
+      "unsupported_details_to_avoid": [
+        "Do not assume which object is meant if multiple candidates are adjacent.",
+        "Do not infer material from proximity."
+      ],
+      "dependency_type": "ambiguous_spatial_reference",
+      "challenge_tags": [
+        "spatial_ambiguity",
+        "missing_object_identity",
+        "human_review"
+      ]
+    },
+    {
+      "sample_id": "multi_004",
+      "context_type": "multimodal",
+      "split": "positive",
+      "difficulty": "medium",
+      "source_realism": "realistic",
+      "context": {
+        "conversation": [
+          {
+            "role": "user",
+            "content": "This container still has sauce on it."
+          }
+        ],
+        "vision": {
+          "objects": []
+        },
+        "image_observation": {
+          "image_id": "image_1",
+          "description": "A food container with visible sauce residue; exact material is not confirmed.",
+          "is_actual_image_attached": false,
+          "annotation_status": "synthetic_textual_image_annotation"
+        }
+      },
+      "follow_up_query": "Is rinsing enough, or should I scrape it first?",
+      "expected_action": "REWRITE",
+      "expected_rewrite": "For the container shown in the image that still has sauce residue, is rinsing enough before recycling, or should the residue be scraped off first?",
+      "must_preserve": [
+        "The container is the image target.",
+        "It has sauce residue.",
+        "The user asks about rinsing versus scraping."
+      ],
+      "unsupported_details_to_avoid": [
+        "Do not assume the container's material if not established.",
+        "Do not invent local program rules."
+      ],
+      "dependency_type": "image_context_with_omitted_entity",
+      "challenge_tags": [
+        "ellipsis",
+        "condition_continuation",
+        "image_reference"
+      ]
+    },
+    {
+      "sample_id": "multi_005",
+      "context_type": "multimodal",
+      "split": "positive",
+      "difficulty": "challenging",
+      "source_realism": "synthetic_stress_test",
+      "context": {
+        "conversation": [
+          {
+            "role": "user",
+            "content": "The image shows a bottle and a separate cap. I am asking about the cap."
+          }
+        ],
+        "vision": {
+          "objects": []
+        },
+        "image_observation": {
+          "image_id": "image_1",
+          "description": "A bottle and a detached cap shown separately.",
+          "is_actual_image_attached": false,
+          "annotation_status": "synthetic_textual_image_annotation"
+        }
+      },
+      "follow_up_query": "Does that go with the bottle?",
+      "expected_action": "HUMAN_REVIEW",
+      "expected_rewrite": null,
+      "must_preserve": [
+        "The user selects the separate cap.",
+        "The question 'go with the bottle' is ambiguous between physical attachment and recycling collection."
+      ],
+      "unsupported_details_to_avoid": [
+        "Do not infer the intended meaning of 'go with'.",
+        "Do not assume the cap is accepted with the bottle."
+      ],
+      "dependency_type": "semantic_ambiguity",
+      "challenge_tags": [
+        "ambiguous_intent",
+        "image_reference",
+        "human_review"
+      ]
+    },
+    {
+      "sample_id": "multi_006",
+      "context_type": "multimodal",
+      "split": "positive",
+      "difficulty": "medium",
+      "source_realism": "realistic",
+      "context": {
+        "conversation": [
+          {
+            "role": "user",
+            "content": "Here is a picture of two packaging items. The left one is cardboard and the right one is plastic."
+          }
+        ],
+        "vision": {
+          "objects": []
+        },
+        "image_observation": {
+          "image_id": "image_1",
+          "description": "Two packaging items: cardboard on the left and plastic on the right, as described by the user.",
+          "is_actual_image_attached": false,
+          "annotation_status": "synthetic_textual_image_annotation"
+        }
+      },
+      "follow_up_query": "What if the second one is dirty?",
+      "expected_action": "REWRITE",
+      "expected_rewrite": "How should the plastic packaging item on the right be handled if it is dirty before recycling?",
+      "must_preserve": [
+        "The second item is the plastic item on the right.",
+        "The condition is that it is dirty."
+      ],
+      "unsupported_details_to_avoid": [
+        "Do not assume the type of dirt or contamination.",
+        "Do not assume local acceptance."
+      ],
+      "dependency_type": "ordinal_and_visual_reference",
+      "challenge_tags": [
+        "ordinal_reference",
+        "condition_continuation"
+      ]
+    },
+    {
+      "sample_id": "multi_007",
+      "context_type": "multimodal",
+      "split": "positive",
+      "difficulty": "challenging",
+      "source_realism": "synthetic_stress_test",
+      "context": {
+        "conversation": [
+          {
+            "role": "user",
+            "content": "I first thought the object in the image was glass."
+          },
+          {
+            "role": "user",
+            "content": "After looking more closely, I think it may actually be plastic."
+          }
+        ],
+        "vision": {
+          "objects": []
+        },
+        "image_observation": {
+          "image_id": "image_1",
+          "description": "An object whose material is visually ambiguous.",
+          "is_actual_image_attached": false,
+          "annotation_status": "synthetic_textual_image_annotation"
+        }
+      },
+      "follow_up_query": "Can you still give me the recycling instructions for it?",
+      "expected_action": "HUMAN_REVIEW",
+      "expected_rewrite": null,
+      "must_preserve": [
+        "The material identity is uncertain.",
+        "The user's later statement revises the earlier glass identification.",
+        "Neither glass nor plastic should be treated as confirmed.",
+        "The system must not silently choose one material."
+      ],
+      "unsupported_details_to_avoid": [
+        "Do not treat glass or plastic as confirmed.",
+        "Do not select one material without clarification or stronger evidence."
+      ],
+      "dependency_type": "uncertain_material_identity",
+      "challenge_tags": [
+        "user_correction",
+        "conflicting_context",
+        "uncertainty",
+        "human_review"
+      ]
+    },
+    {
+      "sample_id": "multi_008",
+      "context_type": "multimodal",
+      "split": "positive",
+      "difficulty": "medium",
+      "source_realism": "realistic",
+      "context": {
+        "conversation": [
+          {
+            "role": "user",
+            "content": "I uploaded a second picture showing another item."
+          }
+        ],
+        "vision": {
+          "objects": []
+        },
+        "image_observation": {
+          "image_id": "image_2",
+          "description": "A second image containing a different item; its material is not specified.",
+          "is_actual_image_attached": false,
+          "annotation_status": "synthetic_textual_image_annotation"
+        }
+      },
+      "follow_up_query": "Does the same advice apply to this one?",
+      "expected_action": "HUMAN_REVIEW",
+      "expected_rewrite": null,
+      "must_preserve": [
+        "The query refers to the item in the second image.",
+        "The first image and its item are not represented in the available context.",
+        "No previous recycling preparation advice is included in the conversation.",
+        "The system must not invent or assume the missing advice."
+      ],
+      "unsupported_details_to_avoid": [
+        "Do not assume the second item has the same material or properties as the first.",
+        "Do not invent the contents of the first image.",
+        "Do not invent previously discussed recycling preparation advice."
+      ],
+      "dependency_type": "missing_prior_image_and_advice",
+      "challenge_tags": [
+        "image_switch",
+        "cross_image_reference",
+        "comparison",
+        "missing_prior_context"
+      ]
+    },
+    {
+      "sample_id": "multi_009",
+      "context_type": "multimodal",
+      "split": "negative",
+      "difficulty": "easy",
+      "source_realism": "realistic",
+      "context": {
+        "conversation": [
+          {
+            "role": "user",
+            "content": "The picture shows a plastic bottle."
+          }
+        ],
+        "vision": {
+          "objects": []
+        },
+        "image_observation": {
+          "image_id": "image_1",
+          "description": "A plastic bottle.",
+          "is_actual_image_attached": false,
+          "annotation_status": "synthetic_textual_image_annotation"
+        }
+      },
+      "follow_up_query": "Can aluminum foil with food residue be recycled?",
+      "expected_action": "DIRECT",
+      "expected_rewrite": null,
+      "must_preserve": [
+        "The query concerns aluminum foil with food residue."
+      ],
+      "unsupported_details_to_avoid": [
+        "Do not inject the plastic bottle into the query."
+      ],
+      "dependency_type": "independent_query",
+      "challenge_tags": [
+        "image_context_distraction",
+        "topic_switch"
+      ]
+    },
+    {
+      "sample_id": "multi_010",
+      "context_type": "multimodal",
+      "split": "negative",
+      "difficulty": "medium",
+      "source_realism": "realistic",
+      "context": {
+        "conversation": [
+          {
+            "role": "user",
+            "content": "I uploaded a picture of a glass jar."
+          }
+        ],
+        "vision": {
+          "objects": []
+        },
+        "image_observation": {
+          "image_id": "image_1",
+          "description": "A glass jar.",
+          "is_actual_image_attached": false,
+          "annotation_status": "synthetic_textual_image_annotation"
+        }
+      },
+      "follow_up_query": "What are the general differences between recycling paper and cardboard?",
+      "expected_action": "DIRECT",
+      "expected_rewrite": null,
+      "must_preserve": [
+        "The query asks for a general paper-cardboard comparison."
+      ],
+      "unsupported_details_to_avoid": [
+        "Do not add the glass jar as a subject."
+      ],
+      "dependency_type": "independent_general_query",
+      "challenge_tags": [
+        "irrelevant_image_context",
+        "complete_question"
+      ]
+    },
+    {
+      "sample_id": "multi_011",
+      "context_type": "multimodal",
+      "split": "negative",
+      "difficulty": "challenging",
+      "source_realism": "realistic",
+      "context": {
+        "conversation": [
+          {
+            "role": "user",
+            "content": "The image contains a plastic container with a lid."
+          }
+        ],
+        "vision": {
+          "objects": []
+        },
+        "image_observation": {
+          "image_id": "image_1",
+          "description": "A plastic container with a lid.",
+          "is_actual_image_attached": false,
+          "annotation_status": "synthetic_textual_image_annotation"
+        }
+      },
+      "follow_up_query": "What does the term single-stream recycling mean?",
+      "expected_action": "DIRECT",
+      "expected_rewrite": null,
+      "must_preserve": [
+        "The query asks for a general definition."
+      ],
+      "unsupported_details_to_avoid": [
+        "Do not rewrite it as a question about the pictured container."
+      ],
+      "dependency_type": "independent_definition",
+      "challenge_tags": [
+        "image_distraction",
+        "complete_question"
+      ]
+    },
+    {
+      "sample_id": "multi_012",
+      "context_type": "multimodal",
+      "split": "negative",
+      "difficulty": "medium",
+      "source_realism": "realistic",
+      "context": {
+        "conversation": [
+          {
+            "role": "user",
+            "content": "The image shows a cardboard box."
+          }
+        ],
+        "vision": {
+          "objects": []
+        },
+        "image_observation": {
+          "image_id": "image_1",
+          "description": "A cardboard box.",
+          "is_actual_image_attached": false,
+          "annotation_status": "synthetic_textual_image_annotation"
+        }
+      },
+      "follow_up_query": "Should rechargeable batteries be placed in ordinary household recycling bins?",
+      "expected_action": "DIRECT",
+      "expected_rewrite": null,
+      "must_preserve": [
+        "The query concerns rechargeable batteries generally."
+      ],
+      "unsupported_details_to_avoid": [
+        "Do not import the cardboard-box context."
+      ],
+      "dependency_type": "independent_query",
+      "challenge_tags": [
+        "topic_switch",
+        "safety_topic"
+      ]
+    },
+    {
+      "sample_id": "hybrid_001",
+      "context_type": "hybrid",
+      "split": "positive",
+      "difficulty": "medium",
+      "source_realism": "realistic",
+      "context": {
+        "conversation": [
+          {
+            "role": "user",
+            "content": "I found this item in my kitchen. How should I recycle it?"
+          }
+        ],
+        "vision": {
+          "objects": [
+            {
+              "object_id": "object_1",
+              "class_name": "plastic",
+              "confidence": 0.95,
+              "bbox": [
+                100,
+                60,
+                300,
+                390
+              ]
+            }
+          ]
+        },
+        "image_observation": null
+      },
+      "follow_up_query": "What about its lid?",
+      "expected_action": "REWRITE",
+      "expected_rewrite": "How should the lid of the detected plastic item be handled when preparing the item for recycling?",
+      "must_preserve": [
+        "The main item is detected as plastic.",
+        "The follow-up refers to its lid."
+      ],
+      "unsupported_details_to_avoid": [
+        "Do not assume the lid is plastic.",
+        "Do not assume the object is a bottle."
+      ],
+      "dependency_type": "vision_entity_plus_conversational_pronoun",
+      "challenge_tags": [
+        "hybrid_context",
+        "possessive_reference",
+        "component_reference"
+      ]
+    },
+    {
+      "sample_id": "hybrid_002",
+      "context_type": "hybrid",
+      "split": "positive",
+      "difficulty": "challenging",
+      "source_realism": "synthetic_stress_test",
+      "context": {
+        "conversation": [
+          {
+            "role": "user",
+            "content": "I have two items in the image. I am asking about the one I mentioned first."
+          }
+        ],
+        "vision": {
+          "objects": [
+            {
+              "object_id": "object_1",
+              "class_name": "glass",
+              "confidence": 0.93,
+              "bbox": [
+                30,
+                70,
+                180,
+                320
+              ]
+            },
+            {
+              "object_id": "object_2",
+              "class_name": "plastic",
+              "confidence": 0.94,
+              "bbox": [
+                220,
+                60,
+                390,
+                310
+              ]
+            }
+          ]
+        },
+        "image_observation": null
+      },
+      "follow_up_query": "Should I separate it?",
+      "expected_action": "HUMAN_REVIEW",
+      "expected_rewrite": null,
+      "must_preserve": [
+        "The user selects the item mentioned first in the conversation.",
+        "The conversation does not identify which detected object was mentioned first.",
+        "Detection object ordering cannot establish conversational mention order.",
+        "The intended object requires clarification or explicit alignment."
+      ],
+      "unsupported_details_to_avoid": [
+        "Do not assume object_1 is the first-mentioned conversational item.",
+        "Do not assume the first-mentioned item is glass.",
+        "Do not assume a particular separation requirement."
+      ],
+      "dependency_type": "unresolved_conversation_detection_alignment",
+      "challenge_tags": [
+        "cross_source_reference",
+        "multiple_objects",
+        "entity_alignment"
+      ]
+    },
+    {
+      "sample_id": "hybrid_003",
+      "context_type": "hybrid",
+      "split": "positive",
+      "difficulty": "challenging",
+      "source_realism": "realistic",
+      "context": {
+        "conversation": [
+          {
+            "role": "user",
+            "content": "Earlier I asked about a glass jar. Now I have uploaded a new image."
+          }
+        ],
+        "vision": {
+          "objects": [
+            {
+              "object_id": "object_1",
+              "class_name": "metal",
+              "confidence": 0.91,
+              "bbox": [
+                100,
+                80,
+                310,
+                350
+              ]
+            }
+          ]
+        },
+        "image_observation": null
+      },
+      "follow_up_query": "Does the same advice apply to this one?",
+      "expected_action": "HUMAN_REVIEW",
+      "expected_rewrite": null,
+      "must_preserve": [
+        "The earlier conversation mentions a glass jar.",
+        "The new image detection identifies a metal item.",
+        "The user asks whether previously discussed advice applies to the new item.",
+        "The actual content of the earlier advice is not present in the available conversation.",
+        "The system must not invent or assume the missing advice."
+      ],
+      "unsupported_details_to_avoid": [
+        "Do not invent previously discussed recycling advice.",
+        "Do not treat the new item as glass.",
+        "Do not assume advice transfers unchanged between the two items."
+      ],
+      "dependency_type": "missing_procedural_antecedent",
+      "challenge_tags": [
+        "stale_context",
+        "new_detection",
+        "cross_source_comparison"
+      ]
+    },
+    {
+      "sample_id": "hybrid_004",
+      "context_type": "hybrid",
+      "split": "positive",
+      "difficulty": "challenging",
+      "source_realism": "synthetic_stress_test",
+      "context": {
+        "conversation": [
+          {
+            "role": "user",
+            "content": "The object looks like glass to me."
+          }
+        ],
+        "vision": {
+          "objects": [
+            {
+              "object_id": "object_1",
+              "class_name": "plastic",
+              "confidence": 0.61,
+              "bbox": [
+                80,
+                70,
+                290,
+                360
+              ]
+            }
+          ]
+        },
+        "image_observation": null
+      },
+      "follow_up_query": "So what should I do with it?",
+      "expected_action": "HUMAN_REVIEW",
+      "expected_rewrite": null,
+      "must_preserve": [
+        "The user's visual description conflicts with the YOLO class prediction.",
+        "YOLO predicts plastic with confidence 0.61."
+      ],
+      "unsupported_details_to_avoid": [
+        "Do not silently prefer the user's guess or the model prediction as certain.",
+        "Do not produce material-specific instructions as if the material were confirmed."
+      ],
+      "dependency_type": "text_vision_conflict",
+      "challenge_tags": [
+        "cross_modal_conflict",
+        "low_confidence",
+        "human_review"
+      ]
+    },
+    {
+      "sample_id": "hybrid_005",
+      "context_type": "hybrid",
+      "split": "positive",
+      "difficulty": "challenging",
+      "source_realism": "synthetic_stress_test",
+      "context": {
+        "conversation": [
+          {
+            "role": "user",
+            "content": "There are two objects. I meant the plastic one, not the glass one."
+          }
+        ],
+        "vision": {
+          "objects": [
+            {
+              "object_id": "object_1",
+              "class_name": "glass",
+              "confidence": 0.96,
+              "bbox": [
+                20,
+                70,
+                190,
+                330
+              ]
+            },
+            {
+              "object_id": "object_2",
+              "class_name": "plastic",
+              "confidence": 0.9,
+              "bbox": [
+                220,
+                60,
+                400,
+                320
+              ]
+            }
+          ]
+        },
+        "image_observation": null
+      },
+      "follow_up_query": "Can you explain how to prepare it?",
+      "expected_action": "REWRITE",
+      "expected_rewrite": "How should the detected plastic item be prepared for recycling?",
+      "must_preserve": [
+        "The user explicitly corrects the target to the plastic object.",
+        "The plastic detection is object_2."
+      ],
+      "unsupported_details_to_avoid": [
+        "Do not use the glass detection.",
+        "Do not ignore the user's correction."
+      ],
+      "dependency_type": "explicit_cross_modal_correction",
+      "challenge_tags": [
+        "user_correction",
+        "entity_switch",
+        "cross_source_alignment"
+      ]
+    },
+    {
+      "sample_id": "hybrid_006",
+      "context_type": "hybrid",
+      "split": "positive",
+      "difficulty": "challenging",
+      "source_realism": "realistic",
+      "context": {
+        "conversation": [
+          {
+            "role": "user",
+            "content": "The first image showed a cardboard box. The new image shows another item."
+          }
+        ],
+        "vision": {
+          "objects": [
+            {
+              "object_id": "object_1",
+              "class_name": "metal",
+              "confidence": 0.92,
+              "bbox": [
+                100,
+                60,
+                300,
+                350
+              ]
+            }
+          ]
+        },
+        "image_observation": null
+      },
+      "follow_up_query": "What about the first one?",
+      "expected_action": "REWRITE",
+      "expected_rewrite": "What recycling guidance applies to the cardboard box shown in the first image?",
+      "must_preserve": [
+        "The first image showed a cardboard box.",
+        "The current image detection is metal.",
+        "The query refers back to the first image."
+      ],
+      "unsupported_details_to_avoid": [
+        "Do not use the current metal detection as the target.",
+        "Do not assume the first image's detection metadata beyond the stated cardboard description."
+      ],
+      "dependency_type": "historical_image_reference",
+      "challenge_tags": [
+        "stale_context",
+        "image_history",
+        "entity_switch"
+      ]
+    },
+    {
+      "sample_id": "hybrid_007",
+      "context_type": "hybrid",
+      "split": "positive",
+      "difficulty": "challenging",
+      "source_realism": "synthetic_stress_test",
+      "context": {
+        "conversation": [
+          {
+            "role": "user",
+            "content": "The image shows a plastic container and a metal object. I want to know about the metal object."
+          }
+        ],
+        "vision": {
+          "objects": [
+            {
+              "object_id": "object_1",
+              "class_name": "plastic",
+              "confidence": 0.94,
+              "bbox": [
+                20,
+                60,
+                180,
+                300
+              ]
+            },
+            {
+              "object_id": "object_2",
+              "class_name": "metal",
+              "confidence": 0.88,
+              "bbox": [
+                210,
+                70,
+                390,
+                320
+              ]
+            }
+          ]
+        },
+        "image_observation": null
+      },
+      "follow_up_query": "Can I do the same with the other material?",
+      "expected_action": "HUMAN_REVIEW",
+      "expected_rewrite": null,
+      "must_preserve": [
+        "The user previously selected the metal object.",
+        "The other detected material is plastic.",
+        "The phrase 'the same' has no clearly established procedure to transfer.",
+        "The system must not invent a procedure for the plastic item."
+      ],
+      "unsupported_details_to_avoid": [
+        "Do not infer which procedure 'the same' refers to.",
+        "Do not assume the user wants to switch to plastic without clarification."
+      ],
+      "dependency_type": "missing_procedural_antecedent",
+      "challenge_tags": [
+        "ambiguous_reference",
+        "multiple_objects",
+        "human_review"
+      ]
+    },
+    {
+      "sample_id": "hybrid_008",
+      "context_type": "hybrid",
+      "split": "positive",
+      "difficulty": "challenging",
+      "source_realism": "synthetic_stress_test",
+      "context": {
+        "conversation": [
+          {
+            "role": "user",
+            "content": "I first asked about the plastic container. Then I asked about its lid. The lid is actually metal, not plastic."
+          }
+        ],
+        "vision": {
+          "objects": [
+            {
+              "object_id": "object_1",
+              "class_name": "plastic",
+              "confidence": 0.95,
+              "bbox": [
+                40,
+                60,
+                280,
+                360
+              ]
+            },
+            {
+              "object_id": "object_2",
+              "class_name": "metal",
+              "confidence": 0.86,
+              "bbox": [
+                150,
+                40,
+                240,
+                100
+              ]
+            }
+          ]
+        },
+        "image_observation": null
+      },
+      "follow_up_query": "Does that change the advice for the second part?",
+      "expected_action": "REWRITE",
+      "expected_rewrite": "Does identifying the lid of the plastic container as metal change the recycling guidance for the lid?",
+      "must_preserve": [
+        "The main container is plastic.",
+        "The lid is metal according to the user's correction.",
+        "The second part refers to the lid."
+      ],
+      "unsupported_details_to_avoid": [
+        "Do not classify the lid as plastic.",
+        "Do not assume a specific metal type."
+      ],
+      "dependency_type": "multi_turn_component_correction",
+      "challenge_tags": [
+        "user_correction",
+        "component_reference",
+        "multi_turn_context"
+      ]
+    },
+    {
+      "sample_id": "hybrid_009",
+      "context_type": "hybrid",
+      "split": "negative",
+      "difficulty": "easy",
+      "source_realism": "realistic",
+      "context": {
+        "conversation": [
+          {
+            "role": "user",
+            "content": "The image shows a plastic bottle. Earlier we discussed its cap."
+          }
+        ],
+        "vision": {
+          "objects": [
+            {
+              "object_id": "object_1",
+              "class_name": "plastic",
+              "confidence": 0.95,
+              "bbox": [
+                100,
+                70,
+                300,
+                380
+              ]
+            }
+          ]
+        },
+        "image_observation": null
+      },
+      "follow_up_query": "Can aluminum cans be recycled through curbside collection?",
+      "expected_action": "DIRECT",
+      "expected_rewrite": null,
+      "must_preserve": [
+        "The query concerns aluminum cans."
+      ],
+      "unsupported_details_to_avoid": [
+        "Do not import the bottle or cap context."
+      ],
+      "dependency_type": "independent_query",
+      "challenge_tags": [
+        "context_distraction",
+        "topic_switch"
+      ]
+    },
+    {
+      "sample_id": "hybrid_010",
+      "context_type": "hybrid",
+      "split": "negative",
+      "difficulty": "medium",
+      "source_realism": "realistic",
+      "context": {
+        "conversation": [
+          {
+            "role": "user",
+            "content": "The detected objects are cardboard and glass."
+          }
+        ],
+        "vision": {
+          "objects": [
+            {
+              "object_id": "object_1",
+              "class_name": "cardboard",
+              "confidence": 0.94,
+              "bbox": [
+                20,
+                60,
+                180,
+                300
+              ]
+            },
+            {
+              "object_id": "object_2",
+              "class_name": "glass",
+              "confidence": 0.96,
+              "bbox": [
+                220,
+                70,
+                390,
+                330
+              ]
+            }
+          ]
+        },
+        "image_observation": null
+      },
+      "follow_up_query": "What are the general principles of battery recycling?",
+      "expected_action": "DIRECT",
+      "expected_rewrite": null,
+      "must_preserve": [
+        "The query asks about battery recycling generally."
+      ],
+      "unsupported_details_to_avoid": [
+        "Do not inject either detected object into the query."
+      ],
+      "dependency_type": "independent_general_query",
+      "challenge_tags": [
+        "multiple_context_entities",
+        "irrelevant_context"
+      ]
+    },
+    {
+      "sample_id": "hybrid_011",
+      "context_type": "hybrid",
+      "split": "negative",
+      "difficulty": "challenging",
+      "source_realism": "synthetic_stress_test",
+      "context": {
+        "conversation": [
+          {
+            "role": "user",
+            "content": "I uploaded an image of a metal item, but I am not sure what it is."
+          }
+        ],
+        "vision": {
+          "objects": [
+            {
+              "object_id": "object_1",
+              "class_name": "metal",
+              "confidence": 0.44,
+              "bbox": [
+                90,
+                60,
+                280,
+                330
+              ]
+            }
+          ]
+        },
+        "image_observation": null
+      },
+      "follow_up_query": "What does the term material recovery facility mean?",
+      "expected_action": "DIRECT",
+      "expected_rewrite": null,
+      "must_preserve": [
+        "The query asks for a general definition."
+      ],
+      "unsupported_details_to_avoid": [
+        "Do not use the uncertain detection to alter the question."
+      ],
+      "dependency_type": "independent_definition",
+      "challenge_tags": [
+        "low_confidence_distraction",
+        "complete_question"
+      ]
+    },
+    {
+      "sample_id": "hybrid_012",
+      "context_type": "hybrid",
+      "split": "negative",
+      "difficulty": "medium",
+      "source_realism": "realistic",
+      "context": {
+        "conversation": [
+          {
+            "role": "user",
+            "content": "We discussed a glass jar, and the latest image contains a cardboard box."
+          }
+        ],
+        "vision": {
+          "objects": [
+            {
+              "object_id": "object_1",
+              "class_name": "cardboard",
+              "confidence": 0.95,
+              "bbox": [
+                50,
+                60,
+                310,
+                300
+              ]
+            }
+          ]
+        },
+        "image_observation": null
+      },
+      "follow_up_query": "Should rechargeable batteries be kept out of ordinary household recycling bins?",
+      "expected_action": "DIRECT",
+      "expected_rewrite": null,
+      "must_preserve": [
+        "The query concerns rechargeable batteries."
+      ],
+      "unsupported_details_to_avoid": [
+        "Do not import the glass jar or cardboard box context."
+      ],
+      "dependency_type": "independent_query",
+      "challenge_tags": [
+        "multiple_context_sources",
+        "topic_switch",
+        "safety_topic"
+      ]
+    }
+  ]
+}

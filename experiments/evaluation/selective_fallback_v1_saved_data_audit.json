@@ -1,0 +1,129 @@
+{
+  "experiment_id": "selective_fallback_v1_saved_data_audit",
+  "created_at_utc": "2026-10-28T12:32:28.053397+00:00",
+  "results_file": "/content/drive/MyDrive/smart-waste-multimodal-ai/experiments/evaluation/query_rewriting_v1_results.json",
+  "definition_file": "/content/drive/MyDrive/smart-waste-multimodal-ai/experiments/evaluation/query_rewriting_v1_complete.json",
+  "results_top_level_keys": [
+    "evaluation_id",
+    "created_at_utc",
+    "evaluation_definition_file",
+    "evaluation_definition_sha256",
+    "retrieval",
+    "methodology",
+    "summary",
+    "evaluation_wall_time_seconds",
+    "results"
+  ],
+  "saved_result_count": 21,
+  "first_result_keys": [
+    "case_id",
+    "topic",
+    "method",
+    "query",
+    "target_chunk_ids",
+    "target_ranks",
+    "hits_at_20",
+    "target_count",
+    "coverage_at_20",
+    "target_mrr",
+    "retrieval_latency_seconds",
+    "retrieved_chunk_ids"
+  ],
+  "first_result_sample": {
+    "case_id": "cardboard",
+    "topic": "Cardboard",
+    "method": "natural",
+    "query": "How should I prepare cardboard boxes before recycling them?",
+    "target_chunk_ids": [
+      "epa_common_recyclables.txt::chunk_1",
+      "epa_common_recyclables.txt::chunk_2"
+    ],
+    "target_ranks": {
+      "epa_common_recyclables.txt::chunk_1": 2,
+      "epa_common_recyclables.txt::chunk_2": 1
+    },
+    "hits_at_20": 2,
+    "target_count": 2,
+    "coverage_at_20": 1.0,
+    "target_mrr": 0.75,
+    "retrieval_latency_seconds": 0.09048926399918855,
+    "retrieved_chunk_ids": [
+      "epa_common_recyclables.txt::chunk_2",
+      "epa_common_recyclables.txt::chunk_1",
+      "epa_common_recyclables.txt::chunk_12",
+      "epa_common_recyclables.txt::chunk_0",
+      "epa_common_recyclables.txt::chunk_21",
+      "epa_recycling_basics.txt::chunk_7",
+      "epa_common_recyclables.txt::chunk_5",
+      "epa_common_recyclables.txt::chunk_9",
+      "epa_recycling_basics.txt::chunk_4",
+      "oecd_recycled_plastics_markets.txt::chunk_15",
+      "epa_recycling_basics.txt::chunk_5",
+      "epa_common_recyclables.txt::chunk_24",
+      "epa_common_recyclables.txt::chunk_11",
+      "epa_common_recyclables.txt::chunk_22",
+      "epa_common_recyclables.txt::chunk_20",
+      "epa_common_recyclables.txt::chunk_23",
+      "oecd_recycled_plastics_markets.txt::chunk_96",
+      "epa_common_recyclables.txt::chunk_8",
+      "oecd_global_plastics_outlook.txt::chunk_326",
+      "oecd_recycled_plastics_markets.txt::chunk_95"
+    ]
+  },
+  "definition_top_level_keys": [
+    "schema_version",
+    "evaluation_id",
+    "created_at_utc",
+    "purpose",
+    "retrieval",
+    "metrics",
+    "cases",
+    "query_methods"
+  ],
+  "definition_case_count": 7,
+  "first_case_sample": {
+    "id": "cardboard",
+    "name": "Cardboard",
+    "queries": {
+      "natural": "How should I prepare cardboard boxes before recycling them?",
+      "manual": "cardboard boxes flatten remove food scraps recycling",
+      "automatic": "how to prepare cardboard boxes for recycling"
+    },
+    "target_chunk_ids": [
+      "epa_common_recyclables.txt::chunk_1",
+      "epa_common_recyclables.txt::chunk_2"
+    ]
+  },
+  "aggregate_summary": {
+    "natural": {
+      "topic_count": 7,
+      "macro_target_mrr": 0.8071428571428572,
+      "macro_coverage_at_20": 1.0,
+      "mean_retrieval_latency_seconds": 0.12445155685678141,
+      "median_retrieval_latency_seconds": 0.10721941699921445,
+      "total_target_hits": 12,
+      "total_targets": 12
+    },
+    "manual": {
+      "topic_count": 7,
+      "macro_target_mrr": 0.7658730158730158,
+      "macro_coverage_at_20": 1.0,
+      "mean_retrieval_latency_seconds": 0.13790384400012304,
+      "median_retrieval_latency_seconds": 0.07785398200030613,
+      "total_target_hits": 12,
+      "total_targets": 12
+    },
+    "automatic": {
+      "topic_count": 7,
+      "macro_target_mrr": 0.7182539682539683,
+      "macro_coverage_at_20": 1.0,
+      "mean_retrieval_latency_seconds": 0.1516476519999352,
+      "median_retrieval_latency_seconds": 0.09173973500037391,
+      "total_target_hits": 12,
+      "total_targets": 12
+    }
+  },
+  "purpose": "Determine whether existing saved data supports query-level diagnostics before designing selective retrieval fallback.",
+  "legacy_rag_project_modified": false,
+  "fallback_threshold_selected": false
+}

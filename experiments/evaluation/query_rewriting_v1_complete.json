@@ -1,0 +1,113 @@
+{
+  "schema_version": "1.0",
+  "evaluation_id": "query_rewriting_v1_complete",
+  "created_at_utc": "2026-10-28T11:26:12.118408+00:00",
+  "purpose": "Compare natural, manually rewritten, and automatically rewritten queries using the same hybrid retrieval index.",
+  "retrieval": {
+    "index_version": "v4_expanded",
+    "top_k": 20,
+    "index_path_relative_to_rag_root": "data/processed/retrieval_index_v4_expanded",
+    "legacy_rag_project_is_read_only": true
+  },
+  "metrics": {
+    "target_mrr": "For each case, average reciprocal rank across its predefined target chunks; a missing target contributes zero.",
+    "target_coverage_at_20": "Number of predefined target chunks found in the top 20, divided by the number of predefined target chunks.",
+    "aggregation": "Report both per-case metrics and macro averages across cases."
+  },
+  "cases": [
+    {
+      "id": "cardboard",
+      "name": "Cardboard",
+      "queries": {
+        "natural": "How should I prepare cardboard boxes before recycling them?",
+        "manual": "cardboard boxes flatten remove food scraps recycling",
+        "automatic": "how to prepare cardboard boxes for recycling"
+      },
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_1",
+        "epa_common_recyclables.txt::chunk_2"
+      ]
+    },
+    {
+      "id": "glass",
+      "name": "Glass",
+      "queries": {
+        "natural": "How should I prepare glass bottles for recycling?",
+        "manual": "glass containers broken glass metal bottle caps recycling",
+        "automatic": "how to prepare glass bottles for recycling"
+      },
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_10",
+        "epa_common_recyclables.txt::chunk_11"
+      ]
+    },
+    {
+      "id": "plastic",
+      "name": "Plastic",
+      "queries": {
+        "natural": "How should I clean plastic containers before recycling them?",
+        "manual": "plastic containers rinse scrape food residue recycling",
+        "automatic": "how to clean plastic containers before recycling"
+      },
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_9"
+      ]
+    },
+    {
+      "id": "metal",
+      "name": "Metal",
+      "queries": {
+        "natural": "How should I prepare metal cans and bottle caps for recycling?",
+        "manual": "aluminum cans foil metal bottle caps recycle separately",
+        "automatic": "how to prepare metal cans and bottle caps for recycling"
+      },
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_11",
+        "epa_common_recyclables.txt::chunk_12"
+      ]
+    },
+    {
+      "id": "batteries",
+      "name": "Batteries",
+      "queries": {
+        "natural": "How should I dispose of used household batteries safely?",
+        "manual": "used household batteries lithium-ion rechargeable special collection drop-off",
+        "automatic": "safe disposal of used household lithium alkaline rechargeable batteries recycling drop-off"
+      },
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_13",
+        "epa_common_recyclables.txt::chunk_14",
+        "epa_common_recyclables.txt::chunk_15"
+      ]
+    },
+    {
+      "id": "electronics",
+      "name": "Electronics",
+      "queries": {
+        "natural": "Where should I take old electronics for recycling?",
+        "manual": "electronics e-waste recycling drop-off collection sites retailers manufacturers",
+        "automatic": "electronics e-waste recycling drop-off location disposal facility"
+      },
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_16"
+      ]
+    },
+    {
+      "id": "clothing",
+      "name": "Clothing",
+      "queries": {
+        "natural": "What can I do with old clothes and damaged shoes?",
+        "manual": "donate gently worn clothes shoes damaged clothing charity retail store recycling",
+        "automatic": "recycle old clothes damaged shoes disposal donation textile recycling"
+      },
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_25"
+      ]
+    }
+  ],
+  "query_methods": [
+    "natural",
+    "manual",
+    "automatic"
+  ]
+}

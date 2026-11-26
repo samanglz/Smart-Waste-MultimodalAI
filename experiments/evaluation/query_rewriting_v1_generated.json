@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "evaluation_id": "query_rewriting_v1",
+  "run_type": "automatic_query_generation",
+  "model": "gemini-flash-lite-latest",
+  "created_at_utc": "2026-10-28T11:20:15.460250+00:00",
+  "input_definition": "experiments/evaluation/query_rewriting_v1.json",
+  "requested_cases": 7,
+  "successful_cases": 0,
+  "failed_cases": 7,
+  "results": [],
+  "errors": [
+    {
+      "case_id": "cardboard",
+      "error_type": "TypeError",
+      "error_message": "GeminiGenerationAdapter.__call__() missing 2 required positional arguments: 'vision' and 'retrieval'"
+    },
+    {
+      "case_id": "glass",
+      "error_type": "TypeError",
+      "error_message": "GeminiGenerationAdapter.__call__() missing 2 required positional arguments: 'vision' and 'retrieval'"
+    },
+    {
+      "case_id": "plastic",
+      "error_type": "TypeError",
+      "error_message": "GeminiGenerationAdapter.__call__() missing 2 required positional arguments: 'vision' and 'retrieval'"
+    },
+    {
+      "case_id": "metal",
+      "error_type": "TypeError",
+      "error_message": "GeminiGenerationAdapter.__call__() missing 2 required positional arguments: 'vision' and 'retrieval'"
+    },
+    {
+      "case_id": "batteries",
+      "error_type": "TypeError",
+      "error_message": "GeminiGenerationAdapter.__call__() missing 2 required positional arguments: 'vision' and 'retrieval'"
+    },
+    {
+      "case_id": "electronics",
+      "error_type": "TypeError",
+      "error_message": "GeminiGenerationAdapter.__call__() missing 2 required positional arguments: 'vision' and 'retrieval'"
+    },
+    {
+      "case_id": "clothing",
+      "error_type": "TypeError",
+      "error_message": "GeminiGenerationAdapter.__call__() missing 2 required positional arguments: 'vision' and 'retrieval'"
+    }
+  ]
+}

@@ -11,6 +11,9 @@ from smart_waste_multimodal.contracts import (
     RequestOptions,
     RetrievalResult,
 )
+from smart_waste_multimodal.evidence import (
+    ConversationScopedInMemoryEvidenceRegistryFactory,
+)
 from smart_waste_multimodal.orchestration.orchestrator import (
     PipelineOrchestrator,
 )
@@ -26,9 +29,13 @@ def test_vision_failure_preserves_independent_retrieval_output():
         vision_stage=vision,
         retrieval_stage=retrieval,
         generation_stage=generation,
+        evidence_registry_factory=ConversationScopedInMemoryEvidenceRegistryFactory(),
     )
 
-    response = orchestrator.run(make_e2e_request())
+    response = orchestrator.run(
+        (_test_request := make_e2e_request()),
+        conversation=_test_conversation_for_request(_test_request),
+    )
 
     assert response.status == "partial_success"
     assert response.vision is None
@@ -37,7 +44,6 @@ def test_vision_failure_preserves_independent_retrieval_output():
     assert response.generation is not None
     assert response.generation.status == "success"
     assert any(error.stage == "vision" for error in response.errors)
-
 
 
 def test_invalid_vision_contract_preserves_independent_pipeline_stages():
@@ -49,22 +55,23 @@ def test_invalid_vision_contract_preserves_independent_pipeline_stages():
         vision_stage=vision,
         retrieval_stage=retrieval,
         generation_stage=generation,
+        evidence_registry_factory=ConversationScopedInMemoryEvidenceRegistryFactory(),
     )
 
-    response = orchestrator.run(make_e2e_request())
+    response = orchestrator.run(
+        (_test_request := make_e2e_request()),
+        conversation=_test_conversation_for_request(_test_request),
+    )
 
     assert response.status == "partial_success"
     assert response.vision is None
     assert response.retrieval is not None
     assert response.generation is not None
     assert any(error.stage == "vision" for error in response.errors)
-    assert response.errors[0].message == (
-        "The vision stage could not complete."
-    )
+    assert response.errors[0].message == ("The vision stage could not complete.")
 
 
-
-def test_no_retrieval_evidence_produces_insufficient_evidence_answer():
+def test_no_retrieval_evidence_skips_generation():
     request = make_e2e_request()
     retrieval = Mock(
         return_value=RetrievalResult(
@@ -79,9 +86,13 @@ def test_no_retrieval_evidence_produces_insufficient_evidence_answer():
         vision_stage=MockVisionAdapter(),
         retrieval_stage=retrieval,
         generation_stage=MockGenerationAdapter(),
+        evidence_registry_factory=ConversationScopedInMemoryEvidenceRegistryFactory(),
     )
 
-    response = orchestrator.run(request)
+    response = orchestrator.run(
+        (_test_request := request),
+        conversation=_test_conversation_for_request(_test_request),
+    )
 
     assert response.status == "success"
     assert response.errors == []
@@ -90,23 +101,26 @@ def test_no_retrieval_evidence_produces_insufficient_evidence_answer():
     assert response.retrieval is not None
     assert response.retrieval.status == "no_evidence"
     assert response.retrieval.results == []
-    assert response.generation is not None
-    assert response.generation.status == "insufficient_evidence"
-    assert response.generation.citation_chunk_ids == []
+    assert response.final_decision is not None
+    assert response.final_decision.execution_status == "DECIDED"
+    assert response.final_decision.action == "INSUFFICIENT_EVIDENCE"
+    assert response.generation is None
 
 
 def test_generation_failure_preserves_vision_and_retrieval():
-    generation = Mock(
-        side_effect=RuntimeError("mock generation unavailable")
-    )
+    generation = Mock(side_effect=RuntimeError("mock generation unavailable"))
 
     orchestrator = PipelineOrchestrator(
         vision_stage=MockVisionAdapter(),
         retrieval_stage=MockRetrievalAdapter(),
         generation_stage=generation,
+        evidence_registry_factory=ConversationScopedInMemoryEvidenceRegistryFactory(),
     )
 
-    response = orchestrator.run(make_e2e_request())
+    response = orchestrator.run(
+        (_test_request := make_e2e_request()),
+        conversation=_test_conversation_for_request(_test_request),
+    )
 
     assert response.status == "partial_success"
     assert response.vision is not None
@@ -135,15 +149,33 @@ def test_vision_failure_skips_detection_dependent_retrieval():
         vision_stage=vision,
         retrieval_stage=retrieval,
         generation_stage=MockGenerationAdapter(),
+        evidence_registry_factory=ConversationScopedInMemoryEvidenceRegistryFactory(),
     )
 
-    response = orchestrator.run(request)
+    response = orchestrator.run(
+        (_test_request := request),
+        conversation=_test_conversation_for_request(_test_request),
+    )
 
-    assert response.status == "partial_success"
+    assert response.status == "failed"
     assert response.vision is None
     assert response.retrieval is None
-    assert response.generation is not None
-    assert response.generation.status == "insufficient_evidence"
+    assert response.generation is None
     assert any(error.stage == "vision" for error in response.errors)
     assert any("Retrieval was not run" in warning for warning in response.warnings)
     retrieval.assert_not_called()
+
+
+def _test_conversation_for_request(request):
+    """Build a valid test Conversation for the supplied AnalyzeRequest."""
+    from datetime import UTC, datetime
+
+    from smart_waste_multimodal.contracts.conversation import Conversation
+
+    now = datetime.now(UTC)
+    return Conversation(
+        conversation_id=request.conversation_id,
+        owner_id="test-owner",
+        created_at=now,
+        updated_at=now,
+    )

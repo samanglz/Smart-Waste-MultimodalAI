@@ -1,0 +1,642 @@
+{
+  "report_id": "selective_rewrite_preliminary_10_v1",
+  "status": "preliminary",
+  "created_at_utc": "2026-10-30T18:31:17.675307+00:00",
+  "evaluation_scope": {
+    "query_count": 10,
+    "full_dataset_query_count": 28,
+    "dataset_sha256": "c209357424f9a3c854f8dee6e4194e4afd85dde6175978eb459fc0e82b293eb1",
+    "ground_truth_status": "provisional_unapproved",
+    "relevance_source": "frozen_dataset_evidence_chunk_ids",
+    "k": 3
+  },
+  "retrieval_configuration": {
+    "embedding_model": "intfloat/multilingual-e5-small",
+    "index": "retrieval_index_v4_expanded",
+    "index_chunk_count": 1516,
+    "retriever": "Dense + BM25 + Reciprocal Rank Fusion",
+    "rrf_k": 60,
+    "retrieval_top_k": 3,
+    "model_load_seconds": 30.570449180999958
+  },
+  "rewrite_configuration": {
+    "cache_model": "gemini-3.8-flash",
+    "cache_prompt_version": "current_prompt_builder_v1",
+    "successful_rewrite_count": 10,
+    "selective_policy_rewrite_count": 5,
+    "selective_policy_direct_count": 5,
+    "selective_policy_rewrite_rate": 0.5
+  },
+  "aggregate_metrics": {
+    "natural_only": {
+      "hit_at_3": 1,
+      "recall_at_3": 1.0,
+      "mrr_at_3": 0.95,
+      "ndcg_at_3": 0.95,
+      "latency_ms": 71.51035059994229
+    },
+    "rewrite_always": {
+      "hit_at_3": 1,
+      "recall_at_3": 1.0,
+      "mrr_at_3": 0.95,
+      "ndcg_at_3": 0.95,
+      "latency_ms": 81.38818179997998
+    },
+    "selective_rewrite": {
+      "hit_at_3": 1,
+      "recall_at_3": 1.0,
+      "mrr_at_3": 0.95,
+      "ndcg_at_3": 0.95,
+      "latency_ms": 76.93367920001037
+    }
+  },
+  "per_query_results": [
+    {
+      "query_id": "v2_cardboard_01",
+      "topic": "cardboard",
+      "difficulty": "easy",
+      "original_query": "Can greasy pizza boxes be recycled?",
+      "rewritten_query": "recyclability of greasy pizza boxes cardboard recycling rules food grease contamination guidelines",
+      "provisional_evidence_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_1"
+      ],
+      "policy_decision": {
+        "should_rewrite": false,
+        "reason": "direct_query_sufficient",
+        "signals": []
+      },
+      "selected_query_for_selective": "Can greasy pizza boxes be recycled?",
+      "results": {
+        "natural_only": {
+          "hit_at_3": 1,
+          "recall_at_3": 1.0,
+          "mrr_at_3": 1.0,
+          "ndcg_at_3": 1.0,
+          "first_relevant_rank": 1,
+          "retrieved_chunk_ids": [
+            "epa_common_recyclables.txt::chunk_1",
+            "epa_common_recyclables.txt::chunk_2",
+            "epa_common_recyclables.txt::chunk_5"
+          ],
+          "latency_ms": 68.37633700001788
+        },
+        "rewrite_always": {
+          "hit_at_3": 1,
+          "recall_at_3": 1.0,
+          "mrr_at_3": 1.0,
+          "ndcg_at_3": 1.0,
+          "first_relevant_rank": 1,
+          "retrieved_chunk_ids": [
+            "epa_common_recyclables.txt::chunk_1",
+            "epa_common_recyclables.txt::chunk_2",
+            "oecd_recycled_plastics_markets.txt::chunk_524"
+          ],
+          "latency_ms": 82.83816600010141
+        },
+        "selective_rewrite": {
+          "hit_at_3": 1,
+          "recall_at_3": 1.0,
+          "mrr_at_3": 1.0,
+          "ndcg_at_3": 1.0,
+          "first_relevant_rank": 1,
+          "retrieved_chunk_ids": [
+            "epa_common_recyclables.txt::chunk_1",
+            "epa_common_recyclables.txt::chunk_2",
+            "epa_common_recyclables.txt::chunk_5"
+          ],
+          "latency_ms": 70.65202900002987
+        }
+      }
+    },
+    {
+      "query_id": "v2_cardboard_02",
+      "topic": "cardboard",
+      "difficulty": "easy",
+      "original_query": "What should I do to a cardboard box before recycling it?",
+      "rewritten_query": "how to prepare cardboard boxes for recycling steps guidelines",
+      "provisional_evidence_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_2"
+      ],
+      "policy_decision": {
+        "should_rewrite": true,
+        "reason": "conditional_query",
+        "signals": [
+          "condition"
+        ]
+      },
+      "selected_query_for_selective": "how to prepare cardboard boxes for recycling steps guidelines",
+      "results": {
+        "natural_only": {
+          "hit_at_3": 1,
+          "recall_at_3": 1.0,
+          "mrr_at_3": 0.5,
+          "ndcg_at_3": 0.5,
+          "first_relevant_rank": 2,
+          "retrieved_chunk_ids": [
+            "epa_common_recyclables.txt::chunk_1",
+            "epa_common_recyclables.txt::chunk_2",
+            "epa_common_recyclables.txt::chunk_24"
+          ],
+          "latency_ms": 73.65188699986902
+        },
+        "rewrite_always": {
+          "hit_at_3": 1,
+          "recall_at_3": 1.0,
+          "mrr_at_3": 0.5,
+          "ndcg_at_3": 0.5,
+          "first_relevant_rank": 2,
+          "retrieved_chunk_ids": [
+            "epa_common_recyclables.txt::chunk_1",
+            "epa_common_recyclables.txt::chunk_2",
+            "oecd_recycled_plastics_markets.txt::chunk_96"
+          ],
+          "latency_ms": 69.875809999985
+        },
+        "selective_rewrite": {
+          "hit_at_3": 1,
+          "recall_at_3": 1.0,
+          "mrr_at_3": 0.5,
+          "ndcg_at_3": 0.5,
+          "first_relevant_rank": 2,
+          "retrieved_chunk_ids": [
+            "epa_common_recyclables.txt::chunk_1",
+            "epa_common_recyclables.txt::chunk_2",
+            "oecd_recycled_plastics_markets.txt::chunk_96"
+          ],
+          "latency_ms": 73.22235800006638
+        }
+      }
+    },
+    {
+      "query_id": "v2_glass_01",
+      "topic": "glass",
+      "difficulty": "easy",
+      "original_query": "Can different colors of glass be recycled together?",
+      "rewritten_query": "Can different colors of glass be recycled together or does glass recycling require color sorting and separation",
+      "provisional_evidence_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_10"
+      ],
+      "policy_decision": {
+        "should_rewrite": false,
+        "reason": "direct_query_sufficient",
+        "signals": []
+      },
+      "selected_query_for_selective": "Can different colors of glass be recycled together?",
+      "results": {
+        "natural_only": {
+          "hit_at_3": 1,
+          "recall_at_3": 1.0,
+          "mrr_at_3": 1.0,
+          "ndcg_at_3": 1.0,
+          "first_relevant_rank": 1,
+          "retrieved_chunk_ids": [
+            "epa_common_recyclables.txt::chunk_10",
+            "epa_common_recyclables.txt::chunk_11",
+            "oecd_global_plastics_outlook.txt::chunk_326"
+          ],
+          "latency_ms": 64.67926299978899
+        },
+        "rewrite_always": {
+          "hit_at_3": 1,
+          "recall_at_3": 1.0,
+          "mrr_at_3": 1.0,
+          "ndcg_at_3": 1.0,
+          "first_relevant_rank": 1,
+          "retrieved_chunk_ids": [
+            "epa_common_recyclables.txt::chunk_10",
+            "epa_common_recyclables.txt::chunk_11",
+            "oecd_recycled_plastics_markets.txt::chunk_371"
+          ],
+          "latency_ms": 87.14863599993805
+        },
+        "selective_rewrite": {
+          "hit_at_3": 1,
+          "recall_at_3": 1.0,
+          "mrr_at_3": 1.0,
+          "ndcg_at_3": 1.0,
+          "first_relevant_rank": 1,
+          "retrieved_chunk_ids": [
+            "epa_common_recyclables.txt::chunk_10",
+            "epa_common_recyclables.txt::chunk_11",
+            "oecd_global_plastics_outlook.txt::chunk_326"
+          ],
+          "latency_ms": 70.11219299988625
+        }
+      }
+    },
+    {
+      "query_id": "v2_glass_02",
+      "topic": "glass",
+      "difficulty": "easy",
+      "original_query": "Should broken glass go into the recycling bin?",
+      "rewritten_query": "can broken glass be placed in the recycling bin rules and guidelines for disposing of broken glass",
+      "provisional_evidence_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_11"
+      ],
+      "policy_decision": {
+        "should_rewrite": true,
+        "reason": "safety_or_hazard_query",
+        "signals": [
+          "safety_sensitive_topic"
+        ]
+      },
+      "selected_query_for_selective": "can broken glass be placed in the recycling bin rules and guidelines for disposing of broken glass",
+      "results": {
+        "natural_only": {
+          "hit_at_3": 1,
+          "recall_at_3": 1.0,
+          "mrr_at_3": 1.0,
+          "ndcg_at_3": 1.0,
+          "first_relevant_rank": 1,
+          "retrieved_chunk_ids": [
+            "epa_common_recyclables.txt::chunk_11",
+            "epa_common_recyclables.txt::chunk_10",
+            "epa_common_recyclables.txt::chunk_9"
+          ],
+          "latency_ms": 67.3347609999837
+        },
+        "rewrite_always": {
+          "hit_at_3": 1,
+          "recall_at_3": 1.0,
+          "mrr_at_3": 1.0,
+          "ndcg_at_3": 1.0,
+          "first_relevant_rank": 1,
+          "retrieved_chunk_ids": [
+            "epa_common_recyclables.txt::chunk_11",
+            "epa_common_recyclables.txt::chunk_10",
+            "epa_plastic_best_practices.txt::chunk_0"
+          ],
+          "latency_ms": 87.58406299989474
+        },
+        "selective_rewrite": {
+          "hit_at_3": 1,
+          "recall_at_3": 1.0,
+          "mrr_at_3": 1.0,
+          "ndcg_at_3": 1.0,
+          "first_relevant_rank": 1,
+          "retrieved_chunk_ids": [
+            "epa_common_recyclables.txt::chunk_11",
+            "epa_common_recyclables.txt::chunk_10",
+            "epa_plastic_best_practices.txt::chunk_0"
+          ],
+          "latency_ms": 89.5719300001474
+        }
+      }
+    },
+    {
+      "query_id": "v2_plastic_01",
+      "topic": "plastic",
+      "difficulty": "easy",
+      "original_query": "How clean should a plastic food container be before recycling?",
+      "rewritten_query": "cleanliness requirements for plastic food containers before recycling food residue rinsing and washing guidelines",
+      "provisional_evidence_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_9"
+      ],
+      "policy_decision": {
+        "should_rewrite": true,
+        "reason": "conditional_query",
+        "signals": [
+          "condition"
+        ]
+      },
+      "selected_query_for_selective": "cleanliness requirements for plastic food containers before recycling food residue rinsing and washing guidelines",
+      "results": {
+        "natural_only": {
+          "hit_at_3": 1,
+          "recall_at_3": 1.0,
+          "mrr_at_3": 1.0,
+          "ndcg_at_3": 1.0,
+          "first_relevant_rank": 1,
+          "retrieved_chunk_ids": [
+            "epa_common_recyclables.txt::chunk_9",
+            "epa_common_recyclables.txt::chunk_2",
+            "oecd_global_plastics_outlook.txt::chunk_326"
+          ],
+          "latency_ms": 68.18186999998943
+        },
+        "rewrite_always": {
+          "hit_at_3": 1,
+          "recall_at_3": 1.0,
+          "mrr_at_3": 1.0,
+          "ndcg_at_3": 1.0,
+          "first_relevant_rank": 1,
+          "retrieved_chunk_ids": [
+            "epa_common_recyclables.txt::chunk_9",
+            "epa_common_recyclables.txt::chunk_2",
+            "oecd_recycled_plastics_markets.txt::chunk_30"
+          ],
+          "latency_ms": 88.69887700006984
+        },
+        "selective_rewrite": {
+          "hit_at_3": 1,
+          "recall_at_3": 1.0,
+          "mrr_at_3": 1.0,
+          "ndcg_at_3": 1.0,
+          "first_relevant_rank": 1,
+          "retrieved_chunk_ids": [
+            "epa_common_recyclables.txt::chunk_9",
+            "epa_common_recyclables.txt::chunk_2",
+            "oecd_recycled_plastics_markets.txt::chunk_30"
+          ],
+          "latency_ms": 87.28304300007039
+        }
+      }
+    },
+    {
+      "query_id": "v2_plastic_02",
+      "topic": "plastic",
+      "difficulty": "easy",
+      "original_query": "Should I check whether my local program accepts a plastic container?",
+      "rewritten_query": "guidelines on verifying whether a local municipal recycling program accepts plastic containers",
+      "provisional_evidence_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_9"
+      ],
+      "policy_decision": {
+        "should_rewrite": false,
+        "reason": "direct_query_sufficient",
+        "signals": []
+      },
+      "selected_query_for_selective": "Should I check whether my local program accepts a plastic container?",
+      "results": {
+        "natural_only": {
+          "hit_at_3": 1,
+          "recall_at_3": 1.0,
+          "mrr_at_3": 1.0,
+          "ndcg_at_3": 1.0,
+          "first_relevant_rank": 1,
+          "retrieved_chunk_ids": [
+            "epa_common_recyclables.txt::chunk_9",
+            "epa_common_recyclables.txt::chunk_11",
+            "epa_common_recyclables.txt::chunk_1"
+          ],
+          "latency_ms": 69.19650599979832
+        },
+        "rewrite_always": {
+          "hit_at_3": 1,
+          "recall_at_3": 1.0,
+          "mrr_at_3": 1.0,
+          "ndcg_at_3": 1.0,
+          "first_relevant_rank": 1,
+          "retrieved_chunk_ids": [
+            "epa_common_recyclables.txt::chunk_9",
+            "epa_common_recyclables.txt::chunk_7",
+            "epa_common_recyclables.txt::chunk_6"
+          ],
+          "latency_ms": 73.6892899999475
+        },
+        "selective_rewrite": {
+          "hit_at_3": 1,
+          "recall_at_3": 1.0,
+          "mrr_at_3": 1.0,
+          "ndcg_at_3": 1.0,
+          "first_relevant_rank": 1,
+          "retrieved_chunk_ids": [
+            "epa_common_recyclables.txt::chunk_9",
+            "epa_common_recyclables.txt::chunk_11",
+            "epa_common_recyclables.txt::chunk_1"
+          ],
+          "latency_ms": 71.52807000011308
+        }
+      }
+    },
+    {
+      "query_id": "v2_metal_01",
+      "topic": "metal",
+      "difficulty": "easy",
+      "original_query": "Should aluminum cans usually be crushed before recycling?",
+      "rewritten_query": "whether to crush or flatten aluminum cans before recycling guidelines and sorting recommendations",
+      "provisional_evidence_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_12"
+      ],
+      "policy_decision": {
+        "should_rewrite": true,
+        "reason": "conditional_query",
+        "signals": [
+          "condition"
+        ]
+      },
+      "selected_query_for_selective": "whether to crush or flatten aluminum cans before recycling guidelines and sorting recommendations",
+      "results": {
+        "natural_only": {
+          "hit_at_3": 1,
+          "recall_at_3": 1.0,
+          "mrr_at_3": 1.0,
+          "ndcg_at_3": 1.0,
+          "first_relevant_rank": 1,
+          "retrieved_chunk_ids": [
+            "epa_common_recyclables.txt::chunk_12",
+            "epa_common_recyclables.txt::chunk_11",
+            "epa_recycling_basics.txt::chunk_7"
+          ],
+          "latency_ms": 72.82205699993938
+        },
+        "rewrite_always": {
+          "hit_at_3": 1,
+          "recall_at_3": 1.0,
+          "mrr_at_3": 1.0,
+          "ndcg_at_3": 1.0,
+          "first_relevant_rank": 1,
+          "retrieved_chunk_ids": [
+            "epa_common_recyclables.txt::chunk_12",
+            "epa_common_recyclables.txt::chunk_11",
+            "oecd_recycled_plastics_markets.txt::chunk_294"
+          ],
+          "latency_ms": 78.31603199997517
+        },
+        "selective_rewrite": {
+          "hit_at_3": 1,
+          "recall_at_3": 1.0,
+          "mrr_at_3": 1.0,
+          "ndcg_at_3": 1.0,
+          "first_relevant_rank": 1,
+          "retrieved_chunk_ids": [
+            "epa_common_recyclables.txt::chunk_12",
+            "epa_common_recyclables.txt::chunk_11",
+            "oecd_recycled_plastics_markets.txt::chunk_294"
+          ],
+          "latency_ms": 77.81366499989417
+        }
+      }
+    },
+    {
+      "query_id": "v2_metal_02",
+      "topic": "metal",
+      "difficulty": "easy",
+      "original_query": "Can aluminum foil be recycled if it has food residue?",
+      "rewritten_query": "recyclability of aluminum foil with food residue contamination recycling guidelines",
+      "provisional_evidence_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_12"
+      ],
+      "policy_decision": {
+        "should_rewrite": true,
+        "reason": "conditional_query",
+        "signals": [
+          "condition"
+        ]
+      },
+      "selected_query_for_selective": "recyclability of aluminum foil with food residue contamination recycling guidelines",
+      "results": {
+        "natural_only": {
+          "hit_at_3": 1,
+          "recall_at_3": 1.0,
+          "mrr_at_3": 1.0,
+          "ndcg_at_3": 1.0,
+          "first_relevant_rank": 1,
+          "retrieved_chunk_ids": [
+            "epa_common_recyclables.txt::chunk_12",
+            "epa_common_recyclables.txt::chunk_11",
+            "epa_common_recyclables.txt::chunk_6"
+          ],
+          "latency_ms": 73.24072100004742
+        },
+        "rewrite_always": {
+          "hit_at_3": 1,
+          "recall_at_3": 1.0,
+          "mrr_at_3": 1.0,
+          "ndcg_at_3": 1.0,
+          "first_relevant_rank": 1,
+          "retrieved_chunk_ids": [
+            "epa_common_recyclables.txt::chunk_12",
+            "oecd_recycled_plastics_markets.txt::chunk_294",
+            "epa_common_recyclables.txt::chunk_11"
+          ],
+          "latency_ms": 75.84989399992992
+        },
+        "selective_rewrite": {
+          "hit_at_3": 1,
+          "recall_at_3": 1.0,
+          "mrr_at_3": 1.0,
+          "ndcg_at_3": 1.0,
+          "first_relevant_rank": 1,
+          "retrieved_chunk_ids": [
+            "epa_common_recyclables.txt::chunk_12",
+            "oecd_recycled_plastics_markets.txt::chunk_294",
+            "epa_common_recyclables.txt::chunk_11"
+          ],
+          "latency_ms": 77.13723300003039
+        }
+      }
+    },
+    {
+      "query_id": "v2_battery_01",
+      "topic": "batteries",
+      "difficulty": "easy",
+      "original_query": "Can used lithium-ion batteries go into household recycling bins?",
+      "rewritten_query": "can used lithium-ion batteries be disposed of in household curbside recycling bins rules and safety guidelines",
+      "provisional_evidence_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_14"
+      ],
+      "policy_decision": {
+        "should_rewrite": false,
+        "reason": "direct_query_sufficient",
+        "signals": []
+      },
+      "selected_query_for_selective": "Can used lithium-ion batteries go into household recycling bins?",
+      "results": {
+        "natural_only": {
+          "hit_at_3": 1,
+          "recall_at_3": 1.0,
+          "mrr_at_3": 1.0,
+          "ndcg_at_3": 1.0,
+          "first_relevant_rank": 1,
+          "retrieved_chunk_ids": [
+            "epa_common_recyclables.txt::chunk_14",
+            "epa_common_recyclables.txt::chunk_13",
+            "epa_common_recyclables.txt::chunk_15"
+          ],
+          "latency_ms": 88.06597900002089
+        },
+        "rewrite_always": {
+          "hit_at_3": 1,
+          "recall_at_3": 1.0,
+          "mrr_at_3": 1.0,
+          "ndcg_at_3": 1.0,
+          "first_relevant_rank": 1,
+          "retrieved_chunk_ids": [
+            "epa_common_recyclables.txt::chunk_14",
+            "epa_common_recyclables.txt::chunk_13",
+            "epa_common_recyclables.txt::chunk_15"
+          ],
+          "latency_ms": 93.8510620001125
+        },
+        "selective_rewrite": {
+          "hit_at_3": 1,
+          "recall_at_3": 1.0,
+          "mrr_at_3": 1.0,
+          "ndcg_at_3": 1.0,
+          "first_relevant_rank": 1,
+          "retrieved_chunk_ids": [
+            "epa_common_recyclables.txt::chunk_14",
+            "epa_common_recyclables.txt::chunk_13",
+            "epa_common_recyclables.txt::chunk_15"
+          ],
+          "latency_ms": 77.83952599993427
+        }
+      }
+    },
+    {
+      "query_id": "v2_battery_02",
+      "topic": "batteries",
+      "difficulty": "easy",
+      "original_query": "Where can I take household batteries for special collection?",
+      "rewritten_query": "drop-off locations and facilities for household battery special collection and recycling",
+      "provisional_evidence_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_13"
+      ],
+      "policy_decision": {
+        "should_rewrite": false,
+        "reason": "direct_query_sufficient",
+        "signals": []
+      },
+      "selected_query_for_selective": "Where can I take household batteries for special collection?",
+      "results": {
+        "natural_only": {
+          "hit_at_3": 1,
+          "recall_at_3": 1.0,
+          "mrr_at_3": 1.0,
+          "ndcg_at_3": 1.0,
+          "first_relevant_rank": 1,
+          "retrieved_chunk_ids": [
+            "epa_common_recyclables.txt::chunk_13",
+            "epa_common_recyclables.txt::chunk_14",
+            "epa_common_recyclables.txt::chunk_15"
+          ],
+          "latency_ms": 69.55412499996783
+        },
+        "rewrite_always": {
+          "hit_at_3": 1,
+          "recall_at_3": 1.0,
+          "mrr_at_3": 1.0,
+          "ndcg_at_3": 1.0,
+          "first_relevant_rank": 1,
+          "retrieved_chunk_ids": [
+            "epa_common_recyclables.txt::chunk_13",
+            "epa_common_recyclables.txt::chunk_16",
+            "epa_common_recyclables.txt::chunk_15"
+          ],
+          "latency_ms": 76.02998799984562
+        },
+        "selective_rewrite": {
+          "hit_at_3": 1,
+          "recall_at_3": 1.0,
+          "mrr_at_3": 1.0,
+          "ndcg_at_3": 1.0,
+          "first_relevant_rank": 1,
+          "retrieved_chunk_ids": [
+            "epa_common_recyclables.txt::chunk_13",
+            "epa_common_recyclables.txt::chunk_14",
+            "epa_common_recyclables.txt::chunk_15"
+          ],
+          "latency_ms": 74.17674499993154
+        }
+      }
+    }
+  ],
+  "limitations": [
+    "Only 10 of 28 frozen queries were evaluated.",
+    "Evidence chunk IDs are provisional and not human-approved ground truth.",
+    "Results are preliminary and must not be treated as final performance claims.",
+    "Retrieval latency excludes model loading and Gemini API latency.",
+    "All strategies use the same persisted retrieval index and encoder."
+  ]
+}

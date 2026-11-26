@@ -1,0 +1,114 @@
+{
+  "experiment_id": "selective_fallback_v1_retrieval_diagnostics",
+  "created_at_utc": "2026-10-28T12:31:38.702537+00:00",
+  "query": "How should I prepare cardboard boxes before recycling them?",
+  "retriever_class": "HybridRetriever",
+  "top_k": 5,
+  "retriever_search_source": "    def search(\n        self,\n        query: str,\n        top_k: int = 5,\n        rrf_k: int = 60,\n    ) -> list[dict[str, str | int | float]]:\n        \"\"\"Retrieve and fuse results from FAISS and BM25.\"\"\"\n\n        if not query.strip():\n            raise ValueError(\"query must not be empty\")\n\n        if top_k <= 0:\n            raise ValueError(\"top_k must be positive\")\n\n        query_embedding = self.encoder.encode_queries([query])\n\n        _, vector_indices = self.vector_index.search(\n            query_embedding,\n            top_k=top_k,\n        )\n        vector_ranking = vector_indices[0].tolist()\n\n        bm25_results = self.bm25_retriever.search(\n            query,\n            top_k=top_k,\n        )\n        bm25_ranking = [idx for idx, _ in bm25_results]\n\n        hybrid_ranking, fused_scores = reciprocal_rank_fusion(\n            [vector_ranking, bm25_ranking],\n            k=rrf_k,\n        )\n\n        return [\n            {\n                \"chunk_id\": self.chunks[idx][\"chunk_id\"],\n                \"source\": self.chunks[idx][\"source\"],\n                \"text\": self.chunks[idx][\"text\"],\n                \"metadata\": self.chunks[idx].get(\"metadata\", {}).copy(),\n                \"score\": fused_scores[idx],\n                \"rank\": rank,\n            }\n            for rank, idx in enumerate(hybrid_ranking[:top_k], start=1)\n        ]\n",
+  "returned_result_count": 5,
+  "results": [
+    {
+      "position": 1,
+      "fields": [
+        "chunk_id",
+        "source",
+        "text",
+        "metadata",
+        "score",
+        "rank"
+      ],
+      "values": {
+        "chunk_id": "epa_common_recyclables.txt::chunk_2",
+        "source": "epa_common_recyclables.txt",
+        "text": "Even envelopes with plastic windows can be recycled. Are paper and cardboard takeout containers recyclable? It depends on how much food is left on them. Try rinsing or scraping the residue off to clean it. “ Spatula-clean” is clean enough to recycle! Otherwise, containers contaminated with food cannot be recycled. Can cardboard containers and boxes be recycled? Yes, make sure to flatten any boxes before placing them in the bin. Examples of recyclable cardboard containers are some egg cartons, ce",
+        "score": 0.03252247488101534,
+        "rank": 1
+      }
+    },
+    {
+      "position": 2,
+      "fields": [
+        "chunk_id",
+        "source",
+        "text",
+        "metadata",
+        "score",
+        "rank"
+      ],
+      "values": {
+        "chunk_id": "epa_common_recyclables.txt::chunk_1",
+        "source": "epa_common_recyclables.txt",
+        "text": "Below are answers to frequently asked questions on paper and cardboard products. While general answers are provided, your local program may have different rules. Check with your local recycling program to learn if they accept these items. Can I recycle newspapers? Yes, newspapers can be recycled. Can I recycle magazines? Yes, magazines can be recycled. Can I recycle pizza boxes? Yes! Pizza boxes can be recycled, even if they have grease in them. Make sure to remove any food scraps from the box a",
+        "score": 0.03252247488101534,
+        "rank": 2
+      }
+    },
+    {
+      "position": 3,
+      "fields": [
+        "chunk_id",
+        "source",
+        "text",
+        "metadata",
+        "score",
+        "rank"
+      ],
+      "values": {
+        "chunk_id": "oecd_recycled_plastics_markets.txt::chunk_15",
+        "source": "oecd_recycled_plastics_markets.txt",
+        "text": "22 1.3. Plastics recycling. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 23 1.4.",
+        "score": 0.015873015873015872,
+        "rank": 3
+      }
+    },
+    {
+      "position": 4,
+      "fields": [
+        "chunk_id",
+        "source",
+        "text",
+        "metadata",
+        "score",
+        "rank"
+      ],
+      "values": {
+        "chunk_id": "epa_common_recyclables.txt::chunk_12",
+        "source": "epa_common_recyclables.txt",
+        "text": "Check with your local recycling program to find out if they accept these items. Should aluminum cans be crushed before recycling them? No, generally, aluminum cans should not be crushed before they are recycled. For areas with single-stream recycling, crushed cans are harder to detect when being sorted at recycling facilities. If you live in an area with multi-stream recycling, crushing cans is not an issue. Can I recycle aluminum foil? Yes, aluminum foil can be recycled. Make sure to remove any",
+        "score": 0.015873015873015872,
+        "rank": 4
+      }
+    },
+    {
+      "position": 5,
+      "fields": [
+        "chunk_id",
+        "source",
+        "text",
+        "metadata",
+        "score",
+        "rank"
+      ],
+      "values": {
+        "chunk_id": "epa_recycling_basics.txt::chunk_5",
+        "source": "epa_recycling_basics.txt",
+        "text": "Recyclables are bought and sold just like raw materials would be, and prices go up and down depending on supply and demand in the United States and around the world. Step 2: Manufacturing After processing, recyclables are made into new products at a recycling plant or similar facility. More and more of today's products are being manufactured with recycled content. Recycled materials are also used in new ways such as recovered glass in asphalt to pave roads or recovered plastic in carpeting and p",
+        "score": 0.015625,
+        "rank": 5
+      }
+    }
+  ],
+  "score_diagnostics": {
+    "numeric_scores_found": 5,
+    "scores_in_returned_order": [
+      0.03252247488101534,
+      0.03252247488101534,
+      0.015873015873015872,
+      0.015873015873015872,
+      0.015625
+    ],
+    "non_increasing": true
+  },
+  "legacy_rag_project_modified": false,
+  "weak_retrieval_threshold_decided": false
+}

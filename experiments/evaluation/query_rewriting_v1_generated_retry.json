@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0",
+  "evaluation_id": "query_rewriting_v1",
+  "run_type": "automatic_query_generation_retry",
+  "model": "gemini-flash-lite-latest",
+  "created_at_utc": "2026-10-28T11:22:20.212497+00:00",
+  "input_definition": "experiments/evaluation/query_rewriting_v1.json",
+  "requested_cases": 3,
+  "successful_cases": 3,
+  "failed_cases": 0,
+  "results": [
+    {
+      "case_id": "batteries",
+      "natural_query": "How should I dispose of used household batteries safely?",
+      "automatic_query": "safe disposal of used household lithium alkaline rechargeable batteries recycling drop-off",
+      "generation_seconds": 0.878,
+      "status": "success"
+    },
+    {
+      "case_id": "electronics",
+      "natural_query": "Where should I take old electronics for recycling?",
+      "automatic_query": "electronics e-waste recycling drop-off location disposal facility",
+      "generation_seconds": 0.4869,
+      "status": "success"
+    },
+    {
+      "case_id": "clothing",
+      "natural_query": "What can I do with old clothes and damaged shoes?",
+      "automatic_query": "recycle old clothes damaged shoes disposal donation textile recycling",
+      "generation_seconds": 0.5847,
+      "status": "success"
+    }
+  ],
+  "errors": []
+}

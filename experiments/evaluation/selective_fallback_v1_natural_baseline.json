@@ -1,0 +1,1033 @@
+{
+  "schema_version": "1.0",
+  "evaluation_id": "selective_fallback_v1_natural_baseline",
+  "created_at_utc": "2026-10-28T13:14:17.778364+00:00",
+  "dataset_file": "/content/drive/MyDrive/smart-waste-multimodal-ai/experiments/evaluation/selective_fallback_v1_hard_query_set.json",
+  "dataset_sha256": "a1dcef24df36ec53e29f096f5b7438b0d19846b309be8ee37cf4b1b04c0d72d2",
+  "retrieval": {
+    "index_version": "v4_expanded",
+    "top_k": 20,
+    "rrf_k": 60,
+    "retriever_class": "HybridRetriever"
+  },
+  "methodology": {
+    "query_count": 14,
+    "topic_count": 7,
+    "target_labels_are_offline_only": true,
+    "latency_recorded": false,
+    "note": "This pass establishes natural-query baseline only. Target labels measure offline retrieval quality and must not be used as runtime fallback signals. RRF scores are ranking scores, not probabilities."
+  },
+  "summary": {
+    "mean_coverage_at_20": 0.9642857142857143,
+    "mean_target_mrr": 0.5481837606837606,
+    "zero_target_hit_cases_at_20": 0,
+    "cases_with_any_target_in_top5": 14,
+    "cases_with_any_target_in_top20": 14,
+    "threshold_selected": false,
+    "legacy_rag_project_modified": false
+  },
+  "topic_summaries": {
+    "batteries": {
+      "case_count": 2,
+      "mean_coverage_at_20": 1.0,
+      "mean_target_mrr": 0.37222222222222223,
+      "cases_with_zero_target_hits_at_20": 0
+    },
+    "cardboard": {
+      "case_count": 2,
+      "mean_coverage_at_20": 1.0,
+      "mean_target_mrr": 0.7083333333333333,
+      "cases_with_zero_target_hits_at_20": 0
+    },
+    "clothing": {
+      "case_count": 2,
+      "mean_coverage_at_20": 1.0,
+      "mean_target_mrr": 0.75,
+      "cases_with_zero_target_hits_at_20": 0
+    },
+    "electronics": {
+      "case_count": 2,
+      "mean_coverage_at_20": 1.0,
+      "mean_target_mrr": 0.375,
+      "cases_with_zero_target_hits_at_20": 0
+    },
+    "glass": {
+      "case_count": 2,
+      "mean_coverage_at_20": 1.0,
+      "mean_target_mrr": 0.4567307692307692,
+      "cases_with_zero_target_hits_at_20": 0
+    },
+    "metal": {
+      "case_count": 2,
+      "mean_coverage_at_20": 0.75,
+      "mean_target_mrr": 0.425,
+      "cases_with_zero_target_hits_at_20": 0
+    },
+    "plastic": {
+      "case_count": 2,
+      "mean_coverage_at_20": 1.0,
+      "mean_target_mrr": 0.75,
+      "cases_with_zero_target_hits_at_20": 0
+    }
+  },
+  "results": [
+    {
+      "case_id": "cardboard_hard_01",
+      "topic": "cardboard",
+      "query": "After unpacking a delivery, what should I do with the cardboard packaging before putting it out for recycling?",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_1",
+        "epa_common_recyclables.txt::chunk_2"
+      ],
+      "target_ranks_offline_only": {
+        "epa_common_recyclables.txt::chunk_1": 1,
+        "epa_common_recyclables.txt::chunk_2": 3
+      },
+      "target_hits_at_5": 2,
+      "target_hits_at_10": 2,
+      "target_hits_at_20": 2,
+      "target_count": 2,
+      "coverage_at_20_offline": 1.0,
+      "target_mrr_offline": 0.6666666666666666,
+      "first_target_rank_offline": 1,
+      "runtime_observable_features": {
+        "top_score": 0.031754032258064516,
+        "top1_top2_gap": 0.0004964010004332581,
+        "top5_score_mean": 0.030652456204724978,
+        "top5_score_stdev": 0.0009192890613266543,
+        "returned_result_count": 20
+      },
+      "top5": [
+        {
+          "rank": 1,
+          "chunk_id": "epa_common_recyclables.txt::chunk_1",
+          "score": 0.031754032258064516,
+          "is_target_offline_label": true,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "Below are answers to frequently asked questions on paper and cardboard products. While general answers are provided, your local program may have different rules. Check with your local recycling program to learn if they accept these items. C"
+        },
+        {
+          "rank": 2,
+          "chunk_id": "epa_common_recyclables.txt::chunk_21",
+          "score": 0.03125763125763126,
+          "is_target_offline_label": false,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "Sometimes businesses that sell these products will also accept them for recycling. If you have to dispose of HHW, first check with your local waste management agency to learn what rules apply in your community. Please visit our Household Ha"
+        },
+        {
+          "rank": 3,
+          "chunk_id": "epa_common_recyclables.txt::chunk_2",
+          "score": 0.031099324975891997,
+          "is_target_offline_label": true,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "Even envelopes with plastic windows can be recycled. Are paper and cardboard takeout containers recyclable? It depends on how much food is left on them. Try rinsing or scraping the residue off to clean it. “ Spatula-clean” is clean enough t"
+        },
+        {
+          "rank": 4,
+          "chunk_id": "epa_common_recyclables.txt::chunk_22",
+          "score": 0.029827662395050816,
+          "is_target_offline_label": false,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "What should I do with barometers and thermometers? Avoid discarding them in the trash. Check with your local recycling or household hazardous waste facility, or visit Earth911 for more information on ways to properly dispose of them, as som"
+        },
+        {
+          "rank": 5,
+          "chunk_id": "epa_common_recyclables.txt::chunk_0",
+          "score": 0.0293236301369863,
+          "is_target_offline_label": false,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "Paper/Cardboard Paper makes up 23 percent of municipal solid waste (trash) generated each year, more than any other material. Americans recycled about 68 percent of the paper they used in 2018. This recovered paper is used to make new paper"
+        }
+      ]
+    },
+    {
+      "case_id": "cardboard_hard_02",
+      "topic": "cardboard",
+      "query": "Some cardboard packaging has food residue on it. How should I prepare the material, and what should I do with the box itself?",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_1",
+        "epa_common_recyclables.txt::chunk_2"
+      ],
+      "target_ranks_offline_only": {
+        "epa_common_recyclables.txt::chunk_1": 2,
+        "epa_common_recyclables.txt::chunk_2": 1
+      },
+      "target_hits_at_5": 2,
+      "target_hits_at_10": 2,
+      "target_hits_at_20": 2,
+      "target_count": 2,
+      "coverage_at_20_offline": 1.0,
+      "target_mrr_offline": 0.75,
+      "first_target_rank_offline": 1,
+      "runtime_observable_features": {
+        "top_score": 0.032018442622950824,
+        "top1_top2_gap": 0.0005047949802709228,
+        "top5_score_mean": 0.031008703581218124,
+        "top5_score_stdev": 0.0008562947661045037,
+        "returned_result_count": 20
+      },
+      "top5": [
+        {
+          "rank": 1,
+          "chunk_id": "epa_common_recyclables.txt::chunk_2",
+          "score": 0.032018442622950824,
+          "is_target_offline_label": true,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "Even envelopes with plastic windows can be recycled. Are paper and cardboard takeout containers recyclable? It depends on how much food is left on them. Try rinsing or scraping the residue off to clean it. “ Spatula-clean” is clean enough t"
+        },
+        {
+          "rank": 2,
+          "chunk_id": "epa_common_recyclables.txt::chunk_1",
+          "score": 0.0315136476426799,
+          "is_target_offline_label": true,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "Below are answers to frequently asked questions on paper and cardboard products. While general answers are provided, your local program may have different rules. Check with your local recycling program to learn if they accept these items. C"
+        },
+        {
+          "rank": 3,
+          "chunk_id": "epa_common_recyclables.txt::chunk_9",
+          "score": 0.031024531024531024,
+          "is_target_offline_label": false,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "Photo courtesy of ASTM International. Can I recycle plastic containers that had food in them? It depends on how much food in on the containers and what type of plastic containers your local recycling program accepts. First, check with your "
+        },
+        {
+          "rank": 4,
+          "chunk_id": "epa_common_recyclables.txt::chunk_21",
+          "score": 0.031024531024531024,
+          "is_target_offline_label": false,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "Sometimes businesses that sell these products will also accept them for recycling. If you have to dispose of HHW, first check with your local waste management agency to learn what rules apply in your community. Please visit our Household Ha"
+        },
+        {
+          "rank": 5,
+          "chunk_id": "epa_common_recyclables.txt::chunk_22",
+          "score": 0.02946236559139785,
+          "is_target_offline_label": false,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "What should I do with barometers and thermometers? Avoid discarding them in the trash. Check with your local recycling or household hazardous waste facility, or visit Earth911 for more information on ways to properly dispose of them, as som"
+        }
+      ]
+    },
+    {
+      "case_id": "glass_hard_01",
+      "topic": "glass",
+      "query": "Before I recycle empty glass bottles, do I need to separate anything, and are there items that should not go into the recycling bin?",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_10",
+        "epa_common_recyclables.txt::chunk_11"
+      ],
+      "target_ranks_offline_only": {
+        "epa_common_recyclables.txt::chunk_10": 13,
+        "epa_common_recyclables.txt::chunk_11": 1
+      },
+      "target_hits_at_5": 1,
+      "target_hits_at_10": 1,
+      "target_hits_at_20": 2,
+      "target_count": 2,
+      "coverage_at_20_offline": 1.0,
+      "target_mrr_offline": 0.5384615384615384,
+      "first_target_rank_offline": 1,
+      "runtime_observable_features": {
+        "top_score": 0.03278688524590164,
+        "top1_top2_gap": 0.0007848371148212532,
+        "top5_score_mean": 0.03083012277823123,
+        "top5_score_stdev": 0.0013372943571275436,
+        "returned_result_count": 20
+      },
+      "top5": [
+        {
+          "rank": 1,
+          "chunk_id": "epa_common_recyclables.txt::chunk_11",
+          "score": 0.03278688524590164,
+          "is_target_offline_label": true,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "Can I recycle broken glass? No, broken glass should not go into the recycling bin. Glass shards can harm workers and damage equipment. Can I leave my metal bottle cap on my glass bottle when I recycle? No, metal bottle caps should be recycl"
+        },
+        {
+          "rank": 2,
+          "chunk_id": "epa_common_recyclables.txt::chunk_5",
+          "score": 0.03200204813108039,
+          "is_target_offline_label": false,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "Can I recycle plastic bags, wraps and films? These items are recyclable, but they cannot go in your household recycling bin. Retail and grocery stores often accept these materials for recycling. If necessary, be sure to cut off the sealable"
+        },
+        {
+          "rank": 3,
+          "chunk_id": "epa_common_recyclables.txt::chunk_1",
+          "score": 0.030330882352941176,
+          "is_target_offline_label": false,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "Below are answers to frequently asked questions on paper and cardboard products. While general answers are provided, your local program may have different rules. Check with your local recycling program to learn if they accept these items. C"
+        },
+        {
+          "rank": 4,
+          "chunk_id": "epa_common_recyclables.txt::chunk_9",
+          "score": 0.02964426877470356,
+          "is_target_offline_label": false,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "Photo courtesy of ASTM International. Can I recycle plastic containers that had food in them? It depends on how much food in on the containers and what type of plastic containers your local recycling program accepts. First, check with your "
+        },
+        {
+          "rank": 5,
+          "chunk_id": "epa_recycling_basics.txt::chunk_7",
+          "score": 0.029386529386529386,
+          "is_target_offline_label": false,
+          "source": "epa_recycling_basics.txt",
+          "text_preview": "These products do not necessarily contain recycled materials. Remember not all kinds of recyclables may be collected in your community, so be sure to check with your local recycling program before you buy. Some common products you can find "
+        }
+      ]
+    },
+    {
+      "case_id": "glass_hard_02",
+      "topic": "glass",
+      "query": "I have glass food jars, their lids, and a broken glass item. What preparation or handling guidance applies before recycling?",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_10",
+        "epa_common_recyclables.txt::chunk_11"
+      ],
+      "target_ranks_offline_only": {
+        "epa_common_recyclables.txt::chunk_10": 4,
+        "epa_common_recyclables.txt::chunk_11": 2
+      },
+      "target_hits_at_5": 2,
+      "target_hits_at_10": 2,
+      "target_hits_at_20": 2,
+      "target_count": 2,
+      "coverage_at_20_offline": 1.0,
+      "target_mrr_offline": 0.375,
+      "first_target_rank_offline": 2,
+      "runtime_observable_features": {
+        "top_score": 0.032266458495966696,
+        "top1_top2_gap": 0.0036374262379021798,
+        "top5_score_mean": 0.024389841871232738,
+        "top5_score_stdev": 0.006772686472501209,
+        "returned_result_count": 20
+      },
+      "top5": [
+        {
+          "rank": 1,
+          "chunk_id": "epa_common_recyclables.txt::chunk_9",
+          "score": 0.032266458495966696,
+          "is_target_offline_label": false,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "Photo courtesy of ASTM International. Can I recycle plastic containers that had food in them? It depends on how much food in on the containers and what type of plastic containers your local recycling program accepts. First, check with your "
+        },
+        {
+          "rank": 2,
+          "chunk_id": "epa_common_recyclables.txt::chunk_11",
+          "score": 0.028629032258064516,
+          "is_target_offline_label": true,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "Can I recycle broken glass? No, broken glass should not go into the recycling bin. Glass shards can harm workers and damage equipment. Can I leave my metal bottle cap on my glass bottle when I recycle? No, metal bottle caps should be recycl"
+        },
+        {
+          "rank": 3,
+          "chunk_id": "epa_common_recyclables.txt::chunk_21",
+          "score": 0.028531243721117136,
+          "is_target_offline_label": false,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "Sometimes businesses that sell these products will also accept them for recycling. If you have to dispose of HHW, first check with your local waste management agency to learn what rules apply in your community. Please visit our Household Ha"
+        },
+        {
+          "rank": 4,
+          "chunk_id": "epa_common_recyclables.txt::chunk_10",
+          "score": 0.01639344262295082,
+          "is_target_offline_label": true,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "Glass Glass, especially glass food and beverage containers, can be recycled over and over again. In the United States in 2018, 12.3 million tons of glass were generated, 31.3 percent of which was recycled. Making new glass from recycled gla"
+        },
+        {
+          "rank": 5,
+          "chunk_id": "epa_plastic_best_practices.txt::chunk_0",
+          "score": 0.016129032258064516,
+          "is_target_offline_label": false,
+          "source": "epa_plastic_best_practices.txt",
+          "text_preview": "Best Practices This is a picture of five bins clearly labeled to indicate what should go in each one - food waste, general trash, glass, plastic, and aluminum. Best practices for addressing plastic pollution include regulatory and policy in"
+        }
+      ]
+    },
+    {
+      "case_id": "plastic_hard_01",
+      "topic": "plastic",
+      "query": "After using a plastic food container, how clean does it need to be before I put it with recyclables?",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_9"
+      ],
+      "target_ranks_offline_only": {
+        "epa_common_recyclables.txt::chunk_9": 1
+      },
+      "target_hits_at_5": 1,
+      "target_hits_at_10": 1,
+      "target_hits_at_20": 1,
+      "target_count": 1,
+      "coverage_at_20_offline": 1.0,
+      "target_mrr_offline": 1.0,
+      "first_target_rank_offline": 1,
+      "runtime_observable_features": {
+        "top_score": 0.03278688524590164,
+        "top1_top2_gap": 0.0005288207297726097,
+        "top5_score_mean": 0.028009119886963366,
+        "top5_score_stdev": 0.006244138770648073,
+        "returned_result_count": 20
+      },
+      "top5": [
+        {
+          "rank": 1,
+          "chunk_id": "epa_common_recyclables.txt::chunk_9",
+          "score": 0.03278688524590164,
+          "is_target_offline_label": true,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "Photo courtesy of ASTM International. Can I recycle plastic containers that had food in them? It depends on how much food in on the containers and what type of plastic containers your local recycling program accepts. First, check with your "
+        },
+        {
+          "rank": 2,
+          "chunk_id": "epa_common_recyclables.txt::chunk_2",
+          "score": 0.03225806451612903,
+          "is_target_offline_label": false,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "Even envelopes with plastic windows can be recycled. Are paper and cardboard takeout containers recyclable? It depends on how much food is left on them. Try rinsing or scraping the residue off to clean it. “ Spatula-clean” is clean enough t"
+        },
+        {
+          "rank": 3,
+          "chunk_id": "epa_common_recyclables.txt::chunk_8",
+          "score": 0.03055037313432836,
+          "is_target_offline_label": false,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "This can help you determine whether the item is recyclable by your local program. The resin number is contained in a triangle that looks very similar to the recycling symbol. However, this symbol does not necessarily mean it can be collecte"
+        },
+        {
+          "rank": 4,
+          "chunk_id": "epa_common_recyclables.txt::chunk_6",
+          "score": 0.028577260665441927,
+          "is_target_offline_label": false,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "Can polystyrene foam (styrofoam) be recycled? Very few localities accept styrofoam in curbside recycling. Check Earth911 to learn where you can drop off your styrofoam for it to be recycled. Can plastic containers, cups and utensils be recy"
+        },
+        {
+          "rank": 5,
+          "chunk_id": "epa_common_recyclables.txt::chunk_5",
+          "score": 0.015873015873015872,
+          "is_target_offline_label": false,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "Can I recycle plastic bags, wraps and films? These items are recyclable, but they cannot go in your household recycling bin. Retail and grocery stores often accept these materials for recycling. If necessary, be sure to cut off the sealable"
+        }
+      ]
+    },
+    {
+      "case_id": "plastic_hard_02",
+      "topic": "plastic",
+      "query": "A takeout container still has leftover sauce and food on it. What should I do before recycling the plastic?",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_9"
+      ],
+      "target_ranks_offline_only": {
+        "epa_common_recyclables.txt::chunk_9": 2
+      },
+      "target_hits_at_5": 1,
+      "target_hits_at_10": 1,
+      "target_hits_at_20": 1,
+      "target_count": 1,
+      "coverage_at_20_offline": 1.0,
+      "target_mrr_offline": 0.5,
+      "first_target_rank_offline": 2,
+      "runtime_observable_features": {
+        "top_score": 0.03225806451612903,
+        "top1_top2_gap": 0.0011587395402370346,
+        "top5_score_mean": 0.028127563301478205,
+        "top5_score_stdev": 0.005915235245563705,
+        "returned_result_count": 20
+      },
+      "top5": [
+        {
+          "rank": 1,
+          "chunk_id": "epa_common_recyclables.txt::chunk_2",
+          "score": 0.03225806451612903,
+          "is_target_offline_label": false,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "Even envelopes with plastic windows can be recycled. Are paper and cardboard takeout containers recyclable? It depends on how much food is left on them. Try rinsing or scraping the residue off to clean it. “ Spatula-clean” is clean enough t"
+        },
+        {
+          "rank": 2,
+          "chunk_id": "epa_common_recyclables.txt::chunk_9",
+          "score": 0.031099324975891997,
+          "is_target_offline_label": true,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "Photo courtesy of ASTM International. Can I recycle plastic containers that had food in them? It depends on how much food in on the containers and what type of plastic containers your local recycling program accepts. First, check with your "
+        },
+        {
+          "rank": 3,
+          "chunk_id": "epa_common_recyclables.txt::chunk_1",
+          "score": 0.031009615384615385,
+          "is_target_offline_label": false,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "Below are answers to frequently asked questions on paper and cardboard products. While general answers are provided, your local program may have different rules. Check with your local recycling program to learn if they accept these items. C"
+        },
+        {
+          "rank": 4,
+          "chunk_id": "epa_common_recyclables.txt::chunk_21",
+          "score": 0.029877369007803793,
+          "is_target_offline_label": false,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "Sometimes businesses that sell these products will also accept them for recycling. If you have to dispose of HHW, first check with your local waste management agency to learn what rules apply in your community. Please visit our Household Ha"
+        },
+        {
+          "rank": 5,
+          "chunk_id": "epa_common_recyclables.txt::chunk_24",
+          "score": 0.01639344262295082,
+          "is_target_offline_label": false,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "The recycling rate for nonferrous metals was approximately 68 percent. How do I recycle metal? There are different programs and options for metal recycling depending on your locality. Check to find out what is available in your area. Miscel"
+        }
+      ]
+    },
+    {
+      "case_id": "metal_hard_01",
+      "topic": "metal",
+      "query": "How should I handle used metal cans, aluminum foil, and caps when sorting household recycling?",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_11",
+        "epa_common_recyclables.txt::chunk_12"
+      ],
+      "target_ranks_offline_only": {
+        "epa_common_recyclables.txt::chunk_11": 1,
+        "epa_common_recyclables.txt::chunk_12": 2
+      },
+      "target_hits_at_5": 2,
+      "target_hits_at_10": 2,
+      "target_hits_at_20": 2,
+      "target_count": 2,
+      "coverage_at_20_offline": 1.0,
+      "target_mrr_offline": 0.75,
+      "first_target_rank_offline": 1,
+      "runtime_observable_features": {
+        "top_score": 0.03252247488101534,
+        "top1_top2_gap": 0.0005040322580645157,
+        "top5_score_mean": 0.03133039043979122,
+        "top5_score_stdev": 0.0008168266668877481,
+        "returned_result_count": 20
+      },
+      "top5": [
+        {
+          "rank": 1,
+          "chunk_id": "epa_common_recyclables.txt::chunk_11",
+          "score": 0.03252247488101534,
+          "is_target_offline_label": true,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "Can I recycle broken glass? No, broken glass should not go into the recycling bin. Glass shards can harm workers and damage equipment. Can I leave my metal bottle cap on my glass bottle when I recycle? No, metal bottle caps should be recycl"
+        },
+        {
+          "rank": 2,
+          "chunk_id": "epa_common_recyclables.txt::chunk_12",
+          "score": 0.032018442622950824,
+          "is_target_offline_label": true,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "Check with your local recycling program to find out if they accept these items. Should aluminum cans be crushed before recycling them? No, generally, aluminum cans should not be crushed before they are recycled. For areas with single-stream"
+        },
+        {
+          "rank": 3,
+          "chunk_id": "epa_common_recyclables.txt::chunk_24",
+          "score": 0.031024531024531024,
+          "is_target_offline_label": false,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "The recycling rate for nonferrous metals was approximately 68 percent. How do I recycle metal? There are different programs and options for metal recycling depending on your locality. Check to find out what is available in your area. Miscel"
+        },
+        {
+          "rank": 4,
+          "chunk_id": "epa_common_recyclables.txt::chunk_5",
+          "score": 0.030776515151515152,
+          "is_target_offline_label": false,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "Can I recycle plastic bags, wraps and films? These items are recyclable, but they cannot go in your household recycling bin. Retail and grocery stores often accept these materials for recycling. If necessary, be sure to cut off the sealable"
+        },
+        {
+          "rank": 5,
+          "chunk_id": "epa_common_recyclables.txt::chunk_21",
+          "score": 0.030309988518943745,
+          "is_target_offline_label": false,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "Sometimes businesses that sell these products will also accept them for recycling. If you have to dispose of HHW, first check with your local waste management agency to learn what rules apply in your community. Please visit our Household Ha"
+        }
+      ]
+    },
+    {
+      "case_id": "metal_hard_02",
+      "topic": "metal",
+      "query": "I have empty drink cans, some foil, and metal lids. Which preparation and separation instructions are relevant?",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_11",
+        "epa_common_recyclables.txt::chunk_12"
+      ],
+      "target_ranks_offline_only": {
+        "epa_common_recyclables.txt::chunk_11": 5,
+        "epa_common_recyclables.txt::chunk_12": null
+      },
+      "target_hits_at_5": 1,
+      "target_hits_at_10": 1,
+      "target_hits_at_20": 1,
+      "target_count": 2,
+      "coverage_at_20_offline": 0.5,
+      "target_mrr_offline": 0.1,
+      "first_target_rank_offline": 5,
+      "runtime_observable_features": {
+        "top_score": 0.02946912242686891,
+        "top1_top2_gap": 0.0006862276900268041,
+        "top5_score_mean": 0.02383548610962816,
+        "top5_score_stdev": 0.006090958931026177,
+        "returned_result_count": 20
+      },
+      "top5": [
+        {
+          "rank": 1,
+          "chunk_id": "oecd_recycled_plastics_markets.txt::chunk_371",
+          "score": 0.02946912242686891,
+          "is_target_offline_label": false,
+          "source": "oecd_recycled_plastics_markets.txt",
+          "text_preview": "whil st there are some technologies which have the potential to be used for recycling contaminated plastics, they have not yet been demonstrated to be commercially viable for recycling post-consumer plastics waste. b. Identifying and succes"
+        },
+        {
+          "rank": 2,
+          "chunk_id": "epa_common_recyclables.txt::chunk_20",
+          "score": 0.028782894736842105,
+          "is_target_offline_label": false,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "Although it depends on your local solid waste agency/recycling facility, some examples include pesticides, herbicides, insecticides, paints, solvents, oil filters, light bulbs, batteries, unemptied aerosol cans, ammunition, ammonia, antifre"
+        },
+        {
+          "rank": 3,
+          "chunk_id": "oecd_recycled_plastics_markets.txt::chunk_267",
+          "score": 0.02813852813852814,
+          "is_target_offline_label": false,
+          "source": "oecd_recycled_plastics_markets.txt",
+          "text_preview": "Drum separator (trommel)/screen Separates material via particle size. Perforated drum or screen causes smaller particles to fall whilst larger particles remain in the drum. Very common. Sink-float separation Separation of plastics based on "
+        },
+        {
+          "rank": 4,
+          "chunk_id": "oecd_global_plastics_outlook.txt::chunk_700",
+          "score": 0.01639344262295082,
+          "is_target_offline_label": false,
+          "source": "oecd_global_plastics_outlook.txt",
+          "text_preview": " Limited: use of improved facilities shared between two or more households.  Unimproved: use of pit latrines without a slab or platform, hanging latrines or bucket latrines.  Open defecation: disposal of human faeces in fields, forests, "
+        },
+        {
+          "rank": 5,
+          "chunk_id": "epa_common_recyclables.txt::chunk_11",
+          "score": 0.01639344262295082,
+          "is_target_offline_label": true,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "Can I recycle broken glass? No, broken glass should not go into the recycling bin. Glass shards can harm workers and damage equipment. Can I leave my metal bottle cap on my glass bottle when I recycle? No, metal bottle caps should be recycl"
+        }
+      ]
+    },
+    {
+      "case_id": "batteries_hard_01",
+      "topic": "batteries",
+      "query": "What should I do with used batteries from household devices, especially if they are rechargeable?",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_13",
+        "epa_common_recyclables.txt::chunk_14",
+        "epa_common_recyclables.txt::chunk_15"
+      ],
+      "target_ranks_offline_only": {
+        "epa_common_recyclables.txt::chunk_13": 4,
+        "epa_common_recyclables.txt::chunk_14": 3,
+        "epa_common_recyclables.txt::chunk_15": 5
+      },
+      "target_hits_at_5": 3,
+      "target_hits_at_10": 3,
+      "target_hits_at_20": 3,
+      "target_count": 3,
+      "coverage_at_20_offline": 1.0,
+      "target_mrr_offline": 0.2611111111111111,
+      "first_target_rank_offline": 3,
+      "runtime_observable_features": {
+        "top_score": 0.03200204813108039,
+        "top1_top2_gap": 0.00022399012351417835,
+        "top5_score_mean": 0.031477816938024164,
+        "top5_score_stdev": 0.0003919083992769942,
+        "returned_result_count": 20
+      },
+      "top5": [
+        {
+          "rank": 1,
+          "chunk_id": "epa_common_recyclables.txt::chunk_22",
+          "score": 0.03200204813108039,
+          "is_target_offline_label": false,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "What should I do with barometers and thermometers? Avoid discarding them in the trash. Check with your local recycling or household hazardous waste facility, or visit Earth911 for more information on ways to properly dispose of them, as som"
+        },
+        {
+          "rank": 2,
+          "chunk_id": "epa_common_recyclables.txt::chunk_21",
+          "score": 0.03177805800756621,
+          "is_target_offline_label": false,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "Sometimes businesses that sell these products will also accept them for recycling. If you have to dispose of HHW, first check with your local waste management agency to learn what rules apply in your community. Please visit our Household Ha"
+        },
+        {
+          "rank": 3,
+          "chunk_id": "epa_common_recyclables.txt::chunk_14",
+          "score": 0.031544957774465976,
+          "is_target_offline_label": true,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "Look for in-store recycling bins or community collection events to dispose of these batteries. Lithium-ion Batteries are used in many rechargeable products such as electronics, toys, wireless headphones, handheld power tools, small and larg"
+        },
+        {
+          "rank": 4,
+          "chunk_id": "epa_common_recyclables.txt::chunk_13",
+          "score": 0.031054405392392875,
+          "is_target_offline_label": true,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "Recycling rates of other battery types are not as well tracked. Although batteries are recyclable, most batteries, including lithium-ion, lithium metal, lead-acid, nickel cadmium, and other rechargeable batteries, should NOT go in household"
+        },
+        {
+          "rank": 5,
+          "chunk_id": "epa_common_recyclables.txt::chunk_15",
+          "score": 0.031009615384615385,
+          "is_target_offline_label": true,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "Lithium Metal Batteries are similar to lithium-ion batteries but are not rechargeable. They are commonly used in products such as cameras, watches, remote controls, handheld games, and smoke detectors. Do NOT put them in the trash or munici"
+        }
+      ]
+    },
+    {
+      "case_id": "batteries_hard_02",
+      "topic": "batteries",
+      "query": "I have several depleted batteries at home and do not want to put them in the wrong waste stream. Where should I start?",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_13",
+        "epa_common_recyclables.txt::chunk_14",
+        "epa_common_recyclables.txt::chunk_15"
+      ],
+      "target_ranks_offline_only": {
+        "epa_common_recyclables.txt::chunk_13": 5,
+        "epa_common_recyclables.txt::chunk_14": 1,
+        "epa_common_recyclables.txt::chunk_15": 4
+      },
+      "target_hits_at_5": 3,
+      "target_hits_at_10": 3,
+      "target_hits_at_20": 3,
+      "target_count": 3,
+      "coverage_at_20_offline": 1.0,
+      "target_mrr_offline": 0.48333333333333334,
+      "first_target_rank_offline": 1,
+      "runtime_observable_features": {
+        "top_score": 0.03200204813108039,
+        "top1_top2_gap": 0.0004570903566144119,
+        "top5_score_mean": 0.031166591992542063,
+        "top5_score_stdev": 0.0005432478206303525,
+        "returned_result_count": 20
+      },
+      "top5": [
+        {
+          "rank": 1,
+          "chunk_id": "epa_common_recyclables.txt::chunk_14",
+          "score": 0.03200204813108039,
+          "is_target_offline_label": true,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "Look for in-store recycling bins or community collection events to dispose of these batteries. Lithium-ion Batteries are used in many rechargeable products such as electronics, toys, wireless headphones, handheld power tools, small and larg"
+        },
+        {
+          "rank": 2,
+          "chunk_id": "epa_common_recyclables.txt::chunk_22",
+          "score": 0.031544957774465976,
+          "is_target_offline_label": false,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "What should I do with barometers and thermometers? Avoid discarding them in the trash. Check with your local recycling or household hazardous waste facility, or visit Earth911 for more information on ways to properly dispose of them, as som"
+        },
+        {
+          "rank": 3,
+          "chunk_id": "epa_common_recyclables.txt::chunk_21",
+          "score": 0.031009615384615385,
+          "is_target_offline_label": false,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "Sometimes businesses that sell these products will also accept them for recycling. If you have to dispose of HHW, first check with your local waste management agency to learn what rules apply in your community. Please visit our Household Ha"
+        },
+        {
+          "rank": 4,
+          "chunk_id": "epa_common_recyclables.txt::chunk_15",
+          "score": 0.030798389007344232,
+          "is_target_offline_label": true,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "Lithium Metal Batteries are similar to lithium-ion batteries but are not rechargeable. They are commonly used in products such as cameras, watches, remote controls, handheld games, and smoke detectors. Do NOT put them in the trash or munici"
+        },
+        {
+          "rank": 5,
+          "chunk_id": "epa_common_recyclables.txt::chunk_13",
+          "score": 0.03047794966520434,
+          "is_target_offline_label": true,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "Recycling rates of other battery types are not as well tracked. Although batteries are recyclable, most batteries, including lithium-ion, lithium metal, lead-acid, nickel cadmium, and other rechargeable batteries, should NOT go in household"
+        }
+      ]
+    },
+    {
+      "case_id": "electronics_hard_01",
+      "topic": "electronics",
+      "query": "An old electronic device no longer works. What are the appropriate options for handing it over instead of throwing it away?",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_16"
+      ],
+      "target_ranks_offline_only": {
+        "epa_common_recyclables.txt::chunk_16": 2
+      },
+      "target_hits_at_5": 1,
+      "target_hits_at_10": 1,
+      "target_hits_at_20": 1,
+      "target_count": 1,
+      "coverage_at_20_offline": 1.0,
+      "target_mrr_offline": 0.5,
+      "first_target_rank_offline": 2,
+      "runtime_observable_features": {
+        "top_score": 0.03128054740957967,
+        "top1_top2_gap": 0.014887104786628847,
+        "top5_score_mean": 0.019213896157312338,
+        "top5_score_stdev": 0.00603642038088324,
+        "returned_result_count": 20
+      },
+      "top5": [
+        {
+          "rank": 1,
+          "chunk_id": "epa_common_recyclables.txt::chunk_17",
+          "score": 0.03128054740957967,
+          "is_target_offline_label": false,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "EPA has a list of manufacturers and retailers that offer options to recycle electronics. Before recycling electronics, delete all your personal information. Check with your local recycling facility for best ways to recycle electronics, and "
+        },
+        {
+          "rank": 2,
+          "chunk_id": "epa_common_recyclables.txt::chunk_16",
+          "score": 0.01639344262295082,
+          "is_target_offline_label": true,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "Other Rechargeable Batteries include nickel cadmium, nickel metal hydride, and nickel-zinc batteries. These batteries can be found in cordless power tools, cordless phones, cell phones, digital cameras, and small electronics. Do not put the"
+        },
+        {
+          "rank": 3,
+          "chunk_id": "epa_common_recyclables.txt::chunk_24",
+          "score": 0.01639344262295082,
+          "is_target_offline_label": false,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "The recycling rate for nonferrous metals was approximately 68 percent. How do I recycle metal? There are different programs and options for metal recycling depending on your locality. Check to find out what is available in your area. Miscel"
+        },
+        {
+          "rank": 4,
+          "chunk_id": "oecd_recycled_plastics_markets.txt::chunk_96",
+          "score": 0.016129032258064516,
+          "is_target_offline_label": false,
+          "source": "oecd_recycled_plastics_markets.txt",
+          "text_preview": ".48 Box 5.1 End o f waste . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ."
+        },
+        {
+          "rank": 5,
+          "chunk_id": "epa_common_recyclables.txt::chunk_22",
+          "score": 0.015873015873015872,
+          "is_target_offline_label": false,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "What should I do with barometers and thermometers? Avoid discarding them in the trash. Check with your local recycling or household hazardous waste facility, or visit Earth911 for more information on ways to properly dispose of them, as som"
+        }
+      ]
+    },
+    {
+      "case_id": "electronics_hard_02",
+      "topic": "electronics",
+      "query": "Where can householders take unwanted electronic equipment for proper collection or recycling?",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_16"
+      ],
+      "target_ranks_offline_only": {
+        "epa_common_recyclables.txt::chunk_16": 4
+      },
+      "target_hits_at_5": 1,
+      "target_hits_at_10": 1,
+      "target_hits_at_20": 1,
+      "target_count": 1,
+      "coverage_at_20_offline": 1.0,
+      "target_mrr_offline": 0.25,
+      "first_target_rank_offline": 4,
+      "runtime_observable_features": {
+        "top_score": 0.03177805800756621,
+        "top1_top2_gap": 0.0032355478861087195,
+        "top5_score_mean": 0.024220349895540144,
+        "top5_score_stdev": 0.006615712256332187,
+        "returned_result_count": 20
+      },
+      "top5": [
+        {
+          "rank": 1,
+          "chunk_id": "oecd_recycled_plastics_markets.txt::chunk_252",
+          "score": 0.03177805800756621,
+          "is_target_offline_label": false,
+          "source": "oecd_recycled_plastics_markets.txt",
+          "text_preview": "These systems can be considered as an extension of household collection systems. They are relatively common in low and middle-income country contexts (as well as some high income countries) where their lower operational cost makes them an a"
+        },
+        {
+          "rank": 2,
+          "chunk_id": "oecd_recycled_plastics_markets.txt::chunk_205",
+          "score": 0.02854251012145749,
+          "is_target_offline_label": false,
+          "source": "oecd_recycled_plastics_markets.txt",
+          "text_preview": "Figure 3.5 shows the distribution of plastics waste generation across eight important product categories. Post-consumer plastics are difficult to collect due to their geographically dispersed generation and the wide range of different polym"
+        },
+        {
+          "rank": 3,
+          "chunk_id": "oecd_global_plastics_outlook.txt::chunk_523",
+          "score": 0.028258706467661692,
+          "is_target_offline_label": false,
+          "source": "oecd_global_plastics_outlook.txt",
+          "text_preview": "Policy makers can apply taxes to landfill and incineration to make recycling more cost competitive. By also imposing EPR, p olicy makers can make producers responsible for recycling packaging and durable products such as cars, batteries, ty"
+        },
+        {
+          "rank": 4,
+          "chunk_id": "epa_common_recyclables.txt::chunk_16",
+          "score": 0.01639344262295082,
+          "is_target_offline_label": true,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "Other Rechargeable Batteries include nickel cadmium, nickel metal hydride, and nickel-zinc batteries. These batteries can be found in cordless power tools, cordless phones, cell phones, digital cameras, and small electronics. Do not put the"
+        },
+        {
+          "rank": 5,
+          "chunk_id": "epa_common_recyclables.txt::chunk_17",
+          "score": 0.016129032258064516,
+          "is_target_offline_label": false,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "EPA has a list of manufacturers and retailers that offer options to recycle electronics. Before recycling electronics, delete all your personal information. Check with your local recycling facility for best ways to recycle electronics, and "
+        }
+      ]
+    },
+    {
+      "case_id": "clothing_hard_01",
+      "topic": "clothing",
+      "query": "I have clothes that are worn out and shoes that are damaged. What options should I consider before discarding them?",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_25"
+      ],
+      "target_ranks_offline_only": {
+        "epa_common_recyclables.txt::chunk_25": 1
+      },
+      "target_hits_at_5": 1,
+      "target_hits_at_10": 1,
+      "target_hits_at_20": 1,
+      "target_count": 1,
+      "coverage_at_20_offline": 1.0,
+      "target_mrr_offline": 1.0,
+      "first_target_rank_offline": 1,
+      "runtime_observable_features": {
+        "top_score": 0.032266458495966696,
+        "top1_top2_gap": 0.0004884004884004867,
+        "top5_score_mean": 0.030840316899475927,
+        "top5_score_stdev": 0.001983292449564363,
+        "returned_result_count": 20
+      },
+      "top5": [
+        {
+          "rank": 1,
+          "chunk_id": "epa_common_recyclables.txt::chunk_25",
+          "score": 0.032266458495966696,
+          "is_target_offline_label": true,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "Gently worn clothes and shoes can be donated to many charities. For damaged clothes and shoes, please double-check with your local charity to determine if it will accept them. Some retail stores recycle clothing or shoes. Check your local o"
+        },
+        {
+          "rank": 2,
+          "chunk_id": "epa_common_recyclables.txt::chunk_24",
+          "score": 0.03177805800756621,
+          "is_target_offline_label": false,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "The recycling rate for nonferrous metals was approximately 68 percent. How do I recycle metal? There are different programs and options for metal recycling depending on your locality. Check to find out what is available in your area. Miscel"
+        },
+        {
+          "rank": 3,
+          "chunk_id": "epa_common_recyclables.txt::chunk_22",
+          "score": 0.031754032258064516,
+          "is_target_offline_label": false,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "What should I do with barometers and thermometers? Avoid discarding them in the trash. Check with your local recycling or household hazardous waste facility, or visit Earth911 for more information on ways to properly dispose of them, as som"
+        },
+        {
+          "rank": 4,
+          "chunk_id": "epa_common_recyclables.txt::chunk_21",
+          "score": 0.03149801587301587,
+          "is_target_offline_label": false,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "Sometimes businesses that sell these products will also accept them for recycling. If you have to dispose of HHW, first check with your local waste management agency to learn what rules apply in your community. Please visit our Household Ha"
+        },
+        {
+          "rank": 5,
+          "chunk_id": "epa_common_recyclables.txt::chunk_7",
+          "score": 0.02690501986276634,
+          "is_target_offline_label": false,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "If your community does not have a composting recycling pick-up program that accepts compostable plastic, contact your garbage/recycling company or local government to find out if there are any drop-off locations for your compostable plastic"
+        }
+      ]
+    },
+    {
+      "case_id": "clothing_hard_02",
+      "topic": "clothing",
+      "query": "Some garments are still usable, but others are too damaged to wear. How can I decide what to do with each group?",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_25"
+      ],
+      "target_ranks_offline_only": {
+        "epa_common_recyclables.txt::chunk_25": 2
+      },
+      "target_hits_at_5": 1,
+      "target_hits_at_10": 1,
+      "target_hits_at_20": 1,
+      "target_count": 1,
+      "coverage_at_20_offline": 1.0,
+      "target_mrr_offline": 0.5,
+      "first_target_rank_offline": 2,
+      "runtime_observable_features": {
+        "top_score": 0.03200204813108039,
+        "top1_top2_gap": 0.00022399012351417835,
+        "top5_score_mean": 0.030267142971744987,
+        "top5_score_stdev": 0.0017583331173608887,
+        "returned_result_count": 20
+      },
+      "top5": [
+        {
+          "rank": 1,
+          "chunk_id": "epa_common_recyclables.txt::chunk_21",
+          "score": 0.03200204813108039,
+          "is_target_offline_label": false,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "Sometimes businesses that sell these products will also accept them for recycling. If you have to dispose of HHW, first check with your local waste management agency to learn what rules apply in your community. Please visit our Household Ha"
+        },
+        {
+          "rank": 2,
+          "chunk_id": "epa_common_recyclables.txt::chunk_25",
+          "score": 0.03177805800756621,
+          "is_target_offline_label": true,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "Gently worn clothes and shoes can be donated to many charities. For damaged clothes and shoes, please double-check with your local charity to determine if it will accept them. Some retail stores recycle clothing or shoes. Check your local o"
+        },
+        {
+          "rank": 3,
+          "chunk_id": "epa_common_recyclables.txt::chunk_22",
+          "score": 0.030798389007344232,
+          "is_target_offline_label": false,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "What should I do with barometers and thermometers? Avoid discarding them in the trash. Check with your local recycling or household hazardous waste facility, or visit Earth911 for more information on ways to properly dispose of them, as som"
+        },
+        {
+          "rank": 4,
+          "chunk_id": "epa_common_recyclables.txt::chunk_24",
+          "score": 0.029551337359792925,
+          "is_target_offline_label": false,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "The recycling rate for nonferrous metals was approximately 68 percent. How do I recycle metal? There are different programs and options for metal recycling depending on your locality. Check to find out what is available in your area. Miscel"
+        },
+        {
+          "rank": 5,
+          "chunk_id": "epa_common_recyclables.txt::chunk_23",
+          "score": 0.027205882352941177,
+          "is_target_offline_label": false,
+          "source": "epa_common_recyclables.txt",
+          "text_preview": "You may be able to return used tires to either a tire retailer or a local recycling facility that accepts tires. Some communities will hold collection events for used tires. Tires should not be abandoned. Disease-carrying pests such as rode"
+        }
+      ]
+    }
+  ]
+}

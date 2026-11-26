@@ -1,0 +1,906 @@
+{
+  "evaluation_id": "query_rewriting_v1_results",
+  "created_at_utc": "2026-10-28T11:28:37.087329+00:00",
+  "evaluation_definition_file": "/content/drive/MyDrive/smart-waste-multimodal-ai/experiments/evaluation/query_rewriting_v1_complete.json",
+  "evaluation_definition_sha256": "e9b3e37a27443617e46ecc8ddbebfd0411a6d4160260502fbfe2510986f92f56",
+  "retrieval": {
+    "index_version": "v4_expanded",
+    "index_directory": "/content/drive/MyDrive/waste-detection-rag/data/processed/retrieval_index_v4_expanded",
+    "index_sha256": {
+      "chunks.json": "44b7b4bce2d974bb4f6137017070189178641d29a28e87165f706708a799412f",
+      "index.faiss": "0992306724a4b4502189e24e4f32ea862e4f7a01bc0cc81192323f68fd62dba2"
+    },
+    "top_k": 20,
+    "retriever_class": "HybridRetriever",
+    "legacy_rag_project_modified": false
+  },
+  "methodology": {
+    "queries_executed": 21,
+    "topics": 7,
+    "macro_averaging": "equal weight per topic",
+    "mrr": "mean reciprocal rank over predeclared target chunks; missing target contributes zero",
+    "coverage_at_20": "fraction of target chunks present in top 20",
+    "latency_scope": "retrieval search only; excludes query generation"
+  },
+  "summary": {
+    "natural": {
+      "topic_count": 7,
+      "macro_target_mrr": 0.8071428571428572,
+      "macro_coverage_at_20": 1.0,
+      "mean_retrieval_latency_seconds": 0.12445155685678141,
+      "median_retrieval_latency_seconds": 0.10721941699921445,
+      "total_target_hits": 12,
+      "total_targets": 12
+    },
+    "manual": {
+      "topic_count": 7,
+      "macro_target_mrr": 0.7658730158730158,
+      "macro_coverage_at_20": 1.0,
+      "mean_retrieval_latency_seconds": 0.13790384400012304,
+      "median_retrieval_latency_seconds": 0.07785398200030613,
+      "total_target_hits": 12,
+      "total_targets": 12
+    },
+    "automatic": {
+      "topic_count": 7,
+      "macro_target_mrr": 0.7182539682539683,
+      "macro_coverage_at_20": 1.0,
+      "mean_retrieval_latency_seconds": 0.1516476519999352,
+      "median_retrieval_latency_seconds": 0.09173973500037391,
+      "total_target_hits": 12,
+      "total_targets": 12
+    }
+  },
+  "evaluation_wall_time_seconds": 2.9034666400002607,
+  "results": [
+    {
+      "case_id": "cardboard",
+      "topic": "Cardboard",
+      "method": "natural",
+      "query": "How should I prepare cardboard boxes before recycling them?",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_1",
+        "epa_common_recyclables.txt::chunk_2"
+      ],
+      "target_ranks": {
+        "epa_common_recyclables.txt::chunk_1": 2,
+        "epa_common_recyclables.txt::chunk_2": 1
+      },
+      "hits_at_20": 2,
+      "target_count": 2,
+      "coverage_at_20": 1.0,
+      "target_mrr": 0.75,
+      "retrieval_latency_seconds": 0.09048926399918855,
+      "retrieved_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_2",
+        "epa_common_recyclables.txt::chunk_1",
+        "epa_common_recyclables.txt::chunk_12",
+        "epa_common_recyclables.txt::chunk_0",
+        "epa_common_recyclables.txt::chunk_21",
+        "epa_recycling_basics.txt::chunk_7",
+        "epa_common_recyclables.txt::chunk_5",
+        "epa_common_recyclables.txt::chunk_9",
+        "epa_recycling_basics.txt::chunk_4",
+        "oecd_recycled_plastics_markets.txt::chunk_15",
+        "epa_recycling_basics.txt::chunk_5",
+        "epa_common_recyclables.txt::chunk_24",
+        "epa_common_recyclables.txt::chunk_11",
+        "epa_common_recyclables.txt::chunk_22",
+        "epa_common_recyclables.txt::chunk_20",
+        "epa_common_recyclables.txt::chunk_23",
+        "oecd_recycled_plastics_markets.txt::chunk_96",
+        "epa_common_recyclables.txt::chunk_8",
+        "oecd_global_plastics_outlook.txt::chunk_326",
+        "oecd_recycled_plastics_markets.txt::chunk_95"
+      ]
+    },
+    {
+      "case_id": "cardboard",
+      "topic": "Cardboard",
+      "method": "manual",
+      "query": "cardboard boxes flatten remove food scraps recycling",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_1",
+        "epa_common_recyclables.txt::chunk_2"
+      ],
+      "target_ranks": {
+        "epa_common_recyclables.txt::chunk_1": 2,
+        "epa_common_recyclables.txt::chunk_2": 1
+      },
+      "hits_at_20": 2,
+      "target_count": 2,
+      "coverage_at_20": 1.0,
+      "target_mrr": 0.75,
+      "retrieval_latency_seconds": 0.06412666899996111,
+      "retrieved_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_2",
+        "epa_common_recyclables.txt::chunk_1",
+        "epa_common_recyclables.txt::chunk_17",
+        "epa_common_recyclables.txt::chunk_0",
+        "epa_common_recyclables.txt::chunk_9",
+        "oecd_recycled_plastics_markets.txt::chunk_474",
+        "oecd_global_plastics_outlook.txt::chunk_527",
+        "epa_common_recyclables.txt::chunk_12",
+        "oecd_recycled_plastics_markets.txt::chunk_96",
+        "oecd_recycled_plastics_markets.txt::chunk_275",
+        "oecd_global_plastics_outlook.txt::chunk_300",
+        "oecd_recycled_plastics_markets.txt::chunk_475",
+        "eea_circular_plastics.txt::chunk_28",
+        "oecd_recycled_plastics_markets.txt::chunk_94",
+        "oecd_global_plastics_outlook.txt::chunk_434",
+        "epa_recycling_basics.txt::chunk_7",
+        "oecd_global_plastics_outlook.txt::chunk_305",
+        "epa_international_waste_agreements.txt::chunk_10",
+        "oecd_global_plastics_outlook.txt::chunk_206",
+        "oecd_recycled_plastics_markets.txt::chunk_209"
+      ]
+    },
+    {
+      "case_id": "cardboard",
+      "topic": "Cardboard",
+      "method": "automatic",
+      "query": "how to prepare cardboard boxes for recycling",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_1",
+        "epa_common_recyclables.txt::chunk_2"
+      ],
+      "target_ranks": {
+        "epa_common_recyclables.txt::chunk_1": 2,
+        "epa_common_recyclables.txt::chunk_2": 1
+      },
+      "hits_at_20": 2,
+      "target_count": 2,
+      "coverage_at_20": 1.0,
+      "target_mrr": 0.75,
+      "retrieval_latency_seconds": 0.06777245200100879,
+      "retrieved_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_2",
+        "epa_common_recyclables.txt::chunk_1",
+        "epa_common_recyclables.txt::chunk_0",
+        "epa_recycling_basics.txt::chunk_8",
+        "epa_recycling_basics.txt::chunk_5",
+        "oecd_recycled_plastics_markets.txt::chunk_262",
+        "oecd_recycled_plastics_markets.txt::chunk_96",
+        "oecd_recycled_plastics_markets.txt::chunk_276",
+        "oecd_recycled_plastics_markets.txt::chunk_15",
+        "oecd_global_plastics_outlook.txt::chunk_33",
+        "epa_recycling_basics.txt::chunk_4",
+        "oecd_recycled_plastics_markets.txt::chunk_95",
+        "oecd_global_plastics_outlook.txt::chunk_701",
+        "epa_common_recyclables.txt::chunk_5",
+        "epa_recycling_basics.txt::chunk_1",
+        "oecd_recycled_plastics_markets.txt::chunk_400",
+        "oecd_global_plastics_outlook.txt::chunk_698",
+        "oecd_recycled_plastics_markets.txt::chunk_31",
+        "eea_recycling_quality.txt::chunk_11",
+        "oecd_recycled_plastics_markets.txt::chunk_24"
+      ]
+    },
+    {
+      "case_id": "glass",
+      "topic": "Glass",
+      "method": "natural",
+      "query": "How should I prepare glass bottles for recycling?",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_10",
+        "epa_common_recyclables.txt::chunk_11"
+      ],
+      "target_ranks": {
+        "epa_common_recyclables.txt::chunk_10": 3,
+        "epa_common_recyclables.txt::chunk_11": 1
+      },
+      "hits_at_20": 2,
+      "target_count": 2,
+      "coverage_at_20": 1.0,
+      "target_mrr": 0.6666666666666666,
+      "retrieval_latency_seconds": 0.10721941699921445,
+      "retrieved_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_11",
+        "epa_common_recyclables.txt::chunk_9",
+        "epa_common_recyclables.txt::chunk_10",
+        "epa_common_recyclables.txt::chunk_21",
+        "epa_common_recyclables.txt::chunk_12",
+        "epa_common_recyclables.txt::chunk_24",
+        "epa_common_recyclables.txt::chunk_2",
+        "epa_recycling_basics.txt::chunk_5",
+        "oecd_recycled_plastics_markets.txt::chunk_57",
+        "epa_common_recyclables.txt::chunk_22",
+        "epa_plastic_best_practices.txt::chunk_0",
+        "epa_common_recyclables.txt::chunk_23",
+        "oecd_recycled_plastics_markets.txt::chunk_31",
+        "eea_recycling_quality.txt::chunk_11",
+        "oecd_global_plastics_outlook.txt::chunk_215",
+        "oecd_global_plastics_outlook.txt::chunk_490",
+        "oecd_recycled_plastics_markets.txt::chunk_380",
+        "oecd_global_plastics_outlook.txt::chunk_479",
+        "oecd_global_plastics_outlook.txt::chunk_326",
+        "epa_common_recyclables.txt::chunk_5"
+      ]
+    },
+    {
+      "case_id": "glass",
+      "topic": "Glass",
+      "method": "manual",
+      "query": "glass containers broken glass metal bottle caps recycling",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_10",
+        "epa_common_recyclables.txt::chunk_11"
+      ],
+      "target_ranks": {
+        "epa_common_recyclables.txt::chunk_10": 2,
+        "epa_common_recyclables.txt::chunk_11": 1
+      },
+      "hits_at_20": 2,
+      "target_count": 2,
+      "coverage_at_20": 1.0,
+      "target_mrr": 0.75,
+      "retrieval_latency_seconds": 0.07235497400142776,
+      "retrieved_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_11",
+        "epa_common_recyclables.txt::chunk_10",
+        "epa_common_recyclables.txt::chunk_9",
+        "oecd_recycled_plastics_markets.txt::chunk_295",
+        "oecd_global_plastics_outlook.txt::chunk_774",
+        "oecd_recycled_plastics_markets.txt::chunk_479",
+        "oecd_recycled_plastics_markets.txt::chunk_296",
+        "oecd_recycled_plastics_markets.txt::chunk_446",
+        "oecd_recycled_plastics_markets.txt::chunk_438",
+        "epa_recycling_basics.txt::chunk_7",
+        "oecd_global_plastics_outlook.txt::chunk_204",
+        "oecd_global_plastics_outlook.txt::chunk_28",
+        "oecd_recycled_plastics_markets.txt::chunk_237",
+        "oecd_global_plastics_outlook.txt::chunk_228",
+        "oecd_global_plastics_outlook.txt::chunk_127",
+        "oecd_recycled_plastics_markets.txt::chunk_478",
+        "oecd_global_plastics_outlook.txt::chunk_490",
+        "oecd_global_plastics_outlook.txt::chunk_391",
+        "oecd_global_plastics_outlook.txt::chunk_126",
+        "oecd_recycled_plastics_markets.txt::chunk_298"
+      ]
+    },
+    {
+      "case_id": "glass",
+      "topic": "Glass",
+      "method": "automatic",
+      "query": "how to prepare glass bottles for recycling",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_10",
+        "epa_common_recyclables.txt::chunk_11"
+      ],
+      "target_ranks": {
+        "epa_common_recyclables.txt::chunk_10": 3,
+        "epa_common_recyclables.txt::chunk_11": 2
+      },
+      "hits_at_20": 2,
+      "target_count": 2,
+      "coverage_at_20": 1.0,
+      "target_mrr": 0.41666666666666663,
+      "retrieval_latency_seconds": 0.06701558599888813,
+      "retrieved_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_9",
+        "epa_common_recyclables.txt::chunk_11",
+        "epa_common_recyclables.txt::chunk_10",
+        "oecd_global_plastics_outlook.txt::chunk_490",
+        "epa_recycling_basics.txt::chunk_1",
+        "epa_recycling_basics.txt::chunk_5",
+        "oecd_global_plastics_outlook.txt::chunk_479",
+        "oecd_recycled_plastics_markets.txt::chunk_57",
+        "eea_recycling_quality.txt::chunk_11",
+        "oecd_recycled_plastics_markets.txt::chunk_278",
+        "epa_recycling_basics.txt::chunk_8",
+        "oecd_recycled_plastics_markets.txt::chunk_31",
+        "oecd_recycled_plastics_markets.txt::chunk_262",
+        "oecd_recycled_plastics_markets.txt::chunk_438",
+        "oecd_recycled_plastics_markets.txt::chunk_276",
+        "oecd_recycled_plastics_markets.txt::chunk_238",
+        "oecd_global_plastics_outlook.txt::chunk_127",
+        "oecd_recycled_plastics_markets.txt::chunk_446",
+        "epa_plastic_best_practices.txt::chunk_0",
+        "oecd_recycled_plastics_markets.txt::chunk_295"
+      ]
+    },
+    {
+      "case_id": "plastic",
+      "topic": "Plastic",
+      "method": "natural",
+      "query": "How should I clean plastic containers before recycling them?",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_9"
+      ],
+      "target_ranks": {
+        "epa_common_recyclables.txt::chunk_9": 1
+      },
+      "hits_at_20": 1,
+      "target_count": 1,
+      "coverage_at_20": 1.0,
+      "target_mrr": 1.0,
+      "retrieval_latency_seconds": 0.06172649200016167,
+      "retrieved_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_9",
+        "epa_common_recyclables.txt::chunk_2",
+        "epa_common_recyclables.txt::chunk_12",
+        "epa_common_recyclables.txt::chunk_5",
+        "oecd_global_plastics_outlook.txt::chunk_326",
+        "eea_circular_plastics.txt::chunk_14",
+        "epa_common_recyclables.txt::chunk_24",
+        "epa_plastic_best_practices.txt::chunk_0",
+        "epa_common_recyclables.txt::chunk_1",
+        "epa_plastic_best_practices.txt::chunk_4",
+        "epa_common_recyclables.txt::chunk_8",
+        "oecd_recycled_plastics_markets.txt::chunk_380",
+        "epa_common_recyclables.txt::chunk_21",
+        "oecd_global_plastics_outlook.txt::chunk_650",
+        "epa_common_recyclables.txt::chunk_11",
+        "oecd_recycled_plastics_markets.txt::chunk_371",
+        "epa_common_recyclables.txt::chunk_22",
+        "oecd_global_plastics_outlook.txt::chunk_327",
+        "eea_recycling_quality.txt::chunk_11",
+        "oecd_global_plastics_outlook.txt::chunk_435"
+      ]
+    },
+    {
+      "case_id": "plastic",
+      "topic": "Plastic",
+      "method": "manual",
+      "query": "plastic containers rinse scrape food residue recycling",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_9"
+      ],
+      "target_ranks": {
+        "epa_common_recyclables.txt::chunk_9": 1
+      },
+      "hits_at_20": 1,
+      "target_count": 1,
+      "coverage_at_20": 1.0,
+      "target_mrr": 1.0,
+      "retrieval_latency_seconds": 0.06840034599917999,
+      "retrieved_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_9",
+        "epa_common_recyclables.txt::chunk_2",
+        "epa_common_recyclables.txt::chunk_17",
+        "epa_common_recyclables.txt::chunk_6",
+        "oecd_global_plastics_outlook.txt::chunk_440",
+        "oecd_recycled_plastics_markets.txt::chunk_278",
+        "oecd_global_plastics_outlook.txt::chunk_300",
+        "epa_plastic_best_practices.txt::chunk_3",
+        "oecd_recycled_plastics_markets.txt::chunk_264",
+        "oecd_recycled_plastics_markets.txt::chunk_151",
+        "oecd_global_plastics_outlook.txt::chunk_795",
+        "epa_common_recyclables.txt::chunk_12",
+        "oecd_global_plastics_outlook.txt::chunk_335",
+        "oecd_recycled_plastics_markets.txt::chunk_263",
+        "epa_common_recyclables.txt::chunk_8",
+        "epa_common_recyclables.txt::chunk_1",
+        "oecd_global_plastics_outlook.txt::chunk_336",
+        "oecd_global_plastics_outlook.txt::chunk_228",
+        "oecd_global_plastics_outlook.txt::chunk_401",
+        "oecd_recycled_plastics_markets.txt::chunk_501"
+      ]
+    },
+    {
+      "case_id": "plastic",
+      "topic": "Plastic",
+      "method": "automatic",
+      "query": "how to clean plastic containers before recycling",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_9"
+      ],
+      "target_ranks": {
+        "epa_common_recyclables.txt::chunk_9": 1
+      },
+      "hits_at_20": 1,
+      "target_count": 1,
+      "coverage_at_20": 1.0,
+      "target_mrr": 1.0,
+      "retrieval_latency_seconds": 0.062048351999692386,
+      "retrieved_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_9",
+        "epa_common_recyclables.txt::chunk_2",
+        "epa_common_recyclables.txt::chunk_12",
+        "epa_common_recyclables.txt::chunk_5",
+        "epa_common_recyclables.txt::chunk_6",
+        "eea_circular_plastics.txt::chunk_14",
+        "oecd_global_plastics_outlook.txt::chunk_435",
+        "oecd_recycled_plastics_markets.txt::chunk_278",
+        "oecd_global_plastics_outlook.txt::chunk_553",
+        "oecd_recycled_plastics_markets.txt::chunk_30",
+        "eea_recycling_quality.txt::chunk_11",
+        "epa_plastic_best_practices.txt::chunk_0",
+        "oecd_global_plastics_outlook.txt::chunk_462",
+        "oecd_global_plastics_outlook.txt::chunk_795",
+        "epa_common_recyclables.txt::chunk_1",
+        "oecd_recycled_plastics_markets.txt::chunk_264",
+        "epa_recycling_basics.txt::chunk_7",
+        "oecd_recycled_plastics_markets.txt::chunk_524",
+        "epa_plastic_best_practices.txt::chunk_3",
+        "oecd_recycled_plastics_markets.txt::chunk_293"
+      ]
+    },
+    {
+      "case_id": "metal",
+      "topic": "Metal",
+      "method": "natural",
+      "query": "How should I prepare metal cans and bottle caps for recycling?",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_11",
+        "epa_common_recyclables.txt::chunk_12"
+      ],
+      "target_ranks": {
+        "epa_common_recyclables.txt::chunk_11": 1,
+        "epa_common_recyclables.txt::chunk_12": 3
+      },
+      "hits_at_20": 2,
+      "target_count": 2,
+      "coverage_at_20": 1.0,
+      "target_mrr": 0.6666666666666666,
+      "retrieval_latency_seconds": 0.08506024599955708,
+      "retrieved_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_11",
+        "epa_common_recyclables.txt::chunk_24",
+        "epa_common_recyclables.txt::chunk_12",
+        "epa_common_recyclables.txt::chunk_5",
+        "epa_common_recyclables.txt::chunk_23",
+        "epa_common_recyclables.txt::chunk_9",
+        "epa_common_recyclables.txt::chunk_21",
+        "epa_recycling_basics.txt::chunk_7",
+        "epa_common_recyclables.txt::chunk_2",
+        "epa_common_recyclables.txt::chunk_22",
+        "epa_common_recyclables.txt::chunk_20",
+        "epa_common_recyclables.txt::chunk_14",
+        "epa_common_recyclables.txt::chunk_1",
+        "epa_recycling_basics.txt::chunk_4",
+        "oecd_recycled_plastics_markets.txt::chunk_57",
+        "epa_common_recyclables.txt::chunk_13",
+        "oecd_recycled_plastics_markets.txt::chunk_479",
+        "oecd_recycled_plastics_markets.txt::chunk_15",
+        "oecd_global_plastics_outlook.txt::chunk_453",
+        "oecd_recycled_plastics_markets.txt::chunk_237"
+      ]
+    },
+    {
+      "case_id": "metal",
+      "topic": "Metal",
+      "method": "manual",
+      "query": "aluminum cans foil metal bottle caps recycle separately",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_11",
+        "epa_common_recyclables.txt::chunk_12"
+      ],
+      "target_ranks": {
+        "epa_common_recyclables.txt::chunk_11": 1,
+        "epa_common_recyclables.txt::chunk_12": 2
+      },
+      "hits_at_20": 2,
+      "target_count": 2,
+      "coverage_at_20": 1.0,
+      "target_mrr": 0.75,
+      "retrieval_latency_seconds": 0.07785398200030613,
+      "retrieved_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_11",
+        "epa_common_recyclables.txt::chunk_12",
+        "epa_common_recyclables.txt::chunk_5",
+        "oecd_recycled_plastics_markets.txt::chunk_474",
+        "epa_recycling_basics.txt::chunk_7",
+        "oecd_global_plastics_outlook.txt::chunk_774",
+        "epa_common_recyclables.txt::chunk_16",
+        "oecd_recycled_plastics_markets.txt::chunk_478",
+        "epa_common_recyclables.txt::chunk_23",
+        "oecd_recycled_plastics_markets.txt::chunk_293",
+        "epa_common_recyclables.txt::chunk_24",
+        "oecd_recycled_plastics_markets.txt::chunk_57",
+        "epa_common_recyclables.txt::chunk_1",
+        "oecd_recycled_plastics_markets.txt::chunk_438",
+        "epa_common_recyclables.txt::chunk_15",
+        "oecd_recycled_plastics_markets.txt::chunk_24",
+        "oecd_recycled_plastics_markets.txt::chunk_479",
+        "epa_common_recyclables.txt::chunk_6",
+        "oecd_global_plastics_outlook.txt::chunk_653",
+        "oecd_recycled_plastics_markets.txt::chunk_295"
+      ]
+    },
+    {
+      "case_id": "metal",
+      "topic": "Metal",
+      "method": "automatic",
+      "query": "how to prepare metal cans and bottle caps for recycling",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_11",
+        "epa_common_recyclables.txt::chunk_12"
+      ],
+      "target_ranks": {
+        "epa_common_recyclables.txt::chunk_11": 1,
+        "epa_common_recyclables.txt::chunk_12": 2
+      },
+      "hits_at_20": 2,
+      "target_count": 2,
+      "coverage_at_20": 1.0,
+      "target_mrr": 0.75,
+      "retrieval_latency_seconds": 0.09173973500037391,
+      "retrieved_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_11",
+        "epa_common_recyclables.txt::chunk_12",
+        "epa_common_recyclables.txt::chunk_5",
+        "epa_common_recyclables.txt::chunk_24",
+        "epa_common_recyclables.txt::chunk_23",
+        "oecd_recycled_plastics_markets.txt::chunk_474",
+        "oecd_recycled_plastics_markets.txt::chunk_24",
+        "epa_recycling_basics.txt::chunk_8",
+        "epa_common_recyclables.txt::chunk_9",
+        "oecd_recycled_plastics_markets.txt::chunk_479",
+        "oecd_recycled_plastics_markets.txt::chunk_57",
+        "oecd_recycled_plastics_markets.txt::chunk_438",
+        "epa_common_recyclables.txt::chunk_15",
+        "oecd_global_plastics_outlook.txt::chunk_391",
+        "oecd_recycled_plastics_markets.txt::chunk_276",
+        "oecd_recycled_plastics_markets.txt::chunk_30",
+        "oecd_recycled_plastics_markets.txt::chunk_262",
+        "oecd_recycled_plastics_markets.txt::chunk_298",
+        "epa_common_recyclables.txt::chunk_14",
+        "epa_recycling_basics.txt::chunk_5"
+      ]
+    },
+    {
+      "case_id": "batteries",
+      "topic": "Batteries",
+      "method": "natural",
+      "query": "How should I dispose of used household batteries safely?",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_13",
+        "epa_common_recyclables.txt::chunk_14",
+        "epa_common_recyclables.txt::chunk_15"
+      ],
+      "target_ranks": {
+        "epa_common_recyclables.txt::chunk_13": 1,
+        "epa_common_recyclables.txt::chunk_14": 2,
+        "epa_common_recyclables.txt::chunk_15": 5
+      },
+      "hits_at_20": 3,
+      "target_count": 3,
+      "coverage_at_20": 1.0,
+      "target_mrr": 0.5666666666666667,
+      "retrieval_latency_seconds": 0.11409518499931437,
+      "retrieved_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_13",
+        "epa_common_recyclables.txt::chunk_14",
+        "epa_common_recyclables.txt::chunk_21",
+        "epa_common_recyclables.txt::chunk_22",
+        "epa_common_recyclables.txt::chunk_15",
+        "epa_common_recyclables.txt::chunk_12",
+        "epa_common_recyclables.txt::chunk_24",
+        "epa_common_recyclables.txt::chunk_16",
+        "epa_common_recyclables.txt::chunk_20",
+        "epa_common_recyclables.txt::chunk_23",
+        "oecd_recycled_plastics_markets.txt::chunk_294",
+        "epa_common_recyclables.txt::chunk_11",
+        "epa_plastic_best_practices.txt::chunk_4",
+        "oecd_global_plastics_outlook.txt::chunk_508",
+        "epa_common_recyclables.txt::chunk_17",
+        "epa_common_recyclables.txt::chunk_19",
+        "oecd_recycled_plastics_markets.txt::chunk_96",
+        "oecd_global_plastics_outlook.txt::chunk_453",
+        "oecd_recycled_plastics_markets.txt::chunk_380",
+        "epa_recycling_basics.txt::chunk_4"
+      ]
+    },
+    {
+      "case_id": "batteries",
+      "topic": "Batteries",
+      "method": "manual",
+      "query": "used household batteries lithium-ion rechargeable special collection drop-off",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_13",
+        "epa_common_recyclables.txt::chunk_14",
+        "epa_common_recyclables.txt::chunk_15"
+      ],
+      "target_ranks": {
+        "epa_common_recyclables.txt::chunk_13": 1,
+        "epa_common_recyclables.txt::chunk_14": 2,
+        "epa_common_recyclables.txt::chunk_15": 3
+      },
+      "hits_at_20": 3,
+      "target_count": 3,
+      "coverage_at_20": 1.0,
+      "target_mrr": 0.611111111111111,
+      "retrieval_latency_seconds": 0.1114272520007944,
+      "retrieved_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_13",
+        "epa_common_recyclables.txt::chunk_14",
+        "epa_common_recyclables.txt::chunk_15",
+        "epa_common_recyclables.txt::chunk_16",
+        "oecd_global_plastics_outlook.txt::chunk_334",
+        "oecd_global_plastics_outlook.txt::chunk_305",
+        "oecd_recycled_plastics_markets.txt::chunk_263",
+        "oecd_global_plastics_outlook.txt::chunk_314",
+        "epa_common_recyclables.txt::chunk_20",
+        "epa_recycling_basics.txt::chunk_4",
+        "oecd_global_plastics_outlook.txt::chunk_765",
+        "epa_common_recyclables.txt::chunk_19",
+        "oecd_global_plastics_outlook.txt::chunk_527",
+        "eea_separate_collection.txt::chunk_5",
+        "oecd_recycled_plastics_markets.txt::chunk_96",
+        "oecd_global_plastics_outlook.txt::chunk_539",
+        "oecd_recycled_plastics_markets.txt::chunk_374",
+        "oecd_global_plastics_outlook.txt::chunk_38",
+        "oecd_recycled_plastics_markets.txt::chunk_122",
+        "oecd_recycled_plastics_markets.txt::chunk_44"
+      ]
+    },
+    {
+      "case_id": "batteries",
+      "topic": "Batteries",
+      "method": "automatic",
+      "query": "safe disposal of used household lithium alkaline rechargeable batteries recycling drop-off",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_13",
+        "epa_common_recyclables.txt::chunk_14",
+        "epa_common_recyclables.txt::chunk_15"
+      ],
+      "target_ranks": {
+        "epa_common_recyclables.txt::chunk_13": 1,
+        "epa_common_recyclables.txt::chunk_14": 2,
+        "epa_common_recyclables.txt::chunk_15": 3
+      },
+      "hits_at_20": 3,
+      "target_count": 3,
+      "coverage_at_20": 1.0,
+      "target_mrr": 0.611111111111111,
+      "retrieval_latency_seconds": 0.23415609000039694,
+      "retrieved_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_13",
+        "epa_common_recyclables.txt::chunk_14",
+        "epa_common_recyclables.txt::chunk_15",
+        "epa_common_recyclables.txt::chunk_16",
+        "epa_common_recyclables.txt::chunk_12",
+        "epa_common_recyclables.txt::chunk_7",
+        "oecd_global_plastics_outlook.txt::chunk_305",
+        "epa_common_recyclables.txt::chunk_20",
+        "epa_common_recyclables.txt::chunk_19",
+        "oecd_recycled_plastics_markets.txt::chunk_294",
+        "oecd_recycled_plastics_markets.txt::chunk_263",
+        "oecd_recycled_plastics_markets.txt::chunk_293",
+        "oecd_global_plastics_outlook.txt::chunk_498",
+        "oecd_global_plastics_outlook.txt::chunk_773",
+        "oecd_global_plastics_outlook.txt::chunk_695",
+        "oecd_recycled_plastics_markets.txt::chunk_297",
+        "epa_recycling_basics.txt::chunk_4",
+        "oecd_recycled_plastics_markets.txt::chunk_44",
+        "oecd_global_plastics_outlook.txt::chunk_125",
+        "oecd_global_plastics_outlook.txt::chunk_444"
+      ]
+    },
+    {
+      "case_id": "electronics",
+      "topic": "Electronics",
+      "method": "natural",
+      "query": "Where should I take old electronics for recycling?",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_16"
+      ],
+      "target_ranks": {
+        "epa_common_recyclables.txt::chunk_16": 1
+      },
+      "hits_at_20": 1,
+      "target_count": 1,
+      "coverage_at_20": 1.0,
+      "target_mrr": 1.0,
+      "retrieval_latency_seconds": 0.18055092000031436,
+      "retrieved_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_16",
+        "epa_common_recyclables.txt::chunk_24",
+        "epa_common_recyclables.txt::chunk_13",
+        "epa_common_recyclables.txt::chunk_22",
+        "epa_common_recyclables.txt::chunk_12",
+        "epa_common_recyclables.txt::chunk_21",
+        "epa_common_recyclables.txt::chunk_23",
+        "epa_common_recyclables.txt::chunk_17",
+        "epa_common_recyclables.txt::chunk_14",
+        "epa_common_recyclables.txt::chunk_11",
+        "epa_common_recyclables.txt::chunk_20",
+        "epa_common_recyclables.txt::chunk_5",
+        "oecd_global_plastics_outlook.txt::chunk_425",
+        "epa_recycling_basics.txt::chunk_7",
+        "oecd_global_plastics_outlook.txt::chunk_611",
+        "epa_common_recyclables.txt::chunk_2",
+        "epa_common_recyclables.txt::chunk_6",
+        "oecd_recycled_plastics_markets.txt::chunk_132",
+        "oecd_global_plastics_outlook.txt::chunk_218",
+        "oecd_recycled_plastics_markets.txt::chunk_307"
+      ]
+    },
+    {
+      "case_id": "electronics",
+      "topic": "Electronics",
+      "method": "manual",
+      "query": "electronics e-waste recycling drop-off collection sites retailers manufacturers",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_16"
+      ],
+      "target_ranks": {
+        "epa_common_recyclables.txt::chunk_16": 2
+      },
+      "hits_at_20": 1,
+      "target_count": 1,
+      "coverage_at_20": 1.0,
+      "target_mrr": 0.5,
+      "retrieval_latency_seconds": 0.2627410709992546,
+      "retrieved_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_17",
+        "epa_common_recyclables.txt::chunk_16",
+        "eea_recycling_quality.txt::chunk_27",
+        "epa_common_recyclables.txt::chunk_13",
+        "oecd_recycled_plastics_markets.txt::chunk_360",
+        "eea_separate_collection.txt::chunk_22",
+        "oecd_recycled_plastics_markets.txt::chunk_295",
+        "epa_recycling_basics.txt::chunk_4",
+        "oecd_recycled_plastics_markets.txt::chunk_359",
+        "oecd_global_plastics_outlook.txt::chunk_331",
+        "oecd_recycled_plastics_markets.txt::chunk_567",
+        "eea_circular_plastics.txt::chunk_15",
+        "oecd_global_plastics_outlook.txt::chunk_305",
+        "oecd_recycled_plastics_markets.txt::chunk_524",
+        "oecd_global_plastics_outlook.txt::chunk_773",
+        "oecd_global_plastics_outlook.txt::chunk_616",
+        "oecd_recycled_plastics_markets.txt::chunk_437",
+        "oecd_global_plastics_outlook.txt::chunk_332",
+        "oecd_global_plastics_outlook.txt::chunk_384",
+        "oecd_global_plastics_outlook.txt::chunk_337"
+      ]
+    },
+    {
+      "case_id": "electronics",
+      "topic": "Electronics",
+      "method": "automatic",
+      "query": "electronics e-waste recycling drop-off location disposal facility",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_16"
+      ],
+      "target_ranks": {
+        "epa_common_recyclables.txt::chunk_16": 2
+      },
+      "hits_at_20": 1,
+      "target_count": 1,
+      "coverage_at_20": 1.0,
+      "target_mrr": 0.5,
+      "retrieval_latency_seconds": 0.2735711179993814,
+      "retrieved_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_17",
+        "epa_common_recyclables.txt::chunk_16",
+        "oecd_recycled_plastics_markets.txt::chunk_264",
+        "epa_recycling_basics.txt::chunk_4",
+        "epa_common_recyclables.txt::chunk_13",
+        "oecd_recycled_plastics_markets.txt::chunk_297",
+        "oecd_recycled_plastics_markets.txt::chunk_359",
+        "oecd_global_plastics_outlook.txt::chunk_542",
+        "epa_common_recyclables.txt::chunk_7",
+        "oecd_global_plastics_outlook.txt::chunk_766",
+        "oecd_global_plastics_outlook.txt::chunk_486",
+        "oecd_global_plastics_outlook.txt::chunk_203",
+        "oecd_recycled_plastics_markets.txt::chunk_263",
+        "oecd_global_plastics_outlook.txt::chunk_305",
+        "oecd_global_plastics_outlook.txt::chunk_153",
+        "oecd_recycled_plastics_markets.txt::chunk_44",
+        "oecd_global_plastics_outlook.txt::chunk_212",
+        "oecd_recycled_plastics_markets.txt::chunk_194",
+        "oecd_recycled_plastics_markets.txt::chunk_206",
+        "oecd_global_plastics_outlook.txt::chunk_331"
+      ]
+    },
+    {
+      "case_id": "clothing",
+      "topic": "Clothing",
+      "method": "natural",
+      "query": "What can I do with old clothes and damaged shoes?",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_25"
+      ],
+      "target_ranks": {
+        "epa_common_recyclables.txt::chunk_25": 1
+      },
+      "hits_at_20": 1,
+      "target_count": 1,
+      "coverage_at_20": 1.0,
+      "target_mrr": 1.0,
+      "retrieval_latency_seconds": 0.2320193739997194,
+      "retrieved_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_25",
+        "epa_common_recyclables.txt::chunk_24",
+        "epa_common_recyclables.txt::chunk_21",
+        "epa_common_recyclables.txt::chunk_22",
+        "epa_common_recyclables.txt::chunk_23",
+        "epa_common_recyclables.txt::chunk_1",
+        "epa_recycling_basics.txt::chunk_7",
+        "epa_common_recyclables.txt::chunk_5",
+        "epa_plastic_best_practices.txt::chunk_4",
+        "epa_common_recyclables.txt::chunk_9",
+        "epa_common_recyclables.txt::chunk_20",
+        "epa_common_recyclables.txt::chunk_6",
+        "oecd_recycled_plastics_markets.txt::chunk_380",
+        "oecd_global_plastics_outlook.txt::chunk_425",
+        "epa_recycling_basics.txt::chunk_5",
+        "epa_common_recyclables.txt::chunk_11",
+        "oecd_global_plastics_outlook.txt::chunk_694",
+        "epa_recycling_basics.txt::chunk_1",
+        "oecd_recycled_plastics_markets.txt::chunk_96",
+        "epa_recycling_basics.txt::chunk_4"
+      ]
+    },
+    {
+      "case_id": "clothing",
+      "topic": "Clothing",
+      "method": "manual",
+      "query": "donate gently worn clothes shoes damaged clothing charity retail store recycling",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_25"
+      ],
+      "target_ranks": {
+        "epa_common_recyclables.txt::chunk_25": 1
+      },
+      "hits_at_20": 1,
+      "target_count": 1,
+      "coverage_at_20": 1.0,
+      "target_mrr": 1.0,
+      "retrieval_latency_seconds": 0.3084226139999373,
+      "retrieved_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_25",
+        "epa_common_recyclables.txt::chunk_24",
+        "oecd_global_plastics_outlook.txt::chunk_490",
+        "oecd_recycled_plastics_markets.txt::chunk_116",
+        "epa_common_recyclables.txt::chunk_22",
+        "oecd_global_plastics_outlook.txt::chunk_305",
+        "oecd_global_plastics_outlook.txt::chunk_759",
+        "oecd_global_plastics_outlook.txt::chunk_254",
+        "oecd_global_plastics_outlook.txt::chunk_776",
+        "oecd_global_plastics_outlook.txt::chunk_694",
+        "oecd_recycled_plastics_markets.txt::chunk_380",
+        "oecd_recycled_plastics_markets.txt::chunk_194",
+        "oecd_global_plastics_outlook.txt::chunk_300",
+        "epa_common_recyclables.txt::chunk_16",
+        "epa_recycling_basics.txt::chunk_0",
+        "oecd_global_plastics_outlook.txt::chunk_435",
+        "oecd_global_plastics_outlook.txt::chunk_315",
+        "oecd_global_plastics_outlook.txt::chunk_763",
+        "oecd_global_plastics_outlook.txt::chunk_691",
+        "epa_recycling_basics.txt::chunk_4"
+      ]
+    },
+    {
+      "case_id": "clothing",
+      "topic": "Clothing",
+      "method": "automatic",
+      "query": "recycle old clothes damaged shoes disposal donation textile recycling",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_25"
+      ],
+      "target_ranks": {
+        "epa_common_recyclables.txt::chunk_25": 1
+      },
+      "hits_at_20": 1,
+      "target_count": 1,
+      "coverage_at_20": 1.0,
+      "target_mrr": 1.0,
+      "retrieval_latency_seconds": 0.2652302309998049,
+      "retrieved_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_25",
+        "epa_common_recyclables.txt::chunk_24",
+        "oecd_global_plastics_outlook.txt::chunk_490",
+        "oecd_global_plastics_outlook.txt::chunk_759",
+        "oecd_global_plastics_outlook.txt::chunk_683",
+        "oecd_global_plastics_outlook.txt::chunk_776",
+        "oecd_global_plastics_outlook.txt::chunk_694",
+        "epa_common_recyclables.txt::chunk_17",
+        "oecd_global_plastics_outlook.txt::chunk_771",
+        "oecd_recycled_plastics_markets.txt::chunk_264",
+        "oecd_global_plastics_outlook.txt::chunk_695",
+        "oecd_global_plastics_outlook.txt::chunk_773",
+        "epa_common_recyclables.txt::chunk_1",
+        "oecd_global_plastics_outlook.txt::chunk_444",
+        "eea_recycling_quality.txt::chunk_18",
+        "oecd_global_plastics_outlook.txt::chunk_211",
+        "eea_recycling_quality.txt::chunk_21",
+        "oecd_global_plastics_outlook.txt::chunk_305",
+        "oecd_recycled_plastics_markets.txt::chunk_353",
+        "oecd_global_plastics_outlook.txt::chunk_313"
+      ]
+    }
+  ]
+}

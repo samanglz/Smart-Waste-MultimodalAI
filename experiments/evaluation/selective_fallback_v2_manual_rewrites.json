@@ -1,0 +1,229 @@
+{
+  "schema_version": "1.0",
+  "evaluation_id": "selective_fallback_v2_manual_rewrites",
+  "created_at_utc": "2026-10-28T16:28:17.560198+00:00",
+  "challenge_set_file": "/content/drive/MyDrive/smart-waste-multimodal-ai/experiments/evaluation/selective_fallback_v2_challenge_set.json",
+  "challenge_set_sha256": "4750b5bbbb817684ee69a00588dbbab452dd08726636b09868060c725e98efb4",
+  "authorship": {
+    "rewrite_queries_authored_by": "assistant",
+    "generated_by_gemini": false,
+    "independent_blind_annotation": false
+  },
+  "methodology": {
+    "case_count": 21,
+    "rewrite_type": "manual query rewrites",
+    "challenge_set_modified": false,
+    "legacy_rag_project_read_only": true,
+    "limitations": [
+      "Manual rewrites were authored with knowledge of source content.",
+      "This is an exploratory comparison, not a blind benchmark.",
+      "Results should not be generalized to all real-world queries."
+    ]
+  },
+  "cases": [
+    {
+      "case_id": "cardboard_v2_01",
+      "topic": "cardboard",
+      "natural_query": "After unpacking groceries and deliveries, how can I tell which paper-based packaging is ready for the recycling bin?",
+      "rewrite_query": "paper cardboard packaging recycling preparation food residue flatten boxes",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_1",
+        "epa_common_recyclables.txt::chunk_2"
+      ]
+    },
+    {
+      "case_id": "cardboard_v2_02",
+      "topic": "cardboard",
+      "natural_query": "A takeaway meal came in a paper container, and a shipping box has food marks on it. What should I check or do before putting either item out?",
+      "rewrite_query": "cardboard boxes food contamination paper takeout containers scrape rinse residue recycling",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_1",
+        "epa_common_recyclables.txt::chunk_2"
+      ]
+    },
+    {
+      "case_id": "cardboard_v2_03",
+      "topic": "cardboard",
+      "natural_query": "Do paper packaging and boxes need the same preparation, and what should I do if food is still attached?",
+      "rewrite_query": "paper cardboard food scraps residue remove flatten boxes recycling preparation",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_1",
+        "epa_common_recyclables.txt::chunk_2"
+      ]
+    },
+    {
+      "case_id": "glass_v2_01",
+      "topic": "glass",
+      "natural_query": "When sorting empty jars at home, how should I deal with their closures and any glass that has shattered?",
+      "rewrite_query": "glass jars bottles metal lids caps broken glass recycling separate disposal",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_10",
+        "epa_common_recyclables.txt::chunk_11"
+      ]
+    },
+    {
+      "case_id": "glass_v2_02",
+      "topic": "glass",
+      "natural_query": "Several bottles are empty, but one drinking glass has broken. Can all of them go into the same collection container?",
+      "rewrite_query": "glass bottles drinking glasses broken glass container recycling rules",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_10",
+        "epa_common_recyclables.txt::chunk_11"
+      ]
+    },
+    {
+      "case_id": "glass_v2_03",
+      "topic": "glass",
+      "natural_query": "What should I know about sorting different kinds of glass, and what safety issue arises when an item is already broken?",
+      "rewrite_query": "recyclable glass food beverage containers broken glass safety local recycling rules",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_10",
+        "epa_common_recyclables.txt::chunk_11"
+      ]
+    },
+    {
+      "case_id": "plastic_v2_01",
+      "topic": "plastic",
+      "natural_query": "I have reusable food tubs that are no longer needed for food. How should I prepare them for collection?",
+      "rewrite_query": "plastic food tubs containers recycling preparation rinse empty containers",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_9"
+      ]
+    },
+    {
+      "case_id": "plastic_v2_02",
+      "topic": "plastic",
+      "natural_query": "A container still smells of yesterday's dinner and has sauce around the edges. What should I do before sorting it?",
+      "rewrite_query": "plastic containers food sauce residue rinse scrape clean before recycling",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_9"
+      ]
+    },
+    {
+      "case_id": "plastic_v2_03",
+      "topic": "plastic",
+      "natural_query": "How do I decide whether a food container is accepted locally, and what condition should it be in when I put it out?",
+      "rewrite_query": "plastic food containers empty clean rinse scrape residue local recycling acceptance",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_9"
+      ]
+    },
+    {
+      "case_id": "metal_v2_01",
+      "topic": "metal",
+      "natural_query": "What should I do with empty beverage packaging made from aluminum, including thin wrapping material?",
+      "rewrite_query": "aluminum beverage cans aluminum foil recycling preparation",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_11",
+        "epa_common_recyclables.txt::chunk_12"
+      ]
+    },
+    {
+      "case_id": "metal_v2_02",
+      "topic": "metal",
+      "natural_query": "I am about to sort drink containers, their metal closures, and a sheet of kitchen wrapping. Are there any preparation steps or separation rules I should know?",
+      "rewrite_query": "metal bottle caps aluminum foil cans separate glass containers recycling",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_11",
+        "epa_common_recyclables.txt::chunk_12"
+      ]
+    },
+    {
+      "case_id": "metal_v2_03",
+      "topic": "metal",
+      "natural_query": "Can metal food and drink packaging be recycled with residue still attached, and does changing its shape help sorting?",
+      "rewrite_query": "metal food beverage cans aluminum foil residue recycling preparation",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_11",
+        "epa_common_recyclables.txt::chunk_12"
+      ]
+    },
+    {
+      "case_id": "batteries_v2_01",
+      "topic": "batteries",
+      "natural_query": "Some small power cells from household gadgets are spent. How can I find an appropriate route for handing them over?",
+      "rewrite_query": "used household batteries collection drop off safe disposal",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_13",
+        "epa_common_recyclables.txt::chunk_14",
+        "epa_common_recyclables.txt::chunk_15"
+      ]
+    },
+    {
+      "case_id": "batteries_v2_02",
+      "topic": "batteries",
+      "natural_query": "I am clearing out a drawer containing batteries from a remote, a camera, and a rechargeable gadget. Can they all go in ordinary household waste?",
+      "rewrite_query": "household remote camera rechargeable lithium ion alkaline batteries disposal collection",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_13",
+        "epa_common_recyclables.txt::chunk_14",
+        "epa_common_recyclables.txt::chunk_15"
+      ]
+    },
+    {
+      "case_id": "batteries_v2_03",
+      "topic": "batteries",
+      "natural_query": "Does the type of battery affect where it should be handed in, and which collection options are described for household use?",
+      "rewrite_query": "battery types household collection options rechargeable lithium alkaline drop off",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_13",
+        "epa_common_recyclables.txt::chunk_14",
+        "epa_common_recyclables.txt::chunk_15"
+      ]
+    },
+    {
+      "case_id": "electronics_v2_01",
+      "topic": "electronics",
+      "natural_query": "My old phone and television are taking up space. What options are available for passing them on responsibly?",
+      "rewrite_query": "old phones televisions electronic waste recycling collection retailers manufacturers",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_16"
+      ]
+    },
+    {
+      "case_id": "electronics_v2_02",
+      "topic": "electronics",
+      "natural_query": "A small household gadget has stopped working. Is the normal curbside collection route suitable, or should I look elsewhere?",
+      "rewrite_query": "broken small household electronics e-waste collection drop off curbside recycling",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_16"
+      ]
+    },
+    {
+      "case_id": "electronics_v2_03",
+      "topic": "electronics",
+      "natural_query": "Where could unwanted consumer devices be handed over, and which kinds of organizations may offer collection options?",
+      "rewrite_query": "unwanted consumer electronics collection options retailers manufacturers recycling sites",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_16"
+      ]
+    },
+    {
+      "case_id": "clothing_v2_01",
+      "topic": "clothing",
+      "natural_query": "I am sorting my wardrobe and some footwear. How should I decide what can be passed on and what needs another route?",
+      "rewrite_query": "used clothing shoes condition donation reuse textile recycling",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_25"
+      ]
+    },
+    {
+      "case_id": "clothing_v2_02",
+      "topic": "clothing",
+      "natural_query": "A charity might accept my old clothes, but some items are torn and a pair of shoes is badly damaged. What should I check?",
+      "rewrite_query": "torn clothes damaged shoes charity donation acceptance textile recycling",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_25"
+      ]
+    },
+    {
+      "case_id": "clothing_v2_03",
+      "topic": "clothing",
+      "natural_query": "What alternatives to throwing away unwanted garments and shoes are mentioned, and how does their condition affect the next step?",
+      "rewrite_query": "unwanted garments shoes reuse donation textile recycling condition",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_25"
+      ]
+    }
+  ]
+}

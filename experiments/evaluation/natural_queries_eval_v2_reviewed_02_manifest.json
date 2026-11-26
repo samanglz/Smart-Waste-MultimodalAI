@@ -1,0 +1,51 @@
+{
+  "dataset_id": "natural_queries_eval_v2_reviewed_02",
+  "version": 2,
+  "status": "reviewed_draft_not_yet_frozen",
+  "dataset_file": "natural_queries_eval_v2_reviewed_02.json",
+  "query_count": 28,
+  "difficulty_counts": {
+    "easy": 12,
+    "medium": 10,
+    "challenging": 6
+  },
+  "source_dataset_file": "natural_queries_eval_v2_reviewed_01.json",
+  "source_sha256": "00ae0aa8d6b5de88d434d0efabe2daa2d64aca860c7401c837eeaf4c32e159ad",
+  "output_sha256": "e8d776fdb2dcbb35499827f327382a435d0a561cd434fdd8097bd78c738fb2aa",
+  "review_changes": [
+    {
+      "query_id": "v2_cardboard_03",
+      "field": "must_preserve",
+      "added_items": [
+        "flattening the box after removing food scraps"
+      ]
+    },
+    {
+      "query_id": "v2_cardboard_05",
+      "field": "must_preserve",
+      "added_items": [
+        "flattening the box after removing food scraps"
+      ]
+    },
+    {
+      "query_id": "v2_glass_03",
+      "field": "must_preserve",
+      "added_items": [
+        "recycling the metal cap separately from the glass bottle"
+      ]
+    },
+    {
+      "query_id": "v2_glass_05",
+      "field": "must_preserve",
+      "added_items": [
+        "separating the metal cap from the glass bottle"
+      ]
+    }
+  ],
+  "ground_truth_assigned": false,
+  "dataset_frozen": false,
+  "llm_connected": false,
+  "git_commit_or_push": false,
+  "legacy_rag_modified": false,
+  "created_at_utc": "2026-10-28T17:12:36.798711+00:00"
+}

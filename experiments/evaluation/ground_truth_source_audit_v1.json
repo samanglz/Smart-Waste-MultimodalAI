@@ -1,0 +1,421 @@
+{
+  "audit_id": "ground_truth_source_audit_v1",
+  "purpose": "Candidate discovery only; not ground truth and not retrieval evaluation.",
+  "chunk_count": 1516,
+  "source_count": 9,
+  "source_inventory": [
+    {
+      "source": "eea_circular_plastics.txt",
+      "chunk_count": 33
+    },
+    {
+      "source": "eea_recycling_quality.txt",
+      "chunk_count": 29
+    },
+    {
+      "source": "eea_separate_collection.txt",
+      "chunk_count": 30
+    },
+    {
+      "source": "epa_common_recyclables.txt",
+      "chunk_count": 26
+    },
+    {
+      "source": "epa_international_waste_agreements.txt",
+      "chunk_count": 12
+    },
+    {
+      "source": "epa_plastic_best_practices.txt",
+      "chunk_count": 5
+    },
+    {
+      "source": "epa_recycling_basics.txt",
+      "chunk_count": 10
+    },
+    {
+      "source": "oecd_global_plastics_outlook.txt",
+      "chunk_count": 799
+    },
+    {
+      "source": "oecd_recycled_plastics_markets.txt",
+      "chunk_count": 572
+    }
+  ],
+  "topics": {
+    "cardboard": {
+      "candidate_count": 10,
+      "top_candidates": [
+        {
+          "chunk_id": "epa_common_recyclables.txt::chunk_1",
+          "source": "epa_common_recyclables.txt",
+          "title": "",
+          "publisher": "",
+          "score_for_candidate_discovery_only": 4,
+          "matched_terms": [
+            "cardboard",
+            "pizza box"
+          ],
+          "text_excerpt": "Below are answers to frequently asked questions on paper and cardboard products. While general answers are provided, your local program may have different rules. Check with your local recycling program to learn if they accept these items. Can I recycle newspapers? Yes, newspapers can be recycled. Can I recycle magazines? Yes, magazines can be recycled. Can I recycle pizza boxes? Yes! Pizza boxes can be recycled, even if they have grease in them. Make sure to remove any food scraps from the box and flatten it before placing it in the bin. Can I recycle mail? Yes! Even envelopes with plastic windows can be recycled. Are paper and cardboard take"
+        },
+        {
+          "chunk_id": "epa_common_recyclables.txt::chunk_2",
+          "source": "epa_common_recyclables.txt",
+          "title": "",
+          "publisher": "",
+          "score_for_candidate_discovery_only": 3,
+          "matched_terms": [
+            "cardboard"
+          ],
+          "text_excerpt": "Even envelopes with plastic windows can be recycled. Are paper and cardboard takeout containers recyclable? It depends on how much food is left on them. Try rinsing or scraping the residue off to clean it. “ Spatula-clean” is clean enough to recycle! Otherwise, containers contaminated with food cannot be recycled. Can cardboard containers and boxes be recycled? Yes, make sure to flatten any boxes before placing them in the bin. Examples of recyclable cardboard containers are some egg cartons, cereal boxes, and shoe boxes. Can shredded paper be recycled? It depends on your local recycling program. Can books be recycled? If the book is still in"
+        },
+        {
+          "chunk_id": "epa_common_recyclables.txt::chunk_0",
+          "source": "epa_common_recyclables.txt",
+          "title": "",
+          "publisher": "",
+          "score_for_candidate_discovery_only": 2,
+          "matched_terms": [
+            "cardboard"
+          ],
+          "text_excerpt": "Paper/Cardboard Paper makes up 23 percent of municipal solid waste (trash) generated each year, more than any other material. Americans recycled about 68 percent of the paper they used in 2018. This recovered paper is used to make new paper products, which saves trees and other natural resources. Most community or office recycling programs accept paper and paper products. Check what your community or office program accepts before you put it in the bin. Look for products that are made from recycled paper when you shop. Better yet, consider if you really need to print in the first place. Below are answers to frequently asked questions on paper "
+        },
+        {
+          "chunk_id": "eea_separate_collection.txt::chunk_23",
+          "source": "eea_separate_collection.txt",
+          "title": "Economic Instruments and Separate Collection Systems",
+          "publisher": "European Environment Agency",
+          "score_for_candidate_discovery_only": 1,
+          "matched_terms": [
+            "cardboard"
+          ],
+          "text_excerpt": "Figure 4. Coverage of population in EU Member States with high-convenience collection systems by municipal waste stream and average share of each material in municipal waste To achieve a high recycling rate, it is important to capture well the materials that make up the largest share of municipal waste. On average, bio-waste (food and garden waste) constitutes the largest single fraction (37%), followed by paper and cardboard, plastics, wood, glass, metals, textiles and waste electrical and electronic equipment. Because it is the largest component of municipal waste, collecting bio-waste separately is crucial for meeting recycling targets. Mo"
+        },
+        {
+          "chunk_id": "eea_separate_collection.txt::chunk_24",
+          "source": "eea_separate_collection.txt",
+          "title": "Economic Instruments and Separate Collection Systems",
+          "publisher": "European Environment Agency",
+          "score_for_candidate_discovery_only": 1,
+          "matched_terms": [
+            "cardboard"
+          ],
+          "text_excerpt": "Home and community composting could create local material cycles for bio-waste and might benefit from more systematic guidance across Europe. Given that the separate collection of bio-waste is not yet mandatory in all Member States, current systems are generally less well developed than those for the separate collection of paper and cardboard, glass, plastics and metals. Moreover, systems for garden waste collection are currently better developed than those for food waste collection across the EU."
+        }
+      ]
+    },
+    "glass": {
+      "candidate_count": 4,
+      "top_candidates": [
+        {
+          "chunk_id": "epa_common_recyclables.txt::chunk_11",
+          "source": "epa_common_recyclables.txt",
+          "title": "",
+          "publisher": "",
+          "score_for_candidate_discovery_only": 3,
+          "matched_terms": [
+            "glass bottles",
+            "broken glass"
+          ],
+          "text_excerpt": "Can I recycle broken glass? No, broken glass should not go into the recycling bin. Glass shards can harm workers and damage equipment. Can I leave my metal bottle cap on my glass bottle when I recycle? No, metal bottle caps should be recycled separately from the glass bottles. Aluminum In 2018, 3.9 million tons of aluminum municipal solid waste was generated. The total recycling rate for aluminum items was 34.9 percent. Both aluminum cans and foil can be recycled. Below are frequent questions on aluminum products. While general answers are provided, your local program may have different rules. Check with your local recycling program to find o"
+        },
+        {
+          "chunk_id": "epa_common_recyclables.txt::chunk_10",
+          "source": "epa_common_recyclables.txt",
+          "title": "",
+          "publisher": "",
+          "score_for_candidate_discovery_only": 1,
+          "matched_terms": [
+            "broken glass"
+          ],
+          "text_excerpt": "Glass Glass, especially glass food and beverage containers, can be recycled over and over again. In the United States in 2018, 12.3 million tons of glass were generated, 31.3 percent of which was recycled. Making new glass from recycled glass is typically cheaper than using raw materials. Below are frequent questions on glass products. While general answers are provided, your local program may have different rules. Check with your local recycling program to find out if they accept these items. Can I recycle different glass colors/types together? Most curbside recycling programs accept different glass colors and types mixed together and then s"
+        },
+        {
+          "chunk_id": "epa_recycling_basics.txt::chunk_7",
+          "source": "epa_recycling_basics.txt",
+          "title": "",
+          "publisher": "",
+          "score_for_candidate_discovery_only": 1,
+          "matched_terms": [
+            "glass containers"
+          ],
+          "text_excerpt": "These products do not necessarily contain recycled materials. Remember not all kinds of recyclables may be collected in your community, so be sure to check with your local recycling program before you buy. Some common products you can find that are made with recycled content include the following: Aluminum cans Car bumpers Carpeting Cereal boxes Comic books Egg cartons Glass containers Laundry detergent bottles Motor oil Nails Newspapers Paper towels Steel products Trash bags Challenges to Recycling System While the benefits of recycling are clear, the current system still faces many challenges. Many people are confused about what items can b"
+        },
+        {
+          "chunk_id": "oecd_global_plastics_outlook.txt::chunk_490",
+          "source": "oecd_global_plastics_outlook.txt",
+          "title": "",
+          "publisher": "",
+          "score_for_candidate_discovery_only": 1,
+          "matched_terms": [
+            "glass bottles"
+          ],
+          "text_excerpt": " France (textiles): 50% fee reduction for textiles and shoes with 15% recycled fibres/materials.  France (electronics): 20% fee reduction for a washing machine or dish washer with spare parts available up to 11 years, or post-consumer recycled content > 10%.  Portugal (packaging): 10% penalty applied to PET bottles with PVC label or metal cap, and glass bottles with stopper made of ceramic or steel.  Chile (packaging): bonus/malus based on recyclability and recycled content of packaging. Recycling and sorting can be enhanced by making them profitable Plastics are only recycled on a large scale if it is profitable to do so. Economic and re"
+        }
+      ]
+    },
+    "plastic": {
+      "candidate_count": 70,
+      "top_candidates": [
+        {
+          "chunk_id": "eea_circular_plastics.txt::chunk_11",
+          "source": "eea_circular_plastics.txt",
+          "title": "Pathways towards Circular Plastics in Europe",
+          "publisher": "European Environment Agency",
+          "score_for_candidate_discovery_only": 4,
+          "matched_terms": [
+            "plastic packaging"
+          ],
+          "text_excerpt": "Renting and leasing services for these products are becoming more popular, as is reselling between private consumers through apps, webpages and other platforms. Reusing plastic packaging Using plastics in a smarter way also means avoiding unnecessary use of plastics, including by reusing plastic packaging. In 2021, the EU Plastics Own Resource initiative was implemented, which encourages Member States to reduce packaging waste by putting a uniform call rate on non-recycled plastic packaging waste. One example of smarter plastic packaging use is the business-to-business (B2B) reuse of packaging in the food sector. By standardising plastic crat"
+        },
+        {
+          "chunk_id": "epa_common_recyclables.txt::chunk_9",
+          "source": "epa_common_recyclables.txt",
+          "title": "",
+          "publisher": "",
+          "score_for_candidate_discovery_only": 4,
+          "matched_terms": [
+            "plastic containers",
+            "food residue",
+            "rinse"
+          ],
+          "text_excerpt": "Photo courtesy of ASTM International. Can I recycle plastic containers that had food in them? It depends on how much food in on the containers and what type of plastic containers your local recycling program accepts. First, check with your local recycling program for what plastics they accept (refer to the question above about resin codes to help you with this!). Then, if accepted by your local recycling program, rinse or scrape any food residue off to clean the containers. “ Spatula-clean” is clean enough to recycle! Glass Glass, especially glass food and beverage containers, can be recycled over and over again."
+        },
+        {
+          "chunk_id": "oecd_global_plastics_outlook.txt::chunk_411",
+          "source": "oecd_global_plastics_outlook.txt",
+          "title": "",
+          "publisher": "",
+          "score_for_candidate_discovery_only": 3,
+          "matched_terms": [
+            "plastic recycling"
+          ],
+          "text_excerpt": "The 1991 packaging ordinance, r eplaced by the German Packaging Act (Verpackungsgesetz) in 2019, required retailers and producers to take back and recycle a fixed but annually increasing percentage of packaging materials. The take -back system was deemed to be effective as the volume of p ackaging materials declined by 500 000 tonnes between 1992 and 1993. Three years after the introduction of the Packaging Ordinance, plastic recycling capaciti es had increased by a factor of four (OECD, 1998[3]). Qualitative evidence suggests that this significant increase in plastic recycling capacity was due to the sizeable positive impact of the ordinance"
+        },
+        {
+          "chunk_id": "oecd_global_plastics_outlook.txt::chunk_415",
+          "source": "oecd_global_plastics_outlook.txt",
+          "title": "",
+          "publisher": "",
+          "score_for_candidate_discovery_only": 3,
+          "matched_terms": [
+            "plastic recycling"
+          ],
+          "text_excerpt": "The predictors used are log (patent stock in all plastic innovation), log(GDP per capita), log(energy use per capita), log(recycling patent stock) in 1982, 1984 and 1988. An invention corresponds to a single patent family. The year of the invention corresponds to the application date of the priority patent. Only granted patents are considered. Plastic recycling patents include mechanical recycling, plastic -to-plastic chemical recycling, sorting and other pre-treatments. Data before 1990 includes only the Federal Republic of Germany (FRG). Source: Calculation based on textual analysis of data from the OECD, STI Micro -data Lab: Intellectual P"
+        },
+        {
+          "chunk_id": "eea_circular_plastics.txt::chunk_14",
+          "source": "eea_circular_plastics.txt",
+          "title": "Pathways towards Circular Plastics in Europe",
+          "publisher": "European Environment Agency",
+          "score_for_candidate_discovery_only": 2,
+          "matched_terms": [
+            "plastic recycling",
+            "sorting plastics"
+          ],
+          "text_excerpt": "These are discussed below. Increased collection and sorting of plastic Increasing the collection, sorting and recycling of plastics after use is essential for meeting the goals for better plastic waste management. Collecting and sorting plastics both reduces the amount of plastic littering and microplastics in terrestrial and marine environments and helps to secure the infrastructure needed to increase plastic recycling. In recent years, business has taken many initiatives in response to the growing focus on recycling. One example is businesses offering take-back services for their own products at the end of a product’s life, thereby enabling"
+        }
+      ]
+    },
+    "metal": {
+      "candidate_count": 5,
+      "top_candidates": [
+        {
+          "chunk_id": "epa_common_recyclables.txt::chunk_12",
+          "source": "epa_common_recyclables.txt",
+          "title": "",
+          "publisher": "",
+          "score_for_candidate_discovery_only": 4,
+          "matched_terms": [
+            "aluminum cans",
+            "aluminum foil"
+          ],
+          "text_excerpt": "Check with your local recycling program to find out if they accept these items. Should aluminum cans be crushed before recycling them? No, generally, aluminum cans should not be crushed before they are recycled. For areas with single-stream recycling, crushed cans are harder to detect when being sorted at recycling facilities. If you live in an area with multi-stream recycling, crushing cans is not an issue. Can I recycle aluminum foil? Yes, aluminum foil can be recycled. Make sure to remove any food residue before recycling. Batteries Lead-acid batteries are one of the most recycled products. In 2018, 2.9 million were recycled, representing "
+        },
+        {
+          "chunk_id": "oecd_recycled_plastics_markets.txt::chunk_474",
+          "source": "oecd_recycled_plastics_markets.txt",
+          "title": "",
+          "publisher": "",
+          "score_for_candidate_discovery_only": 2,
+          "matched_terms": [
+            "aluminium cans",
+            "scrap metal"
+          ],
+          "text_excerpt": "Scottish Carbon Metric normalised to aluminium (100%) to show the relative reduction of CO2eq from recycling materials compared to landfill 0 10 20 30 40 50 60 70 80 90 100 Aluminium cans and foil Footwear Mixed CansScrap MetalSteel CansPlastics: PETWEEE – SmallWEEE – MixedWEEE – LargePlastics: PS Wood Average plastics Average plastic rigid (including bottles) Plastics: HDPE Textiles (recycling only)Plastics: LDPE and LLDPE Average plastic /f_ilm (including bags) Plastics: PPPlastics: PVC Board Mixed paper and board PaperBooks Mineral Oil WEEE – Fridges and Freezers Food and Drink Waste to Anaerobic Digestion Food and Drink Waste to compostin"
+        },
+        {
+          "chunk_id": "epa_common_recyclables.txt::chunk_11",
+          "source": "epa_common_recyclables.txt",
+          "title": "",
+          "publisher": "",
+          "score_for_candidate_discovery_only": 1,
+          "matched_terms": [
+            "aluminum cans"
+          ],
+          "text_excerpt": "Can I recycle broken glass? No, broken glass should not go into the recycling bin. Glass shards can harm workers and damage equipment. Can I leave my metal bottle cap on my glass bottle when I recycle? No, metal bottle caps should be recycled separately from the glass bottles. Aluminum In 2018, 3.9 million tons of aluminum municipal solid waste was generated. The total recycling rate for aluminum items was 34.9 percent. Both aluminum cans and foil can be recycled. Below are frequent questions on aluminum products. While general answers are provided, your local program may have different rules. Check with your local recycling program to find o"
+        },
+        {
+          "chunk_id": "epa_recycling_basics.txt::chunk_7",
+          "source": "epa_recycling_basics.txt",
+          "title": "",
+          "publisher": "",
+          "score_for_candidate_discovery_only": 1,
+          "matched_terms": [
+            "aluminum cans"
+          ],
+          "text_excerpt": "These products do not necessarily contain recycled materials. Remember not all kinds of recyclables may be collected in your community, so be sure to check with your local recycling program before you buy. Some common products you can find that are made with recycled content include the following: Aluminum cans Car bumpers Carpeting Cereal boxes Comic books Egg cartons Glass containers Laundry detergent bottles Motor oil Nails Newspapers Paper towels Steel products Trash bags Challenges to Recycling System While the benefits of recycling are clear, the current system still faces many challenges. Many people are confused about what items can b"
+        },
+        {
+          "chunk_id": "oecd_global_plastics_outlook.txt::chunk_652",
+          "source": "oecd_global_plastics_outlook.txt",
+          "title": "",
+          "publisher": "",
+          "score_for_candidate_discovery_only": 1,
+          "matched_terms": [
+            "metal packaging"
+          ],
+          "text_excerpt": "The University of Leeds developed a theoretical model for plastic waste collected for recycling in high - income countries and low - and middle-income countries , based on material value. Acknowledging that collection and sorting systems vary enormously worldwide, these two generalised groups were chosen because high income countries largely operate, either single stream co llection of dry recyclate or co-collection of mixed plastic waste alongside metal packaging. Conversely in low -income and middle - income countries, collection of plastic waste for recycling is largely carried out by the informal recycling sector whose participants select"
+        }
+      ]
+    },
+    "batteries": {
+      "candidate_count": 4,
+      "top_candidates": [
+        {
+          "chunk_id": "epa_common_recyclables.txt::chunk_13",
+          "source": "epa_common_recyclables.txt",
+          "title": "",
+          "publisher": "",
+          "score_for_candidate_discovery_only": 3,
+          "matched_terms": [
+            "household batteries",
+            "lithium-ion batteries",
+            "rechargeable batteries"
+          ],
+          "text_excerpt": "Recycling rates of other battery types are not as well tracked. Although batteries are recyclable, most batteries, including lithium-ion, lithium metal, lead-acid, nickel cadmium, and other rechargeable batteries, should NOT go in household garbage or recycling bins. These batteries require special handling and should be taken to specialty drop-off locations or household hazardous waste collection points. Check out our resources on how to manage and recycle your used household batteries and your used lithium-ion batteries. Dry-Cell Batteries are used in a variety of electronics and include alkaline and carbon zinc (9-volt, D, C, AA, AAA), mer"
+        },
+        {
+          "chunk_id": "epa_common_recyclables.txt::chunk_14",
+          "source": "epa_common_recyclables.txt",
+          "title": "",
+          "publisher": "",
+          "score_for_candidate_discovery_only": 3,
+          "matched_terms": [
+            "lithium-ion batteries"
+          ],
+          "text_excerpt": "Look for in-store recycling bins or community collection events to dispose of these batteries. Lithium-ion Batteries are used in many rechargeable products such as electronics, toys, wireless headphones, handheld power tools, small and large appliances, electric vehicles, and electrical energy storage systems. Do NOT put them in the trash or municipal recycling bins. Household lithium-ion batteries can be brought to dedicated in-store recycling bins or household hazardous waste collection events for disposal. Medium- and large-scale electric vehicle or energy storage batteries should be returned to the manufacturer, automobile dealer, or inst"
+        },
+        {
+          "chunk_id": "epa_common_recyclables.txt::chunk_15",
+          "source": "epa_common_recyclables.txt",
+          "title": "",
+          "publisher": "",
+          "score_for_candidate_discovery_only": 2,
+          "matched_terms": [
+            "lithium-ion batteries",
+            "rechargeable batteries"
+          ],
+          "text_excerpt": "Lithium Metal Batteries are similar to lithium-ion batteries but are not rechargeable. They are commonly used in products such as cameras, watches, remote controls, handheld games, and smoke detectors. Do NOT put them in the trash or municipal recycling bins: look for dedicated in-store recycling bins or household hazardous waste collection events for disposal. Lead-Acid Batteries can be found in automobiles, boats, snowmobiles, motorcycles, golf carts, wheelchairs, and other large transportation vehicles. Return lead-acid batteries to a battery retailer or local household hazardous waste collection program; do NOT put lead-acid batteries in "
+        },
+        {
+          "chunk_id": "epa_common_recyclables.txt::chunk_16",
+          "source": "epa_common_recyclables.txt",
+          "title": "",
+          "publisher": "",
+          "score_for_candidate_discovery_only": 2,
+          "matched_terms": [
+            "rechargeable batteries"
+          ],
+          "text_excerpt": "Other Rechargeable Batteries include nickel cadmium, nickel metal hydride, and nickel-zinc batteries. These batteries can be found in cordless power tools, cordless phones, cell phones, digital cameras, and small electronics. Do not put these rechargeable batteries in the trash or municipal recycling bins: look for dedicated in-store recycling bins or household hazardous waste collection events for disposal. Electronics EPA estimates that 2.7 million tons of consumer electronics were generated in 2018. About 38.5 percent of these electronics were recycled. Electronics cannot be recycled curbside, but they can be dropped off at specific collec"
+        }
+      ]
+    },
+    "electronics": {
+      "candidate_count": 8,
+      "top_candidates": [
+        {
+          "chunk_id": "epa_common_recyclables.txt::chunk_16",
+          "source": "epa_common_recyclables.txt",
+          "title": "",
+          "publisher": "",
+          "score_for_candidate_discovery_only": 1,
+          "matched_terms": [
+            "consumer electronics"
+          ],
+          "text_excerpt": "Other Rechargeable Batteries include nickel cadmium, nickel metal hydride, and nickel-zinc batteries. These batteries can be found in cordless power tools, cordless phones, cell phones, digital cameras, and small electronics. Do not put these rechargeable batteries in the trash or municipal recycling bins: look for dedicated in-store recycling bins or household hazardous waste collection events for disposal. Electronics EPA estimates that 2.7 million tons of consumer electronics were generated in 2018. About 38.5 percent of these electronics were recycled. Electronics cannot be recycled curbside, but they can be dropped off at specific collec"
+        },
+        {
+          "chunk_id": "oecd_global_plastics_outlook.txt::chunk_331",
+          "source": "oecd_global_plastics_outlook.txt",
+          "title": "",
+          "publisher": "",
+          "score_for_candidate_discovery_only": 1,
+          "matched_terms": [
+            "e-waste"
+          ],
+          "text_excerpt": "The impacts of the informal sector on recycling are complex and context -dependent. In developed countries with formal waste management systems, “waste -picking” can undermine the financing of these systems by removing valuable materials from the waste stream. However, in low -income countries with limited formal collection and sorting, the informal waste sector can collect and sort high value recyclables effectively (Gunsilius, 2011[7]; CWG and GiZ, 2011[8]). Nevertheless, there are serious environmental concerns over informal “downstream” operations s uch as the recycling and treatment of waste. These operations often use crude processes th"
+        },
+        {
+          "chunk_id": "oecd_global_plastics_outlook.txt::chunk_332",
+          "source": "oecd_global_plastics_outlook.txt",
+          "title": "",
+          "publisher": "",
+          "score_for_candidate_discovery_only": 1,
+          "matched_terms": [
+            "e-waste"
+          ],
+          "text_excerpt": "For instance, informal recycling processes for e-waste often involve burning products to recover valuable metals. Informal waste pro cessers may also discard, dump, burn or otherwise improperly manage residual waste of insufficient economic value, causing leakage of plastics or pollutants into the environment. There are also serious social and public health concerns surrounding informal waste management. It is often marginalised or vulnerable groups, including migrants, women, the unemployed, disabled and children, who engage in waste picking , sometimes both working and living in dreadful circumstances on dumpsites (Medina, 2008 [6]). Other "
+        },
+        {
+          "chunk_id": "oecd_global_plastics_outlook.txt::chunk_758",
+          "source": "oecd_global_plastics_outlook.txt",
+          "title": "",
+          "publisher": "",
+          "score_for_candidate_discovery_only": 1,
+          "matched_terms": [
+            "e-waste"
+          ],
+          "text_excerpt": "26] CIESIN (2018), Gridded population of the world, version 4 (GPWv4): population count adjusted to Match 2015 revision of UN WPP country totals, revision 11., Center for International Earth Science Information Network - Columbia University, https://sedac.ciesin.columbia.edu/data/set/gpw-v4-population-count-adjusted-to-2015-unwpp- country-totals-rev11. [ 91] Cleere, R. (2020), “The New Reppie Incinerator at Koshe Landfill in Addis Ababa, Ethiopia.”, [ Online data set] Environmental Justice Atlas, https://ejatlas.org/conflict/the-new-reppie- incinerator-at-koshe-landfill-in-addis-ababa-ethiopia-leaves-the-wastepickers-without- livelihood. [ 78"
+        },
+        {
+          "chunk_id": "oecd_recycled_plastics_markets.txt::chunk_139",
+          "source": "oecd_recycled_plastics_markets.txt",
+          "title": "",
+          "publisher": "",
+          "score_for_candidate_discovery_only": 1,
+          "matched_terms": [
+            "e-waste"
+          ],
+          "text_excerpt": "org/10.1098/rstb.2008.0205. [ 5] European Union((n.d.)), PolyStyreneLoop Project, https://circulareconomy.europa.eu/ platform/en/good-practices/polystyreneloop-project-pioneer-demonstration-plant- treat-3300-tonnes-polystyrene-wasteyr-2018 (accessed on 26 March 2018). [ 75] Geyer, R., J. Jam beck and K. Law ( 2017), “Production, use, and fate of all plastics ever made”, Science Advances , Vol. 3/7, p. e1700782, http://dx.doi.org/10.1126/ sciadv.1700782. [ 1] Hopewell, J., R. Dvorak and E. Kosior (2009), “Plastics recycling: challenges and opportunities.”, Philosophical transactions of the Royal Society of London. Series B, Biological sciences"
+        }
+      ]
+    },
+    "clothing": {
+      "candidate_count": 2,
+      "top_candidates": [
+        {
+          "chunk_id": "eea_recycling_quality.txt::chunk_18",
+          "source": "eea_recycling_quality.txt",
+          "title": "Measuring the Quality of Recycling",
+          "publisher": "European Environment Agency",
+          "score_for_candidate_discovery_only": 1,
+          "matched_terms": [
+            "textile recycling"
+          ],
+          "text_excerpt": "This share was stable between 2018 and 2020. It is assumed that using recycled PET in new packaging has a higher loop potential (scored at 0.8) than if it is used to produce textile fibres (scored at 0.4). This is because packaging currently has established recycling systems and relatively high recycling rates while textile recycling systems are only beginning to be developed in the EU. However, as the share for product applications of the recycled PET is assumed to be the same, the material’s loop potential has not led to any change in recycling quality between 2018 and 2020."
+        },
+        {
+          "chunk_id": "eea_recycling_quality.txt::chunk_21",
+          "source": "eea_recycling_quality.txt",
+          "title": "Measuring the Quality of Recycling",
+          "publisher": "European Environment Agency",
+          "score_for_candidate_discovery_only": 1,
+          "matched_terms": [
+            "textile waste"
+          ],
+          "text_excerpt": "The reasons are that the new packaging has a much higher chance of being recycled again in the future and leads to a slightly higher substitution of primary plastics compared to the textiles pathway. This conclusion might change in the future with the mandatory roll-out of the separate collection of textile waste soon to be implemented in the EU and with potential technical developments for recycling textile fibres. The lowest recycling quality is linked mainly to mixed plastics collection because recovering PET from the collected plastics leads to substantial losses."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,182 @@
+{
+  "dataset_id": "natural_queries_eval_v1",
+  "version": 1,
+  "language": "en",
+  "status": "frozen_before_rewrite_generation_and_retrieval_baseline",
+  "query_count": 28,
+  "topic_count": 7,
+  "queries_per_topic": 4,
+  "contains_rewrites": false,
+  "contains_target_chunk_ids": false,
+  "contains_retrieval_results": false,
+  "queries": [
+    {
+      "query_id": "cardboard_eval_01",
+      "topic": "cardboard",
+      "query_type": "direct",
+      "original_query": "How should cardboard be prepared before recycling?"
+    },
+    {
+      "query_id": "cardboard_eval_02",
+      "topic": "cardboard",
+      "query_type": "indirect",
+      "original_query": "What can I do with the cardboard packaging left after unpacking a delivery?"
+    },
+    {
+      "query_id": "cardboard_eval_03",
+      "topic": "cardboard",
+      "query_type": "real_world_scenario",
+      "original_query": "I have several cardboard boxes from an online order, and some still have packing tape attached. What should I do before putting them out for recycling?"
+    },
+    {
+      "query_id": "cardboard_eval_04",
+      "topic": "cardboard",
+      "query_type": "multi_part",
+      "original_query": "Which preparation steps matter for cardboard recycling, and how should I handle a box that has food residue on it?"
+    },
+    {
+      "query_id": "glass_eval_01",
+      "topic": "glass",
+      "query_type": "direct",
+      "original_query": "Which kinds of glass containers are commonly accepted for recycling?"
+    },
+    {
+      "query_id": "glass_eval_02",
+      "topic": "glass",
+      "query_type": "indirect",
+      "original_query": "I have empty jars and drink bottles. How can I work out whether they belong in the recycling collection?"
+    },
+    {
+      "query_id": "glass_eval_03",
+      "topic": "glass",
+      "query_type": "real_world_scenario",
+      "original_query": "A glass jar has broken while I was cleaning the kitchen. How should I handle the pieces, and should they go into the ordinary glass recycling bin?"
+    },
+    {
+      "query_id": "glass_eval_04",
+      "topic": "glass",
+      "query_type": "multi_part",
+      "original_query": "How should glass containers be sorted, what should I do with their caps, and what safety precautions apply to broken glass?"
+    },
+    {
+      "query_id": "plastic_eval_01",
+      "topic": "plastic",
+      "query_type": "direct",
+      "original_query": "How should plastic containers be prepared before recycling?"
+    },
+    {
+      "query_id": "plastic_eval_02",
+      "topic": "plastic",
+      "query_type": "indirect",
+      "original_query": "I want to recycle some empty food packaging, but I am unsure how clean it needs to be."
+    },
+    {
+      "query_id": "plastic_eval_03",
+      "topic": "plastic",
+      "query_type": "real_world_scenario",
+      "original_query": "After lunch, I have an empty plastic food container with sauce residue and its lid. What should I check before recycling them?"
+    },
+    {
+      "query_id": "plastic_eval_04",
+      "topic": "plastic",
+      "query_type": "multi_part",
+      "original_query": "How should I prepare plastic packaging, how can I deal with food residue, and why can acceptance rules differ between collection programs?"
+    },
+    {
+      "query_id": "metal_eval_01",
+      "topic": "metal",
+      "query_type": "direct",
+      "original_query": "How should metal food and drink containers be prepared for recycling?"
+    },
+    {
+      "query_id": "metal_eval_02",
+      "topic": "metal",
+      "query_type": "indirect",
+      "original_query": "I have several empty cans and a piece of used kitchen foil. What recycling guidance should I check?"
+    },
+    {
+      "query_id": "metal_eval_03",
+      "topic": "metal",
+      "query_type": "real_world_scenario",
+      "original_query": "After cooking, I have an empty metal food can and some used aluminum foil. How should I prepare each item, and what local rules might matter?"
+    },
+    {
+      "query_id": "metal_eval_04",
+      "topic": "metal",
+      "query_type": "multi_part",
+      "original_query": "Which metal packaging items may be recyclable, how should food residue be handled, and what should I check before placing them in a collection bin?"
+    },
+    {
+      "query_id": "batteries_eval_01",
+      "topic": "batteries",
+      "query_type": "direct",
+      "original_query": "How should used household batteries be disposed of?"
+    },
+    {
+      "query_id": "batteries_eval_02",
+      "topic": "batteries",
+      "query_type": "indirect",
+      "original_query": "My drawer contains several dead batteries from remote controls and other household devices. Where should I take them?"
+    },
+    {
+      "query_id": "batteries_eval_03",
+      "topic": "batteries",
+      "query_type": "real_world_scenario",
+      "original_query": "I am clearing out a drawer and find loose household batteries mixed with ordinary rubbish. What should I do before disposing of them?"
+    },
+    {
+      "query_id": "batteries_eval_04",
+      "topic": "batteries",
+      "query_type": "multi_part",
+      "original_query": "Why should batteries be kept out of ordinary waste, where can collection options be found, and what precautions should I take when storing used batteries?"
+    },
+    {
+      "query_id": "electronics_eval_01",
+      "topic": "electronics",
+      "query_type": "direct",
+      "original_query": "Where can unwanted consumer electronics be taken for collection or recycling?"
+    },
+    {
+      "query_id": "electronics_eval_02",
+      "topic": "electronics",
+      "query_type": "indirect",
+      "original_query": "I have an old phone and a broken computer accessory that I no longer need. What disposal options should I investigate?"
+    },
+    {
+      "query_id": "electronics_eval_03",
+      "topic": "electronics",
+      "query_type": "real_world_scenario",
+      "original_query": "I am replacing an old smartphone and want to dispose of it responsibly. Which collection options might be available, and what should I do with my personal data first?"
+    },
+    {
+      "query_id": "electronics_eval_04",
+      "topic": "electronics",
+      "query_type": "multi_part",
+      "original_query": "Which organizations may offer electronics collection, where can I find suitable drop-off options, and what should I consider before handing over a device?"
+    },
+    {
+      "query_id": "clothing_eval_01",
+      "topic": "clothing",
+      "query_type": "direct",
+      "original_query": "What options are available for reusing or recycling unwanted clothing?"
+    },
+    {
+      "query_id": "clothing_eval_02",
+      "topic": "clothing",
+      "query_type": "indirect",
+      "original_query": "I have clothes that no longer fit, including a few items that are worn out. How can I decide what to do with them?"
+    },
+    {
+      "query_id": "clothing_eval_03",
+      "topic": "clothing",
+      "query_type": "real_world_scenario",
+      "original_query": "While clearing a wardrobe, I find wearable clothes and some heavily damaged textiles. How should I consider handling these two groups?"
+    },
+    {
+      "query_id": "clothing_eval_04",
+      "topic": "clothing",
+      "query_type": "multi_part",
+      "original_query": "How can I distinguish clothing suitable for reuse from damaged textiles, and what collection options should I investigate for each?"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+services:
+  smart-waste-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: smart-waste-multimodal-ai:local
+    container_name: smart-waste-multimodal-ai
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8000:8000"
+    environment:
+      SMART_WASTE_ACTOR_ID: ${SMART_WASTE_ACTOR_ID:-local-user}
+      SMART_WASTE_ONNX_MODEL: /app/exports/best.onnx
+      SMART_WASTE_RAG_INDEX_DIR: /app/data/retrieval_index/v4_expanded
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+      GOOGLE_API_KEY: ${GOOGLE_API_KEY:-}
+      GEMINI_MODEL: ${GEMINI_MODEL:-}
+    init: true

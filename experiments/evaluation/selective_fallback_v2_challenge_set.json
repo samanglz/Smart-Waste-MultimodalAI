@@ -1,0 +1,242 @@
+{
+  "schema_version": "1.0",
+  "evaluation_id": "selective_fallback_v2_challenge_set",
+  "created_at_utc": "2026-10-28T13:31:59.719667+00:00",
+  "status": "challenge_set_frozen_before_retrieval_baseline",
+  "purpose": "Evaluate natural-query retrieval and later compare manual query rewriting on a separate exploratory challenge set.",
+  "authorship": {
+    "queries_authored_by": "assistant",
+    "generated_by_gemini": false,
+    "targets_selected_with_knowledge_of_source_content": true,
+    "independent_blind_annotation": false
+  },
+  "retrieval_context": {
+    "index_version": "v4_expanded",
+    "index_path_relative_to_rag_root": "data/processed/retrieval_index_v4_expanded",
+    "legacy_rag_project_is_read_only": true
+  },
+  "methodology": {
+    "case_count": 21,
+    "topic_count": 7,
+    "queries_per_topic": 3,
+    "query_types": [
+      "natural_paraphrase",
+      "real_world_scenario",
+      "multi_part"
+    ],
+    "targets_fixed_before_baseline": true,
+    "no_rewrite_queries_in_this_file": true,
+    "limitations": [
+      "Queries were authored with knowledge of source content.",
+      "This is not a blind or independently annotated benchmark.",
+      "Results should not be generalized to all real-world queries.",
+      "EPA guidance is US-centric and does not replace local German rules."
+    ]
+  },
+  "cases": [
+    {
+      "case_id": "cardboard_v2_01",
+      "topic": "cardboard",
+      "query_type": "natural_paraphrase",
+      "natural_query": "After unpacking groceries and deliveries, how can I tell which paper-based packaging is ready for the recycling bin?",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_1",
+        "epa_common_recyclables.txt::chunk_2"
+      ]
+    },
+    {
+      "case_id": "cardboard_v2_02",
+      "topic": "cardboard",
+      "query_type": "real_world_scenario",
+      "natural_query": "A takeaway meal came in a paper container, and a shipping box has food marks on it. What should I check or do before putting either item out?",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_1",
+        "epa_common_recyclables.txt::chunk_2"
+      ]
+    },
+    {
+      "case_id": "cardboard_v2_03",
+      "topic": "cardboard",
+      "query_type": "multi_part",
+      "natural_query": "Do paper packaging and boxes need the same preparation, and what should I do if food is still attached?",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_1",
+        "epa_common_recyclables.txt::chunk_2"
+      ]
+    },
+    {
+      "case_id": "glass_v2_01",
+      "topic": "glass",
+      "query_type": "natural_paraphrase",
+      "natural_query": "When sorting empty jars at home, how should I deal with their closures and any glass that has shattered?",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_10",
+        "epa_common_recyclables.txt::chunk_11"
+      ]
+    },
+    {
+      "case_id": "glass_v2_02",
+      "topic": "glass",
+      "query_type": "real_world_scenario",
+      "natural_query": "Several bottles are empty, but one drinking glass has broken. Can all of them go into the same collection container?",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_10",
+        "epa_common_recyclables.txt::chunk_11"
+      ]
+    },
+    {
+      "case_id": "glass_v2_03",
+      "topic": "glass",
+      "query_type": "multi_part",
+      "natural_query": "What should I know about sorting different kinds of glass, and what safety issue arises when an item is already broken?",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_10",
+        "epa_common_recyclables.txt::chunk_11"
+      ]
+    },
+    {
+      "case_id": "plastic_v2_01",
+      "topic": "plastic",
+      "query_type": "natural_paraphrase",
+      "natural_query": "I have reusable food tubs that are no longer needed for food. How should I prepare them for collection?",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_9"
+      ]
+    },
+    {
+      "case_id": "plastic_v2_02",
+      "topic": "plastic",
+      "query_type": "real_world_scenario",
+      "natural_query": "A container still smells of yesterday's dinner and has sauce around the edges. What should I do before sorting it?",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_9"
+      ]
+    },
+    {
+      "case_id": "plastic_v2_03",
+      "topic": "plastic",
+      "query_type": "multi_part",
+      "natural_query": "How do I decide whether a food container is accepted locally, and what condition should it be in when I put it out?",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_9"
+      ]
+    },
+    {
+      "case_id": "metal_v2_01",
+      "topic": "metal",
+      "query_type": "natural_paraphrase",
+      "natural_query": "What should I do with empty beverage packaging made from aluminum, including thin wrapping material?",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_11",
+        "epa_common_recyclables.txt::chunk_12"
+      ]
+    },
+    {
+      "case_id": "metal_v2_02",
+      "topic": "metal",
+      "query_type": "real_world_scenario",
+      "natural_query": "I am about to sort drink containers, their metal closures, and a sheet of kitchen wrapping. Are there any preparation steps or separation rules I should know?",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_11",
+        "epa_common_recyclables.txt::chunk_12"
+      ]
+    },
+    {
+      "case_id": "metal_v2_03",
+      "topic": "metal",
+      "query_type": "multi_part",
+      "natural_query": "Can metal food and drink packaging be recycled with residue still attached, and does changing its shape help sorting?",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_11",
+        "epa_common_recyclables.txt::chunk_12"
+      ]
+    },
+    {
+      "case_id": "batteries_v2_01",
+      "topic": "batteries",
+      "query_type": "natural_paraphrase",
+      "natural_query": "Some small power cells from household gadgets are spent. How can I find an appropriate route for handing them over?",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_13",
+        "epa_common_recyclables.txt::chunk_14",
+        "epa_common_recyclables.txt::chunk_15"
+      ]
+    },
+    {
+      "case_id": "batteries_v2_02",
+      "topic": "batteries",
+      "query_type": "real_world_scenario",
+      "natural_query": "I am clearing out a drawer containing batteries from a remote, a camera, and a rechargeable gadget. Can they all go in ordinary household waste?",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_13",
+        "epa_common_recyclables.txt::chunk_14",
+        "epa_common_recyclables.txt::chunk_15"
+      ]
+    },
+    {
+      "case_id": "batteries_v2_03",
+      "topic": "batteries",
+      "query_type": "multi_part",
+      "natural_query": "Does the type of battery affect where it should be handed in, and which collection options are described for household use?",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_13",
+        "epa_common_recyclables.txt::chunk_14",
+        "epa_common_recyclables.txt::chunk_15"
+      ]
+    },
+    {
+      "case_id": "electronics_v2_01",
+      "topic": "electronics",
+      "query_type": "natural_paraphrase",
+      "natural_query": "My old phone and television are taking up space. What options are available for passing them on responsibly?",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_16"
+      ]
+    },
+    {
+      "case_id": "electronics_v2_02",
+      "topic": "electronics",
+      "query_type": "real_world_scenario",
+      "natural_query": "A small household gadget has stopped working. Is the normal curbside collection route suitable, or should I look elsewhere?",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_16"
+      ]
+    },
+    {
+      "case_id": "electronics_v2_03",
+      "topic": "electronics",
+      "query_type": "multi_part",
+      "natural_query": "Where could unwanted consumer devices be handed over, and which kinds of organizations may offer collection options?",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_16"
+      ]
+    },
+    {
+      "case_id": "clothing_v2_01",
+      "topic": "clothing",
+      "query_type": "natural_paraphrase",
+      "natural_query": "I am sorting my wardrobe and some footwear. How should I decide what can be passed on and what needs another route?",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_25"
+      ]
+    },
+    {
+      "case_id": "clothing_v2_02",
+      "topic": "clothing",
+      "query_type": "real_world_scenario",
+      "natural_query": "A charity might accept my old clothes, but some items are torn and a pair of shoes is badly damaged. What should I check?",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_25"
+      ]
+    },
+    {
+      "case_id": "clothing_v2_03",
+      "topic": "clothing",
+      "query_type": "multi_part",
+      "natural_query": "What alternatives to throwing away unwanted garments and shoes are mentioned, and how does their condition affect the next step?",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_25"
+      ]
+    }
+  ]
+}

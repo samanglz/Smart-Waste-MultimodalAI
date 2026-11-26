@@ -1,0 +1,159 @@
+{
+  "schema_version": "1.0",
+  "evaluation_id": "selective_fallback_v1_hard_query_set",
+  "purpose": "Explore runtime-observable retrieval signals for selective query-rewrite fallback.",
+  "retrieval": {
+    "index_version": "v4_expanded",
+    "top_k": 20,
+    "legacy_rag_project_is_read_only": true
+  },
+  "methodology": {
+    "case_count": 14,
+    "topic_count": 7,
+    "queries_per_topic": 2,
+    "query_types": [
+      "challenging_natural_query",
+      "manual_rewrite_candidate"
+    ],
+    "target_labels_are_offline_only": true,
+    "warning": "This is a small exploratory challenge set. Target chunks are evaluation labels, not runtime fallback signals. The labels may not cover every valid source of evidence."
+  },
+  "cases": [
+    {
+      "case_id": "cardboard_hard_01",
+      "topic": "cardboard",
+      "natural_query": "After unpacking a delivery, what should I do with the cardboard packaging before putting it out for recycling?",
+      "rewrite_query": "cardboard boxes flatten remove food scraps recycling",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_1",
+        "epa_common_recyclables.txt::chunk_2"
+      ]
+    },
+    {
+      "case_id": "cardboard_hard_02",
+      "topic": "cardboard",
+      "natural_query": "Some cardboard packaging has food residue on it. How should I prepare the material, and what should I do with the box itself?",
+      "rewrite_query": "prepare cardboard boxes flatten food residue recycling",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_1",
+        "epa_common_recyclables.txt::chunk_2"
+      ]
+    },
+    {
+      "case_id": "glass_hard_01",
+      "topic": "glass",
+      "natural_query": "Before I recycle empty glass bottles, do I need to separate anything, and are there items that should not go into the recycling bin?",
+      "rewrite_query": "glass bottles containers metal caps broken glass recycling",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_10",
+        "epa_common_recyclables.txt::chunk_11"
+      ]
+    },
+    {
+      "case_id": "glass_hard_02",
+      "topic": "glass",
+      "natural_query": "I have glass food jars, their lids, and a broken glass item. What preparation or handling guidance applies before recycling?",
+      "rewrite_query": "glass jars food containers separate lids broken glass disposal",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_10",
+        "epa_common_recyclables.txt::chunk_11"
+      ]
+    },
+    {
+      "case_id": "plastic_hard_01",
+      "topic": "plastic",
+      "natural_query": "After using a plastic food container, how clean does it need to be before I put it with recyclables?",
+      "rewrite_query": "plastic containers rinse scrape food residue recycling",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_9"
+      ]
+    },
+    {
+      "case_id": "plastic_hard_02",
+      "topic": "plastic",
+      "natural_query": "A takeout container still has leftover sauce and food on it. What should I do before recycling the plastic?",
+      "rewrite_query": "clean plastic food containers remove leftover residue recycling",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_9"
+      ]
+    },
+    {
+      "case_id": "metal_hard_01",
+      "topic": "metal",
+      "natural_query": "How should I handle used metal cans, aluminum foil, and caps when sorting household recycling?",
+      "rewrite_query": "aluminum cans foil metal bottle caps recycle separately",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_11",
+        "epa_common_recyclables.txt::chunk_12"
+      ]
+    },
+    {
+      "case_id": "metal_hard_02",
+      "topic": "metal",
+      "natural_query": "I have empty drink cans, some foil, and metal lids. Which preparation and separation instructions are relevant?",
+      "rewrite_query": "prepare metal cans aluminum foil separate bottle caps recycling",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_11",
+        "epa_common_recyclables.txt::chunk_12"
+      ]
+    },
+    {
+      "case_id": "batteries_hard_01",
+      "topic": "batteries",
+      "natural_query": "What should I do with used batteries from household devices, especially if they are rechargeable?",
+      "rewrite_query": "used household batteries lithium-ion alkaline rechargeable special collection drop-off",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_13",
+        "epa_common_recyclables.txt::chunk_14",
+        "epa_common_recyclables.txt::chunk_15"
+      ]
+    },
+    {
+      "case_id": "batteries_hard_02",
+      "topic": "batteries",
+      "natural_query": "I have several depleted batteries at home and do not want to put them in the wrong waste stream. Where should I start?",
+      "rewrite_query": "safe disposal household batteries collection points rechargeable lithium-ion",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_13",
+        "epa_common_recyclables.txt::chunk_14",
+        "epa_common_recyclables.txt::chunk_15"
+      ]
+    },
+    {
+      "case_id": "electronics_hard_01",
+      "topic": "electronics",
+      "natural_query": "An old electronic device no longer works. What are the appropriate options for handing it over instead of throwing it away?",
+      "rewrite_query": "electronics e-waste recycling drop-off collection sites retailers manufacturers",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_16"
+      ]
+    },
+    {
+      "case_id": "electronics_hard_02",
+      "topic": "electronics",
+      "natural_query": "Where can householders take unwanted electronic equipment for proper collection or recycling?",
+      "rewrite_query": "old electronics unwanted equipment e-waste recycling collection drop-off",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_16"
+      ]
+    },
+    {
+      "case_id": "clothing_hard_01",
+      "topic": "clothing",
+      "natural_query": "I have clothes that are worn out and shoes that are damaged. What options should I consider before discarding them?",
+      "rewrite_query": "donate gently worn clothes shoes damaged clothing charity retail store recycling",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_25"
+      ]
+    },
+    {
+      "case_id": "clothing_hard_02",
+      "topic": "clothing",
+      "natural_query": "Some garments are still usable, but others are too damaged to wear. How can I decide what to do with each group?",
+      "rewrite_query": "reuse donate worn clothes damaged garments shoes textile recycling",
+      "target_chunk_ids": [
+        "epa_common_recyclables.txt::chunk_25"
+      ]
+    }
+  ]
+}

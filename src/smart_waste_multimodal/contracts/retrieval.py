@@ -6,8 +6,12 @@ from typing import Literal
 from pydantic import Field, model_validator
 
 from .common import ContractModel
+from .query_rewrite import QueryRewriteTrace
 
-RetrievalStatus = Literal["success", "no_evidence"]
+RetrievalStatus = Literal[
+    "success",
+    "no_evidence",
+]
 
 
 class EvidenceItem(ContractModel):
@@ -31,11 +35,28 @@ class RetrievalResult(ContractModel):
     query: str = Field(min_length=1, max_length=4000)
     results: list[EvidenceItem] = Field(default_factory=list)
     index_version: str | None = Field(default=None, max_length=200)
+    # Internal transport only; exposed at AnalyzeResponse level.
+    query_rewrite_trace: QueryRewriteTrace | None = Field(
+        default=None, exclude=True
+    )
 
     @model_validator(mode="after")
     def validate_result(self):
         if self.status == "success" and not self.results:
             raise ValueError("success requires at least one evidence item.")
+
         if self.status == "no_evidence" and self.results:
             raise ValueError("no_evidence requires an empty results list.")
+
+        chunk_ids = [item.chunk_id for item in self.results]
+        if len(chunk_ids) != len(set(chunk_ids)):
+            raise ValueError("Retrieval results must not contain duplicate chunk_id values.")
+
+        ranks = [item.rank for item in self.results]
+        expected_ranks = list(range(1, len(self.results) + 1))
+        if ranks != expected_ranks:
+            raise ValueError(
+                "Retrieval result ranks must be unique, ordered, and consecutive from 1."
+            )
+
         return self
