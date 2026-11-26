@@ -287,78 +287,96 @@ The frontend provides:
 | `frontend/app.js` | UI logic, localization, and API communication |
 | `frontend/dev_server.py` | Local frontend server and API proxy |
 
-### Run Locally
-
-Start the backend in the first terminal:
-
-```powershell
-Set-Location "C:\Users\ASUS\Desktop\smart-waste-multimodal-ai"
-
-& ".\.venv\Scripts\python.exe" -m uvicorn smart_waste_multimodal.api.main:app --host 127.0.0.1 --port 8000
-```
-
-Start the frontend development server in a second terminal:
-
-```powershell
-Set-Location "C:\Users\ASUS\Desktop\smart-waste-multimodal-ai"
-
-& ".\.venv\Scripts\python.exe" ".\frontend\dev_server.py"
-```
-
-Open the frontend:
-
-```text
-http://127.0.0.1:8080
-```
-
-The frontend development server uses Python's standard library. The FastAPI backend must be running separately on port 8000.
-
-Answer generation is optional and requires `GEMINI_API_KEY` or `GOOGLE_API_KEY` in the backend environment. Generation remains subject to evidence validation and the final-decision rules.
+The frontend and backend are started as separate local services. Follow the installation and run instructions in [Getting Started](#getting-started).
 ## Getting Started
 
 ### Requirements
 
-- Python 3.11 or newer for local development.
+- Python 3.11 or newer.
 - Docker Engine and Docker Compose for container deployment.
 - The ONNX model at `exports/best.onnx`.
 - The retrieval index and chunk data under `data/retrieval_index/v4_expanded/`.
 
+The model and retrieval assets must be available at the paths shown above before running the application.
+
 ### Local Installation
 
-Clone the repository:
+Clone the repository and enter the project directory:
 
 ```bash
 git clone https://github.com/samanglz/Smart-Waste-MultimodalAI.git
 cd Smart-Waste-MultimodalAI
 ```
 
-Create and activate a virtual environment, then install the project:
+Create a virtual environment:
 
 ```bash
 python -m venv .venv
 ```
 
-Windows PowerShell:
+Activate the virtual environment for your operating system.
+
+**Windows PowerShell:**
 
 ```powershell
-.\.venv\Scripts\Activate.ps1
+.venv\Scripts\Activate.ps1
 ```
 
-Install development and optional generation dependencies:
+If script execution is blocked by the current PowerShell policy, you can allow activation for the current terminal session:
+
+```powershell
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+.venv\Scripts\Activate.ps1
+```
+
+**Windows Command Prompt:**
+
+```cmd
+.venv\Scripts\activate.bat
+```
+
+**Linux and macOS:**
 
 ```bash
-python -m pip install -e ".[dev,generation]"
+source .venv/bin/activate
 ```
+
+Upgrade pip and install the core project dependencies:
+
+```bash
+python -m pip install --upgrade pip
+python -m pip install -e .
+```
+
+This installs the runtime dependencies declared in `pyproject.toml`, including FastAPI, Uvicorn, ONNX Runtime, Sentence Transformers, FAISS, and the image-processing libraries.
+
+### Optional Dependencies
+
+**Gemini answer generation**
+
+The application can run without Gemini integration. To enable the optional answer-generation capability, install the generation extra:
+
+```bash
+python -m pip install -e ".[generation]"
+```
+
+Configure either `GEMINI_API_KEY` or `GOOGLE_API_KEY` in the backend environment before sending requests that require Gemini-backed functionality.
+
+**Development and testing tools**
+
+To install pytest and Ruff:
+
+```bash
+python -m pip install -e ".[dev]"
+```
+
+These development dependencies are not required for normal application execution.
 
 ### Environment Configuration
 
-Copy the example environment file:
+Review `.env.example` for the available configuration variables.
 
-```powershell
-Copy-Item .env.example .env
-```
-
-Available environment variables:
+For local execution, make the required environment variables available to the backend process.
 
 | Variable | Purpose |
 |---|---|
@@ -367,11 +385,37 @@ Available environment variables:
 | `GOOGLE_API_KEY` | Alternative Google API key |
 | `GEMINI_MODEL` | Optional Gemini model override |
 
-The application can start without a Gemini key. However, requests that require Gemini-backed functionality need the appropriate API configuration.
+A Gemini API key is not required to start the application. It is required for requests that use Gemini-backed functionality.
+
+### Run Locally
+
+Start the backend from the project root directory:
+
+```bash
+python -m uvicorn smart_waste_multimodal.api.main:app --host 127.0.0.1 --port 8000
+```
+
+Open a second terminal, navigate to the project root directory, activate the same virtual environment, and start the frontend development server:
+
+```bash
+python frontend/dev_server.py
+```
+
+Open the application in your browser:
+
+http://127.0.0.1:8080
+
+The frontend development server uses Python's standard library and forwards API requests to the backend at `http://127.0.0.1:8000`.
+
+The backend and frontend must both be running while using the local web application.
+
+The API documentation is available at:
+
+http://127.0.0.1:8000/docs
 
 ### Docker Deployment
 
-Configure `.env`, then build and start the application:
+Configure the environment as required, then build and start the application:
 
 ```bash
 docker compose up --build -d
@@ -385,12 +429,11 @@ curl http://127.0.0.1:8000/health
 
 Open the API documentation:
 
-`http://127.0.0.1:8000/docs`
+http://127.0.0.1:8000/docs
 
 The Compose configuration binds the service to `127.0.0.1:8000` by default.
 
 For further deployment details, see [DEPLOYMENT.md](DEPLOYMENT.md).
-
 ## Testing and Code Quality
 
 Run the test suite:
